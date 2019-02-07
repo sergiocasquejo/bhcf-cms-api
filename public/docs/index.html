@@ -1,0 +1,2782 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/all.js"></script>
+
+
+          <script>
+        $(function() {
+            setupLanguages(["bash","javascript"]);
+        });
+      </script>
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        <img src="images/logo.png" />
+                    <div class="lang-selector">
+                                  <a href="#" data-language-name="bash">bash</a>
+                                  <a href="#" data-language-name="javascript">javascript</a>
+                            </div>
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+                    <ul class="toc-footer">
+                                  <li><a href='http://github.com/mpociot/documentarian'>Documentation Powered by Documentarian</a></li>
+                            </ul>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>Info</h1>
+<p>Welcome to the generated API reference.
+<a href="http://localhost/docs/collection.json">Get Postman Collection</a></p>
+<!-- END_INFO -->
+<h1>Leadership Level management</h1>
+<p>APIs for managing Leadership Levels</p>
+<!-- START_748e74264ab4427e8d6ffa91ab182415 -->
+<h2>Display a listing of the resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/leadership-level" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/leadership-level");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "name": "Cell Leader",
+            "descriptions": "",
+            "created_by": 1,
+            "created_at": "2019-02-06 09:58:46",
+            "updated_at": "2019-02-06 09:58:46",
+            "deleted_at": null
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/leadership-level</code></p>
+<!-- END_748e74264ab4427e8d6ffa91ab182415 -->
+<!-- START_e872db0db90b7f0b1d94ddac29a0da61 -->
+<h2>Store a newly created resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/v1/leadership-level"     -d "name"="X5AtTqf6W18YqM3b" \
+    -d "descriptions"="z5cfvkFIzTUOc0iE" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/leadership-level");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "name": "X5AtTqf6W18YqM3b",
+    "descriptions": "z5cfvkFIzTUOc0iE",
+})
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": {
+        "name": "SUYNIL",
+        "descriptions": "",
+        "updated_at": "2019-02-06 12:49:41",
+        "created_at": "2019-02-06 12:49:41",
+        "id": 2
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/leadership-level</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>the name of the school status</td>
+</tr>
+<tr>
+<td>descriptions</td>
+<td>string</td>
+<td>optional</td>
+<td>options descriptions of the status</td>
+</tr>
+</tbody>
+</table>
+<!-- END_e872db0db90b7f0b1d94ddac29a0da61 -->
+<!-- START_4ac7397897dbe64ba1a182e4f9b78bcb -->
+<h2>Display the specified resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/leadership-level/{leadership_level}" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/leadership-level/{leadership_level}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": {
+        "name": "SUYNIL",
+        "descriptions": "Descriptions here...",
+        "created_by": 1,
+        "updated_by": 1,
+        "updated_at": "2019-02-06 13:35:26",
+        "created_at": "2019-02-06 13:35:26",
+        "id": 9
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Record not found"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/leadership-level/{leadership_level}</code></p>
+<!-- END_4ac7397897dbe64ba1a182e4f9b78bcb -->
+<!-- START_ae06e85e754a089807199cf5193b40cb -->
+<h2>Update the specified resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "http://localhost/api/v1/leadership-level/{leadership_level}"     -d "name"="fJFSGsH9NYLQhKEg" \
+    -d "descriptions"="OEmpNPONwQM0Yoe5" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/leadership-level/{leadership_level}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "name": "fJFSGsH9NYLQhKEg",
+    "descriptions": "OEmpNPONwQM0Yoe5",
+})
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v1/leadership-level/{leadership_level}</code></p>
+<p><code>PATCH api/v1/leadership-level/{leadership_level}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>the name of the school status</td>
+</tr>
+<tr>
+<td>descriptions</td>
+<td>string</td>
+<td>optional</td>
+<td>options descriptions of the status</td>
+</tr>
+</tbody>
+</table>
+<!-- END_ae06e85e754a089807199cf5193b40cb -->
+<!-- START_a91ebe740f30dc530ef868bab07447a5 -->
+<h2>Remove the specified resource from storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "http://localhost/api/v1/leadership-level/{leadership_level}" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/leadership-level/{leadership_level}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Record not found"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/v1/leadership-level/{leadership_level}</code></p>
+<!-- END_a91ebe740f30dc530ef868bab07447a5 -->
+<h1>Member Category management</h1>
+<p>APIs for managing category member</p>
+<!-- START_28b45afb44c32ca4c87eeba669e2961f -->
+<h2>Display a listing of the resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/member/category" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/member/category");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "name": "Category 1",
+            "descriptions": "",
+            "created_by": 1,
+            "created_at": "2019-02-06 09:58:46",
+            "updated_at": "2019-02-06 09:58:46",
+            "deleted_at": null
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/member/category</code></p>
+<!-- END_28b45afb44c32ca4c87eeba669e2961f -->
+<!-- START_d1f99b335f030297c2f479933f1ff9f5 -->
+<h2>Store a newly created resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/v1/member/category"     -d "name"="1n9eyl3si0nNnCCg" \
+    -d "descriptions"="daCVCewA1xj3veOz" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/member/category");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "name": "1n9eyl3si0nNnCCg",
+    "descriptions": "daCVCewA1xj3veOz",
+})
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": {
+        "name": "SUYNIL",
+        "descriptions": "",
+        "updated_at": "2019-02-06 12:49:41",
+        "created_at": "2019-02-06 12:49:41",
+        "id": 2
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/member/category</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>the name of the school status</td>
+</tr>
+<tr>
+<td>descriptions</td>
+<td>string</td>
+<td>optional</td>
+<td>options descriptions of the status</td>
+</tr>
+</tbody>
+</table>
+<!-- END_d1f99b335f030297c2f479933f1ff9f5 -->
+<!-- START_4e2c3a052d76b1f8c9c518746cc08a49 -->
+<h2>Display the specified resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/member/category/{category}" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/member/category/{category}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": {
+        "name": "SUYNIL",
+        "descriptions": "Descriptions here...",
+        "created_by": 1,
+        "updated_by": 1,
+        "updated_at": "2019-02-06 13:35:26",
+        "created_at": "2019-02-06 13:35:26",
+        "id": 9
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Record not found"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/member/category/{category}</code></p>
+<!-- END_4e2c3a052d76b1f8c9c518746cc08a49 -->
+<!-- START_79a3eafca7040d6db9dae83a53c0e225 -->
+<h2>Update the specified resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "http://localhost/api/v1/member/category/{category}"     -d "name"="WNnfKu0G9O4B12pU" \
+    -d "descriptions"="oXqtqnxUmSmGuy7v" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/member/category/{category}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "name": "WNnfKu0G9O4B12pU",
+    "descriptions": "oXqtqnxUmSmGuy7v",
+})
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v1/member/category/{category}</code></p>
+<p><code>PATCH api/v1/member/category/{category}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>the name of the school status</td>
+</tr>
+<tr>
+<td>descriptions</td>
+<td>string</td>
+<td>optional</td>
+<td>options descriptions of the status</td>
+</tr>
+</tbody>
+</table>
+<!-- END_79a3eafca7040d6db9dae83a53c0e225 -->
+<!-- START_cc606d588c2a800a60603731260940b5 -->
+<h2>Remove the specified resource from storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "http://localhost/api/v1/member/category/{category}" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/member/category/{category}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Record not found"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/v1/member/category/{category}</code></p>
+<!-- END_cc606d588c2a800a60603731260940b5 -->
+<!-- START_722ca97e06a83a2ae82ef7250ade79e5 -->
+<h2>Display a listing of the resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/auxiliary-group" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/auxiliary-group");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "name": "Category 1",
+            "descriptions": "",
+            "created_by": 1,
+            "created_at": "2019-02-06 09:58:46",
+            "updated_at": "2019-02-06 09:58:46",
+            "deleted_at": null
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/auxiliary-group</code></p>
+<!-- END_722ca97e06a83a2ae82ef7250ade79e5 -->
+<!-- START_641074fad805e6abba26301e1848983d -->
+<h2>Store a newly created resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/v1/auxiliary-group"     -d "name"="caiLJLBgZKBsbhyA" \
+    -d "descriptions"="TMGFavOgoKY5R7sP" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/auxiliary-group");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "name": "caiLJLBgZKBsbhyA",
+    "descriptions": "TMGFavOgoKY5R7sP",
+})
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": {
+        "name": "Blessed Couple",
+        "descriptions": "",
+        "updated_at": "2019-02-06 12:49:41",
+        "created_at": "2019-02-06 12:49:41",
+        "id": 2
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/auxiliary-group</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>the name of the school status</td>
+</tr>
+<tr>
+<td>descriptions</td>
+<td>string</td>
+<td>optional</td>
+<td>options descriptions of the status</td>
+</tr>
+</tbody>
+</table>
+<!-- END_641074fad805e6abba26301e1848983d -->
+<!-- START_f071ccc680bfa5f0c50090886ca319d2 -->
+<h2>Display the specified resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/auxiliary-group/{auxiliary_group}" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/auxiliary-group/{auxiliary_group}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": {
+        "name": "SUYNIL",
+        "descriptions": "Descriptions here...",
+        "created_by": 1,
+        "updated_by": 1,
+        "updated_at": "2019-02-06 13:35:26",
+        "created_at": "2019-02-06 13:35:26",
+        "id": 9
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Record not found"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/auxiliary-group/{auxiliary_group}</code></p>
+<!-- END_f071ccc680bfa5f0c50090886ca319d2 -->
+<!-- START_b2b041c1e114dc3b7c11defb9f9c4533 -->
+<h2>Update the specified resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "http://localhost/api/v1/auxiliary-group/{auxiliary_group}"     -d "name"="GN5yjoZB2RKiWLE1" \
+    -d "descriptions"="sUrFoAtga90UqfX5" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/auxiliary-group/{auxiliary_group}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "name": "GN5yjoZB2RKiWLE1",
+    "descriptions": "sUrFoAtga90UqfX5",
+})
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v1/auxiliary-group/{auxiliary_group}</code></p>
+<p><code>PATCH api/v1/auxiliary-group/{auxiliary_group}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>the name of the school status</td>
+</tr>
+<tr>
+<td>descriptions</td>
+<td>string</td>
+<td>optional</td>
+<td>options descriptions of the status</td>
+</tr>
+</tbody>
+</table>
+<!-- END_b2b041c1e114dc3b7c11defb9f9c4533 -->
+<!-- START_1cccafae501672ef85c60160bb7a4c57 -->
+<h2>Remove the specified resource from storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "http://localhost/api/v1/auxiliary-group/{auxiliary_group}" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/auxiliary-group/{auxiliary_group}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Record not found"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/v1/auxiliary-group/{auxiliary_group}</code></p>
+<!-- END_1cccafae501672ef85c60160bb7a4c57 -->
+<h1>Member management</h1>
+<p>APIs for managing member</p>
+<!-- START_0b763107d8b496bed3acc8f8817ce9e3 -->
+<h2>Display a listing of the resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/member" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/member");
+
+    let params = {
+            "offset": "13",
+            "limit": "17",
+            "sort": "L5mDZBSw1RKmYIVd",
+            "sortBy": "XhN7FNPKDboN0XeL",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/member</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>offset</td>
+<td>optional</td>
+<td>The page offset to return</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>required</td>
+<td>The number of rows to return</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>optional</td>
+<td>Field to sort by</td>
+</tr>
+<tr>
+<td>sortBy</td>
+<td>optional</td>
+<td>Ascending or descending</td>
+</tr>
+</tbody>
+</table>
+<!-- END_0b763107d8b496bed3acc8f8817ce9e3 -->
+<!-- START_76b954ef1b36e323833cf19dd0b05fd4 -->
+<h2>Store a newly created resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/v1/member"     -d "leader_id"="10" \
+    -d "invited_by"="18" \
+    -d "first_name"="fP71lQVi70rqeSb0" \
+    -d "last_name"="pU8VZKWe7y990fM0" \
+    -d "middle_name"="73Aiz0m3DmgGxUuN" \
+    -d "birthdate"="KcatEExCGRITqPWP" \
+    -d "address"="8QXYGlMTOa4MvUcJ" \
+    -d "city"="Np0JkK4ai1XSqu2U" \
+    -d "contact_no"="JR224MzOXl0P0T0J" \
+    -d "secondary_contact_no"="s9d28WzRpGVdlts5" \
+    -d "facebook_name"="XI8Tw5ba18L0BCTl" \
+    -d "avatar"="cv7ZiZZLWWJe28g9" \
+    -d "school_status_id"="6" \
+    -d "leadership_level_id"="18" \
+    -d "auxiliary_group_id"="4" \
+    -d "status_id"="17" \
+    -d "category_id"="1" \
+    -d "remarks"="doGuSaKhjszcuF8I" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/member");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "leader_id": "10",
+    "invited_by": "18",
+    "first_name": "fP71lQVi70rqeSb0",
+    "last_name": "pU8VZKWe7y990fM0",
+    "middle_name": "73Aiz0m3DmgGxUuN",
+    "birthdate": "KcatEExCGRITqPWP",
+    "address": "8QXYGlMTOa4MvUcJ",
+    "city": "Np0JkK4ai1XSqu2U",
+    "contact_no": "JR224MzOXl0P0T0J",
+    "secondary_contact_no": "s9d28WzRpGVdlts5",
+    "facebook_name": "XI8Tw5ba18L0BCTl",
+    "avatar": "cv7ZiZZLWWJe28g9",
+    "school_status_id": "6",
+    "leadership_level_id": "18",
+    "auxiliary_group_id": "4",
+    "status_id": "17",
+    "category_id": "1",
+    "remarks": "doGuSaKhjszcuF8I",
+})
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "first_name": "serg",
+    "last_name": "casquejo",
+    "middle_name": "degamo",
+    "birthdate": "1989-09-07",
+    "address": "Colo, camolinas, poblacion, cordova, cebu",
+    "city": "Cebu",
+    "contact_no": "09219945312",
+    "updated_at": "2019-02-06 09:59:04",
+    "created_at": "2019-02-06 09:59:04",
+    "id": 101
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "data": {
+        "first_name": [
+            "First name is required!"
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/member</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>leader_id</td>
+<td>integer</td>
+<td>optional</td>
+<td>optional the ID of the leader</td>
+</tr>
+<tr>
+<td>invited_by</td>
+<td>integer</td>
+<td>optional</td>
+<td>optional the ID of the member</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>string</td>
+<td>required</td>
+<td>the first name of the member</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>string</td>
+<td>required</td>
+<td>the last name of the member</td>
+</tr>
+<tr>
+<td>middle_name</td>
+<td>string</td>
+<td>required</td>
+<td>the middle name of the member</td>
+</tr>
+<tr>
+<td>birthdate</td>
+<td>string</td>
+<td>required</td>
+<td>(YYYY-mm-dd) the birthdate of the member</td>
+</tr>
+<tr>
+<td>address</td>
+<td>string</td>
+<td>required</td>
+<td>the address of the member</td>
+</tr>
+<tr>
+<td>city</td>
+<td>string</td>
+<td>required</td>
+<td>the city of the member</td>
+</tr>
+<tr>
+<td>contact_no</td>
+<td>string</td>
+<td>required</td>
+<td>the contact no of the member</td>
+</tr>
+<tr>
+<td>secondary_contact_no</td>
+<td>string</td>
+<td>optional</td>
+<td>optional the secondary no of the member</td>
+</tr>
+<tr>
+<td>facebook_name</td>
+<td>string</td>
+<td>optional</td>
+<td>optional the facebook username of the member</td>
+</tr>
+<tr>
+<td>avatar</td>
+<td>string</td>
+<td>optional</td>
+<td>optional the image url of the member</td>
+</tr>
+<tr>
+<td>school_status_id</td>
+<td>integer</td>
+<td>optional</td>
+<td>optional the school status member</td>
+</tr>
+<tr>
+<td>leadership_level_id</td>
+<td>integer</td>
+<td>optional</td>
+<td>optional the leadership id of the member</td>
+</tr>
+<tr>
+<td>auxiliary_group_id</td>
+<td>integer</td>
+<td>optional</td>
+<td>optional the auxiliary group of the member</td>
+</tr>
+<tr>
+<td>status_id</td>
+<td>integer</td>
+<td>optional</td>
+<td>optional the status of the member</td>
+</tr>
+<tr>
+<td>category_id</td>
+<td>integer</td>
+<td>optional</td>
+<td>optional the category of the member</td>
+</tr>
+<tr>
+<td>remarks</td>
+<td>string</td>
+<td>optional</td>
+<td>optional the remarks</td>
+</tr>
+</tbody>
+</table>
+<!-- END_76b954ef1b36e323833cf19dd0b05fd4 -->
+<!-- START_f1c316041edd1bce6a237e112c142ae0 -->
+<h2>Display the specified resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/member/{member}" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/member/{member}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "id": 103,
+        "user_id": null,
+        "leader_id": null,
+        "invited_by": null,
+        "first_name": "Sergio",
+        "last_name": "casquejo",
+        "middle_name": "degamo",
+        "birthdate": "1989-09-07",
+        "address": "Colo, camolinas, poblacion, cordova, cebu",
+        "city": "cebu",
+        "contact_no": "09219945112",
+        "secondary_contact_no": null,
+        "facebook_name": null,
+        "avatar": null,
+        "school_status_id": null,
+        "leadership_level_id": null,
+        "auxiliary_group_id": null,
+        "status_id": null,
+        "category_id": null,
+        "remarks": null,
+        "created_by": null,
+        "created_at": "2019-02-06 11:28:46",
+        "updated_at": "2019-02-06 11:48:27",
+        "deleted_at": null
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Record not found"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/member/{member}</code></p>
+<!-- END_f1c316041edd1bce6a237e112c142ae0 -->
+<!-- START_8a5a3f26150e98ef1049a5e7311f3677 -->
+<h2>Update resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "http://localhost/api/v1/member/{member}"     -d "leader_id"="16" \
+    -d "invited_by"="1" \
+    -d "first_name"="q52PIyA2bN2Sbwuf" \
+    -d "last_name"="zKCTClJU1sR3thsQ" \
+    -d "middle_name"="kO16aWBvQxqlJaM1" \
+    -d "birthdate"="mmcUnAuoBeqQnhgi" \
+    -d "address"="zbt8j3JgwJIvYSfI" \
+    -d "city"="FpTb186Fh9HGHZEl" \
+    -d "contact_no"="1DEvc4euB6rjarXZ" \
+    -d "secondary_contact_no"="YuGftcRZBHDQlXAT" \
+    -d "facebook_name"="6cH3zKLcSF7DCGQP" \
+    -d "avatar"="xuO1jBL8nyzq8cZl" \
+    -d "school_status_id"="20" \
+    -d "leadership_level_id"="2" \
+    -d "auxiliary_group_id"="15" \
+    -d "status_id"="18" \
+    -d "category_id"="9" \
+    -d "remarks"="p9AXoRtnBhUDpJbO" \
+    -d "_method"="vQt2BqYBfCRzoBjn" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/member/{member}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "leader_id": "16",
+    "invited_by": "1",
+    "first_name": "q52PIyA2bN2Sbwuf",
+    "last_name": "zKCTClJU1sR3thsQ",
+    "middle_name": "kO16aWBvQxqlJaM1",
+    "birthdate": "mmcUnAuoBeqQnhgi",
+    "address": "zbt8j3JgwJIvYSfI",
+    "city": "FpTb186Fh9HGHZEl",
+    "contact_no": "1DEvc4euB6rjarXZ",
+    "secondary_contact_no": "YuGftcRZBHDQlXAT",
+    "facebook_name": "6cH3zKLcSF7DCGQP",
+    "avatar": "xuO1jBL8nyzq8cZl",
+    "school_status_id": "20",
+    "leadership_level_id": "2",
+    "auxiliary_group_id": "15",
+    "status_id": "18",
+    "category_id": "9",
+    "remarks": "p9AXoRtnBhUDpJbO",
+    "_method": "vQt2BqYBfCRzoBjn",
+})
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "data": {
+        "first_name": [
+            "First name is required!"
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v1/member/{member}</code></p>
+<p><code>PATCH api/v1/member/{member}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>leader_id</td>
+<td>integer</td>
+<td>optional</td>
+<td>optional the ID of the leader</td>
+</tr>
+<tr>
+<td>invited_by</td>
+<td>integer</td>
+<td>optional</td>
+<td>optional the ID of the member</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>string</td>
+<td>required</td>
+<td>the first name of the member</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>string</td>
+<td>required</td>
+<td>the last name of the member</td>
+</tr>
+<tr>
+<td>middle_name</td>
+<td>string</td>
+<td>required</td>
+<td>the middle name of the member</td>
+</tr>
+<tr>
+<td>birthdate</td>
+<td>string</td>
+<td>required</td>
+<td>(YYYY-mm-dd) the birthdate of the member</td>
+</tr>
+<tr>
+<td>address</td>
+<td>string</td>
+<td>required</td>
+<td>the address of the member</td>
+</tr>
+<tr>
+<td>city</td>
+<td>string</td>
+<td>required</td>
+<td>the city of the member</td>
+</tr>
+<tr>
+<td>contact_no</td>
+<td>string</td>
+<td>required</td>
+<td>the contact no of the member</td>
+</tr>
+<tr>
+<td>secondary_contact_no</td>
+<td>string</td>
+<td>optional</td>
+<td>optional the secondary no of the member</td>
+</tr>
+<tr>
+<td>facebook_name</td>
+<td>string</td>
+<td>optional</td>
+<td>optional the facebook username of the member</td>
+</tr>
+<tr>
+<td>avatar</td>
+<td>string</td>
+<td>optional</td>
+<td>optional the image url of the member</td>
+</tr>
+<tr>
+<td>school_status_id</td>
+<td>integer</td>
+<td>optional</td>
+<td>optional the school status member</td>
+</tr>
+<tr>
+<td>leadership_level_id</td>
+<td>integer</td>
+<td>optional</td>
+<td>optional the leadership id of the member</td>
+</tr>
+<tr>
+<td>auxiliary_group_id</td>
+<td>integer</td>
+<td>optional</td>
+<td>optional the auxiliary group of the member</td>
+</tr>
+<tr>
+<td>status_id</td>
+<td>integer</td>
+<td>optional</td>
+<td>optional the status of the member</td>
+</tr>
+<tr>
+<td>category_id</td>
+<td>integer</td>
+<td>optional</td>
+<td>optional the category of the member</td>
+</tr>
+<tr>
+<td>remarks</td>
+<td>string</td>
+<td>optional</td>
+<td>optional the remarks</td>
+</tr>
+<tr>
+<td>_method</td>
+<td>string</td>
+<td>required</td>
+<td>options(PUT</td>
+<td>PATCH)</td>
+</tr>
+</tbody>
+</table>
+<!-- END_8a5a3f26150e98ef1049a5e7311f3677 -->
+<!-- START_ce9cb8aedaeb98e09b894d790e755233 -->
+<h2>Remove the specified resource from storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "http://localhost/api/v1/member/{member}" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/member/{member}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Record not found"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/v1/member/{member}</code></p>
+<!-- END_ce9cb8aedaeb98e09b894d790e755233 -->
+<h1>Ministries management</h1>
+<p>APIs for managing ministries member</p>
+<!-- START_711dd09418187b2eab9e83e0170c89db -->
+<h2>Display a listing of the resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/ministry" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/ministry");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "name": "Praise and Workship",
+            "descriptions": "",
+            "created_by": 1,
+            "created_at": "2019-02-06 09:58:46",
+            "updated_at": "2019-02-06 09:58:46",
+            "deleted_at": null
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/ministry</code></p>
+<!-- END_711dd09418187b2eab9e83e0170c89db -->
+<!-- START_87238a9a88169520e4a59ad68b9c651e -->
+<h2>Store a newly created resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/v1/ministry"     -d "name"="WtOC7nENzktXMjVh" \
+    -d "descriptions"="ppyucxgZwPaISibU" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/ministry");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "name": "WtOC7nENzktXMjVh",
+    "descriptions": "ppyucxgZwPaISibU",
+})
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": {
+        "name": "SUYNIL",
+        "descriptions": "",
+        "updated_at": "2019-02-06 12:49:41",
+        "created_at": "2019-02-06 12:49:41",
+        "id": 2
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/ministry</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>the name of the school status</td>
+</tr>
+<tr>
+<td>descriptions</td>
+<td>string</td>
+<td>optional</td>
+<td>options descriptions of the status</td>
+</tr>
+</tbody>
+</table>
+<!-- END_87238a9a88169520e4a59ad68b9c651e -->
+<!-- START_bdf2607f2ffe3eb2e16569eb5f981db6 -->
+<h2>Display the specified resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/ministry/{ministry}" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/ministry/{ministry}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": {
+        "name": "SUYNIL",
+        "descriptions": "Descriptions here...",
+        "created_by": 1,
+        "updated_by": 1,
+        "updated_at": "2019-02-06 13:35:26",
+        "created_at": "2019-02-06 13:35:26",
+        "id": 9
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Record not found"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/ministry/{ministry}</code></p>
+<!-- END_bdf2607f2ffe3eb2e16569eb5f981db6 -->
+<!-- START_84d8c6cc003d8f31f342f6520d2aef77 -->
+<h2>Update the specified resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "http://localhost/api/v1/ministry/{ministry}"     -d "name"="Ntmn0Ojv8zpo63Wa" \
+    -d "descriptions"="18tIePKH5BGbnwCX" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/ministry/{ministry}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "name": "Ntmn0Ojv8zpo63Wa",
+    "descriptions": "18tIePKH5BGbnwCX",
+})
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v1/ministry/{ministry}</code></p>
+<p><code>PATCH api/v1/ministry/{ministry}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>the name of the school status</td>
+</tr>
+<tr>
+<td>descriptions</td>
+<td>string</td>
+<td>optional</td>
+<td>options descriptions of the status</td>
+</tr>
+</tbody>
+</table>
+<!-- END_84d8c6cc003d8f31f342f6520d2aef77 -->
+<!-- START_3bb9521ab37726b544994e3fb1bf6146 -->
+<h2>Remove the specified resource from storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "http://localhost/api/v1/ministry/{ministry}" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/ministry/{ministry}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Record not found"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/v1/ministry/{ministry}</code></p>
+<!-- END_3bb9521ab37726b544994e3fb1bf6146 -->
+<h1>School Status management</h1>
+<p>APIs for managing School statuses</p>
+<!-- START_bc2ef12e6c3414789d786bb934ecbaac -->
+<h2>Display a listing of the resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/school-status" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/school-status");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "name": "SUYNIL",
+            "descriptions": "",
+            "created_by": 1,
+            "created_at": "2019-02-06 09:58:46",
+            "updated_at": "2019-02-06 09:58:46",
+            "deleted_at": null
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/school-status</code></p>
+<!-- END_bc2ef12e6c3414789d786bb934ecbaac -->
+<!-- START_4812d05cbd2db719a3dc1e723ec80c11 -->
+<h2>Store a newly created resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/v1/school-status"     -d "name"="J4MfolmdyL0G72Q5" \
+    -d "descriptions"="7D9lW9VZcUHwpQaA" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/school-status");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "name": "J4MfolmdyL0G72Q5",
+    "descriptions": "7D9lW9VZcUHwpQaA",
+})
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": {
+        "name": "SUYNIL",
+        "descriptions": "",
+        "updated_at": "2019-02-06 12:49:41",
+        "created_at": "2019-02-06 12:49:41",
+        "id": 2
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/school-status</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>the name of the school status</td>
+</tr>
+<tr>
+<td>descriptions</td>
+<td>string</td>
+<td>optional</td>
+<td>options descriptions of the status</td>
+</tr>
+</tbody>
+</table>
+<!-- END_4812d05cbd2db719a3dc1e723ec80c11 -->
+<!-- START_a0902a99ef962c0805683abe30f32ca9 -->
+<h2>Display the specified resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/school-status/{school_status}" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/school-status/{school_status}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": {
+        "name": "SUYNIL",
+        "descriptions": "Descriptions here...",
+        "created_by": 1,
+        "updated_by": 1,
+        "updated_at": "2019-02-06 13:35:26",
+        "created_at": "2019-02-06 13:35:26",
+        "id": 9
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Record not found"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/school-status/{school_status}</code></p>
+<!-- END_a0902a99ef962c0805683abe30f32ca9 -->
+<!-- START_3fa56b1c40196004e1657ec03941e95f -->
+<h2>Update the specified resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "http://localhost/api/v1/school-status/{school_status}"     -d "name"="4TmvFWRifl1Wp64I" \
+    -d "descriptions"="rNP31ldNowhSE7vh" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/school-status/{school_status}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "name": "4TmvFWRifl1Wp64I",
+    "descriptions": "rNP31ldNowhSE7vh",
+})
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v1/school-status/{school_status}</code></p>
+<p><code>PATCH api/v1/school-status/{school_status}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>the name of the school status</td>
+</tr>
+<tr>
+<td>descriptions</td>
+<td>string</td>
+<td>optional</td>
+<td>options descriptions of the status</td>
+</tr>
+</tbody>
+</table>
+<!-- END_3fa56b1c40196004e1657ec03941e95f -->
+<!-- START_f2efc4a4bb6fab653a157fac0638a6ee -->
+<h2>Remove the specified resource from storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "http://localhost/api/v1/school-status/{school_status}" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/school-status/{school_status}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Record not found"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/v1/school-status/{school_status}</code></p>
+<!-- END_f2efc4a4bb6fab653a157fac0638a6ee -->
+<h1>Status management</h1>
+<p>APIs for managing statuses</p>
+<!-- START_486e017f30b5ba33270db457014951a8 -->
+<h2>Display a listing of the resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/status" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/status");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "name": "VIP",
+            "descriptions": "",
+            "created_by": 1,
+            "created_at": "2019-02-06 09:58:46",
+            "updated_at": "2019-02-06 09:58:46",
+            "deleted_at": null
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/status</code></p>
+<!-- END_486e017f30b5ba33270db457014951a8 -->
+<!-- START_7e987af97c1971c3327e9a8a99b293f2 -->
+<h2>Store a newly created resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/v1/status"     -d "name"="qjRlYgl8ak3B58Sl" \
+    -d "descriptions"="yTocNa5eTHqYY9oc" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/status");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "name": "qjRlYgl8ak3B58Sl",
+    "descriptions": "yTocNa5eTHqYY9oc",
+})
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": {
+        "name": "SUYNIL",
+        "descriptions": "",
+        "updated_at": "2019-02-06 12:49:41",
+        "created_at": "2019-02-06 12:49:41",
+        "id": 2
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/status</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>the name of the school status</td>
+</tr>
+<tr>
+<td>descriptions</td>
+<td>string</td>
+<td>optional</td>
+<td>options descriptions of the status</td>
+</tr>
+</tbody>
+</table>
+<!-- END_7e987af97c1971c3327e9a8a99b293f2 -->
+<!-- START_1edf775701afa87ed3546e22cae5d0dd -->
+<h2>Display the specified resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/status/{status}" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/status/{status}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": {
+        "name": "SUYNIL",
+        "descriptions": "Descriptions here...",
+        "created_by": 1,
+        "updated_by": 1,
+        "updated_at": "2019-02-06 13:35:26",
+        "created_at": "2019-02-06 13:35:26",
+        "id": 9
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Record not found"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/status/{status}</code></p>
+<!-- END_1edf775701afa87ed3546e22cae5d0dd -->
+<!-- START_b11b5aa4ef53dfc58afb9a3c3d5745ea -->
+<h2>Update the specified resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "http://localhost/api/v1/status/{status}"     -d "name"="WiCVSXVKQDN4Hwx9" \
+    -d "descriptions"="3pezysBx4Se9AaWZ" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/status/{status}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "name": "WiCVSXVKQDN4Hwx9",
+    "descriptions": "3pezysBx4Se9AaWZ",
+})
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v1/status/{status}</code></p>
+<p><code>PATCH api/v1/status/{status}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>the name of the school status</td>
+</tr>
+<tr>
+<td>descriptions</td>
+<td>string</td>
+<td>optional</td>
+<td>options descriptions of the status</td>
+</tr>
+</tbody>
+</table>
+<!-- END_b11b5aa4ef53dfc58afb9a3c3d5745ea -->
+<!-- START_f07abb2fedb355bac8b6f02aff3aa69f -->
+<h2>Remove the specified resource from storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "http://localhost/api/v1/status/{status}" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/status/{status}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Record not found"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/v1/status/{status}</code></p>
+<!-- END_f07abb2fedb355bac8b6f02aff3aa69f -->
+<h1>User Authentication</h1>
+<p>APIs for user auth</p>
+<!-- START_8c0e48cd8efa861b308fc45872ff0837 -->
+<h2>User Login</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/v1/login"     -d "username"="0PjTMtBid1ie7QOz" \
+    -d "password"="Zm1tX4kcehh5pO7q" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/login");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "username": "0PjTMtBid1ie7QOz",
+    "password": "Zm1tX4kcehh5pO7q",
+})
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": {
+        "id": 1,
+        "name": "administrator",
+        "email": "serg.casquejo@gmail.com",
+        "email_verified_at": null,
+        "created_at": "2019-02-04 11:59:31",
+        "updated_at": "2019-02-04 12:46:55",
+        "api_token": "vpvisH4gOBN5zLu4xz1gVoPZQHMpJKc9Va8mY2MQcNQZ7wR1iMGWQDFtD5jx",
+        "role_id": 1
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "data": "User doesn`t exists."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/login</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>required</td>
+<td>The username or email of the user.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+<td>The password of the user.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_8c0e48cd8efa861b308fc45872ff0837 -->
+<!-- START_fb2ae43e2e99ff4e90f22ba03801a735 -->
+<h2>User logout</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/v1/logout" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/logout");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": "User logged out."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/logout</code></p>
+<!-- END_fb2ae43e2e99ff4e90f22ba03801a735 -->
+<h1>User management</h1>
+<p>APIs for managing user</p>
+<!-- START_96b8840d06e94c53a87e83e9edfb44eb -->
+<h2>Store a newly created resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/v1/user"     -d "username"="YOaqbul6jUJu6F71" \
+    -d "name"="q2K6zlSQ9Ldml1rx" \
+    -d "email"="hG8jkX81OJVEswDX" \
+    -d "password"="9CdrwLPPoii24AvO" \
+    -d "confirm_password"="yXZUGbT4KuFWrgqa" \
+    -d "role_id"="14" \
+    -d "member_id"="4" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/user");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "username": "YOaqbul6jUJu6F71",
+    "name": "q2K6zlSQ9Ldml1rx",
+    "email": "hG8jkX81OJVEswDX",
+    "password": "9CdrwLPPoii24AvO",
+    "confirm_password": "yXZUGbT4KuFWrgqa",
+    "role_id": "14",
+    "member_id": "4",
+})
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "data": {
+        "username": "bhcf_admin",
+        "name": "BHCF",
+        "email": "admin@bhcf.com",
+        "updated_at": "2019-02-06 12:49:41",
+        "created_at": "2019-02-06 12:49:41",
+        "id": 2
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/user</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>required</td>
+<td>the username of the user</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>display name of the user</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>required</td>
+<td>the email of the user</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+<td>the password of the user</td>
+</tr>
+<tr>
+<td>confirm_password</td>
+<td>string</td>
+<td>required</td>
+<td>the password confirmation</td>
+</tr>
+<tr>
+<td>role_id</td>
+<td>integer</td>
+<td>required</td>
+<td>the role of the user</td>
+</tr>
+<tr>
+<td>member_id</td>
+<td>integer</td>
+<td>optional</td>
+<td>optional the member id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_96b8840d06e94c53a87e83e9edfb44eb -->
+<!-- START_a8f148df1f2cd4bc2d67314d2cb9fa3d -->
+<h2>Display the specified resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/v1/user/{user}" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/user/{user}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "id": 103,
+        "user_id": null,
+        "leader_id": null,
+        "invited_by": null,
+        "first_name": "Sergio",
+        "last_name": "casquejo",
+        "middle_name": "degamo",
+        "birthdate": "1989-09-07",
+        "address": "Colo, camolinas, poblacion, cordova, cebu",
+        "city": "cebu",
+        "contact_no": "09219945112",
+        "secondary_contact_no": null,
+        "facebook_name": null,
+        "avatar": null,
+        "school_status_id": null,
+        "leadership_level_id": null,
+        "auxiliary_group_id": null,
+        "status_id": null,
+        "category_id": null,
+        "remarks": null,
+        "created_by": null,
+        "created_at": "2019-02-06 11:28:46",
+        "updated_at": "2019-02-06 11:48:27",
+        "deleted_at": null
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Record not found"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/user/{user}</code></p>
+<!-- END_a8f148df1f2cd4bc2d67314d2cb9fa3d -->
+<!-- START_1006d782d67bb58039bde349972eb2f0 -->
+<h2>Update the specified resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "http://localhost/api/v1/user/{user}"     -d "name"="kj3v10P0LuLTmJdC" \
+    -d "email"="BWaFRrdYAtk9ZT2k" \
+    -d "role_id"="6" \
+    -d "id"="4" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/user/{user}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "name": "kj3v10P0LuLTmJdC",
+    "email": "BWaFRrdYAtk9ZT2k",
+    "role_id": "6",
+    "id": "4",
+})
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v1/user/{user}</code></p>
+<p><code>PATCH api/v1/user/{user}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>display name of the user</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>required</td>
+<td>the email of the user</td>
+</tr>
+<tr>
+<td>role_id</td>
+<td>integer</td>
+<td>optional</td>
+<td>optional the role of the user</td>
+</tr>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>required</td>
+<td>the ID of the user</td>
+</tr>
+</tbody>
+</table>
+<!-- END_1006d782d67bb58039bde349972eb2f0 -->
+<!-- START_a5d7655acadc1b6c97d48e68f1e87be9 -->
+<h2>Remove the specified resource from storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "http://localhost/api/v1/user/{user}" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/v1/user/{user}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Record not found"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/v1/user/{user}</code></p>
+<!-- END_a5d7655acadc1b6c97d48e68f1e87be9 -->
+      </div>
+      <div class="dark-box">
+                        <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                              </div>
+                </div>
+    </div>
+  </body>
+</html>
