@@ -15,7 +15,7 @@ class CreateMemberCategoriesTable extends Migration
     {
         Schema::create('member_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('name', 120);
+            $table->char('name', 120)->unique();
             $table->char('descriptions', 255)->nullable();
             $table->unsignedInteger('created_by')->nullable();
             $table->foreign('created_by')

@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\MemberCategoryStoreRequest;
-use App\Http\Requests\MemberCategoryUpdateRequest;
+use App\Http\Requests\SchoolTypeStoreRequest;
+use App\Http\Requests\SchoolTypeUpdateRequest;
 /**
- * @group Member Category management
+ * @group School Types management
  *
- * APIs for managing category member
+ * APIs for managing statuses
  */
-class MemberCategoryController extends Controller
+
+class SchoolTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +21,7 @@ class MemberCategoryController extends Controller
      * "data":[
      *      {
      *      "id":1,
-     *      "name":"Category 1",
+     *      "name":"SUYNIL",
      *      "descriptions":"",
      *      "created_by":1,
      *      "created_at":"2019-02-06 09:58:46",
@@ -32,7 +33,7 @@ class MemberCategoryController extends Controller
      */
     public function index(Request $request)
     {
-        $results = \App\MemberCategory::all();
+        $results = \App\SchoolType::all();
 
         return response()->json(['success' => true, 'data' => $results], 200);
     }
@@ -48,7 +49,7 @@ class MemberCategoryController extends Controller
      *  "success":true,
      *  "data":{
      *   "name":"SUYNIL",
-     *      "descriptions":"",
+     *   "descriptions":"",
      *  "updated_at":"2019-02-06 12:49:41",
      *  "created_at":"2019-02-06 12:49:41",
      *  "id":2
@@ -65,12 +66,12 @@ class MemberCategoryController extends Controller
      * }
      */
 
-    public function store(MemberCategoryStoreRequest $request)
+    public function store(SchoolTypeStoreRequest $request)
     {  
         try {
             $input = $request->only(['name', 'descriptions']);
             $input['created_by'] = auth()->user()->id;
-            $schoolStatus = new \App\MemberCategory($input);
+            $schoolStatus = new \App\SchoolType($input);
             if ($schoolStatus->save()) {
                 return response()->json(['success' => true, 'data' => $schoolStatus], 201);    
             } else {
@@ -104,7 +105,7 @@ class MemberCategoryController extends Controller
      */
     public function show($id)
     {
-        return response()->json(['data' => \App\MemberCategory::findOrFail($id)]);
+        return response()->json(['data' => \App\SchoolType::findOrFail($id)]);
     }
 
 
@@ -127,13 +128,14 @@ class MemberCategoryController extends Controller
      *  }
      * }
      */
-    public function update(MemberCategoryUpdateRequest $request, $id)
+    public function update(SchoolTypeUpdateRequest $request, $id)
     {
+        
         try {
             $input = $request->only(['name', 'descriptions']);
             $input['updated_by'] = auth()->user()->id;
 
-            if ($result = \App\MemberCategory::find($id)->update($input)) {
+            if ($result = \App\SchoolType::find($id)->update($input)) {
                 return response()->json(['success' => true], 201);    
             } else {
                 return response()->json(['success' => false, 'data' => 'Unsuccessfull update.'], 200);
@@ -158,6 +160,6 @@ class MemberCategoryController extends Controller
      */
     public function destroy($id)
     {
-        return response()->json(['success' => \App\MemberCategory::findOrFail($id)->delete()]);
+        return response()->json(['success' => \App\SchoolType::findOrFail($id)->delete()]);
     }
 }

@@ -27,7 +27,7 @@ class MemberCategoryUpdateRequest extends FormRequest
     {
         
         return [
-            'name' => 'required|max:120|unique:member_categories,name,' . $this->route('category') .',name',
+            'name' => 'required|max:120|unique:member_categories,name,' . $this->route('category') .',id',
             'descriptions' => 'max:255'
         ];
     }

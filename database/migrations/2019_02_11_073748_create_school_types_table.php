@@ -15,7 +15,7 @@ class CreateSchoolTypesTable extends Migration
     {
         Schema::create('school_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('name', 120);
+            $table->char('name', 120)->unique();
             $table->char('descriptions', 255)->nullable();
             $table->unsignedInteger('created_by');
             $table->unsignedInteger('updated_by')->nullable();

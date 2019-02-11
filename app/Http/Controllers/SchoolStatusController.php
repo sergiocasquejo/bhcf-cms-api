@@ -44,7 +44,7 @@ class SchoolStatusController extends Controller
      * Store a newly created resource in storage.
      *
      * @bodyParam name string required the name of the school status
-     * @bodyParam descriptions string options descriptions of the status
+     * @bodyParam descriptions string optional descriptions of the status
      * 
      * @response {
      *  "success":true,
@@ -114,7 +114,7 @@ class SchoolStatusController extends Controller
      * Update the specified resource in storage.
      *
      * @bodyParam name string required the name of the school status
-     * @bodyParam descriptions string options descriptions of the status
+     * @bodyParam descriptions string optional descriptions of the status
      * 
      * @response {
      *  "success":true

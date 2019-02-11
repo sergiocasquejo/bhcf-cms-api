@@ -5,7 +5,8 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
-class MinistriesUpdateRequest extends FormRequest
+
+class SchoolTypeUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +27,7 @@ class MinistriesUpdateRequest extends FormRequest
     {
         
         return [
-            'name' => 'required|max:120|unique:ministries,name,' . $this->route('ministry') .',id',
+            'name' => 'required|max:120|unique:school_types,name,' . $this->route('school_type') .',id',
             'descriptions' => 'max:255'
         ];
     }

@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\MemberCategoryStoreRequest;
-use App\Http\Requests\MemberCategoryUpdateRequest;
+use App\Http\Requests\SundayCelebrationStatusStoreRequest;
+use App\Http\Requests\SundayCelebrationStatusUpdateRequest;
 /**
- * @group Member Category management
+ * @group Sunday Celebration Status management
  *
- * APIs for managing category member
+ * APIs for managing statuses
  */
-class MemberCategoryController extends Controller
+
+class SundayCelebrationStatusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +21,7 @@ class MemberCategoryController extends Controller
      * "data":[
      *      {
      *      "id":1,
-     *      "name":"Category 1",
+     *      "name":"SUYNIL",
      *      "descriptions":"",
      *      "created_by":1,
      *      "created_at":"2019-02-06 09:58:46",
@@ -32,7 +33,7 @@ class MemberCategoryController extends Controller
      */
     public function index(Request $request)
     {
-        $results = \App\MemberCategory::all();
+        $results = \App\SundayCelebrationStatus::all();
 
         return response()->json(['success' => true, 'data' => $results], 200);
     }
@@ -47,12 +48,13 @@ class MemberCategoryController extends Controller
      * @response {
      *  "success":true,
      *  "data":{
-     *   "name":"SUYNIL",
+     *      "name":"1st Timer",
      *      "descriptions":"",
-     *  "updated_at":"2019-02-06 12:49:41",
-     *  "created_at":"2019-02-06 12:49:41",
-     *  "id":2
-     *  }
+     *      "created_by":1,
+     *      "updated_at":"2019-02-11 09:04:41",
+     *      "created_at":"2019-02-11 09:04:41",
+     *      "id":1
+     *    }
      * }
      * @response 500{
      *  "data": Error message ...
@@ -65,14 +67,14 @@ class MemberCategoryController extends Controller
      * }
      */
 
-    public function store(MemberCategoryStoreRequest $request)
+    public function store(SundayCelebrationStatusStoreRequest $request)
     {  
         try {
             $input = $request->only(['name', 'descriptions']);
             $input['created_by'] = auth()->user()->id;
-            $schoolStatus = new \App\MemberCategory($input);
-            if ($schoolStatus->save()) {
-                return response()->json(['success' => true, 'data' => $schoolStatus], 201);    
+            $status = new \App\SundayCelebrationStatus($input);
+            if ($status->save()) {
+                return response()->json(['success' => true, 'data' => $status], 201);    
             } else {
                 return response()->json(['success' => false, 'data' => 'Unsuccessfull save.'], 200);
             }
@@ -86,14 +88,14 @@ class MemberCategoryController extends Controller
      *
      * @response {
      *  "success":true,
-     *  "data":{
-     *      "name":"SUYNIL",
-     *      "descriptions":"Descriptions here...",
+      *  "data":{
+     *      "name":"1st Timer",
+     *      "descriptions":"",
      *      "created_by":1,
-     *      "updated_by":1,
-     *      "updated_at":"2019-02-06 13:35:26",
-     *      "created_at":"2019-02-06 13:35:26","id":9
-     *  }
+     *      "updated_at":"2019-02-11 09:04:41",
+     *      "created_at":"2019-02-11 09:04:41",
+     *      "id":1
+     *    }
      * }
      * @response 500{
      *  "data": Error message ...
@@ -104,7 +106,7 @@ class MemberCategoryController extends Controller
      */
     public function show($id)
     {
-        return response()->json(['data' => \App\MemberCategory::findOrFail($id)]);
+        return response()->json(['data' => \App\SundayCelebrationStatus::findOrFail($id)]);
     }
 
 
@@ -127,13 +129,14 @@ class MemberCategoryController extends Controller
      *  }
      * }
      */
-    public function update(MemberCategoryUpdateRequest $request, $id)
+    public function update(SundayCelebrationStatusUpdateRequest $request, $id)
     {
+        
         try {
             $input = $request->only(['name', 'descriptions']);
             $input['updated_by'] = auth()->user()->id;
 
-            if ($result = \App\MemberCategory::find($id)->update($input)) {
+            if ($result = \App\SundayCelebrationStatus::find($id)->update($input)) {
                 return response()->json(['success' => true], 201);    
             } else {
                 return response()->json(['success' => false, 'data' => 'Unsuccessfull update.'], 200);
@@ -158,6 +161,6 @@ class MemberCategoryController extends Controller
      */
     public function destroy($id)
     {
-        return response()->json(['success' => \App\MemberCategory::findOrFail($id)->delete()]);
+        return response()->json(['success' => \App\SundayCelebrationStatus::findOrFail($id)->delete()]);
     }
 }

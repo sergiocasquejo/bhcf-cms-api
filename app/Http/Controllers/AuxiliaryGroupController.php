@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\AuxiliaryGroupStoreRequest;
 use App\Http\Requests\AuxiliaryGroupUpdateRequest;
 /**
  * @group Member Category management
@@ -42,7 +43,7 @@ class AuxiliaryGroupController extends Controller
      * Store a newly created resource in storage.
      *
      * @bodyParam name string required the name of the school status
-     * @bodyParam descriptions string options descriptions of the status
+     * @bodyParam descriptions string optional descriptions of the status
      * 
      * @response {
      *  "success":true,
@@ -65,7 +66,7 @@ class AuxiliaryGroupController extends Controller
      * }
      */
 
-    public function store(SchoolStoreRequest $request)
+    public function store(AuxiliaryGroupStoreRequest $request)
     {  
         try {
             $input = $request->only(['name', 'descriptions']);
@@ -112,7 +113,7 @@ class AuxiliaryGroupController extends Controller
      * Update the specified resource in storage.
      *
      * @bodyParam name string required the name of the school status
-     * @bodyParam descriptions string options descriptions of the status
+     * @bodyParam descriptions string optional descriptions of the status
      * 
      * @response {
      *  "success":true

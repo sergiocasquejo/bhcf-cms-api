@@ -15,7 +15,7 @@ class CreateMinistriesTable extends Migration
     {
         Schema::create('ministries', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('name', 120);
+            $table->char('name', 120)->unique();
             $table->char('descriptions', 255)->nullable();
             $table->unsignedInteger('created_by');
             $table->foreign('created_by')

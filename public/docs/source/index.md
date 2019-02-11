@@ -79,8 +79,8 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/leadership-level"     -d "name"="X5AtTqf6W18YqM3b" \
-    -d "descriptions"="z5cfvkFIzTUOc0iE" 
+curl -X POST "http://localhost/api/v1/leadership-level"     -d "name"="I5eSduNc6rdQ8SPl" \
+    -d "descriptions"="2imMQIOny8iA6XWq" 
 ```
 
 ```javascript
@@ -92,8 +92,8 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "name": "X5AtTqf6W18YqM3b",
-    "descriptions": "z5cfvkFIzTUOc0iE",
+    "name": "I5eSduNc6rdQ8SPl",
+    "descriptions": "2imMQIOny8iA6XWq",
 })
 
 fetch(url, {
@@ -145,7 +145,7 @@ fetch(url, {
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     name | string |  required  | the name of the school status
-    descriptions | string |  optional  | options descriptions of the status
+    descriptions | string |  optional  | optional descriptions of the status
 
 <!-- END_e872db0db90b7f0b1d94ddac29a0da61 -->
 
@@ -215,8 +215,8 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/v1/leadership-level/{leadership_level}"     -d "name"="fJFSGsH9NYLQhKEg" \
-    -d "descriptions"="OEmpNPONwQM0Yoe5" 
+curl -X PUT "http://localhost/api/v1/leadership-level/{leadership_level}"     -d "name"="5NOI2QA0rmH99mKd" \
+    -d "descriptions"="nFe6n6xUakN8oBUi" 
 ```
 
 ```javascript
@@ -228,8 +228,8 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "name": "fJFSGsH9NYLQhKEg",
-    "descriptions": "OEmpNPONwQM0Yoe5",
+    "name": "5NOI2QA0rmH99mKd",
+    "descriptions": "nFe6n6xUakN8oBUi",
 })
 
 fetch(url, {
@@ -276,7 +276,7 @@ fetch(url, {
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     name | string |  required  | the name of the school status
-    descriptions | string |  optional  | options descriptions of the status
+    descriptions | string |  optional  | optional descriptions of the status
 
 <!-- END_ae06e85e754a089807199cf5193b40cb -->
 
@@ -390,8 +390,8 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/member/category"     -d "name"="1n9eyl3si0nNnCCg" \
-    -d "descriptions"="daCVCewA1xj3veOz" 
+curl -X POST "http://localhost/api/v1/member/category"     -d "name"="Za9XPeWCtKvvEEHA" \
+    -d "descriptions"="btSRTjg8U3ctDTOO" 
 ```
 
 ```javascript
@@ -403,8 +403,8 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "name": "1n9eyl3si0nNnCCg",
-    "descriptions": "daCVCewA1xj3veOz",
+    "name": "Za9XPeWCtKvvEEHA",
+    "descriptions": "btSRTjg8U3ctDTOO",
 })
 
 fetch(url, {
@@ -456,7 +456,7 @@ fetch(url, {
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     name | string |  required  | the name of the school status
-    descriptions | string |  optional  | options descriptions of the status
+    descriptions | string |  optional  | optional descriptions of the status
 
 <!-- END_d1f99b335f030297c2f479933f1ff9f5 -->
 
@@ -526,8 +526,8 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/v1/member/category/{category}"     -d "name"="WNnfKu0G9O4B12pU" \
-    -d "descriptions"="oXqtqnxUmSmGuy7v" 
+curl -X PUT "http://localhost/api/v1/member/category/{category}"     -d "name"="qu0U3PPQRPWxo6mX" \
+    -d "descriptions"="RcRlF5d1D221IHee" 
 ```
 
 ```javascript
@@ -539,8 +539,8 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "name": "WNnfKu0G9O4B12pU",
-    "descriptions": "oXqtqnxUmSmGuy7v",
+    "name": "qu0U3PPQRPWxo6mX",
+    "descriptions": "RcRlF5d1D221IHee",
 })
 
 fetch(url, {
@@ -587,7 +587,7 @@ fetch(url, {
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     name | string |  required  | the name of the school status
-    descriptions | string |  optional  | options descriptions of the status
+    descriptions | string |  optional  | optional descriptions of the status
 
 <!-- END_79a3eafca7040d6db9dae83a53c0e225 -->
 
@@ -698,8 +698,8 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/auxiliary-group"     -d "name"="caiLJLBgZKBsbhyA" \
-    -d "descriptions"="TMGFavOgoKY5R7sP" 
+curl -X POST "http://localhost/api/v1/auxiliary-group"     -d "name"="itHPssk11IB0lkyZ" \
+    -d "descriptions"="JBm2Ta9Cf1DKEIXd" 
 ```
 
 ```javascript
@@ -711,8 +711,8 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "name": "caiLJLBgZKBsbhyA",
-    "descriptions": "TMGFavOgoKY5R7sP",
+    "name": "itHPssk11IB0lkyZ",
+    "descriptions": "JBm2Ta9Cf1DKEIXd",
 })
 
 fetch(url, {
@@ -764,7 +764,7 @@ fetch(url, {
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     name | string |  required  | the name of the school status
-    descriptions | string |  optional  | options descriptions of the status
+    descriptions | string |  optional  | optional descriptions of the status
 
 <!-- END_641074fad805e6abba26301e1848983d -->
 
@@ -834,8 +834,8 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/v1/auxiliary-group/{auxiliary_group}"     -d "name"="GN5yjoZB2RKiWLE1" \
-    -d "descriptions"="sUrFoAtga90UqfX5" 
+curl -X PUT "http://localhost/api/v1/auxiliary-group/{auxiliary_group}"     -d "name"="nJiUjszNPB8WhjbQ" \
+    -d "descriptions"="D1KBYqO4gs2fWFCm" 
 ```
 
 ```javascript
@@ -847,8 +847,8 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "name": "GN5yjoZB2RKiWLE1",
-    "descriptions": "sUrFoAtga90UqfX5",
+    "name": "nJiUjszNPB8WhjbQ",
+    "descriptions": "D1KBYqO4gs2fWFCm",
 })
 
 fetch(url, {
@@ -895,7 +895,7 @@ fetch(url, {
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     name | string |  required  | the name of the school status
-    descriptions | string |  optional  | options descriptions of the status
+    descriptions | string |  optional  | optional descriptions of the status
 
 <!-- END_b2b041c1e114dc3b7c11defb9f9c4533 -->
 
@@ -966,10 +966,10 @@ curl -X GET -G "http://localhost/api/v1/member"
 const url = new URL("http://localhost/api/v1/member");
 
     let params = {
-            "offset": "13",
-            "limit": "17",
-            "sort": "L5mDZBSw1RKmYIVd",
-            "sortBy": "XhN7FNPKDboN0XeL",
+            "offset": "2",
+            "limit": "9",
+            "sort": "cVCS24YbMaK8EMBU",
+            "sortBy": "YS7jvIsTmB5CrmMb",
         };
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
@@ -1014,24 +1014,24 @@ Parameter | Status | Description
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/member"     -d "leader_id"="10" \
+curl -X POST "http://localhost/api/v1/member"     -d "leader_id"="2" \
     -d "invited_by"="18" \
-    -d "first_name"="fP71lQVi70rqeSb0" \
-    -d "last_name"="pU8VZKWe7y990fM0" \
-    -d "middle_name"="73Aiz0m3DmgGxUuN" \
-    -d "birthdate"="KcatEExCGRITqPWP" \
-    -d "address"="8QXYGlMTOa4MvUcJ" \
-    -d "city"="Np0JkK4ai1XSqu2U" \
-    -d "contact_no"="JR224MzOXl0P0T0J" \
-    -d "secondary_contact_no"="s9d28WzRpGVdlts5" \
-    -d "facebook_name"="XI8Tw5ba18L0BCTl" \
-    -d "avatar"="cv7ZiZZLWWJe28g9" \
-    -d "school_status_id"="6" \
-    -d "leadership_level_id"="18" \
-    -d "auxiliary_group_id"="4" \
-    -d "status_id"="17" \
-    -d "category_id"="1" \
-    -d "remarks"="doGuSaKhjszcuF8I" 
+    -d "first_name"="xCn82XsFSL9kOnte" \
+    -d "last_name"="uc9kVc8nlk62WYtC" \
+    -d "middle_name"="0Qf2sEOh03p7x8Wm" \
+    -d "birthdate"="tI9SyKeW2mF62DIF" \
+    -d "address"="9R0YaSHM8XXAKDI6" \
+    -d "city"="LxrOh2GgC86O1Jph" \
+    -d "contact_no"="jk8Vt2xyMtsPRMTF" \
+    -d "secondary_contact_no"="1yNrrk79vYdeQNCV" \
+    -d "facebook_name"="ADr2mEEoGdfIUSbT" \
+    -d "avatar"="axJK0sQIz2RAxtPc" \
+    -d "school_status_id"="7" \
+    -d "leadership_level_id"="14" \
+    -d "auxiliary_group_id"="1" \
+    -d "status_id"="4" \
+    -d "category_id"="17" \
+    -d "remarks"="Mwc854e7fg48JM8g" 
 ```
 
 ```javascript
@@ -1043,24 +1043,24 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "leader_id": "10",
+    "leader_id": "2",
     "invited_by": "18",
-    "first_name": "fP71lQVi70rqeSb0",
-    "last_name": "pU8VZKWe7y990fM0",
-    "middle_name": "73Aiz0m3DmgGxUuN",
-    "birthdate": "KcatEExCGRITqPWP",
-    "address": "8QXYGlMTOa4MvUcJ",
-    "city": "Np0JkK4ai1XSqu2U",
-    "contact_no": "JR224MzOXl0P0T0J",
-    "secondary_contact_no": "s9d28WzRpGVdlts5",
-    "facebook_name": "XI8Tw5ba18L0BCTl",
-    "avatar": "cv7ZiZZLWWJe28g9",
-    "school_status_id": "6",
-    "leadership_level_id": "18",
-    "auxiliary_group_id": "4",
-    "status_id": "17",
-    "category_id": "1",
-    "remarks": "doGuSaKhjszcuF8I",
+    "first_name": "xCn82XsFSL9kOnte",
+    "last_name": "uc9kVc8nlk62WYtC",
+    "middle_name": "0Qf2sEOh03p7x8Wm",
+    "birthdate": "tI9SyKeW2mF62DIF",
+    "address": "9R0YaSHM8XXAKDI6",
+    "city": "LxrOh2GgC86O1Jph",
+    "contact_no": "jk8Vt2xyMtsPRMTF",
+    "secondary_contact_no": "1yNrrk79vYdeQNCV",
+    "facebook_name": "ADr2mEEoGdfIUSbT",
+    "avatar": "axJK0sQIz2RAxtPc",
+    "school_status_id": "7",
+    "leadership_level_id": "14",
+    "auxiliary_group_id": "1",
+    "status_id": "4",
+    "category_id": "17",
+    "remarks": "Mwc854e7fg48JM8g",
 })
 
 fetch(url, {
@@ -1216,25 +1216,25 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/v1/member/{member}"     -d "leader_id"="16" \
-    -d "invited_by"="1" \
-    -d "first_name"="q52PIyA2bN2Sbwuf" \
-    -d "last_name"="zKCTClJU1sR3thsQ" \
-    -d "middle_name"="kO16aWBvQxqlJaM1" \
-    -d "birthdate"="mmcUnAuoBeqQnhgi" \
-    -d "address"="zbt8j3JgwJIvYSfI" \
-    -d "city"="FpTb186Fh9HGHZEl" \
-    -d "contact_no"="1DEvc4euB6rjarXZ" \
-    -d "secondary_contact_no"="YuGftcRZBHDQlXAT" \
-    -d "facebook_name"="6cH3zKLcSF7DCGQP" \
-    -d "avatar"="xuO1jBL8nyzq8cZl" \
-    -d "school_status_id"="20" \
-    -d "leadership_level_id"="2" \
-    -d "auxiliary_group_id"="15" \
-    -d "status_id"="18" \
-    -d "category_id"="9" \
-    -d "remarks"="p9AXoRtnBhUDpJbO" \
-    -d "_method"="vQt2BqYBfCRzoBjn" 
+curl -X PUT "http://localhost/api/v1/member/{member}"     -d "leader_id"="19" \
+    -d "invited_by"="14" \
+    -d "first_name"="c0mL6ODeIGtMSOLz" \
+    -d "last_name"="iLUXT9Cdtp4i615p" \
+    -d "middle_name"="SC7mqN2DCvP5Mpox" \
+    -d "birthdate"="9PsIC56L6pogk6Hs" \
+    -d "address"="6ooJ9nX3GYyfvxOk" \
+    -d "city"="5hmTJSgeeacQR1ov" \
+    -d "contact_no"="uGJBMwz7tnzDFagK" \
+    -d "secondary_contact_no"="qyFSVDTnRY3Wd3EM" \
+    -d "facebook_name"="B92KkbXjSiQyJ089" \
+    -d "avatar"="xU9HpePyKQ8vd01x" \
+    -d "school_status_id"="6" \
+    -d "leadership_level_id"="16" \
+    -d "auxiliary_group_id"="9" \
+    -d "status_id"="2" \
+    -d "category_id"="6" \
+    -d "remarks"="1d94wucXY6ZfoEn5" \
+    -d "_method"="jW3mb0Bw8h2Km8xb" 
 ```
 
 ```javascript
@@ -1246,25 +1246,25 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "leader_id": "16",
-    "invited_by": "1",
-    "first_name": "q52PIyA2bN2Sbwuf",
-    "last_name": "zKCTClJU1sR3thsQ",
-    "middle_name": "kO16aWBvQxqlJaM1",
-    "birthdate": "mmcUnAuoBeqQnhgi",
-    "address": "zbt8j3JgwJIvYSfI",
-    "city": "FpTb186Fh9HGHZEl",
-    "contact_no": "1DEvc4euB6rjarXZ",
-    "secondary_contact_no": "YuGftcRZBHDQlXAT",
-    "facebook_name": "6cH3zKLcSF7DCGQP",
-    "avatar": "xuO1jBL8nyzq8cZl",
-    "school_status_id": "20",
-    "leadership_level_id": "2",
-    "auxiliary_group_id": "15",
-    "status_id": "18",
-    "category_id": "9",
-    "remarks": "p9AXoRtnBhUDpJbO",
-    "_method": "vQt2BqYBfCRzoBjn",
+    "leader_id": "19",
+    "invited_by": "14",
+    "first_name": "c0mL6ODeIGtMSOLz",
+    "last_name": "iLUXT9Cdtp4i615p",
+    "middle_name": "SC7mqN2DCvP5Mpox",
+    "birthdate": "9PsIC56L6pogk6Hs",
+    "address": "6ooJ9nX3GYyfvxOk",
+    "city": "5hmTJSgeeacQR1ov",
+    "contact_no": "uGJBMwz7tnzDFagK",
+    "secondary_contact_no": "qyFSVDTnRY3Wd3EM",
+    "facebook_name": "B92KkbXjSiQyJ089",
+    "avatar": "xU9HpePyKQ8vd01x",
+    "school_status_id": "6",
+    "leadership_level_id": "16",
+    "auxiliary_group_id": "9",
+    "status_id": "2",
+    "category_id": "6",
+    "remarks": "1d94wucXY6ZfoEn5",
+    "_method": "jW3mb0Bw8h2Km8xb",
 })
 
 fetch(url, {
@@ -1440,8 +1440,8 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/ministry"     -d "name"="WtOC7nENzktXMjVh" \
-    -d "descriptions"="ppyucxgZwPaISibU" 
+curl -X POST "http://localhost/api/v1/ministry"     -d "name"="IRahNleA6wJCKKaB" \
+    -d "descriptions"="JeDCEZ7y6bVRyIPu" 
 ```
 
 ```javascript
@@ -1453,8 +1453,8 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "name": "WtOC7nENzktXMjVh",
-    "descriptions": "ppyucxgZwPaISibU",
+    "name": "IRahNleA6wJCKKaB",
+    "descriptions": "JeDCEZ7y6bVRyIPu",
 })
 
 fetch(url, {
@@ -1576,8 +1576,8 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/v1/ministry/{ministry}"     -d "name"="Ntmn0Ojv8zpo63Wa" \
-    -d "descriptions"="18tIePKH5BGbnwCX" 
+curl -X PUT "http://localhost/api/v1/ministry/{ministry}"     -d "name"="PaAgWHO72GfksZzJ" \
+    -d "descriptions"="clB9s7j2TcqL5tD9" 
 ```
 
 ```javascript
@@ -1589,8 +1589,8 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "name": "Ntmn0Ojv8zpo63Wa",
-    "descriptions": "18tIePKH5BGbnwCX",
+    "name": "PaAgWHO72GfksZzJ",
+    "descriptions": "clB9s7j2TcqL5tD9",
 })
 
 fetch(url, {
@@ -1692,6 +1692,340 @@ fetch(url, {
 
 <!-- END_3bb9521ab37726b544994e3fb1bf6146 -->
 
+#School Monitoring management
+
+APIs for managing statuses
+<!-- START_6c7055a96b4e29cb242730635351344c -->
+## Display a listing of the resource.
+
+> Example request:
+
+```bash
+curl -X GET -G "http://localhost/api/v1/school-monitoring" 
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/school-monitoring");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "batch_name": "Kamonggay",
+            "remarks": "",
+            "school_year": "2019",
+            "school_type_id": 1,
+            "created_by": 1,
+            "updated_by": 1,
+            "created_at": "2019-02-06 09:58:46",
+            "updated_at": "2019-02-06 09:58:46",
+            "deleted_at": null
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/v1/school-monitoring`
+
+
+<!-- END_6c7055a96b4e29cb242730635351344c -->
+
+<!-- START_0e5006bb2f126f49dc91bea017e7f5ed -->
+## Store a newly created resource in storage.
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost/api/v1/school-monitoring"     -d "batch_name"="n1V7r6Tju21ldrGp" \
+    -d "school_year"="9" \
+    -d "school_type_id"="16" \
+    -d "remarks"="NE2ohr7gNlWDIKl2" 
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/school-monitoring");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "batch_name": "n1V7r6Tju21ldrGp",
+    "school_year": "9",
+    "school_type_id": "16",
+    "remarks": "NE2ohr7gNlWDIKl2",
+})
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "data": {
+        "id": 1,
+        "batch_name": "Kamonggay",
+        "remarks": "",
+        "school_year": "2019",
+        "school_type_id": 1,
+        "created_by": 1,
+        "updated_by": 1,
+        "created_at": "2019-02-06 09:58:46",
+        "updated_at": "2019-02-06 09:58:46",
+        "attendances": []
+    }
+}
+```
+> Example response (500):
+
+```json
+{}
+```
+> Example response (422):
+
+```json
+{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}
+```
+
+### HTTP Request
+`POST api/v1/school-monitoring`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    batch_name | string |  required  | the name of the batch
+    school_year | integer |  optional  | requred the year
+    school_type_id | integer |  required  | the school type (SUYNIL, Life Clas, SOL 1, ...)
+    remarks | string |  optional  | optional remarks
+
+<!-- END_0e5006bb2f126f49dc91bea017e7f5ed -->
+
+<!-- START_3a3a278df419e9efad6a49a021f4a750 -->
+## Display the specified resource.
+
+> Example request:
+
+```bash
+curl -X GET -G "http://localhost/api/v1/school-monitoring/{school_monitoring}" 
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/school-monitoring/{school_monitoring}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "data": {
+        "id": 1,
+        "batch_name": "Kamonggay",
+        "remarks": "",
+        "school_year": "2019",
+        "school_type_id": 1,
+        "created_by": 1,
+        "updated_by": 1,
+        "created_at": "2019-02-06 09:58:46",
+        "updated_at": "2019-02-06 09:58:46",
+        "attendances": []
+    }
+}
+```
+> Example response (500):
+
+```json
+{}
+```
+> Example response (404):
+
+```json
+{
+    "message": "Record not found"
+}
+```
+
+### HTTP Request
+`GET api/v1/school-monitoring/{school_monitoring}`
+
+
+<!-- END_3a3a278df419e9efad6a49a021f4a750 -->
+
+<!-- START_77372951c29dd3d449c05508f3f223ef -->
+## Update the specified resource in storage.
+
+> Example request:
+
+```bash
+curl -X PUT "http://localhost/api/v1/school-monitoring/{school_monitoring}"     -d "batch_name"="kvLroKasvWm40Tol" \
+    -d "school_year"="10" \
+    -d "school_type_id"="14" \
+    -d "remarks"="rHxWbvL9IDsgzsfp" 
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/school-monitoring/{school_monitoring}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "batch_name": "kvLroKasvWm40Tol",
+    "school_year": "10",
+    "school_type_id": "14",
+    "remarks": "rHxWbvL9IDsgzsfp",
+})
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true
+}
+```
+> Example response (500):
+
+```json
+{}
+```
+> Example response (422):
+
+```json
+{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}
+```
+
+### HTTP Request
+`PUT api/v1/school-monitoring/{school_monitoring}`
+
+`PATCH api/v1/school-monitoring/{school_monitoring}`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    batch_name | string |  required  | the name of the batch
+    school_year | integer |  optional  | requred the year
+    school_type_id | integer |  required  | the school type (SUYNIL, Life Clas, SOL 1, ...)
+    remarks | string |  optional  | optional remarks
+
+<!-- END_77372951c29dd3d449c05508f3f223ef -->
+
+<!-- START_34fc5414f868b95338c5b29a6fd3a8f4 -->
+## Remove the specified resource from storage.
+
+> Example request:
+
+```bash
+curl -X DELETE "http://localhost/api/v1/school-monitoring/{school_monitoring}" 
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/school-monitoring/{school_monitoring}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true
+}
+```
+> Example response (500):
+
+```json
+{}
+```
+> Example response (404):
+
+```json
+{
+    "message": "Record not found"
+}
+```
+
+### HTTP Request
+`DELETE api/v1/school-monitoring/{school_monitoring}`
+
+
+<!-- END_34fc5414f868b95338c5b29a6fd3a8f4 -->
+
 #School Status management
 
 APIs for managing School statuses
@@ -1751,8 +2085,8 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/school-status"     -d "name"="J4MfolmdyL0G72Q5" \
-    -d "descriptions"="7D9lW9VZcUHwpQaA" 
+curl -X POST "http://localhost/api/v1/school-status"     -d "name"="w3rbjzxCQsjHfsGm" \
+    -d "descriptions"="TeEe0zP5wpjKqRo2" 
 ```
 
 ```javascript
@@ -1764,8 +2098,8 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "name": "J4MfolmdyL0G72Q5",
-    "descriptions": "7D9lW9VZcUHwpQaA",
+    "name": "w3rbjzxCQsjHfsGm",
+    "descriptions": "TeEe0zP5wpjKqRo2",
 })
 
 fetch(url, {
@@ -1817,7 +2151,7 @@ fetch(url, {
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     name | string |  required  | the name of the school status
-    descriptions | string |  optional  | options descriptions of the status
+    descriptions | string |  optional  | optional descriptions of the status
 
 <!-- END_4812d05cbd2db719a3dc1e723ec80c11 -->
 
@@ -1887,8 +2221,8 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/v1/school-status/{school_status}"     -d "name"="4TmvFWRifl1Wp64I" \
-    -d "descriptions"="rNP31ldNowhSE7vh" 
+curl -X PUT "http://localhost/api/v1/school-status/{school_status}"     -d "name"="S1kkA8R458FmIf6a" \
+    -d "descriptions"="04epbicX2QSjscG0" 
 ```
 
 ```javascript
@@ -1900,8 +2234,8 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "name": "4TmvFWRifl1Wp64I",
-    "descriptions": "rNP31ldNowhSE7vh",
+    "name": "S1kkA8R458FmIf6a",
+    "descriptions": "04epbicX2QSjscG0",
 })
 
 fetch(url, {
@@ -1948,7 +2282,7 @@ fetch(url, {
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     name | string |  required  | the name of the school status
-    descriptions | string |  optional  | options descriptions of the status
+    descriptions | string |  optional  | optional descriptions of the status
 
 <!-- END_3fa56b1c40196004e1657ec03941e95f -->
 
@@ -2002,6 +2336,317 @@ fetch(url, {
 
 
 <!-- END_f2efc4a4bb6fab653a157fac0638a6ee -->
+
+#School Types management
+
+APIs for managing statuses
+<!-- START_254573b6639b8a70b3387499824c51da -->
+## Display a listing of the resource.
+
+> Example request:
+
+```bash
+curl -X GET -G "http://localhost/api/v1/school-type" 
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/school-type");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "name": "SUYNIL",
+            "descriptions": "",
+            "created_by": 1,
+            "created_at": "2019-02-06 09:58:46",
+            "updated_at": "2019-02-06 09:58:46",
+            "deleted_at": null
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/v1/school-type`
+
+
+<!-- END_254573b6639b8a70b3387499824c51da -->
+
+<!-- START_8a55c7b8750a26a691fc3ccbef0b1dd2 -->
+## Store a newly created resource in storage.
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost/api/v1/school-type"     -d "name"="AaRFOjy8fufCg5ew" \
+    -d "descriptions"="xnHGJwaZJGseglWg" 
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/school-type");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "name": "AaRFOjy8fufCg5ew",
+    "descriptions": "xnHGJwaZJGseglWg",
+})
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "data": {
+        "name": "SUYNIL",
+        "descriptions": "",
+        "updated_at": "2019-02-06 12:49:41",
+        "created_at": "2019-02-06 12:49:41",
+        "id": 2
+    }
+}
+```
+> Example response (500):
+
+```json
+{}
+```
+> Example response (422):
+
+```json
+{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}
+```
+
+### HTTP Request
+`POST api/v1/school-type`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    name | string |  required  | the name of the school status
+    descriptions | string |  optional  | optional descriptions of the status
+
+<!-- END_8a55c7b8750a26a691fc3ccbef0b1dd2 -->
+
+<!-- START_f1135468ab63b6b4195eefcf04e14ae0 -->
+## Display the specified resource.
+
+> Example request:
+
+```bash
+curl -X GET -G "http://localhost/api/v1/school-type/{school_type}" 
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/school-type/{school_type}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "data": {
+        "name": "SUYNIL",
+        "descriptions": "Descriptions here...",
+        "created_by": 1,
+        "updated_by": 1,
+        "updated_at": "2019-02-06 13:35:26",
+        "created_at": "2019-02-06 13:35:26",
+        "id": 9
+    }
+}
+```
+> Example response (500):
+
+```json
+{}
+```
+> Example response (404):
+
+```json
+{
+    "message": "Record not found"
+}
+```
+
+### HTTP Request
+`GET api/v1/school-type/{school_type}`
+
+
+<!-- END_f1135468ab63b6b4195eefcf04e14ae0 -->
+
+<!-- START_a5a602454c360397bd41f5bb1eae0347 -->
+## Update the specified resource in storage.
+
+> Example request:
+
+```bash
+curl -X PUT "http://localhost/api/v1/school-type/{school_type}"     -d "name"="cOIjnPLYF1eqOY1n" \
+    -d "descriptions"="rT7VBpXqrivvn7KM" 
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/school-type/{school_type}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "name": "cOIjnPLYF1eqOY1n",
+    "descriptions": "rT7VBpXqrivvn7KM",
+})
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true
+}
+```
+> Example response (500):
+
+```json
+{}
+```
+> Example response (422):
+
+```json
+{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}
+```
+
+### HTTP Request
+`PUT api/v1/school-type/{school_type}`
+
+`PATCH api/v1/school-type/{school_type}`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    name | string |  required  | the name of the school status
+    descriptions | string |  optional  | optional descriptions of the status
+
+<!-- END_a5a602454c360397bd41f5bb1eae0347 -->
+
+<!-- START_1526c4e6b137ffe61c00ba60791f5aeb -->
+## Remove the specified resource from storage.
+
+> Example request:
+
+```bash
+curl -X DELETE "http://localhost/api/v1/school-type/{school_type}" 
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/school-type/{school_type}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true
+}
+```
+> Example response (500):
+
+```json
+{}
+```
+> Example response (404):
+
+```json
+{
+    "message": "Record not found"
+}
+```
+
+### HTTP Request
+`DELETE api/v1/school-type/{school_type}`
+
+
+<!-- END_1526c4e6b137ffe61c00ba60791f5aeb -->
 
 #Status management
 
@@ -2062,8 +2707,8 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/status"     -d "name"="qjRlYgl8ak3B58Sl" \
-    -d "descriptions"="yTocNa5eTHqYY9oc" 
+curl -X POST "http://localhost/api/v1/status"     -d "name"="geuBO8HnsoULpmvU" \
+    -d "descriptions"="ApYnyvMHmkvngiNO" 
 ```
 
 ```javascript
@@ -2075,8 +2720,8 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "name": "qjRlYgl8ak3B58Sl",
-    "descriptions": "yTocNa5eTHqYY9oc",
+    "name": "geuBO8HnsoULpmvU",
+    "descriptions": "ApYnyvMHmkvngiNO",
 })
 
 fetch(url, {
@@ -2128,7 +2773,7 @@ fetch(url, {
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     name | string |  required  | the name of the school status
-    descriptions | string |  optional  | options descriptions of the status
+    descriptions | string |  optional  | optional descriptions of the status
 
 <!-- END_7e987af97c1971c3327e9a8a99b293f2 -->
 
@@ -2198,8 +2843,8 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/v1/status/{status}"     -d "name"="WiCVSXVKQDN4Hwx9" \
-    -d "descriptions"="3pezysBx4Se9AaWZ" 
+curl -X PUT "http://localhost/api/v1/status/{status}"     -d "name"="ya7qmsGPnDOcuwLB" \
+    -d "descriptions"="IYEJ2s1ornCkwEty" 
 ```
 
 ```javascript
@@ -2211,8 +2856,8 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "name": "WiCVSXVKQDN4Hwx9",
-    "descriptions": "3pezysBx4Se9AaWZ",
+    "name": "ya7qmsGPnDOcuwLB",
+    "descriptions": "IYEJ2s1ornCkwEty",
 })
 
 fetch(url, {
@@ -2259,7 +2904,7 @@ fetch(url, {
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     name | string |  required  | the name of the school status
-    descriptions | string |  optional  | options descriptions of the status
+    descriptions | string |  optional  | optional descriptions of the status
 
 <!-- END_b11b5aa4ef53dfc58afb9a3c3d5745ea -->
 
@@ -2314,6 +2959,317 @@ fetch(url, {
 
 <!-- END_f07abb2fedb355bac8b6f02aff3aa69f -->
 
+#Sunday Celebration Status management
+
+APIs for managing statuses
+<!-- START_45d4bca761d3bf2ca0acf70e34d7eed9 -->
+## Display a listing of the resource.
+
+> Example request:
+
+```bash
+curl -X GET -G "http://localhost/api/v1/sc-status" 
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/sc-status");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "name": "SUYNIL",
+            "descriptions": "",
+            "created_by": 1,
+            "created_at": "2019-02-06 09:58:46",
+            "updated_at": "2019-02-06 09:58:46",
+            "deleted_at": null
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/v1/sc-status`
+
+
+<!-- END_45d4bca761d3bf2ca0acf70e34d7eed9 -->
+
+<!-- START_21c49fcb3e07aefc66141be0f33d57b2 -->
+## Store a newly created resource in storage.
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost/api/v1/sc-status"     -d "name"="iuLMRqcEWa31VB9U" \
+    -d "descriptions"="vM3psKvIGToZs7SS" 
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/sc-status");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "name": "iuLMRqcEWa31VB9U",
+    "descriptions": "vM3psKvIGToZs7SS",
+})
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "data": {
+        "name": "1st Timer",
+        "descriptions": "",
+        "created_by": 1,
+        "updated_at": "2019-02-11 09:04:41",
+        "created_at": "2019-02-11 09:04:41",
+        "id": 1
+    }
+}
+```
+> Example response (500):
+
+```json
+{}
+```
+> Example response (422):
+
+```json
+{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}
+```
+
+### HTTP Request
+`POST api/v1/sc-status`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    name | string |  required  | the name of the school status
+    descriptions | string |  optional  | optional descriptions of the status
+
+<!-- END_21c49fcb3e07aefc66141be0f33d57b2 -->
+
+<!-- START_6e1dd9278be2ae24584f825ba8f73df7 -->
+## Display the specified resource.
+
+> Example request:
+
+```bash
+curl -X GET -G "http://localhost/api/v1/sc-status/{sc_status}" 
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/sc-status/{sc_status}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "data": {
+        "name": "1st Timer",
+        "descriptions": "",
+        "created_by": 1,
+        "updated_at": "2019-02-11 09:04:41",
+        "created_at": "2019-02-11 09:04:41",
+        "id": 1
+    }
+}
+```
+> Example response (500):
+
+```json
+{}
+```
+> Example response (404):
+
+```json
+{
+    "message": "Record not found"
+}
+```
+
+### HTTP Request
+`GET api/v1/sc-status/{sc_status}`
+
+
+<!-- END_6e1dd9278be2ae24584f825ba8f73df7 -->
+
+<!-- START_33da57ee063e290a59322f8c2f23897e -->
+## Update the specified resource in storage.
+
+> Example request:
+
+```bash
+curl -X PUT "http://localhost/api/v1/sc-status/{sc_status}"     -d "name"="b0UPTOoDdXltSqW5" \
+    -d "descriptions"="zqVDysgcTzumqydf" 
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/sc-status/{sc_status}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "name": "b0UPTOoDdXltSqW5",
+    "descriptions": "zqVDysgcTzumqydf",
+})
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true
+}
+```
+> Example response (500):
+
+```json
+{}
+```
+> Example response (422):
+
+```json
+{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}
+```
+
+### HTTP Request
+`PUT api/v1/sc-status/{sc_status}`
+
+`PATCH api/v1/sc-status/{sc_status}`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    name | string |  required  | the name of the school status
+    descriptions | string |  optional  | optional descriptions of the status
+
+<!-- END_33da57ee063e290a59322f8c2f23897e -->
+
+<!-- START_bde5cedbeb1ed20a3bda3536cf9eec9c -->
+## Remove the specified resource from storage.
+
+> Example request:
+
+```bash
+curl -X DELETE "http://localhost/api/v1/sc-status/{sc_status}" 
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/sc-status/{sc_status}");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true
+}
+```
+> Example response (500):
+
+```json
+{}
+```
+> Example response (404):
+
+```json
+{
+    "message": "Record not found"
+}
+```
+
+### HTTP Request
+`DELETE api/v1/sc-status/{sc_status}`
+
+
+<!-- END_bde5cedbeb1ed20a3bda3536cf9eec9c -->
+
 #User Authentication
 
 APIs for user auth
@@ -2323,8 +3279,8 @@ APIs for user auth
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/login"     -d "username"="0PjTMtBid1ie7QOz" \
-    -d "password"="Zm1tX4kcehh5pO7q" 
+curl -X POST "http://localhost/api/v1/login"     -d "username"="ZuEPzqDvkk5gGKtG" \
+    -d "password"="MNS7O7SvvYtAQ26x" 
 ```
 
 ```javascript
@@ -2336,8 +3292,8 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "username": "0PjTMtBid1ie7QOz",
-    "password": "Zm1tX4kcehh5pO7q",
+    "username": "ZuEPzqDvkk5gGKtG",
+    "password": "MNS7O7SvvYtAQ26x",
 })
 
 fetch(url, {
@@ -2436,13 +3392,13 @@ APIs for managing user
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/user"     -d "username"="YOaqbul6jUJu6F71" \
-    -d "name"="q2K6zlSQ9Ldml1rx" \
-    -d "email"="hG8jkX81OJVEswDX" \
-    -d "password"="9CdrwLPPoii24AvO" \
-    -d "confirm_password"="yXZUGbT4KuFWrgqa" \
-    -d "role_id"="14" \
-    -d "member_id"="4" 
+curl -X POST "http://localhost/api/v1/user"     -d "username"="sKjSk3iOgGH4A4J6" \
+    -d "name"="MqEGySFB9Se1KCR3" \
+    -d "email"="2gPUjgUpy9qvmmDE" \
+    -d "password"="nh8zw2S9BZ1mNODU" \
+    -d "confirm_password"="s9AbJdntypLM9nk2" \
+    -d "role_id"="3" \
+    -d "member_id"="12" 
 ```
 
 ```javascript
@@ -2454,13 +3410,13 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "username": "YOaqbul6jUJu6F71",
-    "name": "q2K6zlSQ9Ldml1rx",
-    "email": "hG8jkX81OJVEswDX",
-    "password": "9CdrwLPPoii24AvO",
-    "confirm_password": "yXZUGbT4KuFWrgqa",
-    "role_id": "14",
-    "member_id": "4",
+    "username": "sKjSk3iOgGH4A4J6",
+    "name": "MqEGySFB9Se1KCR3",
+    "email": "2gPUjgUpy9qvmmDE",
+    "password": "nh8zw2S9BZ1mNODU",
+    "confirm_password": "s9AbJdntypLM9nk2",
+    "role_id": "3",
+    "member_id": "12",
 })
 
 fetch(url, {
@@ -2604,10 +3560,10 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/v1/user/{user}"     -d "name"="kj3v10P0LuLTmJdC" \
-    -d "email"="BWaFRrdYAtk9ZT2k" \
-    -d "role_id"="6" \
-    -d "id"="4" 
+curl -X PUT "http://localhost/api/v1/user/{user}"     -d "name"="wm1hyW0AslxQ3Zjo" \
+    -d "email"="crTZkKrHBDhnSVga" \
+    -d "role_id"="13" \
+    -d "id"="6" 
 ```
 
 ```javascript
@@ -2619,10 +3575,10 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "name": "kj3v10P0LuLTmJdC",
-    "email": "BWaFRrdYAtk9ZT2k",
-    "role_id": "6",
-    "id": "4",
+    "name": "wm1hyW0AslxQ3Zjo",
+    "email": "crTZkKrHBDhnSVga",
+    "role_id": "13",
+    "id": "6",
 })
 
 fetch(url, {

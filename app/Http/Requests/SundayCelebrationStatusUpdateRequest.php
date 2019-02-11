@@ -5,9 +5,10 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
-class MinistriesUpdateRequest extends FormRequest
+
+class SundayCelebrationStatusUpdateRequest extends FormRequest
 {
-    /**
+     /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -26,7 +27,7 @@ class MinistriesUpdateRequest extends FormRequest
     {
         
         return [
-            'name' => 'required|max:120|unique:ministries,name,' . $this->route('ministry') .',id',
+            'name' => 'required|max:120|unique:sunday_celebration_statuses,name,' . $this->route('sc_status') .',id',
             'descriptions' => 'max:255'
         ];
     }
