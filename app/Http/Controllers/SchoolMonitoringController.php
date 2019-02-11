@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\MemberCategoryStoreRequest;
-use App\Http\Requests\MemberCategoryUpdateRequest;
+use App\Http\Requests\SchoolMonitoringStoreRequest;
+use App\Http\Requests\SchoolMonitoringUpdateRequest;
+
 /**
- * @group Member Category management
+ * @group School Monitoring management
  *
- * APIs for managing category member
+ * APIs for managing statuses
  */
-class MemberCategoryController extends Controller
+
+class SchoolMonitoringController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,9 +22,12 @@ class MemberCategoryController extends Controller
      * "data":[
      *      {
      *      "id":1,
-     *      "name":"Category 1",
-     *      "descriptions":"",
+     *      "batch_name":"Kamonggay",
+     *      "remarks": "",
+     *      "school_year":"2019",
+     *      "school_type_id": 1,
      *      "created_by":1,
+     *      "updated_by":1,
      *      "created_at":"2019-02-06 09:58:46",
      *      "updated_at":"2019-02-06 09:58:46",
      *      "deleted_at":null
@@ -32,7 +37,7 @@ class MemberCategoryController extends Controller
      */
     public function index(Request $request)
     {
-        $results = \App\MemberCategory::all();
+        $results = \App\SchoolMonitoring::all();
 
         return response()->json(['success' => true, 'data' => $results], 200);
     }
@@ -41,18 +46,26 @@ class MemberCategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @bodyParam name string required the name of the school status
-     * @bodyParam descriptions string optional descriptions of the status
+     * @bodyParam batch_name string required the name of the batch
+     * @bodyParam school_year integer requred the year
+     * @bodyParam school_type_id integer required the school type (SUYNIL, Life Clas, SOL 1, ...)
+     * @bodyParam remarks string optional remarks
+     * 
      * 
      * @response {
      *  "success":true,
      *  "data":{
-     *   "name":"SUYNIL",
-     *      "descriptions":"",
-     *  "updated_at":"2019-02-06 12:49:41",
-     *  "created_at":"2019-02-06 12:49:41",
-     *  "id":2
-     *  }
+     *      "id":1,
+     *      "batch_name":"Kamonggay",
+     *      "remarks": "",
+     *      "school_year":"2019",
+     *      "school_type_id": 1,
+     *      "created_by":1,
+     *      "updated_by":1,
+     *      "created_at":"2019-02-06 09:58:46",
+     *      "updated_at":"2019-02-06 09:58:46",
+     *      "attendances": []
+     *    }
      * }
      * @response 500{
      *  "data": Error message ...
@@ -65,14 +78,14 @@ class MemberCategoryController extends Controller
      * }
      */
 
-    public function store(MemberCategoryStoreRequest $request)
+    public function store(SchoolMonitoringStoreRequest $request)
     {  
         try {
-            $input = $request->only(['name', 'descriptions']);
+            $input = $request->only(['batch_name', 'remarks', 'school_year', 'school_type_id']);
             $input['created_by'] = auth()->user()->id;
-            $schoolStatus = new \App\MemberCategory($input);
-            if ($schoolStatus->save()) {
-                return response()->json(['success' => true, 'data' => $schoolStatus], 201);    
+            $sm = new \App\SchoolMonitoring($input);
+            if ($sm->save()) {
+                return response()->json(['success' => true, 'data' => $sm], 201);    
             } else {
                 return response()->json(['success' => false, 'data' => 'Unsuccessfull save.'], 200);
             }
@@ -87,12 +100,16 @@ class MemberCategoryController extends Controller
      * @response {
      *  "success":true,
      *  "data":{
-     *      "name":"SUYNIL",
-     *      "descriptions":"Descriptions here...",
+     *      "id":1,
+     *      "batch_name":"Kamonggay",
+     *      "remarks": "",
+     *      "school_year":"2019",
+     *      "school_type_id": 1,
      *      "created_by":1,
      *      "updated_by":1,
-     *      "updated_at":"2019-02-06 13:35:26",
-     *      "created_at":"2019-02-06 13:35:26","id":9
+     *      "created_at":"2019-02-06 09:58:46",
+     *      "updated_at":"2019-02-06 09:58:46",
+     *      "attendances": []
      *  }
      * }
      * @response 500{
@@ -104,15 +121,17 @@ class MemberCategoryController extends Controller
      */
     public function show($id)
     {
-        return response()->json(['data' => \App\MemberCategory::findOrFail($id)]);
+        return response()->json(['data' => \App\SchoolMonitoring::findOrFail($id)]);
     }
 
 
     /**
      * Update the specified resource in storage.
      *
-     * @bodyParam name string required the name of the school status
-     * @bodyParam descriptions string optional descriptions of the status
+     * @bodyParam batch_name string required the name of the batch
+     * @bodyParam school_year integer requred the year
+     * @bodyParam school_type_id integer required the school type (SUYNIL, Life Clas, SOL 1, ...)
+     * @bodyParam remarks string optional remarks
      * 
      * @response {
      *  "success":true
@@ -127,13 +146,13 @@ class MemberCategoryController extends Controller
      *  }
      * }
      */
-    public function update(MemberCategoryUpdateRequest $request, $id)
+    public function update(SchoolMonitoringUpdateRequest $request, $id)
     {
         try {
-            $input = $request->only(['name', 'descriptions']);
+            $input = $request->only(['batch_name', 'remarks', 'school_year', 'school_type_id']);
             $input['updated_by'] = auth()->user()->id;
 
-            if ($result = \App\MemberCategory::find($id)->update($input)) {
+            if ($result = \App\SchoolMonitoring::find($id)->update($input)) {
                 return response()->json(['success' => true], 201);    
             } else {
                 return response()->json(['success' => false, 'data' => 'Unsuccessfull update.'], 200);
@@ -158,6 +177,6 @@ class MemberCategoryController extends Controller
      */
     public function destroy($id)
     {
-        return response()->json(['success' => \App\MemberCategory::findOrFail($id)->delete()]);
+        return response()->json(['success' => \App\SchoolMonitoring::findOrFail($id)->delete()]);
     }
 }

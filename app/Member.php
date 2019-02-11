@@ -85,4 +85,8 @@ class Member extends Model
         return $this->user_id;
     }
 
+
+    public function cellGroupAttendances() {
+        $this->hasMany('App\CellGroupAttedance', 'id', 'member_id');
+    }
 }

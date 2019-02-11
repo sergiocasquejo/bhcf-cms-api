@@ -15,7 +15,7 @@ class CreateSchoolMonitoringsTable extends Migration
     {
         Schema::create('school_monitorings', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('batch_name', 120);
+            $table->char('batch_name', 120)->unique();
             $table->char('remarks', 255)->nullable();
             $table->integer('school_year');
             $table->unsignedInteger('school_type_id');

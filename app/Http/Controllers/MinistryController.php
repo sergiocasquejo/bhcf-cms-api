@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\MinistriesStoreRequest;
 use App\Http\Requests\MinistriesUpdateRequest;
 /**
  * @group Ministries management
@@ -64,7 +65,7 @@ class MinistryController extends Controller
      * }
      */
 
-    public function store(SchoolStoreRequest $request)
+    public function store(MinistriesStoreRequest $request)
     {  
         try {
             $input = $request->only(['name', 'descriptions']);

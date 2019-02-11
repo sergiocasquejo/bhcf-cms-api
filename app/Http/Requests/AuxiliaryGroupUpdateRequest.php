@@ -26,7 +26,7 @@ class AuxiliaryGroupUpdateRequest extends FormRequest
     {
         
         return [
-            'name' => 'required|max:120|unique:auxiliary_groups,name,' . $this->route('auxiliary_group') .',name',
+            'name' => 'required|max:120|unique:auxiliary_groups,name,' . $this->route('auxiliary_group') .',id',
             'descriptions' => 'max:255'
         ];
     }

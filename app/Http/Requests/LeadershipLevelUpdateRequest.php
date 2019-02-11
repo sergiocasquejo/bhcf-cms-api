@@ -26,7 +26,7 @@ class LeadershipLevelUpdateRequest extends FormRequest
     {
         
         return [
-            'name' => 'required|max:120|unique:ministries,name,' . $this->route('leadership_level') .',name',
+            'name' => 'required|max:120|unique:ministries,name,' . $this->route('ministry') .',id',
             'descriptions' => 'max:255'
         ];
     }

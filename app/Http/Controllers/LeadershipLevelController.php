@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\LeadershipLevelStoreRequest;
 use App\Http\Requests\LeadershipLevelUpdateRequest;
 /**
  * @group Leadership Level management
@@ -41,7 +42,7 @@ class LeadershipLevelController extends Controller
      * Store a newly created resource in storage.
      *
      * @bodyParam name string required the name of the school status
-     * @bodyParam descriptions string options descriptions of the status
+     * @bodyParam descriptions string optional descriptions of the status
      * 
      * @response {
      *  "success":true,
@@ -64,7 +65,7 @@ class LeadershipLevelController extends Controller
      * }
      */
 
-    public function store(SchoolStoreRequest $request)
+    public function store(LeadershipLevelStoreRequest $request)
     {  
         try {
             $input = $request->only(['name', 'descriptions']);
@@ -111,7 +112,7 @@ class LeadershipLevelController extends Controller
      * Update the specified resource in storage.
      *
      * @bodyParam name string required the name of the school status
-     * @bodyParam descriptions string options descriptions of the status
+     * @bodyParam descriptions string optional descriptions of the status
      * 
      * @response {
      *  "success":true

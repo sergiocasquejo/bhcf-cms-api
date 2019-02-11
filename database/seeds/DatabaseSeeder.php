@@ -20,7 +20,9 @@ class DatabaseSeeder extends Seeder
             LeadershipLevelsTableSeeder::class,
             AuxiliaryGroupsTableSeeder::class,
             MemberCategoriesTableSeeder::class,
-            MemberTableSeeder::class
+            MemberTableSeeder::class,
+            SchoolTypeSeeder::class,
+            SundayCelebrationStatusSeeder::class,
         ]);
     }
 }

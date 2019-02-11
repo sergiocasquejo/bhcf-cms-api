@@ -21,6 +21,10 @@ Route::prefix('v1')->group(function() {
         Route::resource('ministry', 'MinistryController')->only(['index', 'store', 'show', 'update', 'destroy']);
         Route::resource('status', 'StatusController')->only(['index', 'store', 'show', 'update', 'destroy']);
         Route::resource('leadership-level', 'LeadershipLevelController')->only(['index', 'store', 'show', 'update', 'destroy']);
+        Route::resource('sc-status', 'SundayCelebrationStatusController')->only(['index', 'store', 'show', 'update', 'destroy']);
+        Route::resource('school-type', 'SchoolTypeController')->only(['index', 'store', 'show', 'update', 'destroy']);
+        Route::resource('school-monitoring', 'SchoolMonitoringController')->only(['index', 'store', 'show', 'update', 'destroy']);
+        
         
     });
 
