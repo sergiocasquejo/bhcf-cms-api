@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SchoolMonitoring extends Model
+class SchoolClass extends Model
 {
     /**
      * The table associated with the model.
@@ -12,8 +12,9 @@ class SchoolMonitoring extends Model
      * @var string
      */
     
-    protected $table = 'school_monitorings';
+    protected $table = 'school_classes';
 
+    public $classTypes = ['SUYNIL', 'LifeClass', 'SOL'];
     /**
      * The attributes that are mass assignable.
      *
@@ -23,7 +24,7 @@ class SchoolMonitoring extends Model
         'batch_name',
         'remarks',
         'school_year',
-        'school_type_id',
+        'class_type',
         'created_by',
         'updated_by'
     ];

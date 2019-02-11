@@ -12,7 +12,7 @@ class LifeClassAttedance extends Model
      * @var string
      */
     
-    protected $table = 'life_class_attedances';
+    protected $table = 'life_classes';
 
     /**
      * The attributes that are mass assignable.

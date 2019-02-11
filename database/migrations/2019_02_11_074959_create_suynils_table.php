@@ -13,9 +13,9 @@ class CreateSuynilAttedancesTable extends Migration
      */
     public function up()
     {
-        Schema::create('suynil_attedances', function (Blueprint $table) {
+        Schema::create('suynils', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('school_monitory_id');
+            $table->unsignedInteger('school_class_id');
             $table->unsignedInteger('member_id');
             $table->tinyInteger('level_1')->default(0);
             $table->tinyInteger('level_2')->default(0);
@@ -27,6 +27,7 @@ class CreateSuynilAttedancesTable extends Migration
             $table->tinyInteger('level_8')->default(0);
             $table->tinyInteger('level_9')->default(0);
             $table->tinyInteger('level_10')->default(0);
+            $table->tinyInteger('status')->default(1);
             $table->char('remarks', 255)->nullable();
             $table->unsignedInteger('created_by');
             $table->unsignedInteger('updated_by')->nullable();
@@ -36,7 +37,7 @@ class CreateSuynilAttedancesTable extends Migration
                 ->references('id')->on('users');
             $table->foreign('member_id')
                 ->references('id')->on('members');
-            $table->foreign('school_monitory_id')
+            $table->foreign('school_class_id')
                 ->references('id')->on('school_monitorings');
             $table->timestamps();
             $table->softDeletes();
@@ -50,6 +51,6 @@ class CreateSuynilAttedancesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('suynil_attedances');
+        Schema::dropIfExists('suynils');
     }
 }

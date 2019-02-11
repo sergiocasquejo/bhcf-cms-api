@@ -21,12 +21,29 @@ class MemberController extends Controller
      * @queryParam limit required The number of rows to return
      * @queryParam sort Field to sort by
      * @queryParam sortBy Ascending or descending
+     * 
+     * @response [{
+     *  "first_name":"serg",
+     *  "last_name":"casquejo",
+     *  "middle_name":"degamo",
+     *  "birthdate":"1989-09-07",
+     *  "address":"Colo, camolinas, poblacion, cordova, cebu",
+     *  "city":"Cebu",
+     *  "contact_no":"09219945312",
+     *  "updated_at":"2019-02-06 09:59:04",
+     *  "created_at":"2019-02-06 09:59:04",
+     *  "id":101
+     * }]
      */
     public function index(Request $request)
     {
         $query = \App\Member::where(['leader_id' => \Auth::id()]);
         if ($request->keywords) {
-            $query->where('first_name', 'like', '%' . $request->keywords . '%');
+            $keywords = $request->keywords;
+            $query->orWhere(function($query) use ($keywords){
+                $query->where('first_name', 'like', '%' . $keywords . '%');
+                $query->orWhere('last_name', 'like', '%' . $keywords . '%');
+            });
         }
 
         if ($request->sort) {
@@ -38,6 +55,7 @@ class MemberController extends Controller
         return response()->json(['success' => true, 'data' => $members], 200);
     }
 
+   
     /**
      * Store a newly created resource in storage.
      *

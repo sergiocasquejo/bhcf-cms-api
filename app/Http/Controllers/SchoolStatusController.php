@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\SchoolStoreRequest;
+use App\Http\Requests\SchoolStatusStoreRequest;
 use App\Http\Requests\SchoolStatusUpdateRequest;
 /**
  * @group School Status management
@@ -67,7 +67,7 @@ class SchoolStatusController extends Controller
      * }
      */
 
-    public function store(SchoolStoreRequest $request)
+    public function store(SchoolStatusStoreRequest $request)
     {  
         try {
             $input = $request->only(['name', 'descriptions']);
