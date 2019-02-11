@@ -17,7 +17,7 @@ class CreateLeadershipLevelsTable extends Migration
             $table->increments('id');
             $table->char('name', 120);
             $table->char('descriptions', 255)->nullable();
-            $table->unsignedInteger('created_by')->nullable();
+            $table->unsignedInteger('created_by');
             $table->foreign('created_by')
                 ->references('id')->on('users');
             $table->timestamps();
