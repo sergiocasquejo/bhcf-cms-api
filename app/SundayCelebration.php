@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SundayCelebrationAttedance extends Model
+class SundayCelebration extends Model
 {
     /**
      * The table associated with the model.
@@ -12,7 +12,7 @@ class SundayCelebrationAttedance extends Model
      * @var string
      */
     
-    protected $table = 'sunday_celebration_attedances';
+    protected $table = 'sunday_celebrations';
 
     /**
      * The attributes that are mass assignable.

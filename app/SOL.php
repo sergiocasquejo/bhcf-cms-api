@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SolAttedance extends Model
+class SOL extends Model
 {
     /**
      * The table associated with the model.
@@ -12,7 +12,7 @@ class SolAttedance extends Model
      * @var string
      */
     
-    protected $table = 'sol_attedances';
+    protected $table = 'sols';
 
     /**
      * The attributes that are mass assignable.

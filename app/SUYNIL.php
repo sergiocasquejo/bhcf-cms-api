@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SuynilAttedance extends Model
+class SUYNIL extends Model
 {
     /**
      * The table associated with the model.
@@ -12,7 +12,7 @@ class SuynilAttedance extends Model
      * @var string
      */
     
-    protected $table = 'suynil_attedances';
+    protected $table = 'suynils';
 
     /**
      * The attributes that are mass assignable.

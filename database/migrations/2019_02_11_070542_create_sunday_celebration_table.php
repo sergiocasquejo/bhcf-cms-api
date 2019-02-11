@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSchoolMonitoringsTable extends Migration
+class CreateSundayCelebrationAttedancesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,21 @@ class CreateSchoolMonitoringsTable extends Migration
      */
     public function up()
     {
-        Schema::create('school_monitorings', function (Blueprint $table) {
+        Schema::create('sunday_celebrations', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('batch_name', 120)->unique();
-            $table->char('remarks', 255)->nullable();
-            $table->integer('school_year');
-            $table->unsignedInteger('school_type_id');
+            $table->unsignedInteger('member_id');
+            $table->date('date');
+            $table->unsignedInteger('sc_status_id');
             $table->unsignedInteger('created_by');
             $table->unsignedInteger('updated_by')->nullable();
             $table->foreign('created_by')
                 ->references('id')->on('users');
             $table->foreign('updated_by')
                 ->references('id')->on('users');
-            $table->foreign('school_type_id')
-                ->references('id')->on('school_types');
+            $table->foreign('member_id')
+                ->references('id')->on('members');
+            $table->foreign('sc_status_id')
+                ->references('id')->on('sunday_celebration_statuses');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -39,6 +40,6 @@ class CreateSchoolMonitoringsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('school_monitorings');
+        Schema::dropIfExists('sunday_celebrations');
     }
 }

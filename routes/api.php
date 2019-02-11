@@ -13,17 +13,24 @@ use Illuminate\Http\Request;
 */
 Route::prefix('v1')->group(function() {
     Route::group(['middleware' => 'auth:api'], function() {
-        Route::resource('member/category', 'MemberCategoryController')->only(['index', 'store', 'show', 'update', 'destroy']);
-        Route::resource('member', 'MemberController')->only(['index', 'store', 'show', 'update', 'destroy']);
-        Route::resource('user', 'UserController')->only(['store', 'show', 'update', 'destroy']);
-        Route::resource('school-status', 'SchoolStatusController')->only(['index', 'store', 'show', 'update', 'destroy']);
-        Route::resource('auxiliary-group', 'AuxiliaryGroupController')->only(['index', 'store', 'show', 'update', 'destroy']);
-        Route::resource('ministry', 'MinistryController')->only(['index', 'store', 'show', 'update', 'destroy']);
-        Route::resource('status', 'StatusController')->only(['index', 'store', 'show', 'update', 'destroy']);
+        Route::resource('members/category', 'MemberCategoryController')->only(['index', 'store', 'show', 'update', 'destroy']);
+        
+        Route::resource('members', 'MemberController')->only(['index', 'store', 'show', 'update', 'destroy']);
+        Route::resource('users', 'UserController')->only(['store', 'show', 'update', 'destroy']);
+        
+        Route::resource('auxiliary-groups', 'AuxiliaryGroupController')->only(['index', 'store', 'show', 'update', 'destroy']);
+        Route::resource('ministries', 'MinistryController')->only(['index', 'store', 'show', 'update', 'destroy']);
+        Route::resource('statuses', 'StatusController')->only(['index', 'store', 'show', 'update', 'destroy']);
         Route::resource('leadership-level', 'LeadershipLevelController')->only(['index', 'store', 'show', 'update', 'destroy']);
-        Route::resource('sc-status', 'SundayCelebrationStatusController')->only(['index', 'store', 'show', 'update', 'destroy']);
-        Route::resource('school-type', 'SchoolTypeController')->only(['index', 'store', 'show', 'update', 'destroy']);
-        Route::resource('school-monitoring', 'SchoolMonitoringController')->only(['index', 'store', 'show', 'update', 'destroy']);
+        Route::resource('sc-statuses', 'SundayCelebrationStatusController')->only(['index', 'store', 'show', 'update', 'destroy']);
+        Route::prefix('school')->group(function () {
+            Route::put('classes/{class_id}/update-member-attendance', 'SchoolStatusController@updateMemberAttendance');
+            Route::post('enrolled-member', 'SchoolStatusController@enrollMember');
+            Route::get('search-unenrolled-member', 'SchoolStatusController@searchUnEnrolledMember');
+            Route::resource('statuses', 'SchoolStatusController')->only(['index', 'store', 'show', 'update', 'destroy']);
+            Route::resource('types', 'SchoolTypeController')->only(['index', 'store', 'show', 'update', 'destroy']);
+            Route::resource('classes', 'SchoolClassController')->only(['index', 'store', 'show', 'update', 'destroy']);
+        });
         
         
     });
