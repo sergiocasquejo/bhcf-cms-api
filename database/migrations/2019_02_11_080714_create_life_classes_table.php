@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLifeClassAttedancesTable extends Migration
+class CreateLifeClassesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -46,7 +46,7 @@ class CreateLifeClassAttedancesTable extends Migration
             $table->foreign('member_id')
                 ->references('id')->on('members');
             $table->foreign('school_class_id')
-                ->references('id')->on('school_monitorings');
+                ->references('id')->on('school_classes');
             $table->timestamps();
             $table->softDeletes();
         });

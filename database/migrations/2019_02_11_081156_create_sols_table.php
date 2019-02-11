@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSolAttedancesTable extends Migration
+class CreateSolsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -48,7 +48,7 @@ class CreateSolAttedancesTable extends Migration
             $table->foreign('member_id')
                 ->references('id')->on('members');
             $table->foreign('school_class_id')
-                ->references('id')->on('school_monitorings');
+                ->references('id')->on('school_classes');
             $table->timestamps();
             $table->softDeletes();
         });
