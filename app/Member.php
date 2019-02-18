@@ -52,19 +52,19 @@ class Member extends Model
     }
 
     public function leadershipLevel() {
-        return $this->hasOne(LeadershipLevel::class, 'leadership_level_id', 'id');
+        return $this->hasOne(LeadershipLevel::class, 'id', 'leadership_level_id');
     }
 
     public function schoolStatus() {
-        return $this->hasOne(SchoolStatus::class, 'school_status_id', 'id');
+        return $this->hasOne(SchoolStatus::class, 'id', 'school_status_id');
     }
 
     public function auxiliaryGroup() {
-        return $this->hasOne(AuxiliaryGroup::class, 'auxiliary_group_id', 'id');
+        return $this->hasOne(AuxiliaryGroup::class, 'id', 'auxiliary_group_id');
     }
 
     public function status() {
-        return  $this->hasOne(Status::class, 'status_id', 'id');
+        return  $this->hasOne(Status::class, 'id', 'status_id');
     }
 
     public function leader() {
@@ -84,7 +84,7 @@ class Member extends Model
     }
     
     public function category() {
-        return $this->hasOne(MemberCategory::class, 'category_id', 'id');
+        return $this->hasOne(MemberCategory::class, 'id', 'category_id');
     }
 
     public function saveUser($user_id) {
