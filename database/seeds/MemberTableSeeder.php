@@ -15,13 +15,14 @@ class MemberTableSeeder extends Seeder
 
         // And now, let's create a few articles in our database:
         for ($i = 0; $i < 100; $i++) {
-            App\Member::create([
+            $member = App\Member::create([
                 'leader_id' => 1,
                 'user_id' => 0,
                 'invited_by' => 1,
                 'first_name' => $faker->firstName,
                 'last_name' => $faker->lastName,
-                'middle_name' => $faker->firstName,
+                'middle_name' => $faker->lastName,
+                'gender' => 'male',
                 'birthdate' => $faker->dateTimeThisCentury->format('Y-m-d'),
                 'address' => $faker->streetAddress,
                 'city' => $faker->city,
@@ -37,7 +38,11 @@ class MemberTableSeeder extends Seeder
                 'remarks' => $faker->paragraph,
                 'created_by' => 1
             ]);
+            $data = $member->fresh();
+            App\Member::find($data->id)->ministries()->attach($faker->randomElement([1, 2, 3, 4]));
         }
+
+
 
     }
 }

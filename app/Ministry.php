@@ -17,6 +17,6 @@ class Ministry extends Model
     ];
     
     public function user() {
-        $this->belongsTo('App\User');
+        return $this->belongsToMany('App\User');
     }
 }

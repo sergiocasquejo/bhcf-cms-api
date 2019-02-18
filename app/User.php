@@ -29,7 +29,7 @@ class User extends Authenticatable
     ];
 
     public function member() {
-        $this->hasOne('App\Member', 'user_id', 'id');
+        return $this->hasOne('App\Member', 'user_id', 'id');
     }
 
     public function generateToken()
@@ -41,7 +41,9 @@ class User extends Authenticatable
     }
 
     
-
+    public function roles() {
+        return $this->belongsToMany('App\Role', 'user_to_roles', 'user_id', 'role_id');
+    }
 
 
 

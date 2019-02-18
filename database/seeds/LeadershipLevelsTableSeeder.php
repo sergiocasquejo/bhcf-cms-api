@@ -11,14 +11,25 @@ class LeadershipLevelsTableSeeder extends Seeder
      */
     public function run()
     {
-
-        $faker = \Faker\Factory::create();
-        for($i = 0; $i < 10; $i++) {
-            App\LeadershipLevel::create([
-                'name' => $faker->text(120),
-                'descriptions' => $faker->text(120),
-                'created_by' => 1
-            ]);
+        $levels = [
+            [
+                'name' => '144',
+                'descriptions' => '',
+                'created_by' => 1,
+            ],
+            [
+                'name' => 'Cell Leader',
+                'descriptions' => '',
+                'created_by' => 1,
+            ],
+            [
+                'name' => '144 Cell Leader',
+                'descriptions' => '',
+                'created_by' => 1,
+            ],
+        ];
+        foreach($levels as $level) {
+            App\LeadershipLevel::create($level);
         }
     }
 }

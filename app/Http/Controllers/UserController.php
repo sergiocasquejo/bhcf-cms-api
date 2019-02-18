@@ -23,7 +23,7 @@ class UserController extends Controller
      * @bodyParam email string required the email of the user
      * @bodyParam password string required the password of the user
      * @bodyParam confirm_password string required the password confirmation
-     * @bodyParam role_id int required the role of the user
+     * @bodyParam roles array(int) required array of role ID of the user
      * @bodyParam member_id int optional the member id
      * 
      * @response {
@@ -51,7 +51,8 @@ class UserController extends Controller
     public function store(UserStoreRequest $request)
     {
         try {
-            $credentials = $request->only(['username', 'name', 'email', 'password', 'role_id', 'member_id']);
+            $credentials = $request->only(['username', 'name', 'email', 'password', 'member_id']);
+            $roles = $request->input('roles');
             if (isset($credentials['member_id']) && $credentials['member_id'] > 0) {
                 $member = \App\Member::findOrFail($credentials['member_id']);
             }
@@ -61,7 +62,10 @@ class UserController extends Controller
             $user = new \App\User($credentials);
 
             if ($user->save()) {
-
+                 //Detach the roles first
+                 $user->roles()->detach();
+                 //Attach new roles
+                 $user->roles()->attach($roles);
                 
                 $member->saveUser($user->id);
 
@@ -123,7 +127,7 @@ class UserController extends Controller
      *
      * @bodyParam name string required display name of the user
      * @bodyParam email string required the email of the user
-     * @bodyParam role_id int optional the role of the user
+     * @bodyParam roles array(int) required array of role ID of the user
      * @bodyParam id int required the ID of the user
      * 
      * @response {
@@ -142,9 +146,14 @@ class UserController extends Controller
     public function update(UserUpdateRequest $request, $id)
     {
         try {
-            $credentials = $request->only(['name', 'email', 'role_id']);
-
-            if ($result = \App\User::find($id)->update($credentials)) {
+            $credentials = $request->only(['name', 'email']);
+            $roles = $request->input('roles');
+            $user = \App\User::find($id);
+            if ($result = $user->update($credentials)) {
+                //Detach the roles first
+                $user->roles()->detach();
+                //Attach new roles
+                $user->roles()->attach($roles);
                 return response()->json(['success' => true], 201);    
             } else {
                 return response()->json(['success' => false, 'data' => 'Unsuccessfull update.'], 200);
