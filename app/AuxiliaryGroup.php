@@ -17,6 +17,6 @@ class AuxiliaryGroup extends Model
     ];
     
     public function member() {
-        $this->belongsTo('App\Member');
+        return $this->belongsTo('App\Member');
     }
 }

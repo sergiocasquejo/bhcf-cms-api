@@ -19,4 +19,12 @@ class Role extends Model
     public function member() {
         $this->belongsTo('App\Member');
     }
+
+    /**
+     * The users that belong to the role.
+     */
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
+    }
 }

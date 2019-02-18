@@ -18,7 +18,7 @@ class CreateMemberToMinitry extends Migration
             $table->unsignedInteger('ministry_id');
 
             $table->foreign('member_id')
-            ->references('id')->on('users');
+            ->references('id')->on('members');
             $table->foreign('ministry_id')
                 ->references('id')->on('ministries');
         });

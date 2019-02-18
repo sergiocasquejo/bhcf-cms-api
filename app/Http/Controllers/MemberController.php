@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\MemberStoreRequest;
 use App;
-
+use App\Http\Resources\Member as MemberResources;
 /**
  * @group Member management
  *
@@ -110,7 +110,7 @@ class MemberController extends Controller
 
             $member = new \App\Member($input);
             if ($member->save()) {
-                return response()->json(['success' => true, 'data' => $member], 201);    
+                return response()->json(['success' => true, 'data' => new MemberResources($member->id)], 201);    
             } else {
                 return response()->json(['success' => false, 'data' => 'Unsuccessfull save.'], 200);
             }
@@ -163,7 +163,8 @@ class MemberController extends Controller
      */
     public function show($id)
     {
-        return response()->json(['data' => \App\Member::findOrFail($id)]);
+        $member = \App\Member::findOrFail($id);
+        return response()->json(['data' => new MemberResources($member)]);
     }
 
 

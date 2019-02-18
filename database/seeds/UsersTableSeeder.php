@@ -17,8 +17,9 @@ class UsersTableSeeder extends Seeder
             'name' => 'Administrator',
             'username' => 'administrator',
             'email' => 'serg.casquejo@gmail.com',
-            'password' => $password,
-            'role_id' => 1
+            'password' => $password
         ]);
+
+        
     }
 }

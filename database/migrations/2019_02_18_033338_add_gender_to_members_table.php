@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddRoleIdToUsersTable extends Migration
+class AddGenderToMembersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddRoleIdToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->unsignedInteger('role_id')->default(2);
+        Schema::table('members', function (Blueprint $table) {
+            $table->enum('gender', ['male', 'female'])->default('male')->after('middle_name');
         });
     }
 
@@ -25,8 +25,8 @@ class AddRoleIdToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('role_id');
+        Schema::table('members', function (Blueprint $table) {
+            $table->dropColumn('gender');
         });
     }
 }

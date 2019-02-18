@@ -18,6 +18,11 @@ class RolesTableSeeder extends Seeder
                 'created_by' => 1
             ],
             [
+                'name' => 'School Staff',
+                'descriptions' => 'School Staff',
+                'created_by' => 1
+            ],
+            [
                 'name' => 'Senior Pastor',
                 'descriptions' => 'Senior Pastor',
                 'created_by' => 1
@@ -30,11 +35,6 @@ class RolesTableSeeder extends Seeder
             [
                 'name' => '144 Cell Leader',
                 'descriptions' => '144 Cell Leader',
-                'created_by' => 1
-            ],
-            [
-                'name' => 'Regular User',
-                'descriptions' => 'Regular User',
                 'created_by' => 1
             ]
 

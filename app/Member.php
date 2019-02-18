@@ -26,6 +26,7 @@ class Member extends Model
         'first_name', 
         'last_name', 
         'middle_name', 
+        'gender', 
         'birthdate', 
         'address', 
         'city',
@@ -42,40 +43,48 @@ class Member extends Model
     ];
 
     public function user() {
-        $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
     }
 
 
     public function ministries() {
-        $this->hasMany('App\Ministry', 'member_id', 'id');
+        return $this->belongsToMany(Ministry::class, 'member_to_ministry', 'member_id', 'ministry_id');
     }
 
-    public function leadershipLevels() {
-        $this->hasOne('App\LeadershipLevel', 'leadership_level_id', 'id');
+    public function leadershipLevel() {
+        return $this->hasOne(LeadershipLevel::class, 'leadership_level_id', 'id');
     }
 
     public function schoolStatus() {
-        $this->hasOne('App\SchoolStatus', 'school_status_id', 'id');
+        return $this->hasOne(SchoolStatus::class, 'school_status_id', 'id');
     }
 
     public function auxiliaryGroup() {
-        $this->hasOne('App\AuxiliaryGroup', 'auxiliary_group_id', 'id');
+        return $this->hasOne(AuxiliaryGroup::class, 'auxiliary_group_id', 'id');
     }
 
     public function status() {
-        $this->hasOne('App\Status', 'status_id', 'id');
+        return  $this->hasOne(Status::class, 'status_id', 'id');
     }
 
     public function leader() {
-        $this->hasOne('App\Member', 'leader_id', 'id');
+        return $this->belongsTo(static::class, 'leader_id', 'id')->select(array('id', 'first_name', 'last_name', 'middle_name'));
+    }
+
+    public function cellgroups() {
+        return $this->hasMany(static::class, 'leader_id', 'id')->select(array('id', 'first_name', 'last_name', 'middle_name'));
     }
 
     public function invitedBy() {
-        $this->hasOne('App\Member', 'invited_by', 'id');
+        return $this->belongsTo(static::class, 'invited_by', 'id')->select(array('id', 'first_name', 'last_name', 'middle_name'));
     }
 
     public function attendances() {
-        $this->belongsToMany('App\Attendances', 'id', 'member_id');
+        return $this->belongsToMany(Attendances::class, 'id', 'member_id');
+    }
+    
+    public function category() {
+        return $this->hasOne(MemberCategory::class, 'category_id', 'id');
     }
 
     public function saveUser($user_id) {
@@ -87,6 +96,27 @@ class Member extends Model
 
 
     public function cellGroupAttendances() {
-        $this->hasMany('App\CellGroupAttedance', 'id', 'member_id');
+        $this->hasMany(CellGroupAttedance::class, 'id', 'member_id');
+    }
+    
+    public function getFullNameAttribute()
+    {
+        $initial = substr($this->middle_name, 0, 1);
+        return "{$this->first_name} {$initial} {$this->last_name}";
+    }
+
+    public function setFirstNameAttribute($value)
+    {
+        $this->attributes['first_name'] = ucfirst($value);
+    }
+
+    public function setLastNameAttribute($value)
+    {
+        $this->attributes['last_name'] = ucfirst($value);
+    }
+
+    public function setMiddleNameAttribute($value)
+    {
+        $this->attributes['middle_name'] = ucfirst($value);
     }
 }
