@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests\AuxiliaryGroupStoreRequest;
 use App\Http\Requests\AuxiliaryGroupUpdateRequest;
 /**
- * @group Member Category management
+ * @group Member Auxiliary Group management
  *
- * APIs for managing category member
+ * APIs for managing Auxiliary Group member
  */
 
 class AuxiliaryGroupController extends Controller
@@ -56,7 +56,7 @@ class AuxiliaryGroupController extends Controller
      *  }
      * }
      * @response 500{
-     *  "data": Error message ...
+     *  "data": "Error message ..."
      * }
      * @response 422{
      *  "success":false,
@@ -97,7 +97,7 @@ class AuxiliaryGroupController extends Controller
      *  }
      * }
      * @response 500{
-     *  "data": Error message ...
+     *  "data": "Error message ..."
      * }
      * @response 404{
      *  "message":"Record not found"
@@ -119,7 +119,7 @@ class AuxiliaryGroupController extends Controller
      *  "success":true
      * }
      * @response 500{
-     *  "data": Error message ...
+     *  "data": "Error message ..."
      * }
      * @response 422{
      *  "success":false,
@@ -151,7 +151,7 @@ class AuxiliaryGroupController extends Controller
      *  "success": true
      * }
      * @response 500{
-     *  "data": Error message ...
+     *  "data": "Error message ..."
      * }
      * @response 404{
      *  "message":"Record not found"

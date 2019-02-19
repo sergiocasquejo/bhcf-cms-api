@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\MemberStoreRequest;
+use App\Http\Requests\StoreAvatarRequest;
 use App;
+use Image;
 use App\Http\Resources\Member as MemberResources;
 /**
  * @group Member management
@@ -91,7 +93,7 @@ class MemberController extends Controller
      *  "id":101
      * }
      * @response 500{
-     *  "data": Error message ...
+     *  "data": "Error message ..."
      * }
      * @response 422{
      *  "success":false,
@@ -153,7 +155,7 @@ class MemberController extends Controller
      *     }
      * }
      * @response 500{
-     *  "data": Error message ...
+     *  "data": "Error message ..."
      * }
      * @response 404{
      *  "message":"Record not found"
@@ -206,7 +208,7 @@ class MemberController extends Controller
      *    }
      * }
      * @response 500{
-     *  "data": Error message ...
+     *  "data": "Error message ..."
      * }
      * @response 422{
      *  "success":false,
@@ -239,7 +241,7 @@ class MemberController extends Controller
      *  "success": true
      * }
      * @response 500{
-     *  "data": Error message ...
+     *  "data": "Error message ..."
      * }
      * @response 404{
      *  "message":"Record not found"
@@ -248,5 +250,72 @@ class MemberController extends Controller
     public function destroy($id)
     {
         return response()->json(['success' => \App\Member::findOrFail($id)->delete()]);
+    }
+
+
+    /**
+     * Update member profile picture
+     *
+     * @bodyParam avatar file optional the file from file upload
+     * @bodyParam _method string required options(PUT|PATCH)
+     * @response {
+     *  "success": true,
+     *  "avatar":{
+     *      "original":"public_path/avatar/avatar.jpg",
+     *      "thumbnail": "..."
+     *  }
+     * }
+     * @response 500{
+     *  "data": "Error message ..."
+     * }
+     * @response 422{
+     *  "success":false,
+     *  "data":{
+     *      "first_name":["avatar is required!"]
+     *  }
+     * }
+     */
+
+    public function uploadAvatar(StoreAvatarRequest $request, $id) {
+        try {
+            $member = \App\Member::findOrFail($id);
+            $originalImage = $request->file('avatar');
+            $thumbnailImage = Image::make($originalImage);
+            $profilePath = config('sitesettings.profile.location');
+
+            $originalFile = $profilePath . time() . $originalImage->getClientOriginalName();
+            $avatar = [
+                'original' => $originalFile
+            ];
+
+            $thumbnailImage->save($originalFile);
+            foreach(config('sitesettings.profile.sizes') as $k => $v) {
+                if (isset($v[0])) {
+                    $width = $v[0];
+                    $height = isset($v[1]) ? $v[1] : $width;
+
+                    $file = $profilePath . "_{$width}x{$height}_" . time() . $originalImage->getClientOriginalName();
+                    $thumbnailImage->resize($width, $height);
+                    $thumbnailImage->save($file);
+                    $avatar[$k] = $file;
+                }
+            }
+            //Get all file
+            $oldAvatar = $member->avatar ? json_decode($member->avatar) : '';
+            $member->avatar = json_encode($avatar);
+            if ($member->save()) {
+                //Delete old file
+                foreach($oldAvatar as $k => $file) {
+                   unlink($file);
+                }
+            }
+
+            return response()->json([
+                'success' => true,
+                'avatar' => $avatar
+            ]);
+        } catch(\Exception $e) {
+            return response()->json(['data' => $e->getMessage()], 500);
+        }
     }
 }
