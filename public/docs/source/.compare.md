@@ -29,13 +29,15 @@ APIs for managing Leadership Levels
 > Example request:
 
 ```bash
-curl -X GET -G "http://localhost/api/v1/leadership-level" 
+curl -X GET -G "http://localhost/api/v1/leadership-level" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/leadership-level");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -79,22 +81,26 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/leadership-level"     -d "name"="tbxHDs9CGicfXWWP" \
-    -d "descriptions"="Uik9WjIdyixInJ4G" 
+curl -X POST "http://localhost/api/v1/leadership-level" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"voC3khPnvUCVX6W0","descriptions":"AqjaQuPzyjZwsfXG"}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/leadership-level");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "name": "tbxHDs9CGicfXWWP",
-    "descriptions": "Uik9WjIdyixInJ4G",
-})
+let body = {
+    "name": "voC3khPnvUCVX6W0",
+    "descriptions": "AqjaQuPzyjZwsfXG"
+}
 
 fetch(url, {
     method: "POST",
@@ -122,7 +128,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -155,13 +163,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X GET -G "http://localhost/api/v1/leadership-level/{leadership_level}" 
+curl -X GET -G "http://localhost/api/v1/leadership-level/{leadership_level}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/leadership-level/{leadership_level}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -193,7 +203,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 
@@ -215,22 +227,26 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/v1/leadership-level/{leadership_level}"     -d "name"="dt8VnXqOrJSdFEkq" \
-    -d "descriptions"="lilvDuuNIRs70b0g" 
+curl -X PUT "http://localhost/api/v1/leadership-level/{leadership_level}" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"sSMtXQxOBqE1v90K","descriptions":"G4HauTI72KryowVo"}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/leadership-level/{leadership_level}");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "name": "dt8VnXqOrJSdFEkq",
-    "descriptions": "lilvDuuNIRs70b0g",
-})
+let body = {
+    "name": "sSMtXQxOBqE1v90K",
+    "descriptions": "G4HauTI72KryowVo"
+}
 
 fetch(url, {
     method: "PUT",
@@ -251,7 +267,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -286,13 +304,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost/api/v1/leadership-level/{leadership_level}" 
+curl -X DELETE "http://localhost/api/v1/leadership-level/{leadership_level}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/leadership-level/{leadership_level}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -315,7 +335,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 
@@ -331,330 +353,24 @@ fetch(url, {
 
 <!-- END_a91ebe740f30dc530ef868bab07447a5 -->
 
-#Member Category management
+#Member Auxiliary Group management
 
-APIs for managing category member
-<!-- START_4e6bc7f59323906ab6f1823c4bdb5958 -->
-## Display a listing of the resource.
-
-> Example request:
-
-```bash
-curl -X GET -G "http://localhost/api/v1/members/category" 
-```
-
-```javascript
-const url = new URL("http://localhost/api/v1/members/category");
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-}
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-> Example response (200):
-
-```json
-{
-    "success": true,
-    "data": [
-        {
-            "id": 1,
-            "name": "Category 1",
-            "descriptions": "",
-            "created_by": 1,
-            "created_at": "2019-02-06 09:58:46",
-            "updated_at": "2019-02-06 09:58:46",
-            "deleted_at": null
-        }
-    ]
-}
-```
-
-### HTTP Request
-`GET api/v1/members/category`
-
-
-<!-- END_4e6bc7f59323906ab6f1823c4bdb5958 -->
-
-<!-- START_aa1e1b881e8a99fe93a4349c0c040521 -->
-## Store a newly created resource in storage.
-
-> Example request:
-
-```bash
-curl -X POST "http://localhost/api/v1/members/category"     -d "name"="IHXlWKkkI6KASiVr" \
-    -d "descriptions"="eyZTYpOmcMXqrJH6" 
-```
-
-```javascript
-const url = new URL("http://localhost/api/v1/members/category");
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-}
-
-let body = JSON.stringify({
-    "name": "IHXlWKkkI6KASiVr",
-    "descriptions": "eyZTYpOmcMXqrJH6",
-})
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-> Example response (200):
-
-```json
-{
-    "success": true,
-    "data": {
-        "name": "SUYNIL",
-        "descriptions": "",
-        "updated_at": "2019-02-06 12:49:41",
-        "created_at": "2019-02-06 12:49:41",
-        "id": 2
-    }
-}
-```
-> Example response (500):
-
-```json
-{}
-```
-> Example response (422):
-
-```json
-{
-    "success": false,
-    "data": {
-        "first_name": [
-            "The :attribute field is required."
-        ]
-    }
-}
-```
-
-### HTTP Request
-`POST api/v1/members/category`
-
-#### Body Parameters
-
-Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
-    name | string |  required  | the name of the school status
-    descriptions | string |  optional  | optional descriptions of the status
-
-<!-- END_aa1e1b881e8a99fe93a4349c0c040521 -->
-
-<!-- START_ae2dc01d1ba09d222135218e7b3fc5da -->
-## Display the specified resource.
-
-> Example request:
-
-```bash
-curl -X GET -G "http://localhost/api/v1/members/category/{category}" 
-```
-
-```javascript
-const url = new URL("http://localhost/api/v1/members/category/{category}");
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-}
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-> Example response (200):
-
-```json
-{
-    "success": true,
-    "data": {
-        "name": "SUYNIL",
-        "descriptions": "Descriptions here...",
-        "created_by": 1,
-        "updated_by": 1,
-        "updated_at": "2019-02-06 13:35:26",
-        "created_at": "2019-02-06 13:35:26",
-        "id": 9
-    }
-}
-```
-> Example response (500):
-
-```json
-{}
-```
-> Example response (404):
-
-```json
-{
-    "message": "Record not found"
-}
-```
-
-### HTTP Request
-`GET api/v1/members/category/{category}`
-
-
-<!-- END_ae2dc01d1ba09d222135218e7b3fc5da -->
-
-<!-- START_d9c19e9aecadce9600fbf3fadb211e5f -->
-## Update the specified resource in storage.
-
-> Example request:
-
-```bash
-curl -X PUT "http://localhost/api/v1/members/category/{category}"     -d "name"="AMhkNGMajeFcObdm" \
-    -d "descriptions"="j6huLHjOVvwdacdJ" 
-```
-
-```javascript
-const url = new URL("http://localhost/api/v1/members/category/{category}");
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-}
-
-let body = JSON.stringify({
-    "name": "AMhkNGMajeFcObdm",
-    "descriptions": "j6huLHjOVvwdacdJ",
-})
-
-fetch(url, {
-    method: "PUT",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-> Example response (200):
-
-```json
-{
-    "success": true
-}
-```
-> Example response (500):
-
-```json
-{}
-```
-> Example response (422):
-
-```json
-{
-    "success": false,
-    "data": {
-        "first_name": [
-            "The :attribute field is required."
-        ]
-    }
-}
-```
-
-### HTTP Request
-`PUT api/v1/members/category/{category}`
-
-`PATCH api/v1/members/category/{category}`
-
-#### Body Parameters
-
-Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
-    name | string |  required  | the name of the school status
-    descriptions | string |  optional  | optional descriptions of the status
-
-<!-- END_d9c19e9aecadce9600fbf3fadb211e5f -->
-
-<!-- START_e0901c42c88bf74a56e3fee8db856b62 -->
-## Remove the specified resource from storage.
-
-> Example request:
-
-```bash
-curl -X DELETE "http://localhost/api/v1/members/category/{category}" 
-```
-
-```javascript
-const url = new URL("http://localhost/api/v1/members/category/{category}");
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-}
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-> Example response (200):
-
-```json
-{
-    "success": true
-}
-```
-> Example response (500):
-
-```json
-{}
-```
-> Example response (404):
-
-```json
-{
-    "message": "Record not found"
-}
-```
-
-### HTTP Request
-`DELETE api/v1/members/category/{category}`
-
-
-<!-- END_e0901c42c88bf74a56e3fee8db856b62 -->
-
+APIs for managing Auxiliary Group member
 <!-- START_67ec1738998daf674020f6431b7a80b0 -->
 ## Display a listing of the resource.
 
 > Example request:
 
 ```bash
-curl -X GET -G "http://localhost/api/v1/auxiliary-groups" 
+curl -X GET -G "http://localhost/api/v1/auxiliary-groups" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/auxiliary-groups");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -698,22 +414,26 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/auxiliary-groups"     -d "name"="GS5reB6LKDecRMBE" \
-    -d "descriptions"="QW5yOFaM5bqoaqyQ" 
+curl -X POST "http://localhost/api/v1/auxiliary-groups" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"QuIymd4bUq3b2HJe","descriptions":"zlJwUpESQARtnKBO"}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/auxiliary-groups");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "name": "GS5reB6LKDecRMBE",
-    "descriptions": "QW5yOFaM5bqoaqyQ",
-})
+let body = {
+    "name": "QuIymd4bUq3b2HJe",
+    "descriptions": "zlJwUpESQARtnKBO"
+}
 
 fetch(url, {
     method: "POST",
@@ -741,7 +461,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -774,13 +496,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X GET -G "http://localhost/api/v1/auxiliary-groups/{auxiliary_group}" 
+curl -X GET -G "http://localhost/api/v1/auxiliary-groups/{auxiliary_group}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/auxiliary-groups/{auxiliary_group}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -812,7 +536,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 
@@ -834,22 +560,26 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/v1/auxiliary-groups/{auxiliary_group}"     -d "name"="6j7T4TWrdhzyCdMe" \
-    -d "descriptions"="etiSXwUC1wfS8T6r" 
+curl -X PUT "http://localhost/api/v1/auxiliary-groups/{auxiliary_group}" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"0cxUU9Oa6sL1wctH","descriptions":"ss6ZLjdIq6DqM3ny"}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/auxiliary-groups/{auxiliary_group}");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "name": "6j7T4TWrdhzyCdMe",
-    "descriptions": "etiSXwUC1wfS8T6r",
-})
+let body = {
+    "name": "0cxUU9Oa6sL1wctH",
+    "descriptions": "ss6ZLjdIq6DqM3ny"
+}
 
 fetch(url, {
     method: "PUT",
@@ -870,7 +600,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -905,13 +637,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost/api/v1/auxiliary-groups/{auxiliary_group}" 
+curl -X DELETE "http://localhost/api/v1/auxiliary-groups/{auxiliary_group}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/auxiliary-groups/{auxiliary_group}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -934,7 +668,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 
@@ -950,30 +686,444 @@ fetch(url, {
 
 <!-- END_63ad70cdb7b345c970108ac72bf456c3 -->
 
+#Member Category management
+
+APIs for managing category member
+<!-- START_4e6bc7f59323906ab6f1823c4bdb5958 -->
+## Display a listing of the resource.
+
+> Example request:
+
+```bash
+curl -X GET -G "http://localhost/api/v1/members/category" \
+    -H "Authorization: Bearer {token}"
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/members/category");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "name": "Category 1",
+            "descriptions": "",
+            "created_by": 1,
+            "created_at": "2019-02-06 09:58:46",
+            "updated_at": "2019-02-06 09:58:46",
+            "deleted_at": null
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/v1/members/category`
+
+
+<!-- END_4e6bc7f59323906ab6f1823c4bdb5958 -->
+
+<!-- START_aa1e1b881e8a99fe93a4349c0c040521 -->
+## Store a newly created resource in storage.
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost/api/v1/members/category" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"UU9GIojgDBgNRMRb","descriptions":"JVxV2xK2CaNkfpPz"}'
+
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/members/category");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "name": "UU9GIojgDBgNRMRb",
+    "descriptions": "JVxV2xK2CaNkfpPz"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "data": {
+        "name": "SUYNIL",
+        "descriptions": "",
+        "updated_at": "2019-02-06 12:49:41",
+        "created_at": "2019-02-06 12:49:41",
+        "id": 2
+    }
+}
+```
+> Example response (500):
+
+```json
+{
+    "data": "Error message ..."
+}
+```
+> Example response (422):
+
+```json
+{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}
+```
+
+### HTTP Request
+`POST api/v1/members/category`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    name | string |  required  | the name of the school status
+    descriptions | string |  optional  | optional descriptions of the status
+
+<!-- END_aa1e1b881e8a99fe93a4349c0c040521 -->
+
+<!-- START_ae2dc01d1ba09d222135218e7b3fc5da -->
+## Display the specified resource.
+
+> Example request:
+
+```bash
+curl -X GET -G "http://localhost/api/v1/members/category/{category}" \
+    -H "Authorization: Bearer {token}"
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/members/category/{category}");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "data": {
+        "name": "SUYNIL",
+        "descriptions": "Descriptions here...",
+        "created_by": 1,
+        "updated_by": 1,
+        "updated_at": "2019-02-06 13:35:26",
+        "created_at": "2019-02-06 13:35:26",
+        "id": 9
+    }
+}
+```
+> Example response (500):
+
+```json
+{
+    "data": "Error message ..."
+}
+```
+> Example response (404):
+
+```json
+{
+    "message": "Record not found"
+}
+```
+
+### HTTP Request
+`GET api/v1/members/category/{category}`
+
+
+<!-- END_ae2dc01d1ba09d222135218e7b3fc5da -->
+
+<!-- START_d9c19e9aecadce9600fbf3fadb211e5f -->
+## Update the specified resource in storage.
+
+> Example request:
+
+```bash
+curl -X PUT "http://localhost/api/v1/members/category/{category}" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"851raN59A57oadmc","descriptions":"CK5ruZY1Fv8kfaLJ"}'
+
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/members/category/{category}");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "name": "851raN59A57oadmc",
+    "descriptions": "CK5ruZY1Fv8kfaLJ"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true
+}
+```
+> Example response (500):
+
+```json
+{
+    "data": "Error message ..."
+}
+```
+> Example response (422):
+
+```json
+{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}
+```
+
+### HTTP Request
+`PUT api/v1/members/category/{category}`
+
+`PATCH api/v1/members/category/{category}`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    name | string |  required  | the name of the school status
+    descriptions | string |  optional  | optional descriptions of the status
+
+<!-- END_d9c19e9aecadce9600fbf3fadb211e5f -->
+
+<!-- START_e0901c42c88bf74a56e3fee8db856b62 -->
+## Remove the specified resource from storage.
+
+> Example request:
+
+```bash
+curl -X DELETE "http://localhost/api/v1/members/category/{category}" \
+    -H "Authorization: Bearer {token}"
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/members/category/{category}");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true
+}
+```
+> Example response (500):
+
+```json
+{
+    "data": "Error message ..."
+}
+```
+> Example response (404):
+
+```json
+{
+    "message": "Record not found"
+}
+```
+
+### HTTP Request
+`DELETE api/v1/members/category/{category}`
+
+
+<!-- END_e0901c42c88bf74a56e3fee8db856b62 -->
+
 #Member management
 
 APIs for managing member
+<!-- START_db2b4c508ae84f978691116bec87eed4 -->
+## Update member profile picture
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost/api/v1/members/{id}/avatar" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"avatar":"eyXy0i4Jz4kdWyc0","_method":"fO4WiQDlURQc9tBD"}'
+
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/members/{id}/avatar");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "avatar": "eyXy0i4Jz4kdWyc0",
+    "_method": "fO4WiQDlURQc9tBD"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "avatar": {
+        "original": "public_path\/avatar\/avatar.jpg",
+        "thumbnail": "..."
+    }
+}
+```
+> Example response (500):
+
+```json
+{
+    "data": "Error message ..."
+}
+```
+> Example response (422):
+
+```json
+{
+    "success": false,
+    "data": {
+        "first_name": [
+            "avatar is required!"
+        ]
+    }
+}
+```
+
+### HTTP Request
+`POST api/v1/members/{id}/avatar`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    avatar | file |  optional  | optional the file from file upload
+    _method | string |  required  | options(PUT|PATCH)
+
+<!-- END_db2b4c508ae84f978691116bec87eed4 -->
+
 <!-- START_93652cc886b6606148cd67f1719bdc17 -->
 ## Display a listing of the resource.
 
 > Example request:
 
 ```bash
-curl -X GET -G "http://localhost/api/v1/members" 
+curl -X GET -G "http://localhost/api/v1/members" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/members");
 
     let params = {
-            "offset": "2",
+            "offset": "14",
             "limit": "16",
-            "sort": "bDbzUKJjEZeERqWY",
-            "sortBy": "K6g9d2u8KRVvQNkI",
+            "sort": "zmgjCG4nn11sRF4V",
+            "sortBy": "5AKjI1kZRysYWLV8",
         };
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -1025,54 +1175,42 @@ Parameter | Status | Description
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/members"     -d "leader_id"="18" \
-    -d "invited_by"="6" \
-    -d "first_name"="roHOBizLaESV9Hgr" \
-    -d "last_name"="OZswmFJbElx2JGun" \
-    -d "middle_name"="MbgcMSblCCxjxz1z" \
-    -d "birthdate"="qfqFAJUZdjsjj23t" \
-    -d "address"="DOihhwxVfJ6fMBQ1" \
-    -d "city"="1dNgQS7L2z6Lon6e" \
-    -d "contact_no"="lxUoDPVn6cYp4L0o" \
-    -d "secondary_contact_no"="FvSBdXY58YZQDz7d" \
-    -d "facebook_name"="XFNW3w9lxbgam1RI" \
-    -d "avatar"="CUbJ9OcPXN1MSL5p" \
-    -d "school_status_id"="3" \
-    -d "leadership_level_id"="13" \
-    -d "auxiliary_group_id"="5" \
-    -d "status_id"="4" \
-    -d "category_id"="19" \
-    -d "remarks"="c2DAGVuQDk4Rc2kr" 
+curl -X POST "http://localhost/api/v1/members" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"leader_id":6,"invited_by":7,"first_name":"MSD9onyHGZHqGuW2","last_name":"BuSKk2UFnpJz6kGp","middle_name":"HdPy7a5S65hUL2CC","birthdate":"cKAPKrNp6uO3J6D7","address":"QdUcoRM30qMyOeJC","city":"Q6oLvUL16Kn9Zilr","contact_no":"pddahgZzcmQEfVkQ","secondary_contact_no":"g93jZOwYBLKoI9VM","facebook_name":"XVjb6QLpmHbsoYUk","avatar":"gbPyhKnlHn6Uz0U2","school_status_id":17,"leadership_level_id":10,"auxiliary_group_id":15,"status_id":10,"category_id":12,"remarks":"NJbQeCpbC8SiigNP"}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/members");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "leader_id": "18",
-    "invited_by": "6",
-    "first_name": "roHOBizLaESV9Hgr",
-    "last_name": "OZswmFJbElx2JGun",
-    "middle_name": "MbgcMSblCCxjxz1z",
-    "birthdate": "qfqFAJUZdjsjj23t",
-    "address": "DOihhwxVfJ6fMBQ1",
-    "city": "1dNgQS7L2z6Lon6e",
-    "contact_no": "lxUoDPVn6cYp4L0o",
-    "secondary_contact_no": "FvSBdXY58YZQDz7d",
-    "facebook_name": "XFNW3w9lxbgam1RI",
-    "avatar": "CUbJ9OcPXN1MSL5p",
-    "school_status_id": "3",
-    "leadership_level_id": "13",
-    "auxiliary_group_id": "5",
-    "status_id": "4",
-    "category_id": "19",
-    "remarks": "c2DAGVuQDk4Rc2kr",
-})
+let body = {
+    "leader_id": 6,
+    "invited_by": 7,
+    "first_name": "MSD9onyHGZHqGuW2",
+    "last_name": "BuSKk2UFnpJz6kGp",
+    "middle_name": "HdPy7a5S65hUL2CC",
+    "birthdate": "cKAPKrNp6uO3J6D7",
+    "address": "QdUcoRM30qMyOeJC",
+    "city": "Q6oLvUL16Kn9Zilr",
+    "contact_no": "pddahgZzcmQEfVkQ",
+    "secondary_contact_no": "g93jZOwYBLKoI9VM",
+    "facebook_name": "XVjb6QLpmHbsoYUk",
+    "avatar": "gbPyhKnlHn6Uz0U2",
+    "school_status_id": 17,
+    "leadership_level_id": 10,
+    "auxiliary_group_id": 15,
+    "status_id": 10,
+    "category_id": 12,
+    "remarks": "NJbQeCpbC8SiigNP"
+}
 
 fetch(url, {
     method: "POST",
@@ -1102,7 +1240,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -1151,13 +1291,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X GET -G "http://localhost/api/v1/members/{member}" 
+curl -X GET -G "http://localhost/api/v1/members/{member}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/members/{member}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -1205,7 +1347,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 
@@ -1227,56 +1371,43 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/v1/members/{member}"     -d "leader_id"="12" \
-    -d "invited_by"="18" \
-    -d "first_name"="z2FcakU4KCt57Xix" \
-    -d "last_name"="Dkjo8HYzwiLvqFPy" \
-    -d "middle_name"="gQH91yfxqvrgKthM" \
-    -d "birthdate"="3F6JTahMfaB7ubqa" \
-    -d "address"="gxquJz4KjRYTwH3f" \
-    -d "city"="CBwblikDfwRnRjvy" \
-    -d "contact_no"="4C9eu1EuB9orFLEB" \
-    -d "secondary_contact_no"="dOFldeIGxUOvCGsl" \
-    -d "facebook_name"="H2k5lJrs1RSlRnC9" \
-    -d "avatar"="B2ttomucnaQvrXzB" \
-    -d "school_status_id"="12" \
-    -d "leadership_level_id"="13" \
-    -d "auxiliary_group_id"="9" \
-    -d "status_id"="6" \
-    -d "category_id"="12" \
-    -d "remarks"="Nr8wGNbAabysRA8s" \
-    -d "_method"="sUGlg5GDYzhl7ODe" 
+curl -X PUT "http://localhost/api/v1/members/{member}" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"leader_id":13,"invited_by":17,"first_name":"jyXpUT37vQZFObYR","last_name":"DYQd5Eztc9Up24At","middle_name":"RrgpXbat0AWLgyMs","birthdate":"77k4gcdOBWtIZL6G","address":"tjdQyEZATT9bismm","city":"sca8kU3wwcpOPhAP","contact_no":"6nSOXQfm6fvdreeX","secondary_contact_no":"k7M2jSyBGuLvzWin","facebook_name":"kPQhLfUQgV0Qbs73","avatar":"yjMrRXhdh35wbbZD","school_status_id":18,"leadership_level_id":13,"auxiliary_group_id":13,"status_id":3,"category_id":20,"remarks":"Lio6mbnJ58ghvvtX","_method":"RzBt7JzEqxM59NMD"}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/members/{member}");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "leader_id": "12",
-    "invited_by": "18",
-    "first_name": "z2FcakU4KCt57Xix",
-    "last_name": "Dkjo8HYzwiLvqFPy",
-    "middle_name": "gQH91yfxqvrgKthM",
-    "birthdate": "3F6JTahMfaB7ubqa",
-    "address": "gxquJz4KjRYTwH3f",
-    "city": "CBwblikDfwRnRjvy",
-    "contact_no": "4C9eu1EuB9orFLEB",
-    "secondary_contact_no": "dOFldeIGxUOvCGsl",
-    "facebook_name": "H2k5lJrs1RSlRnC9",
-    "avatar": "B2ttomucnaQvrXzB",
-    "school_status_id": "12",
-    "leadership_level_id": "13",
-    "auxiliary_group_id": "9",
-    "status_id": "6",
-    "category_id": "12",
-    "remarks": "Nr8wGNbAabysRA8s",
-    "_method": "sUGlg5GDYzhl7ODe",
-})
+let body = {
+    "leader_id": 13,
+    "invited_by": 17,
+    "first_name": "jyXpUT37vQZFObYR",
+    "last_name": "DYQd5Eztc9Up24At",
+    "middle_name": "RrgpXbat0AWLgyMs",
+    "birthdate": "77k4gcdOBWtIZL6G",
+    "address": "tjdQyEZATT9bismm",
+    "city": "sca8kU3wwcpOPhAP",
+    "contact_no": "6nSOXQfm6fvdreeX",
+    "secondary_contact_no": "k7M2jSyBGuLvzWin",
+    "facebook_name": "kPQhLfUQgV0Qbs73",
+    "avatar": "yjMrRXhdh35wbbZD",
+    "school_status_id": 18,
+    "leadership_level_id": 13,
+    "auxiliary_group_id": 13,
+    "status_id": 3,
+    "category_id": 20,
+    "remarks": "Lio6mbnJ58ghvvtX",
+    "_method": "RzBt7JzEqxM59NMD"
+}
 
 fetch(url, {
     method: "PUT",
@@ -1295,7 +1426,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -1347,13 +1480,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost/api/v1/members/{member}" 
+curl -X DELETE "http://localhost/api/v1/members/{member}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/members/{member}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -1376,7 +1511,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 
@@ -1401,13 +1538,15 @@ APIs for managing ministries member
 > Example request:
 
 ```bash
-curl -X GET -G "http://localhost/api/v1/ministries" 
+curl -X GET -G "http://localhost/api/v1/ministries" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/ministries");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -1451,22 +1590,26 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/ministries"     -d "name"="1YwgVOTx3ZigdEzK" \
-    -d "descriptions"="voRwrzx1jL9MikKl" 
+curl -X POST "http://localhost/api/v1/ministries" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"8VMuj8WenThNKqB3","descriptions":"4c5cZ04XAP5g8rfR"}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/ministries");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "name": "1YwgVOTx3ZigdEzK",
-    "descriptions": "voRwrzx1jL9MikKl",
-})
+let body = {
+    "name": "8VMuj8WenThNKqB3",
+    "descriptions": "4c5cZ04XAP5g8rfR"
+}
 
 fetch(url, {
     method: "POST",
@@ -1494,7 +1637,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -1527,13 +1672,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X GET -G "http://localhost/api/v1/ministries/{ministry}" 
+curl -X GET -G "http://localhost/api/v1/ministries/{ministry}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/ministries/{ministry}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -1565,7 +1712,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 
@@ -1587,22 +1736,26 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/v1/ministries/{ministry}"     -d "name"="0G5HBYCKzTotI1zW" \
-    -d "descriptions"="ufyuwTuEwmAk0c05" 
+curl -X PUT "http://localhost/api/v1/ministries/{ministry}" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"RgHkeKoZSWctXW2U","descriptions":"wyOP8RWpv4fu4mYW"}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/ministries/{ministry}");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "name": "0G5HBYCKzTotI1zW",
-    "descriptions": "ufyuwTuEwmAk0c05",
-})
+let body = {
+    "name": "RgHkeKoZSWctXW2U",
+    "descriptions": "wyOP8RWpv4fu4mYW"
+}
 
 fetch(url, {
     method: "PUT",
@@ -1623,7 +1776,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -1658,13 +1813,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost/api/v1/ministries/{ministry}" 
+curl -X DELETE "http://localhost/api/v1/ministries/{ministry}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/ministries/{ministry}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -1687,7 +1844,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 
@@ -1712,13 +1871,15 @@ APIs for managing statuses
 > Example request:
 
 ```bash
-curl -X GET -G "http://localhost/api/v1/school/classes" 
+curl -X GET -G "http://localhost/api/v1/school/classes" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/school/classes");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -1765,26 +1926,28 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/school/classes"     -d "batch_name"="Jg5BblDWlV0H7pMv" \
-    -d "school_year"="18" \
-    -d "school_type_id"="4" \
-    -d "remarks"="fuaydE5V3iIH4ySX" 
+curl -X POST "http://localhost/api/v1/school/classes" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"batch_name":"uiAJDQ70dMC9INOx","school_year":9,"school_type_id":14,"remarks":"ujGSP2C8huF1eWvO"}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/school/classes");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "batch_name": "Jg5BblDWlV0H7pMv",
-    "school_year": "18",
-    "school_type_id": "4",
-    "remarks": "fuaydE5V3iIH4ySX",
-})
+let body = {
+    "batch_name": "uiAJDQ70dMC9INOx",
+    "school_year": 9,
+    "school_type_id": 14,
+    "remarks": "ujGSP2C8huF1eWvO"
+}
 
 fetch(url, {
     method: "POST",
@@ -1817,7 +1980,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -1852,13 +2017,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X GET -G "http://localhost/api/v1/school/classes/{class}" 
+curl -X GET -G "http://localhost/api/v1/school/classes/{class}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/school/classes/{class}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -1893,7 +2060,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 
@@ -1915,26 +2084,28 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/v1/school/classes/{class}"     -d "batch_name"="xq7FrTWdW616yfX3" \
-    -d "school_year"="5" \
-    -d "school_type_id"="20" \
-    -d "remarks"="g8SLVUPduw2kY4pQ" 
+curl -X PUT "http://localhost/api/v1/school/classes/{class}" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"batch_name":"a9Y7Gqz98VFdKjTm","school_year":11,"school_type_id":12,"remarks":"UdAaA7uM5lQN8KgF"}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/school/classes/{class}");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "batch_name": "xq7FrTWdW616yfX3",
-    "school_year": "5",
-    "school_type_id": "20",
-    "remarks": "g8SLVUPduw2kY4pQ",
-})
+let body = {
+    "batch_name": "a9Y7Gqz98VFdKjTm",
+    "school_year": 11,
+    "school_type_id": 12,
+    "remarks": "UdAaA7uM5lQN8KgF"
+}
 
 fetch(url, {
     method: "PUT",
@@ -1955,7 +2126,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -1992,13 +2165,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost/api/v1/school/classes/{class}" 
+curl -X DELETE "http://localhost/api/v1/school/classes/{class}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/school/classes/{class}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -2021,7 +2196,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 
@@ -2046,13 +2223,15 @@ APIs for managing School statuses
 > Example request:
 
 ```bash
-curl -X GET -G "http://localhost/api/v1/school/statuses" 
+curl -X GET -G "http://localhost/api/v1/school/statuses" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/school/statuses");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -2096,22 +2275,26 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/school/statuses"     -d "name"="AlR6EAIu1KAVVxxa" \
-    -d "descriptions"="4NCn5C7aFLjg8g1G" 
+curl -X POST "http://localhost/api/v1/school/statuses" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"g78IRs5N5Sx9bNkV","descriptions":"0TyCyYfxyJRAAy8K"}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/school/statuses");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "name": "AlR6EAIu1KAVVxxa",
-    "descriptions": "4NCn5C7aFLjg8g1G",
-})
+let body = {
+    "name": "g78IRs5N5Sx9bNkV",
+    "descriptions": "0TyCyYfxyJRAAy8K"
+}
 
 fetch(url, {
     method: "POST",
@@ -2139,7 +2322,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -2172,13 +2357,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X GET -G "http://localhost/api/v1/school/statuses/{status}" 
+curl -X GET -G "http://localhost/api/v1/school/statuses/{status}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/school/statuses/{status}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -2210,7 +2397,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 
@@ -2232,22 +2421,26 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/v1/school/statuses/{status}"     -d "name"="K25OX3hvZoOU1MsJ" \
-    -d "descriptions"="1rSNJw2AqXt0sXk8" 
+curl -X PUT "http://localhost/api/v1/school/statuses/{status}" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"ygqV0zjxvoZq03Ne","descriptions":"UGjwdeXRe3yBkNao"}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/school/statuses/{status}");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "name": "K25OX3hvZoOU1MsJ",
-    "descriptions": "1rSNJw2AqXt0sXk8",
-})
+let body = {
+    "name": "ygqV0zjxvoZq03Ne",
+    "descriptions": "UGjwdeXRe3yBkNao"
+}
 
 fetch(url, {
     method: "PUT",
@@ -2268,7 +2461,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -2303,13 +2498,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost/api/v1/school/statuses/{status}" 
+curl -X DELETE "http://localhost/api/v1/school/statuses/{status}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/school/statuses/{status}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -2332,7 +2529,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 
@@ -2357,13 +2556,15 @@ APIs for managing statuses
 > Example request:
 
 ```bash
-curl -X GET -G "http://localhost/api/v1/school/types" 
+curl -X GET -G "http://localhost/api/v1/school/types" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/school/types");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -2407,22 +2608,26 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/school/types"     -d "name"="3f45zGgYI09PP7SX" \
-    -d "descriptions"="UNWhFlK4WUh6jSbI" 
+curl -X POST "http://localhost/api/v1/school/types" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"pR1i9OCI2ctKtbnj","descriptions":"2xNhZ289tHQ7wdlw"}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/school/types");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "name": "3f45zGgYI09PP7SX",
-    "descriptions": "UNWhFlK4WUh6jSbI",
-})
+let body = {
+    "name": "pR1i9OCI2ctKtbnj",
+    "descriptions": "2xNhZ289tHQ7wdlw"
+}
 
 fetch(url, {
     method: "POST",
@@ -2450,7 +2655,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -2483,13 +2690,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X GET -G "http://localhost/api/v1/school/types/{type}" 
+curl -X GET -G "http://localhost/api/v1/school/types/{type}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/school/types/{type}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -2521,7 +2730,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 
@@ -2543,22 +2754,26 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/v1/school/types/{type}"     -d "name"="7A1Q4CIMbuXqMCnN" \
-    -d "descriptions"="njlfKwAnmp63qlHA" 
+curl -X PUT "http://localhost/api/v1/school/types/{type}" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"cB4LCfZ888LMDQ97","descriptions":"SOqmPdF16k5BMA5Z"}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/school/types/{type}");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "name": "7A1Q4CIMbuXqMCnN",
-    "descriptions": "njlfKwAnmp63qlHA",
-})
+let body = {
+    "name": "cB4LCfZ888LMDQ97",
+    "descriptions": "SOqmPdF16k5BMA5Z"
+}
 
 fetch(url, {
     method: "PUT",
@@ -2579,7 +2794,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -2614,13 +2831,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost/api/v1/school/types/{type}" 
+curl -X DELETE "http://localhost/api/v1/school/types/{type}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/school/types/{type}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -2643,7 +2862,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 
@@ -2668,13 +2889,15 @@ APIs for managing statuses
 > Example request:
 
 ```bash
-curl -X GET -G "http://localhost/api/v1/statuses" 
+curl -X GET -G "http://localhost/api/v1/statuses" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/statuses");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -2718,22 +2941,26 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/statuses"     -d "name"="avCsQK14SBMn1qYr" \
-    -d "descriptions"="WcPwkU8FvjoFHdv3" 
+curl -X POST "http://localhost/api/v1/statuses" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"iLvzoCu1Zmm9c9fq","descriptions":"jwDpijKL8YJvE9hH"}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/statuses");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "name": "avCsQK14SBMn1qYr",
-    "descriptions": "WcPwkU8FvjoFHdv3",
-})
+let body = {
+    "name": "iLvzoCu1Zmm9c9fq",
+    "descriptions": "jwDpijKL8YJvE9hH"
+}
 
 fetch(url, {
     method: "POST",
@@ -2761,7 +2988,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -2794,13 +3023,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X GET -G "http://localhost/api/v1/statuses/{status}" 
+curl -X GET -G "http://localhost/api/v1/statuses/{status}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/statuses/{status}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -2832,7 +3063,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 
@@ -2854,22 +3087,26 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/v1/statuses/{status}"     -d "name"="cxNnADHcgeIBauQc" \
-    -d "descriptions"="vhYpsEUJnzyE3onr" 
+curl -X PUT "http://localhost/api/v1/statuses/{status}" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"aWfbQBPsCNcgboa4","descriptions":"HrShgHYNA3W0aMKY"}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/statuses/{status}");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "name": "cxNnADHcgeIBauQc",
-    "descriptions": "vhYpsEUJnzyE3onr",
-})
+let body = {
+    "name": "aWfbQBPsCNcgboa4",
+    "descriptions": "HrShgHYNA3W0aMKY"
+}
 
 fetch(url, {
     method: "PUT",
@@ -2890,7 +3127,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -2925,13 +3164,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost/api/v1/statuses/{status}" 
+curl -X DELETE "http://localhost/api/v1/statuses/{status}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/statuses/{status}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -2954,7 +3195,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 
@@ -2979,13 +3222,15 @@ APIs for managing statuses
 > Example request:
 
 ```bash
-curl -X GET -G "http://localhost/api/v1/sc-statuses" 
+curl -X GET -G "http://localhost/api/v1/sc-statuses" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/sc-statuses");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -3029,22 +3274,26 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/sc-statuses"     -d "name"="ulfsOT3jibWr8ukf" \
-    -d "descriptions"="ktPcV1aZ4hNkspJ7" 
+curl -X POST "http://localhost/api/v1/sc-statuses" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"FofVex36XpOxArIu","descriptions":"GzrZltdS2Tr2M4k3"}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/sc-statuses");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "name": "ulfsOT3jibWr8ukf",
-    "descriptions": "ktPcV1aZ4hNkspJ7",
-})
+let body = {
+    "name": "FofVex36XpOxArIu",
+    "descriptions": "GzrZltdS2Tr2M4k3"
+}
 
 fetch(url, {
     method: "POST",
@@ -3073,7 +3322,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -3106,13 +3357,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X GET -G "http://localhost/api/v1/sc-statuses/{sc_status}" 
+curl -X GET -G "http://localhost/api/v1/sc-statuses/{sc_status}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/sc-statuses/{sc_status}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -3143,7 +3396,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 
@@ -3165,22 +3420,26 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/v1/sc-statuses/{sc_status}"     -d "name"="qGc5aN5YIzBSSgDR" \
-    -d "descriptions"="MGcppDJDqEpJU277" 
+curl -X PUT "http://localhost/api/v1/sc-statuses/{sc_status}" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"IZggK1g1d8Q2KdWO","descriptions":"z0TwXJm2DBiceMIt"}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/sc-statuses/{sc_status}");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "name": "qGc5aN5YIzBSSgDR",
-    "descriptions": "MGcppDJDqEpJU277",
-})
+let body = {
+    "name": "IZggK1g1d8Q2KdWO",
+    "descriptions": "z0TwXJm2DBiceMIt"
+}
 
 fetch(url, {
     method: "PUT",
@@ -3201,7 +3460,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -3236,13 +3497,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost/api/v1/sc-statuses/{sc_status}" 
+curl -X DELETE "http://localhost/api/v1/sc-statuses/{sc_status}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/sc-statuses/{sc_status}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -3265,7 +3528,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 
@@ -3290,22 +3555,26 @@ APIs for user auth
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/login"     -d "username"="ERzRcgU7wFmnXNHO" \
-    -d "password"="ysM3A2uddFSH51qV" 
+curl -X POST "http://localhost/api/v1/login" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"username":"z6PNFfmfJgeq2o4C","password":"xND8AWip5wgeDUZj"}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/login");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "username": "ERzRcgU7wFmnXNHO",
-    "password": "ysM3A2uddFSH51qV",
-})
+let body = {
+    "username": "z6PNFfmfJgeq2o4C",
+    "password": "xND8AWip5wgeDUZj"
+}
 
 fetch(url, {
     method: "POST",
@@ -3360,13 +3629,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/logout" 
+curl -X POST "http://localhost/api/v1/logout" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/logout");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -3394,6 +3665,287 @@ fetch(url, {
 
 <!-- END_fb2ae43e2e99ff4e90f22ba03801a735 -->
 
+#User Role management
+
+APIs for managing user roles
+<!-- START_5f753b2bffb6b34b6136ddfe1be7bcce -->
+## Store a newly created resource in storage.
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost/api/v1/roles" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"a2aiStl5U1VW6YKT","descriptions":"ND4SnQvwzLJ84yrr"}'
+
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/roles");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "name": "a2aiStl5U1VW6YKT",
+    "descriptions": "ND4SnQvwzLJ84yrr"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "data": {
+        "name": "Administrator",
+        "descriptions": "",
+        "updated_at": "2019-02-06 12:49:41",
+        "created_at": "2019-02-06 12:49:41",
+        "id": 2
+    }
+}
+```
+> Example response (500):
+
+```json
+{
+    "data": "Error message ..."
+}
+```
+> Example response (422):
+
+```json
+{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}
+```
+
+### HTTP Request
+`POST api/v1/roles`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    name | string |  required  | the name of the school status
+    descriptions | string |  optional  | options descriptions of the status
+
+<!-- END_5f753b2bffb6b34b6136ddfe1be7bcce -->
+
+<!-- START_ba05db58d706b9f94944b1ab79e1e4a2 -->
+## Display the specified resource.
+
+> Example request:
+
+```bash
+curl -X GET -G "http://localhost/api/v1/roles/{role}" \
+    -H "Authorization: Bearer {token}"
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/roles/{role}");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "data": {
+        "name": "Administrator",
+        "descriptions": "Descriptions here...",
+        "created_by": 1,
+        "updated_by": 1,
+        "updated_at": "2019-02-06 13:35:26",
+        "created_at": "2019-02-06 13:35:26",
+        "id": 9
+    }
+}
+```
+> Example response (500):
+
+```json
+{
+    "data": "Error message ..."
+}
+```
+> Example response (404):
+
+```json
+{
+    "message": "Record not found"
+}
+```
+
+### HTTP Request
+`GET api/v1/roles/{role}`
+
+
+<!-- END_ba05db58d706b9f94944b1ab79e1e4a2 -->
+
+<!-- START_81ac9047f8db2b92092c5a7f13e5d28d -->
+## Update the specified resource in storage.
+
+> Example request:
+
+```bash
+curl -X PUT "http://localhost/api/v1/roles/{role}" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"0f32YkOPhrepL2eD","descriptions":"HZZ2MWoVvUKoH6Y3"}'
+
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/roles/{role}");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "name": "0f32YkOPhrepL2eD",
+    "descriptions": "HZZ2MWoVvUKoH6Y3"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true
+}
+```
+> Example response (500):
+
+```json
+{
+    "data": "Error message ..."
+}
+```
+> Example response (422):
+
+```json
+{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}
+```
+
+### HTTP Request
+`PUT api/v1/roles/{role}`
+
+`PATCH api/v1/roles/{role}`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    name | string |  required  | role name
+    descriptions | string |  optional  | optional role descriptions
+
+<!-- END_81ac9047f8db2b92092c5a7f13e5d28d -->
+
+<!-- START_04c524fc2f0ea8c793406426144b4c71 -->
+## Remove the specified resource from storage.
+
+> Example request:
+
+```bash
+curl -X DELETE "http://localhost/api/v1/roles/{role}" \
+    -H "Authorization: Bearer {token}"
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/roles/{role}");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true
+}
+```
+> Example response (500):
+
+```json
+{
+    "data": "Error message ..."
+}
+```
+> Example response (404):
+
+```json
+{
+    "message": "Record not found"
+}
+```
+
+### HTTP Request
+`DELETE api/v1/roles/{role}`
+
+
+<!-- END_04c524fc2f0ea8c793406426144b4c71 -->
+
 #User management
 
 APIs for managing user
@@ -3403,32 +3955,31 @@ APIs for managing user
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/users"     -d "username"="Sgn3O8E5KRCMDvt1" \
-    -d "name"="OJk6vUFYgyQ1BMT5" \
-    -d "email"="otviFdW7KEl8CBIZ" \
-    -d "password"="f1rBEEhJwAqCKOTc" \
-    -d "confirm_password"="QFDsRm97XW9MksGW" \
-    -d "roles"="2NJTugWBDPizAfmS" \
-    -d "member_id"="19" 
+curl -X POST "http://localhost/api/v1/users" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"username":"022FBdNYZkJJKyIm","name":"78RY5o9fvLEnROV7","email":"UA8APuTUrJfKrSc6","password":"PiXjlWw8jI5u5PRC","confirm_password":"H1vLMkBjxQbVbR2U","roles":"u3a3ZOHacPkVgxOZ","member_id":4}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/users");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "username": "Sgn3O8E5KRCMDvt1",
-    "name": "OJk6vUFYgyQ1BMT5",
-    "email": "otviFdW7KEl8CBIZ",
-    "password": "f1rBEEhJwAqCKOTc",
-    "confirm_password": "QFDsRm97XW9MksGW",
-    "roles": "2NJTugWBDPizAfmS",
-    "member_id": "19",
-})
+let body = {
+    "username": "022FBdNYZkJJKyIm",
+    "name": "78RY5o9fvLEnROV7",
+    "email": "UA8APuTUrJfKrSc6",
+    "password": "PiXjlWw8jI5u5PRC",
+    "confirm_password": "H1vLMkBjxQbVbR2U",
+    "roles": "u3a3ZOHacPkVgxOZ",
+    "member_id": 4
+}
 
 fetch(url, {
     method: "POST",
@@ -3457,7 +4008,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -3495,13 +4048,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X GET -G "http://localhost/api/v1/users/{user}" 
+curl -X GET -G "http://localhost/api/v1/users/{user}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/users/{user}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -3549,7 +4104,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 
@@ -3571,26 +4128,28 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/v1/users/{user}"     -d "name"="C9d00G0T2xvliYVQ" \
-    -d "email"="eQweOW465FWKcBBL" \
-    -d "roles"="Kh6Anw0OXOIhC9CB" \
-    -d "id"="20" 
+curl -X PUT "http://localhost/api/v1/users/{user}" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"AVtTbabLH42KZsYH","email":"qHqIqr3rax6IfbOb","roles":"FB3jOSre2SoGkhQw","id":4}'
+
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/users/{user}");
 
 let headers = {
-    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 }
 
-let body = JSON.stringify({
-    "name": "C9d00G0T2xvliYVQ",
-    "email": "eQweOW465FWKcBBL",
-    "roles": "Kh6Anw0OXOIhC9CB",
-    "id": "20",
-})
+let body = {
+    "name": "AVtTbabLH42KZsYH",
+    "email": "qHqIqr3rax6IfbOb",
+    "roles": "FB3jOSre2SoGkhQw",
+    "id": 4
+}
 
 fetch(url, {
     method: "PUT",
@@ -3611,7 +4170,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (422):
 
@@ -3648,13 +4209,15 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost/api/v1/users/{user}" 
+curl -X DELETE "http://localhost/api/v1/users/{user}" \
+    -H "Authorization: Bearer {token}"
 ```
 
 ```javascript
 const url = new URL("http://localhost/api/v1/users/{user}");
 
 let headers = {
+    "Authorization": "Bearer {token}",
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
@@ -3677,7 +4240,9 @@ fetch(url, {
 > Example response (500):
 
 ```json
-{}
+{
+    "data": "Error message ..."
+}
 ```
 > Example response (404):
 

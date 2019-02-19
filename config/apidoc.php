@@ -81,7 +81,7 @@ return [
                  * Specify headers to be added to the example requests
                  */
                 'headers' => [
-                    // 'Authorization' => 'Bearer {token}',
+                    'Authorization' => 'Bearer {token}',
                     // 'Api-Version' => 'v2',
                 ],
 
@@ -153,7 +153,7 @@ return [
      * If you want to use this, please be aware of the following rules:
      * - size: 230 x 52
      */
-    'logo' => false,
+    'logo' => resource_path('views') . '/api/logo.png',
 
     /*
      * Configure how responses are transformed using @transformer and @transformerCollection

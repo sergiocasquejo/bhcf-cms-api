@@ -13,11 +13,12 @@ use Illuminate\Http\Request;
 */
 Route::prefix('v1')->group(function() {
     Route::group(['middleware' => 'auth:api'], function() {
-        Route::resource('members/category', 'MemberCategoryController')->only(['index', 'store', 'show', 'update', 'destroy']);
         
+        Route::resource('members/category', 'MemberCategoryController')->only(['index', 'store', 'show', 'update', 'destroy']);
+        Route::post('members/{id}/avatar', 'MemberController@uploadAvatar');
         Route::resource('members', 'MemberController')->only(['index', 'store', 'show', 'update', 'destroy']);
         Route::resource('users', 'UserController')->only(['store', 'show', 'update', 'destroy']);
-        
+        Route::resource('roles', 'RoleController')->only(['store', 'show', 'update', 'destroy']);
         Route::resource('auxiliary-groups', 'AuxiliaryGroupController')->only(['index', 'store', 'show', 'update', 'destroy']);
         Route::resource('ministries', 'MinistryController')->only(['index', 'store', 'show', 'update', 'destroy']);
         Route::resource('statuses', 'StatusController')->only(['index', 'store', 'show', 'update', 'destroy']);
@@ -34,7 +35,7 @@ Route::prefix('v1')->group(function() {
         
         
     });
-
+    
     Route::post('login', 'Auth\LoginController@login');
     Route::post('logout', 'Auth\LoginController@logout');
 });

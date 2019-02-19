@@ -57,7 +57,7 @@ class SundayCelebrationStatusController extends Controller
      *    }
      * }
      * @response 500{
-     *  "data": Error message ...
+     *  "data": "Error message ..."
      * }
      * @response 422{
      *  "success":false,
@@ -98,7 +98,7 @@ class SundayCelebrationStatusController extends Controller
      *    }
      * }
      * @response 500{
-     *  "data": Error message ...
+     *  "data": "Error message ..."
      * }
      * @response 404{
      *  "message":"Record not found"
@@ -120,7 +120,7 @@ class SundayCelebrationStatusController extends Controller
      *  "success":true
      * }
      * @response 500{
-     *  "data": Error message ...
+     *  "data": "Error message ..."
      * }
      * @response 422{
      *  "success":false,
@@ -153,7 +153,7 @@ class SundayCelebrationStatusController extends Controller
      *  "success": true
      * }
      * @response 500{
-     *  "data": Error message ...
+     *  "data": "Error message ..."
      * }
      * @response 404{
      *  "message":"Record not found"

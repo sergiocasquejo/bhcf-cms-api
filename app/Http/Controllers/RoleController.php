@@ -3,15 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\StatusStoreRequest;
-use App\Http\Requests\StatusUpdateRequest;
+use App\Http\Requests\RoleStoreRequest;
+use App\Http\Requests\RoleUpdateRequest;
 /**
- * @group Status management
+ * @group User Role management
  *
- * APIs for managing statuses
+ * APIs for managing user roles
  */
-
-class StatusController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,7 +20,7 @@ class StatusController extends Controller
      * "data":[
      *      {
      *      "id":1,
-     *      "name":"VIP",
+     *      "name":"Administrator",
      *      "descriptions":"",
      *      "created_by":1,
      *      "created_at":"2019-02-06 09:58:46",
@@ -33,7 +32,7 @@ class StatusController extends Controller
      */
     public function index(Request $request)
     {
-        $results = \App\Status::all();
+        $results = \App\Role::all();
 
         return response()->json(['success' => true, 'data' => $results], 200);
     }
@@ -43,13 +42,13 @@ class StatusController extends Controller
      * Store a newly created resource in storage.
      *
      * @bodyParam name string required the name of the school status
-     * @bodyParam descriptions string optional descriptions of the status
+     * @bodyParam descriptions string options descriptions of the status
      * 
      * @response {
      *  "success":true,
      *  "data":{
-     *   "name":"SUYNIL",
-     *      "descriptions":"",
+     *   "name":"Administrator",
+     *  "descriptions":"",
      *  "updated_at":"2019-02-06 12:49:41",
      *  "created_at":"2019-02-06 12:49:41",
      *  "id":2
@@ -66,12 +65,12 @@ class StatusController extends Controller
      * }
      */
 
-    public function store(StatusStoreRequest $request)
+    public function store(RoleStoreRequest $request)
     {  
         try {
             $input = $request->only(['name', 'descriptions']);
             $input['created_by'] = auth()->user()->id;
-            $schoolStatus = new \App\Status($input);
+            $schoolStatus = new \App\Role($input);
             if ($schoolStatus->save()) {
                 return response()->json(['success' => true, 'data' => $schoolStatus], 201);    
             } else {
@@ -88,7 +87,7 @@ class StatusController extends Controller
      * @response {
      *  "success":true,
      *  "data":{
-     *      "name":"SUYNIL",
+     *      "name":"Administrator",
      *      "descriptions":"Descriptions here...",
      *      "created_by":1,
      *      "updated_by":1,
@@ -105,15 +104,15 @@ class StatusController extends Controller
      */
     public function show($id)
     {
-        return response()->json(['data' => \App\Status::findOrFail($id)]);
+        return response()->json(['data' => \App\Role::findOrFail($id)]);
     }
 
 
     /**
      * Update the specified resource in storage.
      *
-     * @bodyParam name string required the name of the school status
-     * @bodyParam descriptions string optional descriptions of the status
+     * @bodyParam name string required role name
+     * @bodyParam descriptions string optional role descriptions
      * 
      * @response {
      *  "success":true
@@ -128,13 +127,13 @@ class StatusController extends Controller
      *  }
      * }
      */
-    public function update(StatusUpdateRequest $request, $id)
+    public function update(RoleUpdateRequest $request, $id)
     {
         try {
             $input = $request->only(['name', 'descriptions']);
             $input['updated_by'] = auth()->user()->id;
 
-            if ($result = \App\Status::find($id)->update($input)) {
+            if ($result = \App\Role::find($id)->update($input)) {
                 return response()->json(['success' => true], 201);    
             } else {
                 return response()->json(['success' => false, 'data' => 'Unsuccessfull update.'], 200);
@@ -159,6 +158,6 @@ class StatusController extends Controller
      */
     public function destroy($id)
     {
-        return response()->json(['success' => \App\Status::findOrFail($id)->delete()]);
+        return response()->json(['success' => \App\Role::findOrFail($id)->delete()]);
     }
 }
