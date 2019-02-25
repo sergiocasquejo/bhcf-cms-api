@@ -19,6 +19,7 @@ class CellGroupAttedance extends Model
      *
      * @var array
      */
+    
     protected $fillable = [
         'member_id',
         'attendance_date',
