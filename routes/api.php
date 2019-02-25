@@ -25,9 +25,9 @@ Route::prefix('v1')->group(function() {
         Route::resource('leadership-level', 'LeadershipLevelController')->only(['index', 'store', 'show', 'update', 'destroy']);
         Route::resource('sc-statuses', 'SundayCelebrationStatusController')->only(['index', 'store', 'show', 'update', 'destroy']);
         Route::prefix('school')->group(function () {
-            Route::put('classes/{class_id}/update-member-attendance', 'SchoolStatusController@updateMemberAttendance');
-            Route::post('enrolled-member', 'SchoolStatusController@enrollMember');
-            Route::get('search-unenrolled-member', 'SchoolStatusController@searchUnEnrolledMember');
+            Route::put('classes/{class_id}/update-member-attendance', 'SchoolClassController@updateMemberAttendance');
+            Route::post('enrolled-member', 'SchoolClassController@enrollMember');
+            Route::get('search-unenrolled-member', 'SchoolClassController@searchUnEnrolledMember');
             Route::resource('statuses', 'SchoolStatusController')->only(['index', 'store', 'show', 'update', 'destroy']);
             Route::resource('types', 'SchoolTypeController')->only(['index', 'store', 'show', 'update', 'destroy']);
             Route::resource('classes', 'SchoolClassController')->only(['index', 'store', 'show', 'update', 'destroy']);
