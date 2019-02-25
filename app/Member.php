@@ -46,7 +46,6 @@ class Member extends Model
         return $this->belongsTo(User::class);
     }
 
-
     public function ministries() {
         return $this->belongsToMany(Ministry::class, 'member_to_ministry', 'member_id', 'ministry_id');
     }
