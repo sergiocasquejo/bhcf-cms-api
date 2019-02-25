@@ -13,7 +13,6 @@ class SOL extends Model
      */
     
     protected $table = 'sols';
-
     /**
      * The attributes that are mass assignable.
      *
