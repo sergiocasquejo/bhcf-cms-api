@@ -12,6 +12,7 @@ class MemberCategory extends Model
      * @var string
      */
     protected $table = 'member_categories';
+    //Create fillable columns
     protected $fillable = [
         'descriptions', 'name', 'created_by', 'updated_by'
     ];
