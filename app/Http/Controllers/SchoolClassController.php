@@ -43,6 +43,117 @@ class SchoolClassController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     *
+     * @bodyParam batch_name string required the name of the batch
+     * @bodyParam school_year integer requred the year
+     * @bodyParam school_type_id integer required the school type (SUYNIL, Life Clas, SOL 1, ...)
+     * @bodyParam remarks string optional remarks
+     * 
+     * 
+     * @response {
+     *  "success":true,
+     *  "data":{
+     *      "id":1,
+     *      "batch_name":"Kamonggay",
+     *      "remarks": "",
+     *      "school_year":"2019",
+     *      "school_type_id": 1,
+     *      "created_by":1,
+     *      "updated_by":1,
+     *      "created_at":"2019-02-06 09:58:46",
+     *      "updated_at":"2019-02-06 09:58:46",
+     *      "attendances": []
+     *    }
+     * }
+     * @response 500{
+     *  "data": "Error message ..."
+     * }
+     * @response 422{
+     *  "success":false,
+     *  "data":{
+     *      "first_name":["The :attribute field is required."]
+     *  }
+     * }
+     */
+
+    public function store(SchoolClassStoreRequest $request)
+    {  
+        try {
+            $input = $request->only(['batch_name', 'remarks', 'school_year', 'school_type_id']);
+            $input['created_by'] = auth()->user()->id;
+            $sm = new \App\SchoolClass($input);
+            if ($sm->save()) {
+                return response()->json(['success' => true, 'data' => $sm], 201);    
+            } else {
+                return response()->json(['success' => false, 'data' => 'Unsuccessfull save.'], 200);
+            }
+        } catch(\Exception $e) {
+            return response()->json(['data' => $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Enroll new member to the class.
+     *
+     * @bodyParam member_id int required the ID of the member
+     * @bodyParam school_class_id int required the ID of the class
+     * 
+     * @response {
+     *  "success":true,
+     *  "data":{
+     *   "member_id":1,
+     *   "school_class_id":1,
+     *   "level_1":0,
+     *  "level_2":0,
+     *  "updated_at":"2019-02-06 12:49:41",
+     *  "created_at":"2019-02-06 12:49:41",
+     *  "id":1
+     *  }
+     * }
+     * @response 500{
+     *  "data": "Error message ..."
+     * }
+     * @response 422{
+     *  "success":false,
+     *  "data":{
+     *      "first_name":["The :attribute field is required."]
+     *  }
+     * }
+     */
+
+
+    public function enrollMember(Request $request) {
+        try {
+            $input = $request->only(['member_id', 'school_class_id']);
+            $class = \App\SchoolClass::findOrFail($input['class_id']);
+            $student = null;
+            switch($class->class_type) {
+                case 'SUYNIL':
+                    $student = new \App\SUYNIL($input);
+                    break;
+                case 'LifeClass':
+                    $student = new \App\SOL($input);
+                    break;
+                case 'SOL':
+                    $student = new \App\LifeClass($input);
+                    break;
+            }
+
+            if ($student->save()) {
+                return response()->json(['success' => true, 'data' => $sm], 201);    
+            } else {
+                return response()->json(['success' => false, 'data' => 'Unsuccessfull save.'], 200);
+            }
+
+        }catch(\Exception $e) {
+            return response()->json(['data' => $e->getMessage()], 500);
+        }
+
+    }
+
+
+    /**
      * Update student attendance
      *
      * @bodyParam id int required the ID of the row
@@ -109,65 +220,7 @@ class SchoolClassController extends Controller
     }
 
 
-    /**
-     * Enroll new member to the class.
-     *
-     * @bodyParam member_id int required the ID of the member
-     * @bodyParam school_class_id int required the ID of the class
-     * 
-     * @response {
-     *  "success":true,
-     *  "data":{
-     *   "member_id":1,
-     *   "school_class_id":1,
-     *   "level_1":0,
-     *  "level_2":0,
-     *  "updated_at":"2019-02-06 12:49:41",
-     *  "created_at":"2019-02-06 12:49:41",
-     *  "id":1
-     *  }
-     * }
-     * @response 500{
-     *  "data": "Error message ..."
-     * }
-     * @response 422{
-     *  "success":false,
-     *  "data":{
-     *      "first_name":["The :attribute field is required."]
-     *  }
-     * }
-     */
-
-
-    public function enrollMember(Request $request) {
-        try {
-            $input = $request->only(['member_id', 'school_class_id']);
-            $class = \App\SchoolClass::findOrFail($input['class_id']);
-            $student = null;
-            switch($class->class_type) {
-                case 'SUYNIL':
-                    $student = new \App\SUYNIL($input);
-                    break;
-                case 'LifeClass':
-                    $student = new \App\SOL($input);
-                    break;
-                case 'SOL':
-                    $student = new \App\LifeClass($input);
-                    break;
-            }
-
-            if ($student->save()) {
-                return response()->json(['success' => true, 'data' => $sm], 201);    
-            } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull save.'], 200);
-            }
-
-        }catch(\Exception $e) {
-            return response()->json(['data' => $e->getMessage()], 500);
-        }
-
-    }
-
+    
      /**
      * Search unenrolled member
      *
@@ -214,58 +267,7 @@ class SchoolClassController extends Controller
         }
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @bodyParam batch_name string required the name of the batch
-     * @bodyParam school_year integer requred the year
-     * @bodyParam school_type_id integer required the school type (SUYNIL, Life Clas, SOL 1, ...)
-     * @bodyParam remarks string optional remarks
-     * 
-     * 
-     * @response {
-     *  "success":true,
-     *  "data":{
-     *      "id":1,
-     *      "batch_name":"Kamonggay",
-     *      "remarks": "",
-     *      "school_year":"2019",
-     *      "school_type_id": 1,
-     *      "created_by":1,
-     *      "updated_by":1,
-     *      "created_at":"2019-02-06 09:58:46",
-     *      "updated_at":"2019-02-06 09:58:46",
-     *      "attendances": []
-     *    }
-     * }
-     * @response 500{
-     *  "data": "Error message ..."
-     * }
-     * @response 422{
-     *  "success":false,
-     *  "data":{
-     *      "first_name":["The :attribute field is required."]
-     *  }
-     * }
-     */
-
-    public function store(SchoolClassStoreRequest $request)
-    {  
-        try {
-            $input = $request->only(['batch_name', 'remarks', 'school_year', 'school_type_id']);
-            $input['created_by'] = auth()->user()->id;
-            $sm = new \App\SchoolClass($input);
-            if ($sm->save()) {
-                return response()->json(['success' => true, 'data' => $sm], 201);    
-            } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull save.'], 200);
-            }
-        } catch(\Exception $e) {
-            return response()->json(['data' => $e->getMessage()], 500);
-        }
-    }
-
+    
     /**
      * Display the specified resource.
      *
