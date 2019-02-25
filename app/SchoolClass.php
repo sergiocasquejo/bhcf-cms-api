@@ -28,8 +28,4 @@ class SchoolClass extends Model
         'created_by',
         'updated_by'
     ];
-
-    function scopeWithAttendances($query) {
-        
-    }
 }
