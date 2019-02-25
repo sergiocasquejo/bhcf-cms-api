@@ -8,6 +8,7 @@ use App\Http\Requests\StoreAvatarRequest;
 use App;
 use Image;
 use App\Http\Resources\Member as MemberResources;
+
 /**
  * @group Member management
  *
