@@ -40,12 +40,7 @@ class User extends Authenticatable
         return $this->api_token;
     }
 
-    
     public function roles() {
         return $this->belongsToMany('App\Role', 'user_to_roles', 'user_id', 'role_id');
     }
-
-
-
-   
 }
