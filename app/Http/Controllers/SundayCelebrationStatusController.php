@@ -13,6 +13,17 @@ use App\Http\Requests\SundayCelebrationStatusUpdateRequest;
 
 class SundayCelebrationStatusController extends Controller
 {
+     /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('admin');
+        $this->middleware('cellleader');
+    }
+
     /**
      * Display a listing of the resource.
      *
