@@ -14,29 +14,25 @@ class RolesTableSeeder extends Seeder
         $roles =[
             [
                 'name' => 'administrator',
-                'descriptions' => 'Super Administrator',
-                'created_by' => 1
+                'label' => 'Administrator',
+                'created_by' => 1,
             ],
             [
-                'name' => 'School Staff',
-                'descriptions' => 'School Staff',
-                'created_by' => 1
+                'name' => 'senior_pastor',
+                'label' => 'Senior Pastor',
+                'created_by' => 1,
             ],
             [
-                'name' => 'Senior Pastor',
-                'descriptions' => 'Senior Pastor',
-                'created_by' => 1
+                'name' => 'cell_leader',
+                'label' => 'Cell Leader',
+                'created_by' => 1,
             ],
             [
-                'name' => 'Primary Leader',
-                'descriptions' => 'Primary Leader',
-                'created_by' => 1
+                'name' => 'finance',
+                'label' => 'Finance',
+                'created_by' => 1,
             ],
-            [
-                'name' => '144 Cell Leader',
-                'descriptions' => '144 Cell Leader',
-                'created_by' => 1
-            ]
+
 
         ];
         foreach($roles as $role) {

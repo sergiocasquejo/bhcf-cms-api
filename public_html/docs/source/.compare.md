@@ -84,7 +84,7 @@ fetch(url, {
 curl -X POST "http://localhost/api/v1/leadership-level" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"YgBKVLbavycnB6AG","descriptions":"TCQNzV0emWCISgj2"}'
+    -d '{"name":"6wQE6L9wQV8x9Lp0","descriptions":"ZDSjoA3ZRJdTPfG9"}'
 
 ```
 
@@ -98,8 +98,8 @@ let headers = {
 }
 
 let body = {
-    "name": "YgBKVLbavycnB6AG",
-    "descriptions": "TCQNzV0emWCISgj2"
+    "name": "6wQE6L9wQV8x9Lp0",
+    "descriptions": "ZDSjoA3ZRJdTPfG9"
 }
 
 fetch(url, {
@@ -230,7 +230,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/leadership-level/{leadership_level}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"v50vVJ8nAiLKsExD","descriptions":"7naYVON5EQh6dI0O"}'
+    -d '{"name":"wVGBDjfLyN7giFyK","descriptions":"nYplU8eQMYsi2xDk"}'
 
 ```
 
@@ -244,8 +244,8 @@ let headers = {
 }
 
 let body = {
-    "name": "v50vVJ8nAiLKsExD",
-    "descriptions": "7naYVON5EQh6dI0O"
+    "name": "wVGBDjfLyN7giFyK",
+    "descriptions": "nYplU8eQMYsi2xDk"
 }
 
 fetch(url, {
@@ -417,7 +417,7 @@ fetch(url, {
 curl -X POST "http://localhost/api/v1/auxiliary-groups" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"ErhIbNZOcfcvm5KC","descriptions":"ZLGEG3os7AO8Ncpa"}'
+    -d '{"name":"Fa6tvfTmmiKKXdc2","descriptions":"ft1WpnD3T8pmlAE0"}'
 
 ```
 
@@ -431,8 +431,8 @@ let headers = {
 }
 
 let body = {
-    "name": "ErhIbNZOcfcvm5KC",
-    "descriptions": "ZLGEG3os7AO8Ncpa"
+    "name": "Fa6tvfTmmiKKXdc2",
+    "descriptions": "ft1WpnD3T8pmlAE0"
 }
 
 fetch(url, {
@@ -563,7 +563,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/auxiliary-groups/{auxiliary_group}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"vpLEKWAdHwud58Lu","descriptions":"jLbyQnNCdzS6BIma"}'
+    -d '{"name":"Ck6kBR4Qwb9uNAsu","descriptions":"7YSETK46XvD0hCnT"}'
 
 ```
 
@@ -577,8 +577,8 @@ let headers = {
 }
 
 let body = {
-    "name": "vpLEKWAdHwud58Lu",
-    "descriptions": "jLbyQnNCdzS6BIma"
+    "name": "Ck6kBR4Qwb9uNAsu",
+    "descriptions": "7YSETK46XvD0hCnT"
 }
 
 fetch(url, {
@@ -750,7 +750,7 @@ fetch(url, {
 curl -X POST "http://localhost/api/v1/members/category" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"FhopRo7M2ldeyKgm","descriptions":"SR9yuwSlaNVmN921"}'
+    -d '{"name":"sWZiDPCpmtHFjbVk","descriptions":"doq29JK4YfZshHWo"}'
 
 ```
 
@@ -764,8 +764,8 @@ let headers = {
 }
 
 let body = {
-    "name": "FhopRo7M2ldeyKgm",
-    "descriptions": "SR9yuwSlaNVmN921"
+    "name": "sWZiDPCpmtHFjbVk",
+    "descriptions": "doq29JK4YfZshHWo"
 }
 
 fetch(url, {
@@ -896,7 +896,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/members/category/{category}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"OLpNEyu2iWm3HW2R","descriptions":"4kTfmmZGe1OGDkTE"}'
+    -d '{"name":"5tdZJg6HW4MDzcYT","descriptions":"IfgVl3FZHlPKHEOA"}'
 
 ```
 
@@ -910,8 +910,8 @@ let headers = {
 }
 
 let body = {
-    "name": "OLpNEyu2iWm3HW2R",
-    "descriptions": "4kTfmmZGe1OGDkTE"
+    "name": "5tdZJg6HW4MDzcYT",
+    "descriptions": "IfgVl3FZHlPKHEOA"
 }
 
 fetch(url, {
@@ -1031,7 +1031,7 @@ APIs for managing member
 curl -X POST "http://localhost/api/v1/members/{id}/avatar" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"avatar":"v1e2WaYpISg1Fltw","_method":"ibTRBJp0iEZunW9E"}'
+    -d '{"avatar":"AFtrUlgmb30CRTrJ","_method":"Nwj16DKXKFJaYNVZ"}'
 
 ```
 
@@ -1045,8 +1045,8 @@ let headers = {
 }
 
 let body = {
-    "avatar": "v1e2WaYpISg1Fltw",
-    "_method": "ibTRBJp0iEZunW9E"
+    "avatar": "AFtrUlgmb30CRTrJ",
+    "_method": "Nwj16DKXKFJaYNVZ"
 }
 
 fetch(url, {
@@ -1115,10 +1115,10 @@ curl -X GET -G "http://localhost/api/v1/members" \
 const url = new URL("http://localhost/api/v1/members");
 
     let params = {
-            "offset": "18",
-            "limit": "7",
-            "sort": "yVbZvwVbxTWbnMoo",
-            "sortBy": "0HqsYecWmutCppFb",
+            "offset": "19",
+            "limit": "19",
+            "sort": "ZY3cVUL2XYSBRDTN",
+            "sortBy": "eqthnFnkm5ymuFq5",
         };
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
@@ -1178,7 +1178,7 @@ Parameter | Status | Description
 curl -X POST "http://localhost/api/v1/members" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"leader_id":5,"invited_by":3,"first_name":"5We3aE6mcSxFjRgE","last_name":"eySHM4k0V9Vqb6N1","middle_name":"TeI1s9b2wb7HoXg5","birthdate":"Ztw4omg5fFSnT3zA","address":"kGZD117J580NoeWE","city":"MBWxFD7aiAsywv0l","contact_no":"d35zq9rzdwwDowZF","secondary_contact_no":"aq3TamxorqvxVbGm","facebook_name":"c326GD49WaaSbLOw","avatar":"GlLBdwzlZou48YbC","school_status_id":18,"leadership_level_id":7,"auxiliary_group_id":4,"status_id":14,"category_id":6,"remarks":"6e1cEPGqeDaNzdB7"}'
+    -d '{"leader_id":8,"invited_by":17,"first_name":"a82RyFIQultswjHy","last_name":"tg2RnEoyhXG3r5Z5","middle_name":"OzGvurVwMIgAsSkb","birthdate":"O7DZP8umgFTSWhb0","address":"Fe4wdFXQhPlsJytl","city":"KGHcNnWkmUiMbuo8","contact_no":"7O25BzoH5K4KvFPj","secondary_contact_no":"ehS8Tq5UbTpCG7ci","facebook_name":"c1FF80tGb8CepZ6P","avatar":"Wo9UQx0LaKMwB4ND","school_status_id":13,"leadership_level_id":17,"auxiliary_group_id":3,"status_id":19,"category_id":3,"remarks":"krCiWnh64fUKtWBY"}'
 
 ```
 
@@ -1192,24 +1192,24 @@ let headers = {
 }
 
 let body = {
-    "leader_id": 5,
-    "invited_by": 3,
-    "first_name": "5We3aE6mcSxFjRgE",
-    "last_name": "eySHM4k0V9Vqb6N1",
-    "middle_name": "TeI1s9b2wb7HoXg5",
-    "birthdate": "Ztw4omg5fFSnT3zA",
-    "address": "kGZD117J580NoeWE",
-    "city": "MBWxFD7aiAsywv0l",
-    "contact_no": "d35zq9rzdwwDowZF",
-    "secondary_contact_no": "aq3TamxorqvxVbGm",
-    "facebook_name": "c326GD49WaaSbLOw",
-    "avatar": "GlLBdwzlZou48YbC",
-    "school_status_id": 18,
-    "leadership_level_id": 7,
-    "auxiliary_group_id": 4,
-    "status_id": 14,
-    "category_id": 6,
-    "remarks": "6e1cEPGqeDaNzdB7"
+    "leader_id": 8,
+    "invited_by": 17,
+    "first_name": "a82RyFIQultswjHy",
+    "last_name": "tg2RnEoyhXG3r5Z5",
+    "middle_name": "OzGvurVwMIgAsSkb",
+    "birthdate": "O7DZP8umgFTSWhb0",
+    "address": "Fe4wdFXQhPlsJytl",
+    "city": "KGHcNnWkmUiMbuo8",
+    "contact_no": "7O25BzoH5K4KvFPj",
+    "secondary_contact_no": "ehS8Tq5UbTpCG7ci",
+    "facebook_name": "c1FF80tGb8CepZ6P",
+    "avatar": "Wo9UQx0LaKMwB4ND",
+    "school_status_id": 13,
+    "leadership_level_id": 17,
+    "auxiliary_group_id": 3,
+    "status_id": 19,
+    "category_id": 3,
+    "remarks": "krCiWnh64fUKtWBY"
 }
 
 fetch(url, {
@@ -1374,7 +1374,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/members/{member}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"leader_id":3,"invited_by":8,"first_name":"Sc6jqN6zVeWlhcNk","last_name":"MxfzhhRKHuMyJn21","middle_name":"R4wEUgbVHzOYIDhi","birthdate":"G6kjUDw3FgJyKWFg","address":"71uGVdn0bXn3ucSz","city":"wqsNFokpX0n5p5Yf","contact_no":"l08ZZaZmMlLs2RAI","secondary_contact_no":"MxIiFq5NA3L1XnQ5","facebook_name":"d3yeCkZ2MP16UPz8","avatar":"lJnIX4u14ksVL7aS","school_status_id":4,"leadership_level_id":13,"auxiliary_group_id":9,"status_id":5,"category_id":5,"remarks":"YhPPUgMJgS6ABk2K","_method":"nRidAyYVU68PICsm"}'
+    -d '{"leader_id":4,"invited_by":6,"first_name":"FyviaIS9eLLOhmqg","last_name":"hwvSRmv46ko5Ey2P","middle_name":"liLo3HHAD2rjeYo9","birthdate":"NxWQL91b8aiXg4Rk","address":"GaY6aqiNUyJVjypG","city":"BsHTp7PUoAMwz5nd","contact_no":"yHWZ1B8q6iixgB6x","secondary_contact_no":"VTBYLyKjmKl9qost","facebook_name":"f3ObHzBydtCl4J2k","avatar":"FmYATtVi3QnEy0rb","school_status_id":17,"leadership_level_id":17,"auxiliary_group_id":3,"status_id":3,"category_id":15,"remarks":"BL5A5BaK1jXnzUu2","_method":"a27DXo5fNAqxc7vR"}'
 
 ```
 
@@ -1388,25 +1388,25 @@ let headers = {
 }
 
 let body = {
-    "leader_id": 3,
-    "invited_by": 8,
-    "first_name": "Sc6jqN6zVeWlhcNk",
-    "last_name": "MxfzhhRKHuMyJn21",
-    "middle_name": "R4wEUgbVHzOYIDhi",
-    "birthdate": "G6kjUDw3FgJyKWFg",
-    "address": "71uGVdn0bXn3ucSz",
-    "city": "wqsNFokpX0n5p5Yf",
-    "contact_no": "l08ZZaZmMlLs2RAI",
-    "secondary_contact_no": "MxIiFq5NA3L1XnQ5",
-    "facebook_name": "d3yeCkZ2MP16UPz8",
-    "avatar": "lJnIX4u14ksVL7aS",
-    "school_status_id": 4,
-    "leadership_level_id": 13,
-    "auxiliary_group_id": 9,
-    "status_id": 5,
-    "category_id": 5,
-    "remarks": "YhPPUgMJgS6ABk2K",
-    "_method": "nRidAyYVU68PICsm"
+    "leader_id": 4,
+    "invited_by": 6,
+    "first_name": "FyviaIS9eLLOhmqg",
+    "last_name": "hwvSRmv46ko5Ey2P",
+    "middle_name": "liLo3HHAD2rjeYo9",
+    "birthdate": "NxWQL91b8aiXg4Rk",
+    "address": "GaY6aqiNUyJVjypG",
+    "city": "BsHTp7PUoAMwz5nd",
+    "contact_no": "yHWZ1B8q6iixgB6x",
+    "secondary_contact_no": "VTBYLyKjmKl9qost",
+    "facebook_name": "f3ObHzBydtCl4J2k",
+    "avatar": "FmYATtVi3QnEy0rb",
+    "school_status_id": 17,
+    "leadership_level_id": 17,
+    "auxiliary_group_id": 3,
+    "status_id": 3,
+    "category_id": 15,
+    "remarks": "BL5A5BaK1jXnzUu2",
+    "_method": "a27DXo5fNAqxc7vR"
 }
 
 fetch(url, {
@@ -1593,7 +1593,7 @@ fetch(url, {
 curl -X POST "http://localhost/api/v1/ministries" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"osrcsuvHVMadyDhn","descriptions":"AsICO0NT5Epq26nd"}'
+    -d '{"name":"1cQDHfePVDnzao5V","descriptions":"lf9kmqsLXf3s29Dc"}'
 
 ```
 
@@ -1607,8 +1607,8 @@ let headers = {
 }
 
 let body = {
-    "name": "osrcsuvHVMadyDhn",
-    "descriptions": "AsICO0NT5Epq26nd"
+    "name": "1cQDHfePVDnzao5V",
+    "descriptions": "lf9kmqsLXf3s29Dc"
 }
 
 fetch(url, {
@@ -1739,7 +1739,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/ministries/{ministry}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"Vx4RWTEdm8P0jqi8","descriptions":"diMCu15G95uK5AWo"}'
+    -d '{"name":"bgT986wozTSGRHpW","descriptions":"QbgKuG04KPSzQPi5"}'
 
 ```
 
@@ -1753,8 +1753,8 @@ let headers = {
 }
 
 let body = {
-    "name": "Vx4RWTEdm8P0jqi8",
-    "descriptions": "diMCu15G95uK5AWo"
+    "name": "bgT986wozTSGRHpW",
+    "descriptions": "QbgKuG04KPSzQPi5"
 }
 
 fetch(url, {
@@ -1865,232 +1865,6 @@ fetch(url, {
 #School Monitoring management
 
 APIs for managing statuses
-<!-- START_c3e54725b9cacdf2da0fa857d59274ef -->
-## Update student attendance
-
-> Example request:
-
-```bash
-curl -X PUT "http://localhost/api/v1/school/classes/{class_id}/update-member-attendance" \
-    -H "Authorization: Bearer {token}" \
-    -H "Content-Type: application/json" \
-    -d '{"id":19,"member_id":15,"school_class_id":8,"column_name":"ABQd0CSd7G2lqN3M","is_attended":2}'
-
-```
-
-```javascript
-const url = new URL("http://localhost/api/v1/school/classes/{class_id}/update-member-attendance");
-
-let headers = {
-    "Authorization": "Bearer {token}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-let body = {
-    "id": 19,
-    "member_id": 15,
-    "school_class_id": 8,
-    "column_name": "ABQd0CSd7G2lqN3M",
-    "is_attended": 2
-}
-
-fetch(url, {
-    method: "PUT",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-> Example response (200):
-
-```json
-{
-    "success": true,
-    "data": {
-        "member_id": 1,
-        "school_class_id": 1,
-        "level_1": 0,
-        "level_2": 0,
-        "updated_at": "2019-02-06 12:49:41",
-        "created_at": "2019-02-06 12:49:41",
-        "id": 1
-    }
-}
-```
-> Example response (500):
-
-```json
-{
-    "data": "Error message ..."
-}
-```
-> Example response (422):
-
-```json
-{
-    "success": false,
-    "data": {
-        "first_name": [
-            "The :attribute field is required."
-        ]
-    }
-}
-```
-
-### HTTP Request
-`PUT api/v1/school/classes/{class_id}/update-member-attendance`
-
-#### Body Parameters
-
-Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
-    id | integer |  required  | the ID of the row
-    member_id | integer |  required  | the ID of the member
-    school_class_id | integer |  required  | the ID of the class
-    column_name | string |  optional  | the table column name to update for SUYNIL its (level_1, level_2 until level_10),
-    is_attended | integer |  required  | expected values(1, 0)
-
-<!-- END_c3e54725b9cacdf2da0fa857d59274ef -->
-
-<!-- START_9fafcc1c0dfecbe928ba096e65f786ce -->
-## Enroll new member to the class.
-
-> Example request:
-
-```bash
-curl -X POST "http://localhost/api/v1/school/enrolled-member" \
-    -H "Authorization: Bearer {token}" \
-    -H "Content-Type: application/json" \
-    -d '{"member_id":18,"school_class_id":8}'
-
-```
-
-```javascript
-const url = new URL("http://localhost/api/v1/school/enrolled-member");
-
-let headers = {
-    "Authorization": "Bearer {token}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-let body = {
-    "member_id": 18,
-    "school_class_id": 8
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-> Example response (200):
-
-```json
-{
-    "success": true,
-    "data": {
-        "member_id": 1,
-        "school_class_id": 1,
-        "level_1": 0,
-        "level_2": 0,
-        "updated_at": "2019-02-06 12:49:41",
-        "created_at": "2019-02-06 12:49:41",
-        "id": 1
-    }
-}
-```
-> Example response (500):
-
-```json
-{
-    "data": "Error message ..."
-}
-```
-> Example response (422):
-
-```json
-{
-    "success": false,
-    "data": {
-        "first_name": [
-            "The :attribute field is required."
-        ]
-    }
-}
-```
-
-### HTTP Request
-`POST api/v1/school/enrolled-member`
-
-#### Body Parameters
-
-Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
-    member_id | integer |  required  | the ID of the member
-    school_class_id | integer |  required  | the ID of the class
-
-<!-- END_9fafcc1c0dfecbe928ba096e65f786ce -->
-
-<!-- START_35d12e21a7ebc06904e175a3f419fdb9 -->
-## Search unenrolled member
-
-> Example request:
-
-```bash
-curl -X GET -G "http://localhost/api/v1/school/search-unenrolled-member" \
-    -H "Authorization: Bearer {token}"
-```
-
-```javascript
-const url = new URL("http://localhost/api/v1/school/search-unenrolled-member");
-
-let headers = {
-    "Authorization": "Bearer {token}",
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-}
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-> Example response (200):
-
-```json
-[
-    {
-        "first_name": "serg",
-        "last_name": "casquejo",
-        "middle_name": "degamo",
-        "birthdate": "1989-09-07",
-        "address": "Colo, camolinas, poblacion, cordova, cebu",
-        "city": "Cebu",
-        "contact_no": "09219945312",
-        "updated_at": "2019-02-06 09:59:04",
-        "created_at": "2019-02-06 09:59:04",
-        "id": 101
-    }
-]
-```
-
-### HTTP Request
-`GET api/v1/school/search-unenrolled-member`
-
-
-<!-- END_35d12e21a7ebc06904e175a3f419fdb9 -->
-
 <!-- START_23cde0a3b715c1816cfdcf74f2fed979 -->
 ## Display a listing of the resource.
 
@@ -2155,7 +1929,7 @@ fetch(url, {
 curl -X POST "http://localhost/api/v1/school/classes" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"batch_name":"cvggwyioW3by7qxD","school_year":11,"school_type_id":8,"remarks":"qVeNXegXSBzyGQ7B"}'
+    -d '{"batch_name":"Vw7N51bw91pNtpGJ","school_year":13,"school_type_id":14,"remarks":"qVuGhXdTxHrrQywk"}'
 
 ```
 
@@ -2169,10 +1943,10 @@ let headers = {
 }
 
 let body = {
-    "batch_name": "cvggwyioW3by7qxD",
-    "school_year": 11,
-    "school_type_id": 8,
-    "remarks": "qVeNXegXSBzyGQ7B"
+    "batch_name": "Vw7N51bw91pNtpGJ",
+    "school_year": 13,
+    "school_type_id": 14,
+    "remarks": "qVuGhXdTxHrrQywk"
 }
 
 fetch(url, {
@@ -2313,7 +2087,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/school/classes/{class}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"batch_name":"Hsk937haEk9xP9o7","school_year":4,"school_type_id":12,"remarks":"z8F0aLraUwBtEwN3"}'
+    -d '{"batch_name":"I4M6JSe8yeKXrUzu","school_year":4,"school_type_id":14,"remarks":"cirZtzyLLVn7gtmG"}'
 
 ```
 
@@ -2327,10 +2101,10 @@ let headers = {
 }
 
 let body = {
-    "batch_name": "Hsk937haEk9xP9o7",
+    "batch_name": "I4M6JSe8yeKXrUzu",
     "school_year": 4,
-    "school_type_id": 12,
-    "remarks": "z8F0aLraUwBtEwN3"
+    "school_type_id": 14,
+    "remarks": "cirZtzyLLVn7gtmG"
 }
 
 fetch(url, {
@@ -2440,6 +2214,232 @@ fetch(url, {
 
 <!-- END_88f9b38d412bb9bba212a0c9fb17f88b -->
 
+<!-- START_c3e54725b9cacdf2da0fa857d59274ef -->
+## Update student attendance
+
+> Example request:
+
+```bash
+curl -X PUT "http://localhost/api/v1/school/classes/{class_id}/update-member-attendance" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"id":6,"member_id":17,"school_class_id":17,"column_name":"17MCT1nDUVqJGnzZ","is_attended":14}'
+
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/school/classes/{class_id}/update-member-attendance");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "id": 6,
+    "member_id": 17,
+    "school_class_id": 17,
+    "column_name": "17MCT1nDUVqJGnzZ",
+    "is_attended": 14
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "data": {
+        "member_id": 1,
+        "school_class_id": 1,
+        "level_1": 0,
+        "level_2": 0,
+        "updated_at": "2019-02-06 12:49:41",
+        "created_at": "2019-02-06 12:49:41",
+        "id": 1
+    }
+}
+```
+> Example response (500):
+
+```json
+{
+    "data": "Error message ..."
+}
+```
+> Example response (422):
+
+```json
+{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}
+```
+
+### HTTP Request
+`PUT api/v1/school/classes/{class_id}/update-member-attendance`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    id | integer |  required  | the ID of the row
+    member_id | integer |  required  | the ID of the member
+    school_class_id | integer |  required  | the ID of the class
+    column_name | string |  optional  | the table column name to update for SUYNIL its (level_1, level_2 until level_10),
+    is_attended | integer |  required  | expected values(1, 0)
+
+<!-- END_c3e54725b9cacdf2da0fa857d59274ef -->
+
+<!-- START_9fafcc1c0dfecbe928ba096e65f786ce -->
+## Enroll new member to the class.
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost/api/v1/school/enrolled-member" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"member_id":15,"school_class_id":10}'
+
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/school/enrolled-member");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "member_id": 15,
+    "school_class_id": 10
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "data": {
+        "member_id": 1,
+        "school_class_id": 1,
+        "level_1": 0,
+        "level_2": 0,
+        "updated_at": "2019-02-06 12:49:41",
+        "created_at": "2019-02-06 12:49:41",
+        "id": 1
+    }
+}
+```
+> Example response (500):
+
+```json
+{
+    "data": "Error message ..."
+}
+```
+> Example response (422):
+
+```json
+{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}
+```
+
+### HTTP Request
+`POST api/v1/school/enrolled-member`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    member_id | integer |  required  | the ID of the member
+    school_class_id | integer |  required  | the ID of the class
+
+<!-- END_9fafcc1c0dfecbe928ba096e65f786ce -->
+
+<!-- START_35d12e21a7ebc06904e175a3f419fdb9 -->
+## Search unenrolled member
+
+> Example request:
+
+```bash
+curl -X GET -G "http://localhost/api/v1/school/search-unenrolled-member" \
+    -H "Authorization: Bearer {token}"
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/school/search-unenrolled-member");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+[
+    {
+        "first_name": "serg",
+        "last_name": "casquejo",
+        "middle_name": "degamo",
+        "birthdate": "1989-09-07",
+        "address": "Colo, camolinas, poblacion, cordova, cebu",
+        "city": "Cebu",
+        "contact_no": "09219945312",
+        "updated_at": "2019-02-06 09:59:04",
+        "created_at": "2019-02-06 09:59:04",
+        "id": 101
+    }
+]
+```
+
+### HTTP Request
+`GET api/v1/school/search-unenrolled-member`
+
+
+<!-- END_35d12e21a7ebc06904e175a3f419fdb9 -->
+
 #School Status management
 
 APIs for managing School statuses
@@ -2504,7 +2504,7 @@ fetch(url, {
 curl -X POST "http://localhost/api/v1/school/statuses" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"j6Z1zcGBhWGFff7m","descriptions":"C0Yk38aKufCJCyGi"}'
+    -d '{"name":"LC8HeQlEkaBc6NYE","descriptions":"TtE6htU7IpIc4O64"}'
 
 ```
 
@@ -2518,8 +2518,8 @@ let headers = {
 }
 
 let body = {
-    "name": "j6Z1zcGBhWGFff7m",
-    "descriptions": "C0Yk38aKufCJCyGi"
+    "name": "LC8HeQlEkaBc6NYE",
+    "descriptions": "TtE6htU7IpIc4O64"
 }
 
 fetch(url, {
@@ -2650,7 +2650,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/school/statuses/{status}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"EIJN6jdv4N7eX56k","descriptions":"B9qCArdcH5AH3TaY"}'
+    -d '{"name":"2G3a3gmET271tABr","descriptions":"UjhYjiAMUh45WbAY"}'
 
 ```
 
@@ -2664,8 +2664,8 @@ let headers = {
 }
 
 let body = {
-    "name": "EIJN6jdv4N7eX56k",
-    "descriptions": "B9qCArdcH5AH3TaY"
+    "name": "2G3a3gmET271tABr",
+    "descriptions": "UjhYjiAMUh45WbAY"
 }
 
 fetch(url, {
@@ -2837,7 +2837,7 @@ fetch(url, {
 curl -X POST "http://localhost/api/v1/school/types" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"Cko2snYzaQHk9JV9","descriptions":"91C8lTpXRVOzTxIg"}'
+    -d '{"name":"ZvGQcdtxEVSEzEog","descriptions":"VahfAQPx1jxbOUNA"}'
 
 ```
 
@@ -2851,8 +2851,8 @@ let headers = {
 }
 
 let body = {
-    "name": "Cko2snYzaQHk9JV9",
-    "descriptions": "91C8lTpXRVOzTxIg"
+    "name": "ZvGQcdtxEVSEzEog",
+    "descriptions": "VahfAQPx1jxbOUNA"
 }
 
 fetch(url, {
@@ -2983,7 +2983,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/school/types/{type}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"R2CF6wgZaLKUZCQg","descriptions":"uQt9F4vuTZc6wuwC"}'
+    -d '{"name":"SRvS1IN6NOMgVybg","descriptions":"E26WhIgHfIUsmQUN"}'
 
 ```
 
@@ -2997,8 +2997,8 @@ let headers = {
 }
 
 let body = {
-    "name": "R2CF6wgZaLKUZCQg",
-    "descriptions": "uQt9F4vuTZc6wuwC"
+    "name": "SRvS1IN6NOMgVybg",
+    "descriptions": "E26WhIgHfIUsmQUN"
 }
 
 fetch(url, {
@@ -3170,7 +3170,7 @@ fetch(url, {
 curl -X POST "http://localhost/api/v1/statuses" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"eAJhUmkZJHvwBhDf","descriptions":"i6HxMJlLMQpWxLZ9"}'
+    -d '{"name":"1WJy5LLtBVi3xLnW","descriptions":"pnqlJdLrI3WVlZzD"}'
 
 ```
 
@@ -3184,8 +3184,8 @@ let headers = {
 }
 
 let body = {
-    "name": "eAJhUmkZJHvwBhDf",
-    "descriptions": "i6HxMJlLMQpWxLZ9"
+    "name": "1WJy5LLtBVi3xLnW",
+    "descriptions": "pnqlJdLrI3WVlZzD"
 }
 
 fetch(url, {
@@ -3316,7 +3316,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/statuses/{status}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"bUGs9st12tQlXHqs","descriptions":"ABGD5C57oOW9VSI3"}'
+    -d '{"name":"GGIZLSFCvxyWLowZ","descriptions":"n5H9IuTZBpHlyvq8"}'
 
 ```
 
@@ -3330,8 +3330,8 @@ let headers = {
 }
 
 let body = {
-    "name": "bUGs9st12tQlXHqs",
-    "descriptions": "ABGD5C57oOW9VSI3"
+    "name": "GGIZLSFCvxyWLowZ",
+    "descriptions": "n5H9IuTZBpHlyvq8"
 }
 
 fetch(url, {
@@ -3503,7 +3503,7 @@ fetch(url, {
 curl -X POST "http://localhost/api/v1/sc-statuses" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"traKpY4qMaIPPTcs","descriptions":"WMGE6RfT504fzg7s"}'
+    -d '{"name":"ITxp3QRWfFPBuml2","descriptions":"yrQ91dfWT7DSYJiW"}'
 
 ```
 
@@ -3517,8 +3517,8 @@ let headers = {
 }
 
 let body = {
-    "name": "traKpY4qMaIPPTcs",
-    "descriptions": "WMGE6RfT504fzg7s"
+    "name": "ITxp3QRWfFPBuml2",
+    "descriptions": "yrQ91dfWT7DSYJiW"
 }
 
 fetch(url, {
@@ -3649,7 +3649,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/sc-statuses/{sc_status}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"XUhl4zuJIFvlHfE0","descriptions":"ALK4rO9M4BfyOnL6"}'
+    -d '{"name":"69GrgzlVuyQSwAaB","descriptions":"DUYJuE5GVniv0mVL"}'
 
 ```
 
@@ -3663,8 +3663,8 @@ let headers = {
 }
 
 let body = {
-    "name": "XUhl4zuJIFvlHfE0",
-    "descriptions": "ALK4rO9M4BfyOnL6"
+    "name": "69GrgzlVuyQSwAaB",
+    "descriptions": "DUYJuE5GVniv0mVL"
 }
 
 fetch(url, {
@@ -3784,7 +3784,7 @@ APIs for user auth
 curl -X POST "http://localhost/api/v1/login" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"username":"0Zu5ilfsy7Sphvs7","password":"bO2iEyWxudV0Y24F"}'
+    -d '{"username":"SP5fiszbCddlSkQ5","password":"NbSr9KvQ53qPT2W4"}'
 
 ```
 
@@ -3798,8 +3798,8 @@ let headers = {
 }
 
 let body = {
-    "username": "0Zu5ilfsy7Sphvs7",
-    "password": "bO2iEyWxudV0Y24F"
+    "username": "SP5fiszbCddlSkQ5",
+    "password": "NbSr9KvQ53qPT2W4"
 }
 
 fetch(url, {
@@ -3903,7 +3903,7 @@ APIs for managing user roles
 curl -X POST "http://localhost/api/v1/roles" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"ibNjy8j65q3P8nby","descriptions":"HAf8B9cLyYbVqUFO"}'
+    -d '{"name":"WhjXgEikQf9GVS0P","descriptions":"6VE1kQZtuLa1MGds"}'
 
 ```
 
@@ -3917,8 +3917,8 @@ let headers = {
 }
 
 let body = {
-    "name": "ibNjy8j65q3P8nby",
-    "descriptions": "HAf8B9cLyYbVqUFO"
+    "name": "WhjXgEikQf9GVS0P",
+    "descriptions": "6VE1kQZtuLa1MGds"
 }
 
 fetch(url, {
@@ -4049,7 +4049,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/roles/{role}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"HdpaeXeZVDyoCbZb","descriptions":"fN68VJYJHUrRfXYR"}'
+    -d '{"name":"TUZkhCsswlybZBhU","descriptions":"REHoMHu9NxwOAg5M"}'
 
 ```
 
@@ -4063,8 +4063,8 @@ let headers = {
 }
 
 let body = {
-    "name": "HdpaeXeZVDyoCbZb",
-    "descriptions": "fN68VJYJHUrRfXYR"
+    "name": "TUZkhCsswlybZBhU",
+    "descriptions": "REHoMHu9NxwOAg5M"
 }
 
 fetch(url, {
@@ -4184,7 +4184,7 @@ APIs for managing user
 curl -X POST "http://localhost/api/v1/users" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"username":"c7uCCPpAEN13ZPxv","name":"L3fcs6XkugY8SKMd","email":"JWqUscuyRCrNLzw4","password":"geoh79CBrINzUeSF","confirm_password":"Po2bouM20dROFmUE","roles":"AaYePfHWgeoLorPR","member_id":17}'
+    -d '{"username":"bzXkfhBTnM6KRi7n","name":"xVEtUbMfGIq7TOJi","email":"1hcIA2hXTHpP78I0","password":"YBNXmlnKpy3FqXl6","confirm_password":"4oEFj7JYDAjNabHH","roles":"5COIzFtXF6DFQXZJ","member_id":18}'
 
 ```
 
@@ -4198,13 +4198,13 @@ let headers = {
 }
 
 let body = {
-    "username": "c7uCCPpAEN13ZPxv",
-    "name": "L3fcs6XkugY8SKMd",
-    "email": "JWqUscuyRCrNLzw4",
-    "password": "geoh79CBrINzUeSF",
-    "confirm_password": "Po2bouM20dROFmUE",
-    "roles": "AaYePfHWgeoLorPR",
-    "member_id": 17
+    "username": "bzXkfhBTnM6KRi7n",
+    "name": "xVEtUbMfGIq7TOJi",
+    "email": "1hcIA2hXTHpP78I0",
+    "password": "YBNXmlnKpy3FqXl6",
+    "confirm_password": "4oEFj7JYDAjNabHH",
+    "roles": "5COIzFtXF6DFQXZJ",
+    "member_id": 18
 }
 
 fetch(url, {
@@ -4357,7 +4357,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/users/{user}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"j4EPFZ9C9NwDoJiA","email":"BxbkpHfO1xpUgih8","roles":"BCtpthVGwHSl1bhg","id":1}'
+    -d '{"name":"aOtFyTQImrYR8cdN","email":"CktnSQCmPAsoTPiq","roles":"1fI0NciYZUy28PHR","id":8}'
 
 ```
 
@@ -4371,10 +4371,10 @@ let headers = {
 }
 
 let body = {
-    "name": "j4EPFZ9C9NwDoJiA",
-    "email": "BxbkpHfO1xpUgih8",
-    "roles": "BCtpthVGwHSl1bhg",
-    "id": 1
+    "name": "aOtFyTQImrYR8cdN",
+    "email": "CktnSQCmPAsoTPiq",
+    "roles": "1fI0NciYZUy28PHR",
+    "id": 8
 }
 
 fetch(url, {

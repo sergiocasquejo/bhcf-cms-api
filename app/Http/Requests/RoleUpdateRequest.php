@@ -28,7 +28,7 @@ class RoleUpdateRequest extends FormRequest
         
         return [
             'name' => 'required|max:120|unique:roles,name,' . $this->route('role') .',id',
-            'descriptions' => 'max:255'
+            'title' => 'required|max:120|unique:roles,title,' . $this->route('role') .',id',
         ];
     }
 

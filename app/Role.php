@@ -27,4 +27,10 @@ class Role extends Model
     {
         return $this->belongsToMany('App\User');
     }
+
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = str_slug($value);
+    }
 }

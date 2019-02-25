@@ -16,11 +16,10 @@ class CreateRolesTable extends Migration
         Schema::create('roles', function (Blueprint $table) {
             $table->increments('id');
             $table->char('name', 120)->unique();
-            $table->char('descriptions', 255);
+            $table->char('label', 120);
             $table->unsignedInteger('created_by');
             $table->foreign('created_by')
                 ->references('id')->on('users');
-                
             $table->timestamps();
             $table->softDeletes();
             

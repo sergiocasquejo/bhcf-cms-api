@@ -13,12 +13,25 @@ class UsersTableSeeder extends Seeder
     {
         $password = Hash::make('bhcf17');
 
-        App\User::create([
+        $user =  App\User::create([
             'name' => 'Administrator',
             'username' => 'administrator',
             'email' => 'serg.casquejo@gmail.com',
             'password' => $password
         ]);
+
+
+        $faker = \Faker\Factory::create();
+
+        // And now, let's create a few articles in our database:
+        for ($i = 0; $i < 10; $i++) {
+            $user = App\User::create([
+            'name' => $faker->firstName,
+            'username' => $faker->userName,
+            'email' => $faker->safeEmail,
+            'password' => $password
+            ]);
+        }
 
         
     }
