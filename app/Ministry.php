@@ -12,6 +12,7 @@ class Ministry extends Model
      * @var string
      */
     protected $table = 'ministries';
+    //Create fillable columns
     protected $fillable = [
         'descriptions', 'name', 'created_by', 'updated_by'
     ];
