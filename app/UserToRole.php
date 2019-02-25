@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserToRole extends Model
 {
-    //
     /**
      * The table associated with the model.
      *
@@ -14,5 +13,6 @@ class UserToRole extends Model
      */
     
     protected $table = 'user_to_roles';
+    // Disable timestamps
     public $timestamps = false;
 }
