@@ -16,7 +16,7 @@ toc_footers:
 # Info
 
 Welcome to the generated API reference.
-[Get Postman Collection](http://localhost/docs/collection.json)
+[Get Postman Collection](http://localhost/_html/docs/collection.json)
 
 <!-- END_INFO -->
 
@@ -84,7 +84,7 @@ fetch(url, {
 curl -X POST "http://localhost/api/v1/leadership-level" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"voC3khPnvUCVX6W0","descriptions":"AqjaQuPzyjZwsfXG"}'
+    -d '{"name":"YgBKVLbavycnB6AG","descriptions":"TCQNzV0emWCISgj2"}'
 
 ```
 
@@ -98,8 +98,8 @@ let headers = {
 }
 
 let body = {
-    "name": "voC3khPnvUCVX6W0",
-    "descriptions": "AqjaQuPzyjZwsfXG"
+    "name": "YgBKVLbavycnB6AG",
+    "descriptions": "TCQNzV0emWCISgj2"
 }
 
 fetch(url, {
@@ -230,7 +230,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/leadership-level/{leadership_level}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"sSMtXQxOBqE1v90K","descriptions":"G4HauTI72KryowVo"}'
+    -d '{"name":"v50vVJ8nAiLKsExD","descriptions":"7naYVON5EQh6dI0O"}'
 
 ```
 
@@ -244,8 +244,8 @@ let headers = {
 }
 
 let body = {
-    "name": "sSMtXQxOBqE1v90K",
-    "descriptions": "G4HauTI72KryowVo"
+    "name": "v50vVJ8nAiLKsExD",
+    "descriptions": "7naYVON5EQh6dI0O"
 }
 
 fetch(url, {
@@ -417,7 +417,7 @@ fetch(url, {
 curl -X POST "http://localhost/api/v1/auxiliary-groups" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"QuIymd4bUq3b2HJe","descriptions":"zlJwUpESQARtnKBO"}'
+    -d '{"name":"ErhIbNZOcfcvm5KC","descriptions":"ZLGEG3os7AO8Ncpa"}'
 
 ```
 
@@ -431,8 +431,8 @@ let headers = {
 }
 
 let body = {
-    "name": "QuIymd4bUq3b2HJe",
-    "descriptions": "zlJwUpESQARtnKBO"
+    "name": "ErhIbNZOcfcvm5KC",
+    "descriptions": "ZLGEG3os7AO8Ncpa"
 }
 
 fetch(url, {
@@ -563,7 +563,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/auxiliary-groups/{auxiliary_group}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"0cxUU9Oa6sL1wctH","descriptions":"ss6ZLjdIq6DqM3ny"}'
+    -d '{"name":"vpLEKWAdHwud58Lu","descriptions":"jLbyQnNCdzS6BIma"}'
 
 ```
 
@@ -577,8 +577,8 @@ let headers = {
 }
 
 let body = {
-    "name": "0cxUU9Oa6sL1wctH",
-    "descriptions": "ss6ZLjdIq6DqM3ny"
+    "name": "vpLEKWAdHwud58Lu",
+    "descriptions": "jLbyQnNCdzS6BIma"
 }
 
 fetch(url, {
@@ -750,7 +750,7 @@ fetch(url, {
 curl -X POST "http://localhost/api/v1/members/category" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"UU9GIojgDBgNRMRb","descriptions":"JVxV2xK2CaNkfpPz"}'
+    -d '{"name":"FhopRo7M2ldeyKgm","descriptions":"SR9yuwSlaNVmN921"}'
 
 ```
 
@@ -764,8 +764,8 @@ let headers = {
 }
 
 let body = {
-    "name": "UU9GIojgDBgNRMRb",
-    "descriptions": "JVxV2xK2CaNkfpPz"
+    "name": "FhopRo7M2ldeyKgm",
+    "descriptions": "SR9yuwSlaNVmN921"
 }
 
 fetch(url, {
@@ -896,7 +896,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/members/category/{category}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"851raN59A57oadmc","descriptions":"CK5ruZY1Fv8kfaLJ"}'
+    -d '{"name":"OLpNEyu2iWm3HW2R","descriptions":"4kTfmmZGe1OGDkTE"}'
 
 ```
 
@@ -910,8 +910,8 @@ let headers = {
 }
 
 let body = {
-    "name": "851raN59A57oadmc",
-    "descriptions": "CK5ruZY1Fv8kfaLJ"
+    "name": "OLpNEyu2iWm3HW2R",
+    "descriptions": "4kTfmmZGe1OGDkTE"
 }
 
 fetch(url, {
@@ -1031,7 +1031,7 @@ APIs for managing member
 curl -X POST "http://localhost/api/v1/members/{id}/avatar" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"avatar":"eyXy0i4Jz4kdWyc0","_method":"fO4WiQDlURQc9tBD"}'
+    -d '{"avatar":"v1e2WaYpISg1Fltw","_method":"ibTRBJp0iEZunW9E"}'
 
 ```
 
@@ -1045,8 +1045,8 @@ let headers = {
 }
 
 let body = {
-    "avatar": "eyXy0i4Jz4kdWyc0",
-    "_method": "fO4WiQDlURQc9tBD"
+    "avatar": "v1e2WaYpISg1Fltw",
+    "_method": "ibTRBJp0iEZunW9E"
 }
 
 fetch(url, {
@@ -1115,10 +1115,10 @@ curl -X GET -G "http://localhost/api/v1/members" \
 const url = new URL("http://localhost/api/v1/members");
 
     let params = {
-            "offset": "14",
-            "limit": "16",
-            "sort": "zmgjCG4nn11sRF4V",
-            "sortBy": "5AKjI1kZRysYWLV8",
+            "offset": "18",
+            "limit": "7",
+            "sort": "yVbZvwVbxTWbnMoo",
+            "sortBy": "0HqsYecWmutCppFb",
         };
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
@@ -1178,7 +1178,7 @@ Parameter | Status | Description
 curl -X POST "http://localhost/api/v1/members" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"leader_id":6,"invited_by":7,"first_name":"MSD9onyHGZHqGuW2","last_name":"BuSKk2UFnpJz6kGp","middle_name":"HdPy7a5S65hUL2CC","birthdate":"cKAPKrNp6uO3J6D7","address":"QdUcoRM30qMyOeJC","city":"Q6oLvUL16Kn9Zilr","contact_no":"pddahgZzcmQEfVkQ","secondary_contact_no":"g93jZOwYBLKoI9VM","facebook_name":"XVjb6QLpmHbsoYUk","avatar":"gbPyhKnlHn6Uz0U2","school_status_id":17,"leadership_level_id":10,"auxiliary_group_id":15,"status_id":10,"category_id":12,"remarks":"NJbQeCpbC8SiigNP"}'
+    -d '{"leader_id":5,"invited_by":3,"first_name":"5We3aE6mcSxFjRgE","last_name":"eySHM4k0V9Vqb6N1","middle_name":"TeI1s9b2wb7HoXg5","birthdate":"Ztw4omg5fFSnT3zA","address":"kGZD117J580NoeWE","city":"MBWxFD7aiAsywv0l","contact_no":"d35zq9rzdwwDowZF","secondary_contact_no":"aq3TamxorqvxVbGm","facebook_name":"c326GD49WaaSbLOw","avatar":"GlLBdwzlZou48YbC","school_status_id":18,"leadership_level_id":7,"auxiliary_group_id":4,"status_id":14,"category_id":6,"remarks":"6e1cEPGqeDaNzdB7"}'
 
 ```
 
@@ -1192,24 +1192,24 @@ let headers = {
 }
 
 let body = {
-    "leader_id": 6,
-    "invited_by": 7,
-    "first_name": "MSD9onyHGZHqGuW2",
-    "last_name": "BuSKk2UFnpJz6kGp",
-    "middle_name": "HdPy7a5S65hUL2CC",
-    "birthdate": "cKAPKrNp6uO3J6D7",
-    "address": "QdUcoRM30qMyOeJC",
-    "city": "Q6oLvUL16Kn9Zilr",
-    "contact_no": "pddahgZzcmQEfVkQ",
-    "secondary_contact_no": "g93jZOwYBLKoI9VM",
-    "facebook_name": "XVjb6QLpmHbsoYUk",
-    "avatar": "gbPyhKnlHn6Uz0U2",
-    "school_status_id": 17,
-    "leadership_level_id": 10,
-    "auxiliary_group_id": 15,
-    "status_id": 10,
-    "category_id": 12,
-    "remarks": "NJbQeCpbC8SiigNP"
+    "leader_id": 5,
+    "invited_by": 3,
+    "first_name": "5We3aE6mcSxFjRgE",
+    "last_name": "eySHM4k0V9Vqb6N1",
+    "middle_name": "TeI1s9b2wb7HoXg5",
+    "birthdate": "Ztw4omg5fFSnT3zA",
+    "address": "kGZD117J580NoeWE",
+    "city": "MBWxFD7aiAsywv0l",
+    "contact_no": "d35zq9rzdwwDowZF",
+    "secondary_contact_no": "aq3TamxorqvxVbGm",
+    "facebook_name": "c326GD49WaaSbLOw",
+    "avatar": "GlLBdwzlZou48YbC",
+    "school_status_id": 18,
+    "leadership_level_id": 7,
+    "auxiliary_group_id": 4,
+    "status_id": 14,
+    "category_id": 6,
+    "remarks": "6e1cEPGqeDaNzdB7"
 }
 
 fetch(url, {
@@ -1374,7 +1374,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/members/{member}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"leader_id":13,"invited_by":17,"first_name":"jyXpUT37vQZFObYR","last_name":"DYQd5Eztc9Up24At","middle_name":"RrgpXbat0AWLgyMs","birthdate":"77k4gcdOBWtIZL6G","address":"tjdQyEZATT9bismm","city":"sca8kU3wwcpOPhAP","contact_no":"6nSOXQfm6fvdreeX","secondary_contact_no":"k7M2jSyBGuLvzWin","facebook_name":"kPQhLfUQgV0Qbs73","avatar":"yjMrRXhdh35wbbZD","school_status_id":18,"leadership_level_id":13,"auxiliary_group_id":13,"status_id":3,"category_id":20,"remarks":"Lio6mbnJ58ghvvtX","_method":"RzBt7JzEqxM59NMD"}'
+    -d '{"leader_id":3,"invited_by":8,"first_name":"Sc6jqN6zVeWlhcNk","last_name":"MxfzhhRKHuMyJn21","middle_name":"R4wEUgbVHzOYIDhi","birthdate":"G6kjUDw3FgJyKWFg","address":"71uGVdn0bXn3ucSz","city":"wqsNFokpX0n5p5Yf","contact_no":"l08ZZaZmMlLs2RAI","secondary_contact_no":"MxIiFq5NA3L1XnQ5","facebook_name":"d3yeCkZ2MP16UPz8","avatar":"lJnIX4u14ksVL7aS","school_status_id":4,"leadership_level_id":13,"auxiliary_group_id":9,"status_id":5,"category_id":5,"remarks":"YhPPUgMJgS6ABk2K","_method":"nRidAyYVU68PICsm"}'
 
 ```
 
@@ -1388,25 +1388,25 @@ let headers = {
 }
 
 let body = {
-    "leader_id": 13,
-    "invited_by": 17,
-    "first_name": "jyXpUT37vQZFObYR",
-    "last_name": "DYQd5Eztc9Up24At",
-    "middle_name": "RrgpXbat0AWLgyMs",
-    "birthdate": "77k4gcdOBWtIZL6G",
-    "address": "tjdQyEZATT9bismm",
-    "city": "sca8kU3wwcpOPhAP",
-    "contact_no": "6nSOXQfm6fvdreeX",
-    "secondary_contact_no": "k7M2jSyBGuLvzWin",
-    "facebook_name": "kPQhLfUQgV0Qbs73",
-    "avatar": "yjMrRXhdh35wbbZD",
-    "school_status_id": 18,
+    "leader_id": 3,
+    "invited_by": 8,
+    "first_name": "Sc6jqN6zVeWlhcNk",
+    "last_name": "MxfzhhRKHuMyJn21",
+    "middle_name": "R4wEUgbVHzOYIDhi",
+    "birthdate": "G6kjUDw3FgJyKWFg",
+    "address": "71uGVdn0bXn3ucSz",
+    "city": "wqsNFokpX0n5p5Yf",
+    "contact_no": "l08ZZaZmMlLs2RAI",
+    "secondary_contact_no": "MxIiFq5NA3L1XnQ5",
+    "facebook_name": "d3yeCkZ2MP16UPz8",
+    "avatar": "lJnIX4u14ksVL7aS",
+    "school_status_id": 4,
     "leadership_level_id": 13,
-    "auxiliary_group_id": 13,
-    "status_id": 3,
-    "category_id": 20,
-    "remarks": "Lio6mbnJ58ghvvtX",
-    "_method": "RzBt7JzEqxM59NMD"
+    "auxiliary_group_id": 9,
+    "status_id": 5,
+    "category_id": 5,
+    "remarks": "YhPPUgMJgS6ABk2K",
+    "_method": "nRidAyYVU68PICsm"
 }
 
 fetch(url, {
@@ -1593,7 +1593,7 @@ fetch(url, {
 curl -X POST "http://localhost/api/v1/ministries" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"8VMuj8WenThNKqB3","descriptions":"4c5cZ04XAP5g8rfR"}'
+    -d '{"name":"osrcsuvHVMadyDhn","descriptions":"AsICO0NT5Epq26nd"}'
 
 ```
 
@@ -1607,8 +1607,8 @@ let headers = {
 }
 
 let body = {
-    "name": "8VMuj8WenThNKqB3",
-    "descriptions": "4c5cZ04XAP5g8rfR"
+    "name": "osrcsuvHVMadyDhn",
+    "descriptions": "AsICO0NT5Epq26nd"
 }
 
 fetch(url, {
@@ -1739,7 +1739,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/ministries/{ministry}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"RgHkeKoZSWctXW2U","descriptions":"wyOP8RWpv4fu4mYW"}'
+    -d '{"name":"Vx4RWTEdm8P0jqi8","descriptions":"diMCu15G95uK5AWo"}'
 
 ```
 
@@ -1753,8 +1753,8 @@ let headers = {
 }
 
 let body = {
-    "name": "RgHkeKoZSWctXW2U",
-    "descriptions": "wyOP8RWpv4fu4mYW"
+    "name": "Vx4RWTEdm8P0jqi8",
+    "descriptions": "diMCu15G95uK5AWo"
 }
 
 fetch(url, {
@@ -1865,6 +1865,232 @@ fetch(url, {
 #School Monitoring management
 
 APIs for managing statuses
+<!-- START_c3e54725b9cacdf2da0fa857d59274ef -->
+## Update student attendance
+
+> Example request:
+
+```bash
+curl -X PUT "http://localhost/api/v1/school/classes/{class_id}/update-member-attendance" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"id":19,"member_id":15,"school_class_id":8,"column_name":"ABQd0CSd7G2lqN3M","is_attended":2}'
+
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/school/classes/{class_id}/update-member-attendance");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "id": 19,
+    "member_id": 15,
+    "school_class_id": 8,
+    "column_name": "ABQd0CSd7G2lqN3M",
+    "is_attended": 2
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "data": {
+        "member_id": 1,
+        "school_class_id": 1,
+        "level_1": 0,
+        "level_2": 0,
+        "updated_at": "2019-02-06 12:49:41",
+        "created_at": "2019-02-06 12:49:41",
+        "id": 1
+    }
+}
+```
+> Example response (500):
+
+```json
+{
+    "data": "Error message ..."
+}
+```
+> Example response (422):
+
+```json
+{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}
+```
+
+### HTTP Request
+`PUT api/v1/school/classes/{class_id}/update-member-attendance`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    id | integer |  required  | the ID of the row
+    member_id | integer |  required  | the ID of the member
+    school_class_id | integer |  required  | the ID of the class
+    column_name | string |  optional  | the table column name to update for SUYNIL its (level_1, level_2 until level_10),
+    is_attended | integer |  required  | expected values(1, 0)
+
+<!-- END_c3e54725b9cacdf2da0fa857d59274ef -->
+
+<!-- START_9fafcc1c0dfecbe928ba096e65f786ce -->
+## Enroll new member to the class.
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost/api/v1/school/enrolled-member" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"member_id":18,"school_class_id":8}'
+
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/school/enrolled-member");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "member_id": 18,
+    "school_class_id": 8
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "data": {
+        "member_id": 1,
+        "school_class_id": 1,
+        "level_1": 0,
+        "level_2": 0,
+        "updated_at": "2019-02-06 12:49:41",
+        "created_at": "2019-02-06 12:49:41",
+        "id": 1
+    }
+}
+```
+> Example response (500):
+
+```json
+{
+    "data": "Error message ..."
+}
+```
+> Example response (422):
+
+```json
+{
+    "success": false,
+    "data": {
+        "first_name": [
+            "The :attribute field is required."
+        ]
+    }
+}
+```
+
+### HTTP Request
+`POST api/v1/school/enrolled-member`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    member_id | integer |  required  | the ID of the member
+    school_class_id | integer |  required  | the ID of the class
+
+<!-- END_9fafcc1c0dfecbe928ba096e65f786ce -->
+
+<!-- START_35d12e21a7ebc06904e175a3f419fdb9 -->
+## Search unenrolled member
+
+> Example request:
+
+```bash
+curl -X GET -G "http://localhost/api/v1/school/search-unenrolled-member" \
+    -H "Authorization: Bearer {token}"
+```
+
+```javascript
+const url = new URL("http://localhost/api/v1/school/search-unenrolled-member");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+> Example response (200):
+
+```json
+[
+    {
+        "first_name": "serg",
+        "last_name": "casquejo",
+        "middle_name": "degamo",
+        "birthdate": "1989-09-07",
+        "address": "Colo, camolinas, poblacion, cordova, cebu",
+        "city": "Cebu",
+        "contact_no": "09219945312",
+        "updated_at": "2019-02-06 09:59:04",
+        "created_at": "2019-02-06 09:59:04",
+        "id": 101
+    }
+]
+```
+
+### HTTP Request
+`GET api/v1/school/search-unenrolled-member`
+
+
+<!-- END_35d12e21a7ebc06904e175a3f419fdb9 -->
+
 <!-- START_23cde0a3b715c1816cfdcf74f2fed979 -->
 ## Display a listing of the resource.
 
@@ -1929,7 +2155,7 @@ fetch(url, {
 curl -X POST "http://localhost/api/v1/school/classes" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"batch_name":"uiAJDQ70dMC9INOx","school_year":9,"school_type_id":14,"remarks":"ujGSP2C8huF1eWvO"}'
+    -d '{"batch_name":"cvggwyioW3by7qxD","school_year":11,"school_type_id":8,"remarks":"qVeNXegXSBzyGQ7B"}'
 
 ```
 
@@ -1943,10 +2169,10 @@ let headers = {
 }
 
 let body = {
-    "batch_name": "uiAJDQ70dMC9INOx",
-    "school_year": 9,
-    "school_type_id": 14,
-    "remarks": "ujGSP2C8huF1eWvO"
+    "batch_name": "cvggwyioW3by7qxD",
+    "school_year": 11,
+    "school_type_id": 8,
+    "remarks": "qVeNXegXSBzyGQ7B"
 }
 
 fetch(url, {
@@ -2087,7 +2313,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/school/classes/{class}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"batch_name":"a9Y7Gqz98VFdKjTm","school_year":11,"school_type_id":12,"remarks":"UdAaA7uM5lQN8KgF"}'
+    -d '{"batch_name":"Hsk937haEk9xP9o7","school_year":4,"school_type_id":12,"remarks":"z8F0aLraUwBtEwN3"}'
 
 ```
 
@@ -2101,10 +2327,10 @@ let headers = {
 }
 
 let body = {
-    "batch_name": "a9Y7Gqz98VFdKjTm",
-    "school_year": 11,
+    "batch_name": "Hsk937haEk9xP9o7",
+    "school_year": 4,
     "school_type_id": 12,
-    "remarks": "UdAaA7uM5lQN8KgF"
+    "remarks": "z8F0aLraUwBtEwN3"
 }
 
 fetch(url, {
@@ -2278,7 +2504,7 @@ fetch(url, {
 curl -X POST "http://localhost/api/v1/school/statuses" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"g78IRs5N5Sx9bNkV","descriptions":"0TyCyYfxyJRAAy8K"}'
+    -d '{"name":"j6Z1zcGBhWGFff7m","descriptions":"C0Yk38aKufCJCyGi"}'
 
 ```
 
@@ -2292,8 +2518,8 @@ let headers = {
 }
 
 let body = {
-    "name": "g78IRs5N5Sx9bNkV",
-    "descriptions": "0TyCyYfxyJRAAy8K"
+    "name": "j6Z1zcGBhWGFff7m",
+    "descriptions": "C0Yk38aKufCJCyGi"
 }
 
 fetch(url, {
@@ -2424,7 +2650,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/school/statuses/{status}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"ygqV0zjxvoZq03Ne","descriptions":"UGjwdeXRe3yBkNao"}'
+    -d '{"name":"EIJN6jdv4N7eX56k","descriptions":"B9qCArdcH5AH3TaY"}'
 
 ```
 
@@ -2438,8 +2664,8 @@ let headers = {
 }
 
 let body = {
-    "name": "ygqV0zjxvoZq03Ne",
-    "descriptions": "UGjwdeXRe3yBkNao"
+    "name": "EIJN6jdv4N7eX56k",
+    "descriptions": "B9qCArdcH5AH3TaY"
 }
 
 fetch(url, {
@@ -2611,7 +2837,7 @@ fetch(url, {
 curl -X POST "http://localhost/api/v1/school/types" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"pR1i9OCI2ctKtbnj","descriptions":"2xNhZ289tHQ7wdlw"}'
+    -d '{"name":"Cko2snYzaQHk9JV9","descriptions":"91C8lTpXRVOzTxIg"}'
 
 ```
 
@@ -2625,8 +2851,8 @@ let headers = {
 }
 
 let body = {
-    "name": "pR1i9OCI2ctKtbnj",
-    "descriptions": "2xNhZ289tHQ7wdlw"
+    "name": "Cko2snYzaQHk9JV9",
+    "descriptions": "91C8lTpXRVOzTxIg"
 }
 
 fetch(url, {
@@ -2757,7 +2983,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/school/types/{type}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"cB4LCfZ888LMDQ97","descriptions":"SOqmPdF16k5BMA5Z"}'
+    -d '{"name":"R2CF6wgZaLKUZCQg","descriptions":"uQt9F4vuTZc6wuwC"}'
 
 ```
 
@@ -2771,8 +2997,8 @@ let headers = {
 }
 
 let body = {
-    "name": "cB4LCfZ888LMDQ97",
-    "descriptions": "SOqmPdF16k5BMA5Z"
+    "name": "R2CF6wgZaLKUZCQg",
+    "descriptions": "uQt9F4vuTZc6wuwC"
 }
 
 fetch(url, {
@@ -2944,7 +3170,7 @@ fetch(url, {
 curl -X POST "http://localhost/api/v1/statuses" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"iLvzoCu1Zmm9c9fq","descriptions":"jwDpijKL8YJvE9hH"}'
+    -d '{"name":"eAJhUmkZJHvwBhDf","descriptions":"i6HxMJlLMQpWxLZ9"}'
 
 ```
 
@@ -2958,8 +3184,8 @@ let headers = {
 }
 
 let body = {
-    "name": "iLvzoCu1Zmm9c9fq",
-    "descriptions": "jwDpijKL8YJvE9hH"
+    "name": "eAJhUmkZJHvwBhDf",
+    "descriptions": "i6HxMJlLMQpWxLZ9"
 }
 
 fetch(url, {
@@ -3090,7 +3316,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/statuses/{status}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"aWfbQBPsCNcgboa4","descriptions":"HrShgHYNA3W0aMKY"}'
+    -d '{"name":"bUGs9st12tQlXHqs","descriptions":"ABGD5C57oOW9VSI3"}'
 
 ```
 
@@ -3104,8 +3330,8 @@ let headers = {
 }
 
 let body = {
-    "name": "aWfbQBPsCNcgboa4",
-    "descriptions": "HrShgHYNA3W0aMKY"
+    "name": "bUGs9st12tQlXHqs",
+    "descriptions": "ABGD5C57oOW9VSI3"
 }
 
 fetch(url, {
@@ -3277,7 +3503,7 @@ fetch(url, {
 curl -X POST "http://localhost/api/v1/sc-statuses" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"FofVex36XpOxArIu","descriptions":"GzrZltdS2Tr2M4k3"}'
+    -d '{"name":"traKpY4qMaIPPTcs","descriptions":"WMGE6RfT504fzg7s"}'
 
 ```
 
@@ -3291,8 +3517,8 @@ let headers = {
 }
 
 let body = {
-    "name": "FofVex36XpOxArIu",
-    "descriptions": "GzrZltdS2Tr2M4k3"
+    "name": "traKpY4qMaIPPTcs",
+    "descriptions": "WMGE6RfT504fzg7s"
 }
 
 fetch(url, {
@@ -3423,7 +3649,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/sc-statuses/{sc_status}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"IZggK1g1d8Q2KdWO","descriptions":"z0TwXJm2DBiceMIt"}'
+    -d '{"name":"XUhl4zuJIFvlHfE0","descriptions":"ALK4rO9M4BfyOnL6"}'
 
 ```
 
@@ -3437,8 +3663,8 @@ let headers = {
 }
 
 let body = {
-    "name": "IZggK1g1d8Q2KdWO",
-    "descriptions": "z0TwXJm2DBiceMIt"
+    "name": "XUhl4zuJIFvlHfE0",
+    "descriptions": "ALK4rO9M4BfyOnL6"
 }
 
 fetch(url, {
@@ -3558,7 +3784,7 @@ APIs for user auth
 curl -X POST "http://localhost/api/v1/login" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"username":"z6PNFfmfJgeq2o4C","password":"xND8AWip5wgeDUZj"}'
+    -d '{"username":"0Zu5ilfsy7Sphvs7","password":"bO2iEyWxudV0Y24F"}'
 
 ```
 
@@ -3572,8 +3798,8 @@ let headers = {
 }
 
 let body = {
-    "username": "z6PNFfmfJgeq2o4C",
-    "password": "xND8AWip5wgeDUZj"
+    "username": "0Zu5ilfsy7Sphvs7",
+    "password": "bO2iEyWxudV0Y24F"
 }
 
 fetch(url, {
@@ -3677,7 +3903,7 @@ APIs for managing user roles
 curl -X POST "http://localhost/api/v1/roles" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"a2aiStl5U1VW6YKT","descriptions":"ND4SnQvwzLJ84yrr"}'
+    -d '{"name":"ibNjy8j65q3P8nby","descriptions":"HAf8B9cLyYbVqUFO"}'
 
 ```
 
@@ -3691,8 +3917,8 @@ let headers = {
 }
 
 let body = {
-    "name": "a2aiStl5U1VW6YKT",
-    "descriptions": "ND4SnQvwzLJ84yrr"
+    "name": "ibNjy8j65q3P8nby",
+    "descriptions": "HAf8B9cLyYbVqUFO"
 }
 
 fetch(url, {
@@ -3823,7 +4049,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/roles/{role}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"0f32YkOPhrepL2eD","descriptions":"HZZ2MWoVvUKoH6Y3"}'
+    -d '{"name":"HdpaeXeZVDyoCbZb","descriptions":"fN68VJYJHUrRfXYR"}'
 
 ```
 
@@ -3837,8 +4063,8 @@ let headers = {
 }
 
 let body = {
-    "name": "0f32YkOPhrepL2eD",
-    "descriptions": "HZZ2MWoVvUKoH6Y3"
+    "name": "HdpaeXeZVDyoCbZb",
+    "descriptions": "fN68VJYJHUrRfXYR"
 }
 
 fetch(url, {
@@ -3958,7 +4184,7 @@ APIs for managing user
 curl -X POST "http://localhost/api/v1/users" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"username":"022FBdNYZkJJKyIm","name":"78RY5o9fvLEnROV7","email":"UA8APuTUrJfKrSc6","password":"PiXjlWw8jI5u5PRC","confirm_password":"H1vLMkBjxQbVbR2U","roles":"u3a3ZOHacPkVgxOZ","member_id":4}'
+    -d '{"username":"c7uCCPpAEN13ZPxv","name":"L3fcs6XkugY8SKMd","email":"JWqUscuyRCrNLzw4","password":"geoh79CBrINzUeSF","confirm_password":"Po2bouM20dROFmUE","roles":"AaYePfHWgeoLorPR","member_id":17}'
 
 ```
 
@@ -3972,13 +4198,13 @@ let headers = {
 }
 
 let body = {
-    "username": "022FBdNYZkJJKyIm",
-    "name": "78RY5o9fvLEnROV7",
-    "email": "UA8APuTUrJfKrSc6",
-    "password": "PiXjlWw8jI5u5PRC",
-    "confirm_password": "H1vLMkBjxQbVbR2U",
-    "roles": "u3a3ZOHacPkVgxOZ",
-    "member_id": 4
+    "username": "c7uCCPpAEN13ZPxv",
+    "name": "L3fcs6XkugY8SKMd",
+    "email": "JWqUscuyRCrNLzw4",
+    "password": "geoh79CBrINzUeSF",
+    "confirm_password": "Po2bouM20dROFmUE",
+    "roles": "AaYePfHWgeoLorPR",
+    "member_id": 17
 }
 
 fetch(url, {
@@ -4131,7 +4357,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/users/{user}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"name":"AVtTbabLH42KZsYH","email":"qHqIqr3rax6IfbOb","roles":"FB3jOSre2SoGkhQw","id":4}'
+    -d '{"name":"j4EPFZ9C9NwDoJiA","email":"BxbkpHfO1xpUgih8","roles":"BCtpthVGwHSl1bhg","id":1}'
 
 ```
 
@@ -4145,10 +4371,10 @@ let headers = {
 }
 
 let body = {
-    "name": "AVtTbabLH42KZsYH",
-    "email": "qHqIqr3rax6IfbOb",
-    "roles": "FB3jOSre2SoGkhQw",
-    "id": 4
+    "name": "j4EPFZ9C9NwDoJiA",
+    "email": "BxbkpHfO1xpUgih8",
+    "roles": "BCtpthVGwHSl1bhg",
+    "id": 1
 }
 
 fetch(url, {
