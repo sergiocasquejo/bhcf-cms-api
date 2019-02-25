@@ -12,6 +12,17 @@ use App\Http\Requests\MemberCategoryUpdateRequest;
  */
 class MemberCategoryController extends Controller
 {
+     /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('admin');
+        $this->middleware('cellleader')->only(['index', 'show']);
+    }
+    
     /**
      * Display a listing of the resource.
      *
