@@ -12,6 +12,7 @@ class AuxiliaryGroup extends Model
      * @var string
      */
     protected $table = 'auxiliary_groups';
+    //Setup fillable columns
     protected $fillable = [
         'descriptions', 'name', 'created_by', 'updated_by'
     ];
