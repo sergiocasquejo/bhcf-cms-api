@@ -21,7 +21,5 @@ class Finance
         }
 
         abort(401, 'METHOD_NOT_ALLOWED');
-
-        // return $next($request);
     }
 }
