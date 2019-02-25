@@ -13,7 +13,7 @@ class SchoolClass extends Model
      */
     
     protected $table = 'school_classes';
-
+    //created a static option
     public $classTypes = ['SUYNIL', 'LifeClass', 'SOL'];
     /**
      * The attributes that are mass assignable.
