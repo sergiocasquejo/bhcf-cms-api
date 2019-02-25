@@ -13,5 +13,6 @@ class UserToRole extends Model
      */
     
     protected $table = 'user_to_roles';
+    // Disable timestamps
     public $timestamps = false;
 }
