@@ -57,7 +57,6 @@ const processStorage = (data, isLoggedIn = true) => {
  *
  * @returns {AxiosInstance}
  */
-console.log(process.env);
 
 const baseURL = process.env.MIX_REACT_APP_API_URL || 'http://127.0.0.1:8000/api/v1/';
 
@@ -67,11 +66,12 @@ const api = Axios.create({
 
 api.interceptors.request.use(function(config) {
   const appData = appState();
-  if ( appData && appData.user.auth_token ) {
-    config.params = {
-      token: appData.user.auth_token
-    }
+  if ( appData && appData.user.api_token ) {
+    const accessToken = appData.user.api_token;
+    config.headers = { Authorization: `Bearer ${accessToken}`};
   }
+
+  
 
   return config;
 }, function(err) {
@@ -79,10 +79,10 @@ api.interceptors.request.use(function(config) {
 });
 
 api.interceptors.response.use(response => response,function (error) {
-  if (error.response.status === 401) {
-    localStorage.clear();
-    history.push('/')
-  }
+  // if (error.response.status === 401) {
+    // localStorage.clear();
+    // history.push('/')
+  // }
 
   return Promise.reject(error);
 });

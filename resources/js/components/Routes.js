@@ -6,6 +6,8 @@ import Footer from './partials/Footer';
 import SideBar from './partials/SideBar';
 import Login from './Login';
 import Dashboard from './Dashboard';
+import People from './people/People';
+import PeopleDetails from './people/PeopleDetails';
 
 
 function fakeAuth() {
@@ -26,9 +28,17 @@ const DefaultLayout = ({component: Component, ...rest}) => {
     return (
         <Route {...rest} render={props => (
         <div className="DefaultLayout">
-            <Header {...props}/>
-            <SideBar />
-            <Component {...props} />
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-md-3">
+                        <SideBar />
+                    </div>
+                    <div className="col-md-9">
+                        <Header {...props}/>
+                        <Component {...props} />
+                    </div>
+                </div>
+            </div>
             <Footer />
         </div>
         )} />
@@ -66,6 +76,9 @@ class Routes extends Component {
                 <Switch>
                     <GuestRoute exact path="/" component={Login}/>
                     <PrivateRoute exact path="/dashboard" component={Dashboard}/>
+                    <PrivateRoute exact path="/people/:id" component={PeopleDetails}/>
+                    <PrivateRoute exact path="/people" component={People}/>
+                    
                 </Switch>
             </Router>
         );

@@ -40,7 +40,33 @@ class MemberController extends Controller
      */
     public function index(Request $request)
     {
-        $query = \App\Member::where(['leader_id' => \Auth::id()]);
+       //
+    }
+
+    /**
+     * Display a list of people by member ID
+     *
+     * @queryParm keywords The keywords for search
+     * @queryParam offset The page offset to return
+     * @queryParam limit required The number of rows to return
+     * @queryParam sort Field to sort by
+     * @queryParam sortBy Ascending or descending
+     * 
+     * @response [{
+     *  "first_name":"serg",
+     *  "last_name":"casquejo",
+     *  "middle_name":"degamo",
+     *  "birthdate":"1989-09-07",
+     *  "address":"Colo, camolinas, poblacion, cordova, cebu",
+     *  "city":"Cebu",
+     *  "contact_no":"09219945312",
+     *  "updated_at":"2019-02-06 09:59:04",
+     *  "created_at":"2019-02-06 09:59:04",
+     *  "id":101
+     * }]
+     */
+    public function people(Request $request, $id) {
+        $query = \App\Member::where(['leader_id' => $id]);
         if ($request->keywords) {
             $keywords = $request->keywords;
             $query->orWhere(function($query) use ($keywords){
@@ -53,9 +79,9 @@ class MemberController extends Controller
             $query->orderBy($request->sort);
         }
 
-        $query = $query->get();
+        $members = $query->get();
 
-        return response()->json(['success' => true, 'data' => $members], 200);
+        return response()->json(['success' => true, 'data' =>  MemberResources::collection($members)], 200);
     }
 
    
