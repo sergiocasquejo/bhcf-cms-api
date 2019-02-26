@@ -58,7 +58,7 @@ const processStorage = (data, isLoggedIn = true) => {
  * @returns {AxiosInstance}
  */
 
-const baseURL = process.env.MIX_REACT_APP_API_URL || 'http://127.0.0.1:8000/api/v1/';
+const baseURL = process.env.MIX_REACT_APP_API_URL || 'http://blessedhopecebu.org/api/v1/';
 
 const api = Axios.create({
   baseURL: 'https:' === document.location.protocol ? baseURL.replace(/http:/, 'https:') : baseURL
