@@ -102393,7 +102393,7 @@ var processStorage = function processStorage(data) {
  */
 
 
-var baseURL = "http://127.0.0.1:8000/api/v1/" || false;
+var baseURL =  true ? "http://blessedhopecebu.org/api/v1/" : undefined;
 var api = axios__WEBPACK_IMPORTED_MODULE_1___default.a.create({
   baseURL: 'https:' === document.location.protocol ? baseURL.replace(/http:/, 'https:') : baseURL
 });
