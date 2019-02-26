@@ -19,8 +19,8 @@ class MemberCategoryController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('admin');
-        $this->middleware('cellleader')->only(['index', 'show']);
+        // $this->middleware('admin');
+        // $this->middleware('cellleader')->only(['index', 'show']);
     }
     
     /**

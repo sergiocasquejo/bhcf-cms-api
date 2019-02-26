@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {api, appState, processStorage} from './Common';
-import { ValidationForm, TextInput, SelectGroup, Checkbox, Radio } from 'react-bootstrap4-form-validation';
-import validator from 'validator';
+import { ValidationForm, TextInput } from 'react-bootstrap4-form-validation';
+import { Alert } from 'react-bootstrap';
 
 export default class Login extends Component {
     constructor(props){
@@ -10,6 +10,8 @@ export default class Login extends Component {
         this.state = {
             username: "",
             password: "",
+            errorMessage: null,
+            isFormSubmit: false,
         };
         
         this.handleChange = this.handleChange.bind(this);
@@ -25,12 +27,16 @@ export default class Login extends Component {
     handleSubmit(e, formData, inputs) {
         e.preventDefault();
         let _this = this;
+        this.setState({ isFormSubmit: true });
         api.post('login', formData).then(res => {
             let response = res.data;
             if (response.success) {
                 processStorage(response.data, true);
                 _this.props.history.push('/dashboard');
+            }else {
+                this.setState({ errorMessage: response.data });
             }
+            this.setState({ isFormSubmit: false });
         });
     }
 
@@ -43,6 +49,11 @@ export default class Login extends Component {
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-6">
+                        { this.state.errorMessage && 
+                        <Alert variant={'danger'}>
+                            { this.state.errorMessage }
+                        </Alert>
+                        }
                         <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit}>
                             <div className="form-group">
                                 <label>Username</label>
@@ -65,7 +76,7 @@ export default class Login extends Component {
                                 onChange={this.handleChange} 
                                 />
                             </div>
-                            <button className="btn btn-primary" type="submit">Login</button>
+                            <button className="btn btn-primary" type="submit">{this.state.isFormSubmit ? 'Logging in...' : 'Login'}</button>
                         </ValidationForm>
                     </div>
                 </div>

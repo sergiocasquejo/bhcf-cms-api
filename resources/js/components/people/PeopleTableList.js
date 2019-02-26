@@ -44,7 +44,7 @@ export default class PeopleTableList extends Component {
             text: 'Cell Leader',
             formatter: function(cell, row) {
                 return (
-                    <Link to={ `/people/${cell['id']}` }>{cell['first_name'] + ' ' + cell['last_name']}</Link>
+                    cell ? <Link to={ `/people/${cell['id']}` }>{cell['first_name'] + ' ' + cell['last_name']}</Link> : ''
                 )
             }
           }, 
@@ -53,7 +53,7 @@ export default class PeopleTableList extends Component {
               text: 'Leadership Level',
               formatter: function(cell, row) {
                   return (
-                      <span>{cell['name']}</span>
+                    cell ? <span>{cell['name']}</span> : ''
                   )
               }
           },
@@ -62,7 +62,7 @@ export default class PeopleTableList extends Component {
             text: 'School Status',
             formatter: function(cell, row) {
                 return (
-                    <span>{cell['name']}</span>
+                    cell ? <span>{cell['name']}</span> : ''
                 )
             }
         },

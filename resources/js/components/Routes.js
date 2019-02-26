@@ -8,7 +8,7 @@ import Login from './Login';
 import Dashboard from './Dashboard';
 import People from './people/People';
 import PeopleDetails from './people/PeopleDetails';
-
+import PeopleCreateEdit from './people/PeopleCreateEdit';
 
 function fakeAuth() {
 	let storage = null;
@@ -76,6 +76,8 @@ class Routes extends Component {
                 <Switch>
                     <GuestRoute exact path="/" component={Login}/>
                     <PrivateRoute exact path="/dashboard" component={Dashboard}/>
+                    <PrivateRoute exact path="/people/create" component={PeopleCreateEdit}/>
+                    <PrivateRoute exact path="/people/:id/edit" component={PeopleCreateEdit}/>
                     <PrivateRoute exact path="/people/:id" component={PeopleDetails}/>
                     <PrivateRoute exact path="/people" component={People}/>
                     
