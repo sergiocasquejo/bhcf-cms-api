@@ -57,6 +57,9 @@ const processStorage = (data, isLoggedIn = true) => {
  *
  * @returns {AxiosInstance}
  */
+
+ console.log(process.env);
+
 const baseURL = process.env.MIX_REACT_APP_API_URL || 'http://127.0.0.1:8000/api/v1/';
 
 const api = Axios.create({

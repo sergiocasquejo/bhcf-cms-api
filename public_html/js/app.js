@@ -95264,6 +95264,7 @@ var processStorage = function processStorage(data) {
  */
 
 
+console.log(Object({"MIX_PUSHER_APP_KEY":"","MIX_PUSHER_APP_CLUSTER":"mt1","MIX_REACT_APP_API_URL":"http://blessedhopecebu.org/api/v1/","NODE_ENV":"development"}));
 var baseURL = "http://blessedhopecebu.org/api/v1/" || false;
 var api = axios__WEBPACK_IMPORTED_MODULE_1___default.a.create({
   baseURL: 'https:' === document.location.protocol ? baseURL.replace(/http:/, 'https:') : baseURL
