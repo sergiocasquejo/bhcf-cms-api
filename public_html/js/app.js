@@ -93406,7 +93406,7 @@ var processStorage = function processStorage(data) {
  */
 
 
-var baseURL = Object({"MIX_PUSHER_APP_KEY":"","MIX_PUSHER_APP_CLUSTER":"mt1","NODE_ENV":"development"}).REACT_APP_API_URL || 'http://127.0.0.1:8000/api/v1/';
+var baseURL = Object({"MIX_PUSHER_APP_KEY":"","MIX_PUSHER_APP_CLUSTER":"mt1","NODE_ENV":"development"}).MIX_REACT_APP_API_URL || 'http://127.0.0.1:8000/api/v1/';
 var api = axios__WEBPACK_IMPORTED_MODULE_1___default.a.create({
   baseURL: 'https:' === document.location.protocol ? baseURL.replace(/http:/, 'https:') : baseURL
 });
