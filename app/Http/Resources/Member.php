@@ -21,6 +21,7 @@ class Member extends JsonResource
             'invited_by' => $this->invitedBy()->first(),
             'total_cellgroups' => $this->cellgroups()->count(),
             'full_name' => $this->full_name,
+            'email' => '',
             'first_name' => $this->first_name, 
             'last_name' => $this->last_name, 
             'middle_name' => $this->middle_name,  
@@ -39,6 +40,7 @@ class Member extends JsonResource
             'category' => $this->category()->first(),
             'ministries' => $this->ministries()->get(),
             'remarks' => $this->remarks, 
+            'created_at' => $this->created_at
         ];
     }
 }

@@ -11,5 +11,5 @@
 |
 */
 
-Route::view('/{path?}', 'app');
+Route::view('{all}', 'app')->where('all', '.*');
 // Route::get('/home', 'HomeController@index')->name('home');
