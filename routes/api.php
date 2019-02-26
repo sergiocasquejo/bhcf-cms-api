@@ -19,7 +19,7 @@ Route::prefix('v1')->group(function() {
         Route::resource('auxiliary-groups', 'AuxiliaryGroupController')->only(['index', 'store', 'show', 'update', 'destroy']);
         Route::resource('ministries', 'MinistryController')->only(['index', 'store', 'show', 'update', 'destroy']);
         Route::resource('statuses', 'StatusController')->only(['index', 'store', 'show', 'update', 'destroy']);
-        Route::resource('leadership-level', 'LeadershipLevelController')->only(['index', 'store', 'show', 'update', 'destroy']);
+        Route::resource('leadership-levels', 'LeadershipLevelController')->only(['index', 'store', 'show', 'update', 'destroy']);
         Route::resource('members/category', 'MemberCategoryController')->only(['index', 'store', 'show', 'update', 'destroy']);
         Route::get('members/{id}/people', 'MemberController@people');
         Route::post('members/{id}/avatar', 'MemberController@uploadAvatar');

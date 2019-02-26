@@ -26,6 +26,8 @@ class Member extends Model
         'first_name', 
         'last_name', 
         'middle_name', 
+        'nick_name',
+        'email',
         'gender', 
         'birthdate', 
         'address', 
@@ -39,7 +41,8 @@ class Member extends Model
         'auxiliary_group_id',
         'status_id',
         'category_id',
-        'remarks'
+        'remarks',
+        'created_by'
     ];
 
     public function user() {

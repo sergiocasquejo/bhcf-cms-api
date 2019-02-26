@@ -22,7 +22,7 @@ export default class People extends Component {
                 <div className="row justify-content-center">
                     <div className="col-md-12">
                         <h1>People</h1>
-                        <Link to="/people/new" className="btn btn-success">Add New</Link>
+                        <Link to="/people/create" className="btn btn-success">Add New</Link>
                         <PeopleTableList id={id}/>
                         
                     </div>

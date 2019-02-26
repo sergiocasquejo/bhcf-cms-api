@@ -77,6 +77,8 @@ class MemberController extends Controller
 
         if ($request->sort) {
             $query->orderBy($request->sort);
+        } else {
+            $query->orderBy('id', 'DESC');
         }
 
         $members = $query->get();
@@ -134,12 +136,14 @@ class MemberController extends Controller
     public function store(MemberStoreRequest $request)
     {
         try {
-            $input = $request->all();
-            $input['created_by'] = auth()->user()->id;
-
+            $input = array_filter($request->all(), function($value) { return $value !== '' && $value !== null; });
+            $input['created_by'] = Auth()->user()->id;
+            $input['leader_id'] = Auth()->user()->id;
+            $input['birthdate'] = date('Y-m-d', strtotime($input['birthdate']));
+            // return response()->json($input);
             $member = new \App\Member($input);
             if ($member->save()) {
-                return response()->json(['success' => true, 'data' => new MemberResources($member->id)], 201);    
+                return response()->json(['success' => true, 'data' => new MemberResources($member)], 201);    
             } else {
                 return response()->json(['success' => false, 'data' => 'Unsuccessfull save.'], 200);
             }
@@ -211,7 +215,6 @@ class MemberController extends Controller
      * @bodyParam contact_no string required the contact no of the member
      * @bodyParam secondary_contact_no string optional the secondary no of the member
      * @bodyParam facebook_name string optional the facebook username of the member
-     * @bodyParam avatar string optional the image url of the member
      * @bodyParam school_status_id int optional the school status member
      * @bodyParam leadership_level_id int optional the leadership id of the member
      * @bodyParam auxiliary_group_id int optional the auxiliary group of the member

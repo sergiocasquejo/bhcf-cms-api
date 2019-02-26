@@ -31,7 +31,7 @@ class CreateMembersTable extends Migration
                 $table->unsignedInteger('school_status_id')->nullable();
                 $table->unsignedInteger('leadership_level_id')->nullable();
                 $table->unsignedInteger('auxiliary_group_id')->nullable();
-                $table->unsignedInteger('status_id');
+                $table->unsignedInteger('status_id')->nullable();
                 $table->mediumText('remarks')->nullable();
                 $table->unsignedInteger('created_by');
                 $table->timestamps();
