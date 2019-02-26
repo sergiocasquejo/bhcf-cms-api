@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use App\Http\Resources\User as UserResources;
 /**
  * @group User Authentication
  *
@@ -87,7 +87,7 @@ class LoginController extends Controller
 
             return response()->json([
                 'success' => true,
-                'data' => $user->toArray(),
+                'data' => new UserResources($user),
             ]);
         }
         return response()->json(['success' => false, 'data' => 'User doesn`t exists.'], 200);
