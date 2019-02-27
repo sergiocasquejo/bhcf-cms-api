@@ -33,7 +33,7 @@ class Member extends JsonResource
             'contact_no' => $this->contact_no, 
             'secondary_contact_no' => $this->secondary_contact_no, 
             'facebook_name' => $this->facebook_name, 
-            'avatar' => $this->avatar, 
+            'avatar' => json_decode($this->avatar, true), 
             'school_status' => $this->schoolStatus()->first(),
             'leadership_level' => $this->leadershipLevel()->first(),
             'auxiliary_group' => $this->auxiliaryGroup()->first(),
@@ -41,7 +41,8 @@ class Member extends JsonResource
             'category' => $this->category()->first(),
             'ministries' => $this->ministries()->get(),
             'remarks' => $this->remarks, 
-            'created_at' => $this->created_at
+            'created_at' => $this->created_at,
+            'is_approved' => $this->is_approved,
         ];
     }
 }

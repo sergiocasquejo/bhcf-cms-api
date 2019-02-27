@@ -69,7 +69,7 @@ api.interceptors.request.use(function(config) {
   const appData = appState();
   if ( appData && appData.user.api_token ) {
     const accessToken = appData.user.api_token;
-    config.headers = { Authorization: `Bearer ${accessToken}`};
+    config.headers = { Authorization: `Bearer ${accessToken}`,  'Content-Type': 'application/json', 'Accept': 'application/json'};
   }
 
   
@@ -80,12 +80,11 @@ api.interceptors.request.use(function(config) {
 });
 
 api.interceptors.response.use(response => response,function (error) {
-  // if (error.response.status === 401) {
-    // localStorage.clear();
-    // history.push('/')
-  // }
-  
-  if (error.response.status == 500) {
+
+  if (error.response.data.message == 'Unauthenticated.') {
+    localStorage.clear();
+    history.push('/');
+  } else if (error.response.status == 500) {
     Alert.error('Oops! something went wrong.');
   } else if (error.response.status == 422) {
     let message = '';

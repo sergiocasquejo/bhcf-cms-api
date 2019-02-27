@@ -19,6 +19,11 @@ import Ministry from './Miinistry';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/slide.css';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faIgloo, faEllipsisV } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faIgloo, faEllipsisV)
 
 
 function fakeAuth() {

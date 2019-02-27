@@ -42,7 +42,8 @@ class Member extends Model
         'status_id',
         'category_id',
         'remarks',
-        'created_by'
+        'created_by',
+        'is_approved'
     ];
 
     public function user() {

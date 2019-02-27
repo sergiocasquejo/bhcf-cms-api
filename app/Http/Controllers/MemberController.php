@@ -271,6 +271,56 @@ class MemberController extends Controller
         }
     }
 
+
+    /**
+     * Approve and Unapprove Member
+     *
+     * @bodyParam is_approve int required 1|0
+     * @bodyParam _method string required options(PUT|PATCH)
+     * @response {
+     *  "success": true,
+     *  data: {
+     *      "first_name":"serg",
+     *      "last_name":"casquejo",
+     *      "middle_name":"degamo",
+     *      "birthdate":"1989-09-07",
+     *      "address":"Colo, camolinas, poblacion, cordova, cebu",
+     *      "city":"Cebu",
+     *      "contact_no":"09219945312",
+     *      "updated_at":"2019-02-06 09:59:04",
+     *      "created_at":"2019-02-06 09:59:04",
+     *      "id":101
+     *    }
+     * }
+     * @response 500{
+     *  "data": "Error message ..."
+     * }
+     * @response 422{
+     *  "success":false,
+     *  "data":{
+     *      "first_name":["First name is required!"]
+     *  }
+     * }
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function approve(Request $request, $id)
+    {
+        try {
+            $input = $request->only('is_approved');
+            $input['updated_by'] = auth()->user()->id;
+            if ($result = \App\Member::find($id)->update($input)) {
+                return response()->json(['success' => true, 'data' => $result], 201);    
+            } else {
+                return response()->json(['success' => false, 'data' => 'Unsuccessfull update.'], 200);
+            }
+        } catch(\Exception $e) {
+            return response()->json(['data' => $e->getMessage()], 500);
+        }
+    }
+
+    
+
      /**
      * Remove the specified resource from storage.
      *

@@ -80,13 +80,18 @@ export default class PeopleDetails extends Component {
         const id = this.state.member_id;
         let info = this.state.information;
         if (!this.state.loading ) {
-        console.log(info.ministries);
+            console.log(info.ministries);
         }
+
         return (
             <div className="col-md-12">
             {!this.state.loading ? ( 
                 <div>
-                    <Avatar facebookId={info.facebook_name} name={info.full_name} round="10px" /> 
+                    {info.avatar && info.avatar.thumbnail ?
+                        <Avatar src={info.avatar.thumbnail} size="200" round="10px" /> 
+                        : 
+                        <Avatar name={info.full_name} round="10px" /> 
+                    }
                     <h1>
                         {info.full_name} 
                         { info.leadership_level && <Badge pill variant="success" className="badge-sm">{ info.leadership_level.name }</Badge> }
