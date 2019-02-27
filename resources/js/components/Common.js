@@ -69,7 +69,14 @@ api.interceptors.request.use(function(config) {
   const appData = appState();
   if ( appData && appData.user.api_token ) {
     const accessToken = appData.user.api_token;
-    config.headers = { Authorization: `Bearer ${accessToken}`,  'Content-Type': 'application/json', 'Accept': 'application/json'};
+    config.headers = { 
+        Authorization: `Bearer ${accessToken}`,  
+        'Content-Type': 'application/json', 
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin' : '*',
+        'Access-Control-Allow-Methods': 'POST,GET,PUT,DELETE',
+        'Access-Control-Allow-Headers': 'Authorization, Lang'
+      };
   }
 
   
