@@ -40,6 +40,7 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:60,1',
             'bindings',
+            \App\Http\Middleware\JsonMiddleware::class,
         ],
     ];
 
@@ -63,6 +64,7 @@ class Kernel extends HttpKernel
         'admin' => \Illuminate\Auth\Middleware\Admin::class,
         'finance' => \Illuminate\Auth\Middleware\Finance::class,
         'cellleader' => \Illuminate\Auth\Middleware\CellLeader::class,
+        'return-json' => \App\Http\Middleware\JsonMiddleware::class,
     ];
 
     /**

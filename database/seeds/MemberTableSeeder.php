@@ -12,16 +12,17 @@ class MemberTableSeeder extends Seeder
     public function run()
     {
         $faker = \Faker\Factory::create();
-
+        $arrIds = [1];
         // And now, let's create a few articles in our database:
         for ($i = 0; $i < 100; $i++) {
             $member = App\Member::create([
-                'leader_id' => 1,
+                'leader_id' => $faker->randomElement($arrIds),
                 'user_id' => 0,
-                'invited_by' => 1,
+                'invited_by' => $faker->randomElement($arrIds),
                 'first_name' => $faker->firstName,
                 'last_name' => $faker->lastName,
                 'middle_name' => $faker->lastName,
+                'nick_name' => $faker->firstName,
                 'gender' => 'male',
                 'birthdate' => $faker->dateTimeThisCentury->format('Y-m-d'),
                 'address' => $faker->streetAddress,
@@ -29,15 +30,21 @@ class MemberTableSeeder extends Seeder
                 'contact_no' => $faker->phoneNumber,
                 'secondary_contact_no' => $faker->phoneNumber,
                 'facebook_name' => $faker->userName,
-                'avatar' => 'http://lorempixel.com/640/480/cats/',
+                'avatar' => json_encode([
+                        'original' => 'http://lorempixel.com/640/480/cats/',
+                        'thumbnail' => 'http://lorempixel.com/450/450/cats/',
+                        'small' => 'http://lorempixel.com/100/100/cats/',
+                    ]),
                 'school_status_id' => $faker->numberBetween(1,3),
                 'leadership_level_id' => $faker->numberBetween(1,3),
                 'auxiliary_group_id' => $faker->numberBetween(1,3),
                 'status_id' => $faker->numberBetween(1,3),
                 'category_id' => $faker->numberBetween(1,3),
                 'remarks' => $faker->paragraph,
+                'is_approved' => $faker->numberBetween(0, 1),
                 'created_by' => 1
             ]);
+            $arrIds[] = $member->id;
             $data = $member->fresh();
             App\Member::find($data->id)->ministries()->attach($faker->randomElement([1, 2, 3, 4]));
         }

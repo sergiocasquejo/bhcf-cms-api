@@ -14,7 +14,7 @@ class AddEmailToMembersTable extends Migration
     public function up()
     {
         Schema::table('members', function (Blueprint $table) {
-            $table->char('email', 120)->after('contact_no');
+            $table->char('email', 120)->nullable()->after('contact_no');
         });
     }
 

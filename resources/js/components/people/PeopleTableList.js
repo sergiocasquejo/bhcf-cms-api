@@ -4,13 +4,16 @@ import { appState, api } from '../Common';
 import BootstrapTable from 'react-bootstrap-table-next';
 import Avatar from 'react-avatar';
 import paginationFactory from 'react-bootstrap-table2-paginator';
-import ToolkitProvider  from 'react-bootstrap-table2-toolkit';
-
+import ToolkitProvider, { ColumnToggle }  from 'react-bootstrap-table2-toolkit';
+import { Badge, DropdownButton, ButtonGroup, Dropdown } from 'react-bootstrap';
 import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Alert from 'react-s-alert';
 
 const sizePerPage = parseInt(process.env.MIX_PAGINATION_SIZE_PER_PAGE);
-
+const { ToggleList } = ColumnToggle;
 export default class PeopleTableList extends Component {
+    _isMounted = false
     constructor(props) {
         super(props);
         this.state = {
@@ -18,11 +21,17 @@ export default class PeopleTableList extends Component {
             page:1,
             totalSize: 0,
         }
+        this.approveMember = this.approveMember.bind(this);
     }
 
     componentDidMount() {
-        
+        this._isMounted = true;
         this.fetch({offset: 0, limit: sizePerPage});
+        
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     fetch({ offset: offset, limit: limit, keywords: keywords = '', sort: sort = 'full_name', order: order = 'desc'}) {
@@ -45,35 +54,48 @@ export default class PeopleTableList extends Component {
         });
     }
 
+    approveMember(e, id, isApproved = 1) {
+        e.preventDefault();
+        api.post(`members/${id}/approve`, {
+            is_approved: isApproved,
+            _method: 'PUT'
+        }).then(res => {
+            if (this._isMounted) {
+                const response = res.data;
+                if (response.success) {
+                    Alert.success('Done!');
+                    this.fetch({offset: 0, limit: sizePerPage});
+                } else {
+                    Alert.error(response.data);
+                }
+            }
+        });
+    }
 
     render() {
-
+        const _this = this;
+        
         const columns = [{
                 dataField: 'full_name',
                 text: 'Name',
                 sort: true,
                 formatter: function(cell, row) {
+                    const src= row['avatar'] && row['avatar']['small'] != undefined ? row['avatar']['small'] : false;
+
                     return (
-                        <Link to={ `/people/${row['id']}` }><Avatar size="30" name={cell} round="20px" /> {cell}</Link>
+                        <Link to={ `/people/${row['id']}` }>
+                            { src ? 
+                                <Avatar size="30" src={src} name={cell} round="20px" />
+                                : <Avatar size="30" name={cell} round="20px" />
+                            }
+                            {cell}
+                        </Link>
                     )
                 },
                 onSort: (field, order) => {
                     console.log(field, order);
                 }
             },  
-            {
-                dataField: 'leader',
-                text: 'Cell Leader',
-                sort: true,
-                formatter: function(cell, row) {
-                    return (
-                        cell ? <Link to={ `/people/${cell['id']}` }>{cell['first_name'] + ' ' + cell['last_name']}</Link> : ''
-                    )
-                },
-                onSort: (field, order) => {
-                    console.log(field, order);
-                }
-            },
             {
                 dataField: 'leadership_level',
                 text: 'Leadership Level',
@@ -95,10 +117,49 @@ export default class PeopleTableList extends Component {
                 }
             },
             {
+                dataField: 'status',
+                text: 'Status',
+                sort: true,
+                formatter: function(cell, row) {
+                    return (
+                        cell ? cell['name'] : ''
+                    )
+                },
+                onSort: (field, order) => {
+                    console.log(field, order);
+                }
+            },
+            {
+                dataField: 'is_approved',
+                text: 'Approved',
+                sort: true,
+                formatter: function(cell, row) {
+                    return (
+                        <Badge variant={cell ? 'success' : 'danger'}>{cell ? 'Yes' : 'No'}</Badge>
+                    )
+                }
+            },
+            {
                 dataField: 'created_at',
                 text: 'Date Created',
                 sort: true
-            }];
+            },
+            {
+                dataField: 'action',
+                text: '',
+                formatter: function(cell, row) {
+                    return (
+                        <ButtonGroup>
+                            <DropdownButton as={ButtonGroup} title={<FontAwesomeIcon icon="ellipsis-v" />} id="bg-nested-dropdown">
+                                <Dropdown.Item eventKey="1" onClick={(e) => { _this.approveMember(e, row['id'], !row['is_approved'])}}>{!row['is_approved'] ? 'Approve' : 'Disapprove' }</Dropdown.Item>
+                                <Dropdown.Item eventKey="2">Delete</Dropdown.Item>
+                            </DropdownButton>
+                        </ButtonGroup>
+                        
+                    )
+                }
+            }
+        ];
         
         const people = this.state.people;
         const page = this.state.page;

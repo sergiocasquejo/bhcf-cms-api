@@ -10,8 +10,8 @@ return [
     */
     'profile' => [
         'sizes' => [
-            'small' => [60, 60],
-            'thumbnail' => [150, 150]
+            'small' => [100, 100],
+            'thumbnail' => [450, 450]
         ],
         'location' => public_path(). '/avatar/',
     ]
