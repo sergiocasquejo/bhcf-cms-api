@@ -27,7 +27,7 @@ class StatusStoreRequest extends FormRequest
     {
         
         return [
-            'name' => 'required|max:120|unique:ministries,name',
+            'name' => 'required|max:120|unique:statuses,name',
             'descriptions' => 'max:255'
         ];
     }

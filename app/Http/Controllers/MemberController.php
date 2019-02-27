@@ -66,24 +66,31 @@ class MemberController extends Controller
      * }]
      */
     public function people(Request $request, $id) {
-        $query = \App\Member::where(['leader_id' => $id]);
-        if ($request->keywords) {
-            $keywords = $request->keywords;
-            $query->orWhere(function($query) use ($keywords){
-                $query->where('first_name', 'like', '%' . $keywords . '%');
-                $query->orWhere('last_name', 'like', '%' . $keywords . '%');
+        $offset = (int) $request->input('offset');
+        $offset = $offset > 1 ? $offset - 1 : 0;
+        $limit = $request->input('limit');
+        $keywords = $request->input('keywords');
+        $sort = $request->input('sort', 'first_name');
+        $order = $request->input('order', 'desc');
+        $query = \App\Member::select('*', \DB::raw('CONCAT(first_name, " ", last_name) AS full_name'));
+        $query->where(['leader_id' => $id]);
+        if ($keywords) {
+            $query->where(function($query) use ($keywords){
+                $query->where('first_name', 'like', '%' . $keywords . '%')->orWhere('last_name', 'like', '%' . $keywords . '%');
             });
         }
-
-        if ($request->sort) {
-            $query->orderBy($request->sort);
+        
+        if ($sort) {
+            $query->orderBy($sort, $order);
         } else {
             $query->orderBy('id', 'DESC');
         }
+        
+        $totalSize = $query->count();
 
-        $members = $query->get();
+        $members = $query->skip( $offset * $limit )->take($limit)->get();
 
-        return response()->json(['success' => true, 'data' =>  MemberResources::collection($members)], 200);
+        return response()->json(['success' => true, 'people' =>  MemberResources::collection($members), 'totalSize' => $totalSize], 200);
     }
 
    

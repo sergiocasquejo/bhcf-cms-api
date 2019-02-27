@@ -21,7 +21,7 @@ class Header extends Component {
                         <Nav.Link href="#home">Home</Nav.Link>
                         <Nav.Link href="#link">Link</Nav.Link>
                         <NavDropdown title={<span><Avatar size="35" name={appState().user.name} round={true} /> {appState().user.name}</span>} id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
+                            <NavDropdown.Item href={`/people/${appState().user.id}`}>Profile</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item onClick={this.logout.bind(this)}>Logout</NavDropdown.Item>
                         </NavDropdown>

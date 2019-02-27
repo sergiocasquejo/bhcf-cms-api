@@ -21,7 +21,8 @@ class User extends JsonResource
             'email' => $this->email,
             'api_token' => $this->api_token,
             'avatar' => $this->member ? json_decode($this->member()->avatar, true) : null,
-            'avatar_letter' => substr($this->name, 0, 1)
+            'avatar_letter' => substr($this->name, 0, 1),
+            'can_manage_options' => $this->can_manage_options
         ];
     }
 }

@@ -43,4 +43,19 @@ class User extends Authenticatable
     public function roles() {
         return $this->belongsToMany('App\Role', 'user_to_roles', 'user_id', 'role_id');
     }
+
+
+    public function getCanManageOptionsAttribute()
+    {
+
+        $canManageOptions = false;
+        foreach($this->roles as $role) {
+            if ($role->name == 'administrator') {
+                $canManageOptions = true;
+                break;
+            }
+        }
+
+        return $canManageOptions;
+    }
 }
