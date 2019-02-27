@@ -6,6 +6,7 @@ import React from "react";
 import Axios from 'axios';
 import createHistory from 'history/createBrowserHistory';
 import { fromJS } from "immutable";
+import Alert from 'react-s-alert';
 const history = createHistory();
 
 
@@ -83,6 +84,18 @@ api.interceptors.response.use(response => response,function (error) {
     // localStorage.clear();
     // history.push('/')
   // }
+  
+  if (error.response.status == 500) {
+    Alert.error('Oops! something went wrong.');
+  } else if (error.response.status == 422) {
+    let message = '';
+    const errors = error.response.data.data;
+    for(var key in errors) {
+      Alert.warning(errors[key]);
+    }
+
+    
+  }
 
   return Promise.reject(error);
 });

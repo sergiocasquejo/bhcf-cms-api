@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {api, appState, processStorage} from '../Common';
 // import DatePicker  from 'react-bootstrap-date-picker';
 import { ValidationForm, TextInput, Checkbox, Radio } from 'react-bootstrap4-form-validation';
-import { Alert } from 'react-bootstrap';
+import Alert from 'react-s-alert';
 
 export default class PeopleCreateEdit extends Component {
     constructor(props){
@@ -91,19 +91,27 @@ export default class PeopleCreateEdit extends Component {
     }
     
     handleChange (e) {
-        console.log(e.target.name + ' ' + e.target.value);
+        
         this.setState({
             [e.target.name]: e.target.value
-        })
+        });
+
+        console.log(this.state);
     }
 
     handleSubmit(e, formData, inputs) {
         e.preventDefault();
+        console.log('hello');
+        console.log(formData);
         this.setState({ isFormSubmit: true });
         api.post('members', formData).then(res => {
             let response = res.data;
+            
             if (response.success) {
-                this.props.history.push(`/people/${response.data.id}/edit`);
+                Alert.success('Successfully Saved!');    
+                // this.props.history.push(`/people/${response.data.id}/edit`);
+            } else {
+                Alert.error(response.data);
             }
         });
     }
@@ -124,11 +132,6 @@ export default class PeopleCreateEdit extends Component {
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-6">
-                        { this.state.errorMessage && 
-                        <Alert variant={'danger'}>
-                            { this.state.errorMessage }
-                        </Alert>
-                        }
                         <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit}>
                             <div id="accordion">
                                 <div className="card">
@@ -230,8 +233,6 @@ export default class PeopleCreateEdit extends Component {
                                             <div className="form-group">
                                                 <label>Email Address</label>
                                                 <TextInput name="email" id="email" type="email" 
-                                                required
-                                                errorMessage={{required:"Email address is required"}} 
                                                 value={this.state.email} 
                                                 onChange={this.handleChange}
                                                 />
@@ -239,8 +240,6 @@ export default class PeopleCreateEdit extends Component {
                                             <div className="form-group">
                                                 <label>Contact #</label>
                                                 <TextInput name="contact_no" id="contactNo" type="text" 
-                                                required
-                                                errorMessage={{required:"Contact # is required"}} 
                                                 value={this.state.contact_no} 
                                                 onChange={this.handleChange}
                                                 />
@@ -248,8 +247,6 @@ export default class PeopleCreateEdit extends Component {
                                             <div className="form-group">
                                                 <label>Contact #</label>
                                                 <TextInput name="secondary_contact_no" id="secondaryContactNo" type="text" 
-                                                required
-                                                errorMessage={{required:"Secondary Contact # is required"}} 
                                                 value={this.state.secondary_contact_no} 
                                                 onChange={this.handleChange}
                                                 />
@@ -257,8 +254,6 @@ export default class PeopleCreateEdit extends Component {
                                             <div className="form-group">
                                                 <label>Facebook Name</label>
                                                 <TextInput name="facebook_name" id="facebookName" type="text" 
-                                                required
-                                                errorMessage={{required:"Facebook Name is required"}} 
                                                 value={this.state.facebook_name} 
                                                 onChange={this.handleChange}
                                                 />

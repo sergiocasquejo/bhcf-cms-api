@@ -41,14 +41,36 @@ class AuxiliaryGroupController extends Controller
      *      "updated_at":"2019-02-06 09:58:46",
      *      "deleted_at":null
      *      }
-     *  ]
+     *  ],
+     * "totalSize": 100
      * }
      */
     public function index(Request $request)
     {
-        $results = \App\AuxiliaryGroup::all();
+        $offset = (int) $request->input('offset');
+        $offset = $offset > 1 ? $offset - 1 : 0;
+        $limit = $request->input('limit');
+        $keywords = $request->input('keywords');
+        $sort = $request->input('sort', 'name');
+        $order = $request->input('order', 'desc');
+        $query = \App\AuxiliaryGroup::select(\DB::raw('*'));
+        if ($keywords) {
+            $query->where(function($query) use ($keywords){
+                $query->where('name', 'like', '%' . $keywords . '%');
+            });
+        }
+        
+        if ($sort) {
+            $query->orderBy($sort, $order);
+        } else {
+            $query->orderBy('id', 'DESC');
+        }
+        
+        $totalSize = $query->count();
 
-        return response()->json(['success' => true, 'data' => $results], 200);
+        $results = $query->skip( $offset * $limit )->take($limit)->get();
+
+        return response()->json(['success' => true, 'data' =>  $results, 'totalSize' => $totalSize], 200);
     }
 
 

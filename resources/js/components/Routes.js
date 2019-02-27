@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Router, Route, Redirect, Switch } from 'react-router-dom';
+import { Router, Route, Redirect, Switch, Link } from 'react-router-dom';
 import {history} from './Common';
 import Header from './partials/Header';
 import Footer from './partials/Footer';
@@ -9,6 +9,17 @@ import Dashboard from './Dashboard';
 import People from './people/People';
 import PeopleDetails from './people/PeopleDetails';
 import PeopleCreateEdit from './people/PeopleCreateEdit';
+import AuxiliaryGroup from './AuxiliaryGroup';
+import LeadershipLevel from './LeadershipLevel';
+import Category from './Category';
+import SchoolStatus from './SchoolStatus';
+import Status from './Status';
+import Ministry from './Miinistry';
+
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/slide.css';
+
 
 function fakeAuth() {
 	let storage = null;
@@ -22,6 +33,10 @@ function fakeAuth() {
 
 function isLoggedIn() {
 	return fakeAuth() && fakeAuth().isLoggedIn;
+}
+
+function canManageOptions() {
+    return isLoggedIn() && fakeAuth().user.can_manage_options;
 }
 
 const DefaultLayout = ({component: Component, ...rest}) => {
@@ -69,10 +84,36 @@ const GuestRoute = ({ component: Component, ...rest }) => (
     )} />
 );
 
+const AdministratorRoute = ({ component: Component, ...rest }) => (
+    <DefaultLayout {...rest} component={(props) => (
+        canManageOptions()
+        ? <Component {...props} />
+        : <Redirect to={{
+            pathname: '/unauthorized',
+            state: { from: props.location }
+            }} />
+    )} />
+);
+
+
+const Page404 = ({ location }) => (
+    <div>
+      <h2>No match found for <code>{location.pathname}</code><Link to={ isLoggedIn() ? '/dashboard' : '/' }>Go back</Link></h2>
+   </div>
+);
+
+
+const Page401 = ({ location }) => (
+    <div>
+      <h2>401 Unauthorized <code>{location.pathname}</code><Link to={ isLoggedIn() ? '/dashboard' : '/' }>Go back</Link></h2>
+   </div>
+);
+
 class Routes extends Component {
     render() {
         return (
             <Router history={history}>
+                <React.Fragment>
                 <Switch>
                     <GuestRoute exact path="/" component={Login}/>
                     <PrivateRoute exact path="/dashboard" component={Dashboard}/>
@@ -80,8 +121,17 @@ class Routes extends Component {
                     <PrivateRoute exact path="/people/:id/edit" component={PeopleCreateEdit}/>
                     <PrivateRoute exact path="/people/:id" component={PeopleDetails}/>
                     <PrivateRoute exact path="/people" component={People}/>
-                    
+                    <AdministratorRoute exact path="/auxiliary-groups" component={AuxiliaryGroup} />
+                    <AdministratorRoute exact path="/categories" component={Category} />
+                    <AdministratorRoute exact path="/leadership-levels" component={LeadershipLevel} />
+                    <AdministratorRoute exact path="/school-statuses" component={SchoolStatus} />
+                    <AdministratorRoute exact path="/statuses" component={Status} />
+                    <AdministratorRoute exact path="/ministries" component={Ministry} />
+                    <Route exact path="/unauthorized" component={Page401} />
+                    <Route component={Page404} />
                 </Switch>
+                <Alert stack={{limit: 3, spacing: 50}} html={true} />
+                </React.Fragment>
             </Router>
         );
     }

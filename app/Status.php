@@ -12,7 +12,18 @@ class Status extends Model
      * @var string
      */
     protected $table = 'statuses';
-
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'descriptions',
+        'created_by',
+        'updated_by'
+    ];
+    
     public function member() {
         return $this->belongsTo('App\Member');
     }

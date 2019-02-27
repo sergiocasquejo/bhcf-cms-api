@@ -27,7 +27,7 @@ class LeadershipLevelStoreRequest extends FormRequest
     {
         
         return [
-            'name' => 'required|max:120|unique:ministries,name',
+            'name' => 'required|max:120|unique:leadership_levels,name',
             'descriptions' => 'max:255'
         ];
     }

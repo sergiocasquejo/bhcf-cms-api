@@ -16,7 +16,7 @@ class CreateSchoolStatusesTable extends Migration
         Schema::create('school_statuses', function (Blueprint $table) {
             $table->increments('id');
             $table->char('name', 120)->unique();
-            $table->char('descriptions', 255);
+            $table->char('descriptions', 255)->nullable();
             $table->unsignedInteger('created_by');
             $table->foreign('created_by')
                 ->references('id')->on('users');

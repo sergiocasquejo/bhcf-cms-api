@@ -4,14 +4,15 @@ import { ValidationForm, TextInput } from 'react-bootstrap4-form-validation';
 import { Alert } from 'react-bootstrap';
 
 export default class Login extends Component {
+    _isMounted = false;
+    _isFormSubmit = false;
     constructor(props){
         super(props);
     
         this.state = {
             username: "",
             password: "",
-            errorMessage: null,
-            isFormSubmit: false,
+            errorMessage: null
         };
         
         this.handleChange = this.handleChange.bind(this);
@@ -26,22 +27,31 @@ export default class Login extends Component {
 
     handleSubmit(e, formData, inputs) {
         e.preventDefault();
-        let _this = this;
-        this.setState({ isFormSubmit: true });
+        this._isFormSubmit = true;
         api.post('login', formData).then(res => {
-            let response = res.data;
-            if (response.success) {
-                processStorage(response.data, true);
-                _this.props.history.push('/dashboard');
-            }else {
-                this.setState({ errorMessage: response.data });
+            if (this._isMounted) {
+                let response = res.data;
+                this._isFormSubmit = false;
+
+                if (response.success) {
+                    processStorage(response.data, true);
+                    this.props.history.push('/dashboard');
+                }else {
+                    this.setState({ errorMessage: response.data });
+                }
+                
             }
-            this.setState({ isFormSubmit: false });
         });
     }
 
     handleErrorSubmit(e, formData, errorInputs){
         console.error(errorInputs)
+    }
+    componentDidMount() {
+        this._isMounted = true;
+    }
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     render() {
@@ -76,7 +86,7 @@ export default class Login extends Component {
                                 onChange={this.handleChange} 
                                 />
                             </div>
-                            <button className="btn btn-primary" type="submit">{this.state.isFormSubmit ? 'Logging in...' : 'Login'}</button>
+                            <button className="btn btn-primary" type="submit">{this._isFormSubmit ? 'Logging in...' : 'Login'}</button>
                         </ValidationForm>
                     </div>
                 </div>
