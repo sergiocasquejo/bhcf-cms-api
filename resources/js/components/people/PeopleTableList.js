@@ -134,6 +134,7 @@ export default class PeopleTableList extends Component {
                 text: 'Approved',
                 sort: true,
                 formatter: function(cell, row) {
+                    console.log(cell);
                     return (
                         <Badge variant={cell ? 'success' : 'danger'}>{cell ? 'Yes' : 'No'}</Badge>
                     )

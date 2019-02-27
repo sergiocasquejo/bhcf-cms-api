@@ -71,7 +71,7 @@ class Member extends Model
     }
 
     public function leader() {
-        return $this->belongsTo(static::class, 'leader_id', 'id')->select(array('id', 'first_name', 'last_name', 'middle_name'));
+        return $this->belongsTo(static::class, 'leader_id', 'id')->select(array('id', 'nick_name'));
     }
 
     public function cellgroups() {

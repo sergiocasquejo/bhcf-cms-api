@@ -310,7 +310,7 @@ class MemberController extends Controller
             $input = $request->only('is_approved');
             $input['updated_by'] = auth()->user()->id;
             if ($result = \App\Member::find($id)->update($input)) {
-                return response()->json(['success' => true, 'data' => $result], 201);    
+                return response()->json(['success' => true], 201);    
             } else {
                 return response()->json(['success' => false, 'data' => 'Unsuccessfull update.'], 200);
             }

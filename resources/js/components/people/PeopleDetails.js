@@ -98,7 +98,7 @@ export default class PeopleDetails extends Component {
                         <Link to={ `/people/${ info.id }/edit` }>Edit</Link>
                     </h1>
                     { info.leader &&
-                        <p>Leader: <Link to={ `/people/${ info.leader.id }` }>{ info.leader.first_name +' ' + info.leader.last_name}</Link></p>
+                        <p>Leader: <Link to={ `/people/${ info.leader.id }` }>{ info.leader.nick_name}</Link></p>
                     }
                     { info.ministries &&
                         <p>Ministries: {
