@@ -5,6 +5,8 @@ import { appState, api } from '../Common';
 import PeopleTableList from './PeopleTableList';
 import {Loader} from '../partials/Loader';
 import Avatar from 'react-avatar';
+
+
 class PersonalInformation extends Component {
    
     render() {
