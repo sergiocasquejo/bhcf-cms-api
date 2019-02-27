@@ -64,7 +64,11 @@ class SchoolStatusController extends Controller
         
         $totalSize = $query->count();
 
-        $results = $query->skip( $offset * $limit )->take($limit)->get();
+        if ($request->input('offset') && $request->input('limit')) {
+            $query->skip( $offset * $limit )->take($limit);
+        }
+
+        $results = $query->get();
 
         return response()->json(['success' => true, 'data' =>  $results, 'totalSize' => $totalSize], 200);
     }

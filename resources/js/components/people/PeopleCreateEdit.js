@@ -3,7 +3,7 @@ import {api, appState, processStorage} from '../Common';
 // import DatePicker  from 'react-bootstrap-date-picker';
 import { ValidationForm, TextInput, Checkbox, Radio } from 'react-bootstrap4-form-validation';
 import Alert from 'react-s-alert';
-
+import PhotoBooth from './partials/PhotoBooth';
 export default class PeopleCreateEdit extends Component {
     constructor(props){
         super(props);
@@ -132,6 +132,7 @@ export default class PeopleCreateEdit extends Component {
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-6">
+                        <PhotoBooth />
                         <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit}>
                             <div id="accordion">
                                 <div className="card">
@@ -145,6 +146,7 @@ export default class PeopleCreateEdit extends Component {
 
                                     <div id="collapsePeronalInformation" className="collapse show" aria-labelledby="personalInformationHeding" data-parent="#accordion">
                                         <div className="card-body">
+                                            
                                             <div className="form-group">
                                                 <label>First Name</label>
                                                 <TextInput name="first_name" id="firstName" type="text" 

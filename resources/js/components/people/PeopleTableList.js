@@ -136,7 +136,7 @@ export default class PeopleTableList extends Component {
                 formatter: function(cell, row) {
                     console.log(cell);
                     return (
-                        <Badge variant={cell ? 'success' : 'danger'}>{cell ? 'Yes' : 'No'}</Badge>
+                        <Badge variant={parseInt(cell) == 1 ? 'success' : 'danger'}>{parseInt(cell) == 1 ? 'Yes' : 'No'}</Badge>
                     )
                 }
             },
@@ -152,8 +152,9 @@ export default class PeopleTableList extends Component {
                     return (
                         <ButtonGroup>
                             <DropdownButton as={ButtonGroup} title={<FontAwesomeIcon icon="ellipsis-v" />} id="bg-nested-dropdown">
-                                <Dropdown.Item eventKey="1" onClick={(e) => { _this.approveMember(e, row['id'], !row['is_approved'])}}>{!row['is_approved'] ? 'Approve' : 'Disapprove' }</Dropdown.Item>
-                                <Dropdown.Item eventKey="2">Delete</Dropdown.Item>
+                                <Link className="dropdown-item" role="button"  to={`people/${row['id']}/edit`}>Edit</Link>
+                                <Dropdown.Item eventKey="1" onClick={(e) => { _this.approveMember(e, row['id'], !parseInt(row['is_approved']))}}>{parseInt(row['is_approved']) != 1 ? 'Approve' : 'Disapprove' }</Dropdown.Item>
+                                
                             </DropdownButton>
                         </ButtonGroup>
                         
