@@ -43,9 +43,31 @@ class LeadershipLevelController extends Controller
      */
     public function index(Request $request)
     {
-        $results = \App\LeadershipLevel::all();
 
-        return response()->json(['success' => true, 'data' => $results], 200);
+        $offset = (int) $request->input('offset');
+        $offset = $offset > 1 ? $offset - 1 : 0;
+        $limit = $request->input('limit');
+        $keywords = $request->input('keywords');
+        $sort = $request->input('sort', 'name');
+        $order = $request->input('order', 'desc');
+        $query = \App\LeadershipLevel::select(\DB::raw('*'));
+        if ($keywords) {
+            $query->where(function($query) use ($keywords){
+                $query->where('name', 'like', '%' . $keywords . '%');
+            });
+        }
+        
+        if ($sort) {
+            $query->orderBy($sort, $order);
+        } else {
+            $query->orderBy('id', 'DESC');
+        }
+        
+        $totalSize = $query->count();
+
+        $results = $query->skip( $offset * $limit )->take($limit)->get();
+
+        return response()->json(['success' => true, 'data' =>  $results, 'totalSize' => $totalSize], 200);
     }
 
 
