@@ -143,11 +143,36 @@ class MemberController extends Controller
     public function store(MemberStoreRequest $request)
     {
         try {
-            $input = array_filter($request->all(), function($value) { return $value !== '' && $value !== null; });
+            $input = $request->only([
+                'first_name', 
+                'last_name', 
+                'middle_name', 
+                'nick_name', 
+                'birthdate',
+                'gender',
+                'city', 
+                'address', 
+                'ministries',
+                'auxiliary_group_id', 
+                'status',
+                'school_status_id',
+                'category_id', 
+                'leadership_level_id',
+                'email', 
+                'contact_no', 
+                'secondary_contact_no', 
+                'facebook_name',
+                'remarks',
+                ]);
+
+            $input = array_filter($input, function($value) { return $value !== '' && $value !== null; });
             $input['created_by'] = Auth()->user()->id;
             $input['leader_id'] = Auth()->user()->id;
             $input['birthdate'] = date('Y-m-d', strtotime($input['birthdate']));
-            // return response()->json($input);
+            if (isset($input['avatar'])) {
+                $input['avatar'] = $this->processBase64Avatar($input['avatar']);
+            }
+
             $member = new \App\Member($input);
             if ($member->save()) {
                 return response()->json(['success' => true, 'data' => new MemberResources($member)], 201);    
@@ -158,6 +183,21 @@ class MemberController extends Controller
             return response()->json(['data' => $e->getMessage()], 500);
         }
 
+    }
+
+    private function processBase64Avatar($avatar) {
+        if (preg_match('/^data:image\/(\w+);base64,/', $avatar, $type)) {
+            $encoded_base64_image = substr($avatar, strpos($avatar, ',') + 1);
+            $type = strtolower($type[1]);
+
+            $decoded_image = base64_decode($encoded_base64_image);
+            if ($avatar = $this->uploadMemberAvatar($decoded_image,  "avatar-".time().".jpg")) {
+                return  json_encode($avatar);
+            }
+        }
+        
+        return '';
+        
     }
 
 
@@ -259,8 +299,39 @@ class MemberController extends Controller
     public function update(MemberStoreRequest $request, $id)
     {
         try {
-            $input = $request->all();
+            $input = $request->only([
+                'avatar',
+                'first_name', 
+                'last_name', 
+                'middle_name', 
+                'nick_name', 
+                'birthdate',
+                'gender',
+                'city', 
+                'address', 
+                'ministries',
+                'auxiliary_group_id', 
+                'status',
+                'school_status_id',
+                'category_id', 
+                'leadership_level_id',
+                'email', 
+                'contact_no', 
+                'secondary_contact_no', 
+                'facebook_name',
+                'remarks',
+                ]);
+            $input = array_filter($input, function($value) { return $value !== '' && $value !== null; });
+
+
             $input['updated_by'] = auth()->user()->id;
+            $input['birthdate'] = date('Y-m-d', strtotime($input['birthdate']));
+
+            if (isset($input['avatar'])) {
+                $input['avatar'] = $this->processBase64Avatar($input['avatar']);
+                
+            }
+
             if ($result = \App\Member::find($id)->update($input)) {
                 return response()->json(['success' => true], 201);    
             } else {
@@ -367,35 +438,16 @@ class MemberController extends Controller
         try {
             $member = \App\Member::findOrFail($id);
             $originalImage = $request->file('avatar');
-            $thumbnailImage = Image::make($originalImage);
-            $profilePath = config('sitesettings.profile.location');
+            
 
-            $originalFile = $profilePath . time() . $originalImage->getClientOriginalName();
-            $avatar = [
-                'original' => $originalFile
-            ];
-
-            $thumbnailImage->save($originalFile);
-            foreach(config('sitesettings.profile.sizes') as $k => $v) {
-                if (isset($v[0])) {
-                    $width = $v[0];
-                    $height = isset($v[1]) ? $v[1] : $width;
-
-                    $file = $profilePath . "_{$width}x{$height}_" . time() . $originalImage->getClientOriginalName();
-                    $thumbnailImage->resize($width, $height);
-                    $thumbnailImage->save($file);
-                    $avatar[$k] = $file;
-                }
-            }
+            $avatar = $this->uploadMemberAvatar($originalImage, "avatar-".time().".png");
             //Get all file
-            $oldAvatar = $member->avatar ? json_decode($member->avatar) : '';
+            $oldAvatar = $member->avatar ? json_decode($member->avatar) : false;
             $member->avatar = json_encode($avatar);
-            if ($member->save()) {
-                //Delete old file
-                foreach($oldAvatar as $k => $file) {
-                   unlink($file);
-                }
+            if ($member->save() && $oldAvatar) {
+                $this->deleteOldAvatar($oldAvatar);
             }
+
 
             return response()->json([
                 'success' => true,
@@ -404,5 +456,50 @@ class MemberController extends Controller
         } catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
         }
+    }
+
+    private function deleteOldAvatar($avatar) {
+        if ($avatar) {
+            //Delete old file
+            foreach($avatar as $k => $file) {
+                if (file_exists($file)) {
+                    unlink($file);
+                }
+            }
+        }
+
+    }
+
+    private function uploadMemberAvatar($originalImage, $newFileName){
+        try {
+            
+            $thumbnailImage = \Intervention\Image\Facades\Image::make($originalImage);
+            $profilePath = config('sitesettings.profile.location');
+
+            $originalFile = $profilePath . $newFileName;
+            $avatar = [
+                'original' => str_replace(public_path(), '', $originalFile)
+            ];
+            
+
+            $thumbnailImage->save($originalFile);
+
+            foreach(config('sitesettings.profile.sizes') as $k => $v) {
+                if (isset($v[0])) {
+                    $width = $v[0];
+                    $height = isset($v[1]) ? $v[1] : $width;
+
+                    $file = $profilePath . "_{$width}x{$height}_" . time() . $newFileName;
+                    $thumbnailImage->resize($width, $height);
+                    $thumbnailImage->save($file);
+                    $avatar[$k] = str_replace(public_path(), '', $file);
+                }
+            }
+            
+            return $avatar;
+        } catch(\Exception $e) {
+            print_r($e);
+        }
+        return false;
     }
 }
