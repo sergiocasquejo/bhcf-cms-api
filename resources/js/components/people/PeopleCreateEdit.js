@@ -6,6 +6,7 @@ import Alert from 'react-s-alert';
 import PhotoBooth from './partials/PhotoBooth';
 import {Loader} from '../partials/Loader';
 export default class PeopleCreateEdit extends Component {
+    _isMounted = false;
     constructor(props){
         super(props);
     
@@ -47,51 +48,69 @@ export default class PeopleCreateEdit extends Component {
         this.handleChangeDate = this.handleChangeDate.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onPhotoChange = this.onPhotoChange.bind(this);
+    } 
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     componentDidMount() {
+        this._isMounted = true;
         if (this.props.match.params.id) {
             const memberID = this.props.match.params.id;
             api.get(`members/${memberID}`).then(res => {
-                const newState = Object.assign(this.state, res.data.data);
-                newState.loading = false;
-                this.setState(newState);
+                if (this._isMounted) {
+                    const newState = Object.assign(this.state, res.data.data);
+                    newState.loading = false;
+                    this.setState(newState);
+                }
             });
         }
 
         api.get(`auxiliary-groups`).then(res => {
-            if (res.data.success) {
-             this.setState({auxiliary_groups: res.data.data});
+            if (this._isMounted) {
+                if (res.data.success) {
+                this.setState({auxiliary_groups: res.data.data});
+                }
             }
         });
 
         api.get(`members/category`).then(res => {
-            if (res.data.success) {
-             this.setState({categories: res.data.data});
+            if (this._isMounted) {
+                if (res.data.success) {
+                this.setState({categories: res.data.data});
+                }
             }
         });
 
         api.get(`ministries`).then(res => {
-            if (res.data.success) {
-             this.setState({ministries_list: res.data.data});
+            if (this._isMounted) {
+                if (res.data.success) {
+                this.setState({ministries_list: res.data.data});
+                }
             }
         });
 
         api.get(`school/statuses`).then(res => {
-            if (res.data.success) {
-             this.setState({school_statuses: res.data.data});
+            if (this._isMounted) {
+                if (res.data.success) {
+                this.setState({school_statuses: res.data.data});
+                }
             }
         });
 
         api.get(`statuses`).then(res => {
-            if (res.data.success) {
-             this.setState({statuses: res.data.data});
+            if (this._isMounted) {
+                if (res.data.success) {
+                this.setState({statuses: res.data.data});
+                }
             }
         });
 
         api.get(`leadership-levels`).then(res => {
-            if (res.data.success) {
-             this.setState({leadership_levels: res.data.data});
+            if (this._isMounted) {
+                if (res.data.success) {
+                   this.setState({leadership_levels: res.data.data});
+                }
             }
         });
     }
@@ -130,13 +149,15 @@ export default class PeopleCreateEdit extends Component {
             formData['_method'] = "PUT";
         }
         api.post(url, formData).then(res => {
-            let response = res.data;
-            
-            if (response.success) {
-                Alert.success('Successfully Saved!');    
-                // this.props.history.push(`/people/${response.data.id}/edit`);
-            } else {
-                Alert.error(response.data);
+            if (this._isMounted) {
+                let response = res.data;
+                
+                if (response.success) {
+                    Alert.success('Successfully Saved!');    
+                    // this.props.history.push(`/people/${response.data.id}/edit`);
+                } else {
+                    Alert.error(response.data);
+                }
             }
         });
     }
@@ -158,7 +179,7 @@ export default class PeopleCreateEdit extends Component {
                 {!this.state.loading ?(
                 <div className="row justify-content-center">
                     <div className="col-md-6">
-                        <PhotoBooth src={this.state.avatar.original || false} photoChange={this.onPhotoChange}/>
+                        <PhotoBooth src={this.state.avatar ? this.state.avatar.original : false} photoChange={this.onPhotoChange}/>
                         <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit}>
                             <div id="accordion">
                                 <div className="card">
