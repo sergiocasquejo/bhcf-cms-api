@@ -1,0 +1,155 @@
+.admin-interface {
+  padding: 60px;
+
+  &-container {
+
+  }
+
+  &-block {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  &-sidebar {
+    background-color: #edf8f4;
+    min-width: 245px;
+    padding: 30px 30px;
+
+    .navbar-logo {
+      margin-bottom: 50px;
+    }
+    * {
+      color: #5d706a;
+    }
+    ul {
+      padding: 0;
+      li {
+        margin-bottom: 20px;
+
+        &.active {
+          a {
+            i {
+              background-color: #56c9a7;
+              color: white;
+            }
+          }
+        }
+        a {
+          display: flex;
+          align-items: center;
+          font-weight: 600;
+          text-transform: capitalize;
+          color: inherit;
+          &:hover, &:focus, &:active {
+            text-decoration: none;
+            color: #56c9a7;
+
+            i {
+              background-color: #56c9a7;
+              color: white;
+            }
+          }
+          i {
+            font-size: 18px;
+            margin-right: 15px;
+            width: 38px;
+            text-align: center;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+
+          }
+        }
+      }
+    }
+  }
+  &-main {
+    width: 100%;
+    &-container {
+      max-width: 1005px;
+      margin: 0 auto;
+    }
+    &-header {
+      border-bottom: 1px solid #f0f6f4;
+      padding: 15px 0;
+
+      ul {
+        @extend .list-inline;
+        display: flex;
+        margin: 0;
+        li {
+          display: flex;
+          align-items: center;
+          @extend .list-inline-item;
+
+          &:first-child {
+            margin-right: auto;
+          }
+          &:nth-child(2) {
+            margin-right: 25px;
+          }
+          a {
+            color: #000;
+            font-weight: 500;
+
+            img {
+              margin-right: 15px;
+              border-radius: 5px;
+            }
+
+            i {
+              &.icon-musical-bell-outline {
+
+              }
+              &.icon-down-arrow {
+                margin-left: 10px;
+                font-size: 13px;
+                font-weight: 600;
+              }
+
+            }
+          }
+          .form-group {
+            display: flex;
+            margin: 0;
+            .btn-link {
+              padding: 0;
+
+              &:hover, &:active, &:focus {
+                text-decoration: none;
+              }
+            }
+            i {
+              color: #c0c0c0;
+              vertical-align: middle;
+            }
+            input {
+              border: 0;
+              color: #637a71;
+
+              &:focus {
+                box-shadow: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    &-body {
+
+    }
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .admin-interface {
+    &-container {
+      max-width: 1375px;
+    }
+  }
+}
