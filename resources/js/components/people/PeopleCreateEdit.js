@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import {api, appState, processStorage} from '../Common';
-import {Form} from 'react-bootstrap';
-// import DatePicker  from 'react-bootstrap-date-picker';
-import { ValidationForm, TextInput, Checkbox, Radio, SelectGroup } from 'react-bootstrap4-form-validation';
+import {api} from '../Common';
+import { ValidationForm, TextInput, Checkbox, SelectGroup } from 'react-bootstrap4-form-validation';
 import Alert from 'react-s-alert';
 import PhotoBooth from './partials/PhotoBooth';
 import {Loader} from '../partials/Loader';
