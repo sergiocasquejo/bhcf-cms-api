@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import {api, appState, processStorage} from '../Common';
 // import DatePicker  from 'react-bootstrap-date-picker';
-import { ValidationForm, TextInput, Checkbox, Radio } from 'react-bootstrap4-form-validation';
+import { ValidationForm, TextInput, Checkbox, Radio, SelectGroup } from 'react-bootstrap4-form-validation';
 import Alert from 'react-s-alert';
 import PhotoBooth from './partials/PhotoBooth';
+import {Loader} from '../partials/Loader';
 export default class PeopleCreateEdit extends Component {
     constructor(props){
         super(props);
     
         this.state = {
+
             id: "",
             email: "",
             first_name: "",
@@ -33,15 +35,18 @@ export default class PeopleCreateEdit extends Component {
             statuses: [],
             categories: [],
             ministries_list: [],
-
+            ministries: null,
+            avatar: null,
             errorMessage: null,
             isFormSubmit: false,
-            isEdit: false
+            isEdit: false,
+            loading: true,
         };
-        
+        this.handleChangeCheckbox = this.handleChangeCheckbox.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleChangeDate = this.handleChangeDate.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.onPhotoChange = this.onPhotoChange.bind(this);
     }
 
     componentDidMount() {
@@ -49,6 +54,7 @@ export default class PeopleCreateEdit extends Component {
             const memberID = this.props.match.params.id;
             api.get(`members/${memberID}`).then(res => {
                 const newState = Object.assign(this.state, res.data.data);
+                newState.loading = false;
                 this.setState(newState);
             });
         }
@@ -96,7 +102,19 @@ export default class PeopleCreateEdit extends Component {
             [e.target.name]: e.target.value
         });
 
-        console.log(this.state);
+        
+    }
+
+    handleChangeCheckbox(e) {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+
+        console.log(e.target.value);
+    }
+
+    onPhotoChange(image) {
+        this.setState({'avatar': image});
     }
 
     handleSubmit(e, formData, inputs) {
@@ -104,7 +122,14 @@ export default class PeopleCreateEdit extends Component {
         console.log('hello');
         console.log(formData);
         this.setState({ isFormSubmit: true });
-        api.post('members', formData).then(res => {
+        formData['avatar'] = this.state.avatar;
+        let url = `members`;
+        if (this.props.match.params.id) {
+            const memberID = this.props.match.params.id;
+            url = `${url}/${memberID}`;
+            formData['_method'] = "PUT";
+        }
+        api.post(url, formData).then(res => {
             let response = res.data;
             
             if (response.success) {
@@ -130,9 +155,10 @@ export default class PeopleCreateEdit extends Component {
     render() {
         return (
             <div className="container">
+                {!this.state.loading ?(
                 <div className="row justify-content-center">
                     <div className="col-md-6">
-                        <PhotoBooth />
+                        <PhotoBooth src={this.state.avatar.original || false} photoChange={this.onPhotoChange}/>
                         <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit}>
                             <div id="accordion">
                                 <div className="card">
@@ -235,7 +261,7 @@ export default class PeopleCreateEdit extends Component {
                                             <div className="form-group">
                                                 <label>Email Address</label>
                                                 <TextInput name="email" id="email" type="email" 
-                                                value={this.state.email} 
+                                                value={this.state.email || ""} 
                                                 onChange={this.handleChange}
                                                 />
                                             </div>
@@ -276,9 +302,10 @@ export default class PeopleCreateEdit extends Component {
                                             {
                                                 this.state.ministries_list.map((item, i) => {
                                                     return (
-                                                        <Checkbox key={i} name="ministries[]" label={item.name} id={`ministry${i}`} 
-                                                            value={this.state.check1}
-                                                            onChange={this.handleChange}
+                                                        <Checkbox key={i} name="ministries" label={item.name} id={`ministry${i}`} 
+                                                            value={item.id.toString()}
+                                                            onChange={this.handleChangeCheckbox}
+                                                            checked="false"
                                                         />
                                                     )
                                                 })
@@ -299,14 +326,16 @@ export default class PeopleCreateEdit extends Component {
                                             <p>
                                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                             </p>
-                                            <Radio.RadioGroup name="status_id" valueSelected={this.state.status_id.toString()}
-                                                onChange={this.handleChange} inline={false}>
+                                            <SelectGroup name="status" id="status"
+                                                value={this.state.status_id} 
+                                                onChange={this.handleChange}>
+                                                <option value="">--- Please select ---</option>
                                                 {
                                                     this.state.statuses.map((item, i) => {
-                                                        return <Radio.RadioItem id={'status' + i} key={i} value={item.id.toString()} label={item.name} />
+                                                        return <option id={'status' + i} key={i} value={item.id}>{item.name}</option>
                                                     })
                                                 }
-                                            </Radio.RadioGroup>
+                                            </SelectGroup>
                                         </div>
                                     </div>
                                 </div>
@@ -320,14 +349,16 @@ export default class PeopleCreateEdit extends Component {
                                     </div>
                                     <div id="collapseSchoolStatus" className="collapse" aria-labelledby="schoolStatusHeading" data-parent="#accordion">
                                         <div className="card-body">
-                                            <Radio.RadioGroup name="school_status_id" valueSelected={this.state.school_status_id.toString()}
-                                                onChange={this.handleChange} inline={false}>
+                                            <SelectGroup name="school_status_id" id="school_status_id"
+                                                value={this.state.school_status_id} 
+                                                onChange={this.handleChange}>
+                                                <option value="">--- Please select ---</option>
                                                 {
                                                     this.state.school_statuses.map((item, i) => {
-                                                        return <Radio.RadioItem id={'status' + i} key={i} value={item.id.toString()} label={item.name} />
+                                                        return <option id={'status' + i} key={i} value={item.id}>{item.name}</option>
                                                     })
                                                 }
-                                            </Radio.RadioGroup>
+                                            </SelectGroup>
                                         </div>
                                     </div>
                                 </div>
@@ -341,14 +372,17 @@ export default class PeopleCreateEdit extends Component {
                                     </div>
                                     <div id="collapseLeadershipLevel" className="collapse" aria-labelledby="leadershipLevelHeading" data-parent="#accordion">
                                         <div className="card-body">
-                                            <Radio.RadioGroup name="leadership_level_id" valueSelected={this.state.leadership_level_id.toString()}
-                                                onChange={this.handleChange} inline={false}>
+                                            <SelectGroup name="leadership_level_id" id="leadership_level_id"
+                                                value={this.state.leadership_level_id} 
+                                                onChange={this.handleChange}>
+                                                <option value="">--- Please select ---</option>
+
                                                 {
                                                     this.state.leadership_levels.map((item, i) => {
-                                                        return <Radio.RadioItem id={'status' + i} key={i} value={item.id.toString()} label={item.name} />
+                                                        return <option id={'status' + i} key={i} value={item.id}>{item.name}</option>
                                                     })
                                                 }
-                                            </Radio.RadioGroup>
+                                            </SelectGroup>
                                         </div>
                                     </div>
                                 </div>
@@ -362,14 +396,16 @@ export default class PeopleCreateEdit extends Component {
                                     </div>
                                     <div id="collapseAuxiliaryGroup" className="collapse" aria-labelledby="auxiliaryGroupHeading" data-parent="#accordion">
                                         <div className="card-body">
-                                            <Radio.RadioGroup name="auxiliary_group_id" valueSelected={this.state.auxiliary_group_id.toString()}
-                                                onChange={this.handleChange} inline={false}>
+                                            <SelectGroup name="auxiliary_group_id" id="auxiliary_group_id"
+                                                value={this.state.auxiliary_group_id} 
+                                                onChange={this.handleChange}>
+                                                <option value="">--- Please select ---</option>
                                                 {
                                                     this.state.auxiliary_groups.map((item, i) => {
-                                                        return <Radio.RadioItem id={'status' + i} key={i} value={item.id.toString()} label={item.name} />
+                                                        return <option id={'status' + i} key={i} value={item.id}>{item.name}</option>
                                                     })
                                                 }
-                                            </Radio.RadioGroup>
+                                            </SelectGroup>
                                         </div>
                                     </div>
                                 </div>
@@ -383,14 +419,16 @@ export default class PeopleCreateEdit extends Component {
                                     </div>
                                     <div id="collapseCategory" className="collapse" aria-labelledby="categoryHeading" data-parent="#accordion">
                                         <div className="card-body">
-                                            <Radio.RadioGroup name="category_id" valueSelected={this.state.category_id.toString()}
-                                                onChange={this.handleChange} inline={false}>
+                                            <SelectGroup name="category_id" id="category_id"
+                                                value={this.state.category_id} 
+                                                onChange={this.handleChange}>
+                                                <option value="">--- Please select ---</option>
                                                 {
                                                     this.state.categories.map((item, i) => {
-                                                        return <Radio.RadioItem id={'status' + i} key={i} value={item.id.toString()} label={item.name} />
+                                                        return <option id={'status' + i} key={i} value={item.id}>{item.name}</option>
                                                     })
                                                 }
-                                            </Radio.RadioGroup>
+                                            </SelectGroup>
                                         </div>
                                     </div>
                                 </div>
@@ -399,7 +437,10 @@ export default class PeopleCreateEdit extends Component {
                             <button className="btn btn-primary" type="submit">Save</button>
                         </ValidationForm>
                     </div>
-                </div>
+                </div>)
+                : (
+                    <Loader />
+                )}
             </div>
         )
     }

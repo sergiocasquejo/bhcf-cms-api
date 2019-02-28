@@ -11,8 +11,8 @@ return [
     'profile' => [
         'sizes' => [
             'small' => [100, 100],
-            'thumbnail' => [450, 450]
+            'thumbnail' => [350, 350]
         ],
-        'location' => public_path(). '/avatar/',
+        'location' => public_path(). '/images/avatar/',
     ]
 ];

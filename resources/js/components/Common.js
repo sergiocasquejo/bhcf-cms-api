@@ -72,10 +72,7 @@ api.interceptors.request.use(function(config) {
     config.headers = { 
         Authorization: `Bearer ${accessToken}`,  
         'Content-Type': 'application/json', 
-        'Accept': 'application/json',
-        'Access-Control-Allow-Origin' : '*',
-        'Access-Control-Allow-Methods': 'POST,GET,PUT,DELETE',
-        'Access-Control-Allow-Headers': 'Authorization, Lang'
+        'Accept': 'application/json'
       };
   }
 

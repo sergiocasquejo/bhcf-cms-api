@@ -23,10 +23,10 @@ Route::prefix('v1')->group(function() {
             Route::resource('leadership-levels', 'LeadershipLevelController')->only(['index', 'store', 'show', 'update', 'destroy']);
             Route::resource('members/category', 'MemberCategoryController')->only(['index', 'store', 'show', 'update', 'destroy']);
             
+            Route::resource('members', 'MemberController')->only(['index', 'store', 'show', 'update', 'destroy']);
             Route::put('members/{id}/approve', 'MemberController@approve');
             Route::get('members/{id}/people', 'MemberController@people');
             Route::post('members/{id}/avatar', 'MemberController@uploadAvatar');
-            Route::resource('members', 'MemberController')->only(['index', 'store', 'show', 'update', 'destroy']);
             Route::resource('users', 'UserController')->only(['store', 'show', 'update', 'destroy']);
             Route::resource('sc-statuses', 'SundayCelebrationStatusController')->only(['index', 'store', 'show', 'update', 'destroy']);
             Route::prefix('school')->group(function () {
