@@ -472,7 +472,7 @@ class MemberController extends Controller
 
     private function uploadMemberAvatar($originalImage, $newFileName){
         try {
-            
+            ini_set('memory_limit', '256M');
             $thumbnailImage = \Intervention\Image\Facades\Image::make($originalImage);
             $profilePath = config('sitesettings.profile.location');
 
@@ -498,7 +498,7 @@ class MemberController extends Controller
             
             return $avatar;
         } catch(\Exception $e) {
-            print_r($e);
+            print_r($e->getMessage());
         }
         return false;
     }
