@@ -47,6 +47,7 @@ class ImageCrop extends Component {
   }
 
   handleSave = data => {
+      console.log(this.editor.getImageScaledToCanvas());
     const img = this.editor.getImageScaledToCanvas().toDataURL()
     const rect = this.editor.getCroppingRect()
     
@@ -256,6 +257,8 @@ class ImageCrop extends Component {
         </Modal.Body>
             <Modal.Footer>
                 <div className="zoomer">
+                <Button variant={'info'} onClick={this.rotateLeft}>Left</Button>
+                <Button variant={'info'} onClick={this.rotateRight}>Right</Button>
                     <FontAwesomeIcon className="zoomer-in" icon="image"/>
                     <input
                         name="scale"

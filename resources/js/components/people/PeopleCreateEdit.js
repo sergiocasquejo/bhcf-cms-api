@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {api, appState, processStorage} from '../Common';
+import {Form} from 'react-bootstrap';
 // import DatePicker  from 'react-bootstrap-date-picker';
 import { ValidationForm, TextInput, Checkbox, Radio, SelectGroup } from 'react-bootstrap4-form-validation';
 import Alert from 'react-s-alert';
@@ -35,9 +36,11 @@ export default class PeopleCreateEdit extends Component {
             auxiliary_groups: [],
             statuses: [],
             categories: [],
-            ministries_list: [],
-            ministries: null,
+            ministries: [],
+            my_ministries: [],
+            ministry_ids: '',
             avatar: null,
+            new_avatar: '',
             errorMessage: null,
             isFormSubmit: false,
             isEdit: false,
@@ -59,58 +62,28 @@ export default class PeopleCreateEdit extends Component {
             const memberID = this.props.match.params.id;
             api.get(`members/${memberID}`).then(res => {
                 if (this._isMounted) {
-                    const newState = Object.assign(this.state, res.data.data);
-                    newState.loading = false;
-                    this.setState(newState);
+                    const response = res.data;
+                    if (response) {
+                        const newState = Object.assign(this.state, response.data);
+                        newState.loading = false;
+                        this.setState(newState);
+                    }
                 }
             });
         }
 
-        api.get(`auxiliary-groups`).then(res => {
+        api.get(`members/dropdown-options`).then(res => {
             if (this._isMounted) {
-                if (res.data.success) {
-                this.setState({auxiliary_groups: res.data.data});
-                }
-            }
-        });
-
-        api.get(`members/category`).then(res => {
-            if (this._isMounted) {
-                if (res.data.success) {
-                this.setState({categories: res.data.data});
-                }
-            }
-        });
-
-        api.get(`ministries`).then(res => {
-            if (this._isMounted) {
-                if (res.data.success) {
-                this.setState({ministries_list: res.data.data});
-                }
-            }
-        });
-
-        api.get(`school/statuses`).then(res => {
-            if (this._isMounted) {
-                if (res.data.success) {
-                this.setState({school_statuses: res.data.data});
-                }
-            }
-        });
-
-        api.get(`statuses`).then(res => {
-            if (this._isMounted) {
-                if (res.data.success) {
-                this.setState({statuses: res.data.data});
-                }
-            }
-        });
-
-        api.get(`leadership-levels`).then(res => {
-            if (this._isMounted) {
-                if (res.data.success) {
-                   this.setState({leadership_levels: res.data.data});
-                }
+                const response = res.data;
+                
+                this.setState({
+                    auxiliary_groups: response.auxiliary_groups,
+                    categories: response.categories,
+                    ministries: response.ministries,
+                    statuses: response.statuses,
+                    school_statuses: response.school_statuses,
+                    leadership_levels: response.leadership_levels
+                });
             }
         });
     }
@@ -125,15 +98,25 @@ export default class PeopleCreateEdit extends Component {
     }
 
     handleChangeCheckbox(e) {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
+        const value = e.target.value;
+        const name = e.target.name;
 
-        console.log(e.target.value);
+        // const arr = this.state[name] || [];
+        
+        // if (arr.indexOf(value) !== -1)
+        //     arr.splice(arr.indexOf(value), 1)
+        // else
+        //     arr.push(value);
+        
+        // this.setState({
+        //     [name]: arr
+        // });
+        console.log(name);
+
     }
 
     onPhotoChange(image) {
-        this.setState({'avatar': image});
+        this.setState({'new_avatar': image});
     }
 
     handleSubmit(e, formData, inputs) {
@@ -141,7 +124,7 @@ export default class PeopleCreateEdit extends Component {
         console.log('hello');
         console.log(formData);
         this.setState({ isFormSubmit: true });
-        formData['avatar'] = this.state.avatar;
+        formData['new_avatar'] = this.state.new_avatar;
         let url = `members`;
         if (this.props.match.params.id) {
             const memberID = this.props.match.params.id;
@@ -314,143 +297,97 @@ export default class PeopleCreateEdit extends Component {
                                     <div className="card-header" id="ministriesHeading">
                                         <h5 className="mb-0">
                                             <a className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseMinistries" aria-expanded="false" aria-controls="collapseMinistries">
-                                            Ministries
+                                            Others
                                             </a>
                                         </h5>
                                     </div>
                                     <div id="collapseMinistries" className="collapse" aria-labelledby="ministriesHeading" data-parent="#accordion">
                                         <div className="card-body">
+                                           <div className="form-group">
+                                                <label>Ministries</label>
                                             {
-                                                this.state.ministries_list.map((item, i) => {
+                                                this.state.ministries &&
+                                                this.state.ministries.map((item, i) => {
                                                     return (
-                                                        <Checkbox key={i} name="ministries" label={item.name} id={`ministry${i}`} 
-                                                            value={item.id.toString()}
-                                                            onChange={this.handleChangeCheckbox}
-                                                            checked="false"
+                                                        <Checkbox key={i} type="checkbox" name={`ministry_ids.${item.id}`} label={ item.name }  onChange={this.handleChangeCheckbox} id={`ministry${i}`} value={this.state.ministry_ids[item.id]}
                                                         />
+                                                        
                                                     )
                                                 })
                                             }
-                                        </div>`
-                                    </div>
-                                </div>
-                                <div className="card">
-                                    <div className="card-header" id="statusHeading">
-                                        <h5 className="mb-0">
-                                            <a className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseStatus" aria-expanded="false" aria-controls="collapseStatus">
-                                            Status
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseStatus" className="collapse" aria-labelledby="statusHeading" data-parent="#accordion">
-                                        <div className="card-body">
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                            </p>
-                                            <SelectGroup name="status" id="status"
-                                                value={this.state.status_id} 
-                                                onChange={this.handleChange}>
-                                                <option value="">--- Please select ---</option>
-                                                {
-                                                    this.state.statuses.map((item, i) => {
-                                                        return <option id={'status' + i} key={i} value={item.id}>{item.name}</option>
-                                                    })
-                                                }
-                                            </SelectGroup>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="card">
-                                    <div className="card-header" id="schoolStatusHeading">
-                                        <h5 className="mb-0">
-                                            <a className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSchoolStatus" aria-expanded="false" aria-controls="collapseSchoolStatus">
-                                            School Status
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseSchoolStatus" className="collapse" aria-labelledby="schoolStatusHeading" data-parent="#accordion">
-                                        <div className="card-body">
-                                            <SelectGroup name="school_status_id" id="school_status_id"
-                                                value={this.state.school_status_id} 
-                                                onChange={this.handleChange}>
-                                                <option value="">--- Please select ---</option>
-                                                {
-                                                    this.state.school_statuses.map((item, i) => {
-                                                        return <option id={'status' + i} key={i} value={item.id}>{item.name}</option>
-                                                    })
-                                                }
-                                            </SelectGroup>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="card">
-                                    <div className="card-header" id="leadershipLevelHeading">
-                                        <h5 className="mb-0">
-                                            <a className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseLeadershipLevel" aria-expanded="false" aria-controls="collapseLeadershipLevel">
-                                                Leadership Level
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseLeadershipLevel" className="collapse" aria-labelledby="leadershipLevelHeading" data-parent="#accordion">
-                                        <div className="card-body">
-                                            <SelectGroup name="leadership_level_id" id="leadership_level_id"
-                                                value={this.state.leadership_level_id} 
-                                                onChange={this.handleChange}>
-                                                <option value="">--- Please select ---</option>
+                                            {/* <Form.Check key={i} type="checkbox" name="ministries.id" label={ item.name } defaultChecked={this.state.ministry_ids.indexOf(item.id) !== -1}  onChange={this.handleChangeCheckbox} id={`ministry${i}`} value={item.id}/> */}
+                                            </div>
+                                              <div className="form-group">
+                                                <label>Status</label>
+                                                <SelectGroup name="status_id" id="status_id"
+                                                    value={this.state.status_id} 
+                                                    onChange={this.handleChange}>
+                                                    <option value="">--- Please select ---</option>
+                                                    {
+                                                        this.state.statuses &&
+                                                        this.state.statuses.map((item, i) => {
+                                                            return <option id={'status' + i} key={i} value={item.id}>{item.name}</option>
+                                                        })
+                                                    }
+                                                </SelectGroup>
+                                            </div>
+                                            <div className="form-group">
+                                                <label>School Status</label>
+                                                <SelectGroup name="school_status_id" id="school_status_id"
+                                                    value={this.state.school_status_id} 
+                                                    onChange={this.handleChange}>
+                                                    <option value="">--- Please select ---</option>
+                                                    {
+                                                        this.state.school_statuses &&
+                                                        this.state.school_statuses.map((item, i) => {
+                                                            return <option id={'status' + i} key={i} value={item.id}>{item.name}</option>
+                                                        })
+                                                    }
+                                                </SelectGroup>
+                                            </div>
+                                            <div className="form-group">
+                                                <label>Leadership Level</label>
+                                                <SelectGroup name="leadership_level_id" id="leadership_level_id"
+                                                    value={this.state.leadership_level_id} 
+                                                    onChange={this.handleChange}>
+                                                    <option value="">--- Please select ---</option>
 
-                                                {
-                                                    this.state.leadership_levels.map((item, i) => {
-                                                        return <option id={'status' + i} key={i} value={item.id}>{item.name}</option>
-                                                    })
-                                                }
-                                            </SelectGroup>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="card">
-                                    <div className="card-header" id="auxiliaryGroupHeading">
-                                        <h5 className="mb-0">
-                                            <a className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseAuxiliaryGroup" aria-expanded="false" aria-controls="collapseAuxiliaryGroup">
-                                                Auxiliary Group
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseAuxiliaryGroup" className="collapse" aria-labelledby="auxiliaryGroupHeading" data-parent="#accordion">
-                                        <div className="card-body">
-                                            <SelectGroup name="auxiliary_group_id" id="auxiliary_group_id"
-                                                value={this.state.auxiliary_group_id} 
-                                                onChange={this.handleChange}>
-                                                <option value="">--- Please select ---</option>
-                                                {
-                                                    this.state.auxiliary_groups.map((item, i) => {
-                                                        return <option id={'status' + i} key={i} value={item.id}>{item.name}</option>
-                                                    })
-                                                }
-                                            </SelectGroup>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="card">
-                                    <div className="card-header" id="categoryHeading">
-                                        <h5 className="mb-0">
-                                            <a className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseCategory" aria-expanded="false" aria-controls="collapseCategory">
-                                                Category
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseCategory" className="collapse" aria-labelledby="categoryHeading" data-parent="#accordion">
-                                        <div className="card-body">
-                                            <SelectGroup name="category_id" id="category_id"
-                                                value={this.state.category_id} 
-                                                onChange={this.handleChange}>
-                                                <option value="">--- Please select ---</option>
-                                                {
-                                                    this.state.categories.map((item, i) => {
-                                                        return <option id={'status' + i} key={i} value={item.id}>{item.name}</option>
-                                                    })
-                                                }
-                                            </SelectGroup>
-                                        </div>
+                                                        {this.state.leadership_levels &&
+                                                        this.state.leadership_levels.map((item, i) => {
+                                                            return <option id={'status' + i} key={i} value={item.id}>{item.name}</option>
+                                                        })
+                                                    }
+                                                </SelectGroup>
+                                            </div>
+                                            <div className="form-group">
+                                                <label>Auxiliary Group</label>
+                                                <SelectGroup name="auxiliary_group_id" id="auxiliary_group_id"
+                                                    value={this.state.auxiliary_group_id} 
+                                                    onChange={this.handleChange}>
+                                                    <option value="">--- Please select ---</option>
+                                                    {
+                                                        this.state.auxiliary_groups && 
+                                                        this.state.auxiliary_groups.map((item, i) => {
+                                                            return <option id={'status' + i} key={i} value={item.id}>{item.name}</option>
+                                                        })
+                                                    }
+                                                </SelectGroup>
+                                            </div>
+                                            <div className="form-group">
+                                                <label>Categories</label>
+                                                <SelectGroup name="category_id" id="category_id"
+                                                    value={this.state.category_id} 
+                                                    onChange={this.handleChange}>
+                                                    <option value="">--- Please select ---</option>
+                                                    {
+                                                        this.state.categories && 
+                                                        this.state.categories.map((item, i) => {
+                                                            return <option id={'category' + i} key={i} value={item.id}>{item.name}</option>
+                                                        })
+                                                    }
+                                                </SelectGroup>
+                                            </div> 
+                                        </div>`
                                     </div>
                                 </div>
                             </div>
