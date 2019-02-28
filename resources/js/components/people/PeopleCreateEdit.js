@@ -11,7 +11,6 @@ export default class PeopleCreateEdit extends Component {
         super(props);
     
         this.state = {
-
             id: "",
             email: "",
             first_name: "",
