@@ -144,6 +144,7 @@ class MemberController extends Controller
     {
         try {
             $input = $request->only([
+                'new_avatar',
                 'first_name', 
                 'last_name', 
                 'middle_name', 
@@ -169,8 +170,8 @@ class MemberController extends Controller
             $input['created_by'] = Auth()->user()->id;
             $input['leader_id'] = Auth()->user()->id;
             $input['birthdate'] = date('Y-m-d', strtotime($input['birthdate']));
-            if (isset($input['avatar'])) {
-                $input['avatar'] = $this->processBase64Avatar($input['avatar']);
+            if (isset($input['new_avatar'])) {
+                $input['avatar'] = $this->processBase64Avatar($input['new_avatar']);
             }
 
             $member = new \App\Member($input);
@@ -300,7 +301,7 @@ class MemberController extends Controller
     {
         try {
             $input = $request->only([
-                'avatar',
+                'new_avatar',
                 'first_name', 
                 'last_name', 
                 'middle_name', 
@@ -327,8 +328,8 @@ class MemberController extends Controller
             $input['updated_by'] = auth()->user()->id;
             $input['birthdate'] = date('Y-m-d', strtotime($input['birthdate']));
 
-            if (isset($input['avatar'])) {
-                $input['avatar'] = $this->processBase64Avatar($input['avatar']);
+            if (isset($input['new_avatar'])) {
+                $input['avatar'] = $this->processBase64Avatar($input['new_avatar']);
                 
             }
 
@@ -463,7 +464,7 @@ class MemberController extends Controller
             //Delete old file
             foreach($avatar as $k => $file) {
                 if (file_exists($file)) {
-                    unlink($file);
+                    unlink(public_path() . $file);
                 }
             }
         }
@@ -501,5 +502,17 @@ class MemberController extends Controller
             print_r($e->getMessage());
         }
         return false;
+    }
+
+
+    public function dropdownOptions(Request $request) {
+        return response()->json([
+            'leadership_levels' =>\App\LeadershipLevel::select(['id', 'name'])->get(), 
+            'auxiliary_groups' => \App\AuxiliaryGroup::select(['id', 'name'])->get(),
+            'categories' => \App\MemberCategory::select(['id', 'name'])->get(),
+            'ministries' => \App\Ministry::select(['id', 'name'])->get(),
+            'school_statuses' => \App\SchoolStatus::select(['id', 'name'])->get(),
+            'statuses' => \App\Status::select(['id', 'name'])->get(),
+        ]);
     }
 }

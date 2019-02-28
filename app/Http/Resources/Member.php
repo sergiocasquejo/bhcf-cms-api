@@ -34,15 +34,23 @@ class Member extends JsonResource
             'secondary_contact_no' => $this->secondary_contact_no, 
             'facebook_name' => $this->facebook_name, 
             'avatar' => json_decode($this->avatar, true), 
-            'school_status' => $this->schoolStatus()->first(),
-            'leadership_level' => $this->leadershipLevel()->first(),
-            'auxiliary_group' => $this->auxiliaryGroup()->first(),
-            'status' => $this->status()->first(),
-            'category' => $this->category()->first(),
-            'ministries' => $this->ministries()->get(),
+            'school_status_id' => $this->school_status_id,
+            'school_status' => $this->schoolStatus()->select(['id','name'])->first(),
+            'leadership_level_id' => $this->leadership_level_id,
+            'leadership_level' => $this->leadershipLevel()->select(['id','name'])->first(),
+            'auxiliary_group_id' => $this->auxiliary_group_id,
+            'auxiliary_group' => $this->auxiliaryGroup()->select(['id','name'])->first(),
+            'status_id' => $this->status_id,
+            'status' => $this->status()->select(['id','name'])->first(),
+            'category' => $this->category()->select(['id','name'])->first(),
+            'category_id' => $this->category_id,
+            'ministry_ids' => $this->ministries()->pluck('id'),
+            'my_ministries' => $this->ministries()->get(),
             'remarks' => $this->remarks, 
             'created_at' => $this->created_at,
             'is_approved' => $this->is_approved,
         ];
     }
+
+    
 }

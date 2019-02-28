@@ -22,7 +22,7 @@ Route::prefix('v1')->group(function() {
             Route::resource('statuses', 'StatusController')->only(['index', 'store', 'show', 'update', 'destroy']);
             Route::resource('leadership-levels', 'LeadershipLevelController')->only(['index', 'store', 'show', 'update', 'destroy']);
             Route::resource('members/category', 'MemberCategoryController')->only(['index', 'store', 'show', 'update', 'destroy']);
-            
+            Route::get('members/dropdown-options', 'MemberController@dropdownOptions');
             Route::resource('members', 'MemberController')->only(['index', 'store', 'show', 'update', 'destroy']);
             Route::put('members/{id}/approve', 'MemberController@approve');
             Route::get('members/{id}/people', 'MemberController@people');
