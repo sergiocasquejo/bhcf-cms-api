@@ -145,7 +145,13 @@
     }
   }
 }
-
+.dashboard-overview {
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 0;
+  }
+}
 @include media-breakpoint-up(xl) {
   .admin-interface {
     &-container {
