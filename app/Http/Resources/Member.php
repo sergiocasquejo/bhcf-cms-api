@@ -28,6 +28,7 @@ class Member extends JsonResource
             'middle_name' => $this->middle_name,  
             'gender' => $this->gender, 
             'birthdate' => $this->birthdate, 
+            'is_birthday_today' => date('m-d', strtotime($this->birthdate)) ==  date('m-d'),
             'address' => $this->address, 
             'city' => $this->city, 
             'contact_no' => $this->contact_no, 

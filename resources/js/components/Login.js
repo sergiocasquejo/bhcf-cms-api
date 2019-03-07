@@ -33,7 +33,7 @@ export default class Login extends Component {
                 let response = res.data;
                 this._isFormSubmit = false;
 
-                if (response.success) {
+                if (response.ok) {
                     processStorage(response.data, true);
                     this.props.history.push('/dashboard');
                 }else {

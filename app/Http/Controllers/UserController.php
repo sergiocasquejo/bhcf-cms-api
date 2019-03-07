@@ -27,7 +27,7 @@ class UserController extends Controller
      * @bodyParam member_id int optional the member id
      * 
      * @response {
-     *  "success":true,
+     *  "ok":true,
      *  "data":{
      *  "username":"bhcf_admin",
      *  "name":"BHCF",
@@ -41,7 +41,7 @@ class UserController extends Controller
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["The :attribute field is required."]
      *  }
@@ -69,9 +69,9 @@ class UserController extends Controller
                 
                 $member->saveUser($user->id);
 
-                return response()->json(['success' => true, 'data' => $user], 201);    
+                return response()->json(['ok' => true, 'data' => $user], 201);    
             } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull save.'], 200);
+                return response()->json(['ok' => false, 'data' => 'Unsuccessfull save.'], 200);
             }
         } catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
@@ -131,13 +131,13 @@ class UserController extends Controller
      * @bodyParam id int required the ID of the user
      * 
      * @response {
-     *  "success":true
+     *  "ok":true
      * }
      * @response 500{
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["The :attribute field is required."]
      *  }
@@ -154,9 +154,9 @@ class UserController extends Controller
                 $user->roles()->detach();
                 //Attach new roles
                 $user->roles()->attach($roles);
-                return response()->json(['success' => true], 201);    
+                return response()->json(['ok' => true], 201);    
             } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull update.'], 200);
+                return response()->json(['ok' => false, 'data' => 'Unsuccessfull update.'], 200);
             }
         } catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
@@ -167,7 +167,7 @@ class UserController extends Controller
      * Remove the specified resource from storage.
      *
      * @response {
-     *  "success": true
+     *  "ok": true
      * }
      * @response 500{
      *  "data": "Error message ..."
@@ -178,6 +178,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        return response()->json(['success' => \App\User::findOrFail($id)->delete()]);
+        return response()->json(['ok' => \App\User::findOrFail($id)->delete()]);
     }
 }

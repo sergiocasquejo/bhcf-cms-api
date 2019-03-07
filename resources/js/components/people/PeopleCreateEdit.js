@@ -132,7 +132,7 @@ export default class PeopleCreateEdit extends Component {
             if (this._isMounted) {
                 let response = res.data;
                 
-                if (response.success) {
+                if (response.ok) {
                     Alert.success('Successfully Saved!');    
                     // this.props.history.push(`/people/${response.data.id}/edit`);
                 } else {

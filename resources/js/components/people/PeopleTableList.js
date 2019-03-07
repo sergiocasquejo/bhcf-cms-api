@@ -62,7 +62,7 @@ export default class PeopleTableList extends Component {
         }).then(res => {
             if (this._isMounted) {
                 const response = res.data;
-                if (response.success) {
+                if (response.ok) {
                     Alert.success('Done!');
                     this.fetch({offset: 0, limit: sizePerPage});
                 } else {

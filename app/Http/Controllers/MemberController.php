@@ -90,7 +90,7 @@ class MemberController extends Controller
 
         $members = $query->skip( $offset * $limit )->take($limit)->get();
 
-        return response()->json(['success' => true, 'people' =>  MemberResources::collection($members), 'totalSize' => $totalSize], 200);
+        return response()->json(['ok' => true, 'people' =>  MemberResources::collection($members), 'totalSize' => $totalSize], 200);
     }
 
    
@@ -132,7 +132,7 @@ class MemberController extends Controller
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["First name is required!"]
      *  }
@@ -153,7 +153,6 @@ class MemberController extends Controller
                 'gender',
                 'city', 
                 'address', 
-                'ministries',
                 'auxiliary_group_id', 
                 'status',
                 'school_status_id',
@@ -174,11 +173,17 @@ class MemberController extends Controller
                 $input['avatar'] = $this->processBase64Avatar($input['new_avatar']);
             }
 
+
+
             $member = new \App\Member($input);
             if ($member->save()) {
-                return response()->json(['success' => true, 'data' => new MemberResources($member)], 201);    
+                $member->ministries()->detach();
+                if ($request->input('ministries')) {
+                    $member->ministries()->attach($request->input('ministries'));
+                }
+                return response()->json(['ok' => true, 'data' => new MemberResources($member)], 201);    
             } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull save.'], 200);
+                return response()->json(['ok' => false, 'data' => 'Unsuccessfull save.'], 200);
             }
         } catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
@@ -271,7 +276,7 @@ class MemberController extends Controller
      * @bodyParam remarks string optional the remarks
      * @bodyParam _method string required options(PUT|PATCH)
      * @response {
-     *  "success": true,
+     *  "ok": true,
      *  data: {
      *      "first_name":"serg",
      *      "last_name":"casquejo",
@@ -289,7 +294,7 @@ class MemberController extends Controller
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["First name is required!"]
      *  }
@@ -334,9 +339,9 @@ class MemberController extends Controller
             }
 
             if ($result = \App\Member::find($id)->update($input)) {
-                return response()->json(['success' => true], 201);    
+                return response()->json(['ok' => true, 'xx' => $input], 201);    
             } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull update.'], 200);
+                return response()->json(['ok' => false, 'data' => 'Unsuccessfull update.'], 200);
             }
         } catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
@@ -350,7 +355,7 @@ class MemberController extends Controller
      * @bodyParam is_approve int required 1|0
      * @bodyParam _method string required options(PUT|PATCH)
      * @response {
-     *  "success": true,
+     *  "ok": true,
      *  data: {
      *      "first_name":"serg",
      *      "last_name":"casquejo",
@@ -368,7 +373,7 @@ class MemberController extends Controller
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["First name is required!"]
      *  }
@@ -382,9 +387,9 @@ class MemberController extends Controller
             $input = $request->only('is_approved');
             $input['updated_by'] = auth()->user()->id;
             if ($result = \App\Member::find($id)->update($input)) {
-                return response()->json(['success' => true], 201);    
+                return response()->json(['ok' => true], 201);    
             } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull update.'], 200);
+                return response()->json(['ok' => false, 'data' => 'Unsuccessfull update.'], 200);
             }
         } catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
@@ -397,7 +402,7 @@ class MemberController extends Controller
      * Remove the specified resource from storage.
      *
      * @response {
-     *  "success": true
+     *  "ok": true
      * }
      * @response 500{
      *  "data": "Error message ..."
@@ -408,7 +413,7 @@ class MemberController extends Controller
      */
     public function destroy($id)
     {
-        return response()->json(['success' => \App\Member::findOrFail($id)->delete()]);
+        return response()->json(['ok' => \App\Member::findOrFail($id)->delete()]);
     }
 
 
@@ -418,7 +423,7 @@ class MemberController extends Controller
      * @bodyParam avatar file optional the file from file upload
      * @bodyParam _method string required options(PUT|PATCH)
      * @response {
-     *  "success": true,
+     *  "ok": true,
      *  "avatar":{
      *      "original":"public_path/avatar/avatar.jpg",
      *      "thumbnail": "..."
@@ -428,7 +433,7 @@ class MemberController extends Controller
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["avatar is required!"]
      *  }
@@ -451,7 +456,7 @@ class MemberController extends Controller
 
 
             return response()->json([
-                'success' => true,
+                'ok' => true,
                 'avatar' => $avatar
             ]);
         } catch(\Exception $e) {

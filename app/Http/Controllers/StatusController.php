@@ -28,7 +28,7 @@ class StatusController extends Controller
      * Display a listing of the resource.
      *
      * @response {
-     * "success":true,
+     * "ok":true,
      * "data":[
      *      {
      *      "id":1,
@@ -71,7 +71,7 @@ class StatusController extends Controller
 
         $results = $query->get();
 
-        return response()->json(['success' => true, 'data' =>  $results, 'totalSize' => $totalSize], 200);
+        return response()->json(['ok' => true, 'data' =>  $results, 'totalSize' => $totalSize], 200);
 
     }
 
@@ -83,7 +83,7 @@ class StatusController extends Controller
      * @bodyParam descriptions string optional descriptions of the status
      * 
      * @response {
-     *  "success":true,
+     *  "ok":true,
      *  "data":{
      *   "name":"SUYNIL",
      *      "descriptions":"",
@@ -96,7 +96,7 @@ class StatusController extends Controller
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["The :attribute field is required."]
      *  }
@@ -110,9 +110,9 @@ class StatusController extends Controller
             $input['created_by'] = auth()->user()->id;
             $schoolStatus = new \App\Status($input);
             if ($schoolStatus->save()) {
-                return response()->json(['success' => true, 'data' => $schoolStatus], 201);    
+                return response()->json(['ok' => true, 'data' => $schoolStatus], 201);    
             } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull save.'], 200);
+                return response()->json(['ok' => false, 'data' => 'Unsuccessfull save.'], 200);
             }
         } catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
@@ -123,7 +123,7 @@ class StatusController extends Controller
      * Display the specified resource.
      *
      * @response {
-     *  "success":true,
+     *  "ok":true,
      *  "data":{
      *      "name":"SUYNIL",
      *      "descriptions":"Descriptions here...",
@@ -153,13 +153,13 @@ class StatusController extends Controller
      * @bodyParam descriptions string optional descriptions of the status
      * 
      * @response {
-     *  "success":true
+     *  "ok":true
      * }
      * @response 500{
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["The :attribute field is required."]
      *  }
@@ -172,9 +172,9 @@ class StatusController extends Controller
             $input['updated_by'] = auth()->user()->id;
 
             if ($result = \App\Status::find($id)->update($input)) {
-                return response()->json(['success' => true], 201);    
+                return response()->json(['ok' => true], 201);    
             } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull update.'], 200);
+                return response()->json(['ok' => false, 'data' => 'Unsuccessfull update.'], 200);
             }
         } catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
@@ -185,7 +185,7 @@ class StatusController extends Controller
      * Remove the specified resource from storage.
      *
      * @response {
-     *  "success": true
+     *  "ok": true
      * }
      * @response 500{
      *  "data": "Error message ..."
@@ -196,6 +196,6 @@ class StatusController extends Controller
      */
     public function destroy($id)
     {
-        return response()->json(['success' => \App\Status::findOrFail($id)->delete()]);
+        return response()->json(['ok' => \App\Status::findOrFail($id)->delete()]);
     }
 }

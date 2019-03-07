@@ -18,7 +18,7 @@ class SchoolClassController extends Controller
      * Display a listing of the resource.
      *
      * @response {
-     * "success":true,
+     * "ok":true,
      * "data":[
      *      {
      *      "id":1,
@@ -64,7 +64,7 @@ class SchoolClassController extends Controller
 
         $results = $query->get();
 
-        return response()->json(['success' => true, 'data' =>  $results, 'totalSize' => $totalSize], 200);
+        return response()->json(['ok' => true, 'data' =>  $results, 'totalSize' => $totalSize], 200);
     }
 
     /**
@@ -77,7 +77,7 @@ class SchoolClassController extends Controller
      * 
      * 
      * @response {
-     *  "success":true,
+     *  "ok":true,
      *  "data":{
      *      "id":1,
      *      "batch_name":"Kamonggay",
@@ -95,7 +95,7 @@ class SchoolClassController extends Controller
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["The :attribute field is required."]
      *  }
@@ -109,9 +109,9 @@ class SchoolClassController extends Controller
             $input['created_by'] = auth()->user()->id;
             $sm = new \App\SchoolClass($input);
             if ($sm->save()) {
-                return response()->json(['success' => true, 'data' => $sm], 201);    
+                return response()->json(['ok' => true, 'data' => $sm], 201);    
             } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull save.'], 200);
+                return response()->json(['ok' => false, 'data' => 'Unsuccessfull save.'], 200);
             }
         } catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
@@ -125,7 +125,7 @@ class SchoolClassController extends Controller
      * @bodyParam school_class_id int required the ID of the class
      * 
      * @response {
-     *  "success":true,
+     *  "ok":true,
      *  "data":{
      *   "member_id":1,
      *   "school_class_id":1,
@@ -140,7 +140,7 @@ class SchoolClassController extends Controller
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["The :attribute field is required."]
      *  }
@@ -166,9 +166,9 @@ class SchoolClassController extends Controller
             }
 
             if ($student->save()) {
-                return response()->json(['success' => true, 'data' => $sm], 201);    
+                return response()->json(['ok' => true, 'data' => $sm], 201);    
             } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull save.'], 200);
+                return response()->json(['ok' => false, 'data' => 'Unsuccessfull save.'], 200);
             }
 
         }catch(\Exception $e) {
@@ -190,7 +190,7 @@ class SchoolClassController extends Controller
      * @bodyParam is_attended int required expected values(1, 0)
      * 
      * @response {
-     *  "success":true,
+     *  "ok":true,
      *  "data":{
      *   "member_id":1,
      *   "school_class_id":1,
@@ -205,7 +205,7 @@ class SchoolClassController extends Controller
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["The :attribute field is required."]
      *  }
@@ -234,9 +234,9 @@ class SchoolClassController extends Controller
             }
 
             if ($student->update($input)) {
-                return response()->json(['success' => true, 'data' => $student], 201);    
+                return response()->json(['ok' => true, 'data' => $student], 201);    
             } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull save.'], 200);
+                return response()->json(['ok' => false, 'data' => 'Unsuccessfull save.'], 200);
             }
         } catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
@@ -286,7 +286,7 @@ class SchoolClassController extends Controller
                 $query->orWhere('last_name', 'like', '%' . $keywords . '%');
             })->whereNotIn('member_id', $memberIDs)->get();
 
-            return response()->json(['success' => true, 'data' => $members], 200);
+            return response()->json(['ok' => true, 'data' => $members], 200);
         }catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
         }
@@ -297,7 +297,7 @@ class SchoolClassController extends Controller
      * Display the specified resource.
      *
      * @response {
-     *  "success":true,
+     *  "ok":true,
      *  "data":{
      *      "id":1,
      *      "batch_name":"Kamonggay",
@@ -333,13 +333,13 @@ class SchoolClassController extends Controller
      * @bodyParam remarks string optional remarks
      * 
      * @response {
-     *  "success":true
+     *  "ok":true
      * }
      * @response 500{
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["The :attribute field is required."]
      *  }
@@ -352,9 +352,9 @@ class SchoolClassController extends Controller
             $input['updated_by'] = auth()->user()->id;
 
             if ($result = \App\SchoolClass::find($id)->update($input)) {
-                return response()->json(['success' => true], 201);    
+                return response()->json(['ok' => true], 201);    
             } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull update.'], 200);
+                return response()->json(['ok' => false, 'data' => 'Unsuccessfull update.'], 200);
             }
         } catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
@@ -365,7 +365,7 @@ class SchoolClassController extends Controller
      * Remove the specified resource from storage.
      *
      * @response {
-     *  "success": true
+     *  "ok": true
      * }
      * @response 500{
      *  "data": "Error message ..."
@@ -376,6 +376,6 @@ class SchoolClassController extends Controller
      */
     public function destroy($id)
     {
-        return response()->json(['success' => \App\SchoolClass::findOrFail($id)->delete()]);
+        return response()->json(['ok' => \App\SchoolClass::findOrFail($id)->delete()]);
     }
 }

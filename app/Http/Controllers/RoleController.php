@@ -26,7 +26,7 @@ class RoleController extends Controller
      * Display a listing of the resource.
      *
      * @response {
-     * "success":true,
+     * "ok":true,
      * "data":[
      *      {
      *      "id":1,
@@ -44,7 +44,7 @@ class RoleController extends Controller
     {
         $results = \App\Role::all();
 
-        return response()->json(['success' => true, 'data' => $results], 200);
+        return response()->json(['ok' => true, 'data' => $results], 200);
     }
 
 
@@ -55,7 +55,7 @@ class RoleController extends Controller
      * @bodyParam descriptions string options descriptions of the status
      * 
      * @response {
-     *  "success":true,
+     *  "ok":true,
      *  "data":{
      *   "name":"Administrator",
      *  "descriptions":"",
@@ -68,7 +68,7 @@ class RoleController extends Controller
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["The :attribute field is required."]
      *  }
@@ -82,9 +82,9 @@ class RoleController extends Controller
             $input['created_by'] = auth()->user()->id;
             $schoolStatus = new \App\Role($input);
             if ($schoolStatus->save()) {
-                return response()->json(['success' => true, 'data' => $schoolStatus], 201);    
+                return response()->json(['ok' => true, 'data' => $schoolStatus], 201);    
             } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull save.'], 200);
+                return response()->json(['ok' => false, 'data' => 'Unsuccessfull save.'], 200);
             }
         } catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
@@ -95,7 +95,7 @@ class RoleController extends Controller
      * Display the specified resource.
      *
      * @response {
-     *  "success":true,
+     *  "ok":true,
      *  "data":{
      *      "name":"Administrator",
      *      "descriptions":"Descriptions here...",
@@ -125,13 +125,13 @@ class RoleController extends Controller
      * @bodyParam descriptions string optional role descriptions
      * 
      * @response {
-     *  "success":true
+     *  "ok":true
      * }
      * @response 500{
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["The :attribute field is required."]
      *  }
@@ -144,9 +144,9 @@ class RoleController extends Controller
             $input['updated_by'] = auth()->user()->id;
 
             if ($result = \App\Role::find($id)->update($input)) {
-                return response()->json(['success' => true], 201);    
+                return response()->json(['ok' => true], 201);    
             } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull update.'], 200);
+                return response()->json(['ok' => false, 'data' => 'Unsuccessfull update.'], 200);
             }
         } catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
@@ -157,7 +157,7 @@ class RoleController extends Controller
      * Remove the specified resource from storage.
      *
      * @response {
-     *  "success": true
+     *  "ok": true
      * }
      * @response 500{
      *  "data": "Error message ..."
@@ -168,6 +168,6 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        return response()->json(['success' => \App\Role::findOrFail($id)->delete()]);
+        return response()->json(['ok' => \App\Role::findOrFail($id)->delete()]);
     }
 }

@@ -30,7 +30,7 @@ class AuxiliaryGroupController extends Controller
      * Display a listing of the resource.
      *
      * @response {
-     * "success":true,
+     * "ok":true,
      * "data":[
      *      {
      *      "id":1,
@@ -73,7 +73,7 @@ class AuxiliaryGroupController extends Controller
 
         $results = $query->get();
 
-        return response()->json(['success' => true, 'data' =>  $results, 'totalSize' => $totalSize], 200);
+        return response()->json(['ok' => true, 'data' =>  $results, 'totalSize' => $totalSize], 200);
     }
 
 
@@ -84,7 +84,7 @@ class AuxiliaryGroupController extends Controller
      * @bodyParam descriptions string optional descriptions of the status
      * 
      * @response {
-     *  "success":true,
+     *  "ok":true,
      *  "data":{
      *   "name":"Blessed Couple",
      *      "descriptions":"",
@@ -97,7 +97,7 @@ class AuxiliaryGroupController extends Controller
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["The :attribute field is required."]
      *  }
@@ -111,9 +111,9 @@ class AuxiliaryGroupController extends Controller
             $input['created_by'] = auth()->user()->id;
             $result = new \App\AuxiliaryGroup($input);
             if ($result->save()) {
-                return response()->json(['success' => true, 'data' => $result], 201);    
+                return response()->json(['ok' => true, 'data' => $result], 201);    
             } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull save.'], 200);
+                return response()->json(['ok' => false, 'data' => 'Unsuccessfull save.'], 200);
             }
         } catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
@@ -124,7 +124,7 @@ class AuxiliaryGroupController extends Controller
      * Display the specified resource.
      *
      * @response {
-     *  "success":true,
+     *  "ok":true,
      *  "data":{
      *      "name":"SUYNIL",
      *      "descriptions":"Descriptions here...",
@@ -154,13 +154,13 @@ class AuxiliaryGroupController extends Controller
      * @bodyParam descriptions string optional descriptions of the status
      * 
      * @response {
-     *  "success":true
+     *  "ok":true
      * }
      * @response 500{
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["The :attribute field is required."]
      *  }
@@ -173,9 +173,9 @@ class AuxiliaryGroupController extends Controller
             $input['updated_by'] = auth()->user()->id;
 
             if ($result = \App\AuxiliaryGroup::find($id)->update($input)) {
-                return response()->json(['success' => true], 201);    
+                return response()->json(['ok' => true], 201);    
             } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull update.'], 200);
+                return response()->json(['ok' => false, 'data' => 'Unsuccessfull update.'], 200);
             }
         } catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
@@ -186,7 +186,7 @@ class AuxiliaryGroupController extends Controller
      * Remove the specified resource from storage.
      *
      * @response {
-     *  "success": true
+     *  "ok": true
      * }
      * @response 500{
      *  "data": "Error message ..."
@@ -197,6 +197,6 @@ class AuxiliaryGroupController extends Controller
      */
     public function destroy($id)
     {
-        return response()->json(['success' => \App\AuxiliaryGroup::findOrFail($id)->delete()]);
+        return response()->json(['ok' => \App\AuxiliaryGroup::findOrFail($id)->delete()]);
     }
 }

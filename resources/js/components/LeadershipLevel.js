@@ -225,7 +225,7 @@ class LeadershipLevel extends Component {
         api.post(url, formData).then(res => {
             if (this._isMounted) {
                 let response = res.data;
-                if (response.success) {
+                if (response.ok) {
                     Alert.success('Successfully saved!');
                     this.setState({flag: !this.state.flag});
                     this.props.history.push(`leadership-levels`);

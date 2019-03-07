@@ -220,7 +220,7 @@ class Status extends Component {
 
         api.post(url, formData).then(res => {
             let response = res.data;
-            if (response.success) {
+            if (response.ok) {
                 Alert.success('Successfully saved!');
                 this.setState({flag: !this.state.flag});
                 this.props.history.push(`statuses`);

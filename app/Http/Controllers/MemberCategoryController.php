@@ -27,7 +27,7 @@ class MemberCategoryController extends Controller
      * Display a listing of the resource.
      *
      * @response {
-     * "success":true,
+     * "ok":true,
      * "data":[
      *      {
      *      "id":1,
@@ -70,7 +70,7 @@ class MemberCategoryController extends Controller
 
         $results = $query->get();
 
-        return response()->json(['success' => true, 'data' =>  $results, 'totalSize' => $totalSize], 200);
+        return response()->json(['ok' => true, 'data' =>  $results, 'totalSize' => $totalSize], 200);
     }
 
 
@@ -81,7 +81,7 @@ class MemberCategoryController extends Controller
      * @bodyParam descriptions string optional descriptions of the status
      * 
      * @response {
-     *  "success":true,
+     *  "ok":true,
      *  "data":{
      *   "name":"SUYNIL",
      *      "descriptions":"",
@@ -94,7 +94,7 @@ class MemberCategoryController extends Controller
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["The :attribute field is required."]
      *  }
@@ -108,9 +108,9 @@ class MemberCategoryController extends Controller
             $input['created_by'] = auth()->user()->id;
             $schoolStatus = new \App\MemberCategory($input);
             if ($schoolStatus->save()) {
-                return response()->json(['success' => true, 'data' => $schoolStatus], 201);    
+                return response()->json(['ok' => true, 'data' => $schoolStatus], 201);    
             } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull save.'], 200);
+                return response()->json(['ok' => false, 'data' => 'Unsuccessfull save.'], 200);
             }
         } catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
@@ -121,7 +121,7 @@ class MemberCategoryController extends Controller
      * Display the specified resource.
      *
      * @response {
-     *  "success":true,
+     *  "ok":true,
      *  "data":{
      *      "name":"SUYNIL",
      *      "descriptions":"Descriptions here...",
@@ -151,13 +151,13 @@ class MemberCategoryController extends Controller
      * @bodyParam descriptions string optional descriptions of the status
      * 
      * @response {
-     *  "success":true
+     *  "ok":true
      * }
      * @response 500{
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["The :attribute field is required."]
      *  }
@@ -170,9 +170,9 @@ class MemberCategoryController extends Controller
             $input['updated_by'] = auth()->user()->id;
 
             if ($result = \App\MemberCategory::find($id)->update($input)) {
-                return response()->json(['success' => true], 201);    
+                return response()->json(['ok' => true], 201);    
             } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull update.'], 200);
+                return response()->json(['ok' => false, 'data' => 'Unsuccessfull update.'], 200);
             }
         } catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
@@ -183,7 +183,7 @@ class MemberCategoryController extends Controller
      * Remove the specified resource from storage.
      *
      * @response {
-     *  "success": true
+     *  "ok": true
      * }
      * @response 500{
      *  "data": "Error message ..."
@@ -194,6 +194,6 @@ class MemberCategoryController extends Controller
      */
     public function destroy($id)
     {
-        return response()->json(['success' => \App\MemberCategory::findOrFail($id)->delete()]);
+        return response()->json(['ok' => \App\MemberCategory::findOrFail($id)->delete()]);
     }
 }

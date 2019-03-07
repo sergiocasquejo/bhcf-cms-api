@@ -28,7 +28,7 @@ class SundayCelebrationStatusController extends Controller
      * Display a listing of the resource.
      *
      * @response {
-     * "success":true,
+     * "ok":true,
      * "data":[
      *      {
      *      "id":1,
@@ -46,7 +46,7 @@ class SundayCelebrationStatusController extends Controller
     {
         $results = \App\SundayCelebrationStatus::all();
 
-        return response()->json(['success' => true, 'data' => $results], 200);
+        return response()->json(['ok' => true, 'data' => $results], 200);
     }
 
 
@@ -57,7 +57,7 @@ class SundayCelebrationStatusController extends Controller
      * @bodyParam descriptions string optional descriptions of the status
      * 
      * @response {
-     *  "success":true,
+     *  "ok":true,
      *  "data":{
      *      "name":"1st Timer",
      *      "descriptions":"",
@@ -71,7 +71,7 @@ class SundayCelebrationStatusController extends Controller
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["The :attribute field is required."]
      *  }
@@ -85,9 +85,9 @@ class SundayCelebrationStatusController extends Controller
             $input['created_by'] = auth()->user()->id;
             $status = new \App\SundayCelebrationStatus($input);
             if ($status->save()) {
-                return response()->json(['success' => true, 'data' => $status], 201);    
+                return response()->json(['ok' => true, 'data' => $status], 201);    
             } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull save.'], 200);
+                return response()->json(['ok' => false, 'data' => 'Unsuccessfull save.'], 200);
             }
         } catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
@@ -98,7 +98,7 @@ class SundayCelebrationStatusController extends Controller
      * Display the specified resource.
      *
      * @response {
-     *  "success":true,
+     *  "ok":true,
       *  "data":{
      *      "name":"1st Timer",
      *      "descriptions":"",
@@ -128,13 +128,13 @@ class SundayCelebrationStatusController extends Controller
      * @bodyParam descriptions string optional descriptions of the status
      * 
      * @response {
-     *  "success":true
+     *  "ok":true
      * }
      * @response 500{
      *  "data": "Error message ..."
      * }
      * @response 422{
-     *  "success":false,
+     *  "ok":false,
      *  "data":{
      *      "first_name":["The :attribute field is required."]
      *  }
@@ -148,9 +148,9 @@ class SundayCelebrationStatusController extends Controller
             $input['updated_by'] = auth()->user()->id;
 
             if ($result = \App\SundayCelebrationStatus::find($id)->update($input)) {
-                return response()->json(['success' => true], 201);    
+                return response()->json(['ok' => true], 201);    
             } else {
-                return response()->json(['success' => false, 'data' => 'Unsuccessfull update.'], 200);
+                return response()->json(['ok' => false, 'data' => 'Unsuccessfull update.'], 200);
             }
         } catch(\Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
@@ -161,7 +161,7 @@ class SundayCelebrationStatusController extends Controller
      * Remove the specified resource from storage.
      *
      * @response {
-     *  "success": true
+     *  "ok": true
      * }
      * @response 500{
      *  "data": "Error message ..."
@@ -172,6 +172,6 @@ class SundayCelebrationStatusController extends Controller
      */
     public function destroy($id)
     {
-        return response()->json(['success' => \App\SundayCelebrationStatus::findOrFail($id)->delete()]);
+        return response()->json(['ok' => \App\SundayCelebrationStatus::findOrFail($id)->delete()]);
     }
 }

@@ -59,7 +59,7 @@ class LoginController extends Controller
      * @bodyParam username string required The username or email of the user.
      * @bodyParam password string required The password of the user.
      * @response {
-     *  "success":true,
+     *  "ok":true,
      * "data":{
      *      "id":1,
      *      "name":"administrator",
@@ -72,7 +72,7 @@ class LoginController extends Controller
      *  }
      * }
      * @response {
-     *  "success":false,
+     *  "ok":false,
      *  "data":"User doesn`t exists."
      * }
      */
@@ -86,11 +86,11 @@ class LoginController extends Controller
             $user->generateToken();
 
             return response()->json([
-                'success' => true,
+                'ok' => true,
                 'data' => new UserResources($user),
             ]);
         }
-        return response()->json(['success' => false, 'data' => 'User doesn`t exists.'], 200);
+        return response()->json(['ok' => false, 'data' => 'User doesn`t exists.'], 200);
     }
     
    
@@ -99,7 +99,7 @@ class LoginController extends Controller
      * User logout
      * 
      * @response {
-     *  "success":true,
+     *  "ok":true,
      *  "data":"User logged out."
      * }
      */
@@ -113,17 +113,17 @@ class LoginController extends Controller
             $user->save();
         }
 
-        return response()->json(['success' => true, 'data' => 'User logged out.'], 200);
+        return response()->json(['ok' => true, 'data' => 'User logged out.'], 200);
     }
 
 
     private function validateLogin(Request $request) {
         if (empty($request->username) && empty($request->password)) {
-            return response()->json(['success' => false, 'data' => 'Username and password is required'], 200);
+            return response()->json(['ok' => false, 'data' => 'Username and password is required'], 200);
         } elseif (empty($request->username)) {
-            return response()->json(['success' => false, 'data' => 'Username is required'], 200);
+            return response()->json(['ok' => false, 'data' => 'Username is required'], 200);
         }elseif (empty($request->password)) {
-            return response()->json(['success' => false, 'data' => 'Password is required'], 200);
+            return response()->json(['ok' => false, 'data' => 'Password is required'], 200);
         }
     }
 }
