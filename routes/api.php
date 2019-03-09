@@ -24,9 +24,12 @@ Route::prefix('v1')->group(function() {
             Route::resource('members/category', 'MemberCategoryController')->only(['index', 'store', 'show', 'update', 'destroy']);
             Route::get('members/dropdown-options', 'MemberController@dropdownOptions');
             Route::resource('members', 'MemberController')->only(['index', 'store', 'show', 'update', 'destroy']);
+            Route::get('members/{id}/attendance/cellgroup', 'CellGroupAttendanceController@create');
             Route::put('members/{id}/approve', 'MemberController@approve');
             Route::get('members/{id}/people', 'MemberController@people');
             Route::post('members/{id}/avatar', 'MemberController@uploadAvatar');
+            Route::post('members/{id}/avatar-mobile', 'MemberController@uploadAvatarMobile');
+            
             Route::resource('users', 'UserController')->only(['store', 'show', 'update', 'destroy']);
             Route::resource('sc-statuses', 'SundayCelebrationStatusController')->only(['index', 'store', 'show', 'update', 'destroy']);
             Route::prefix('school')->group(function () {

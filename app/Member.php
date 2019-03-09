@@ -105,7 +105,7 @@ class Member extends Model
     public function getFullNameAttribute()
     {
         $initial = substr($this->middle_name, 0, 1);
-        return "{$this->first_name} {$initial} {$this->last_name}";
+        return "{$this->first_name} {$initial}. {$this->last_name}";
     }
 
     public function setFirstNameAttribute($value)

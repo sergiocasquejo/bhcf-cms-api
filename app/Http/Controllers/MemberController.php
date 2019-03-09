@@ -315,7 +315,6 @@ class MemberController extends Controller
                 'gender',
                 'city', 
                 'address', 
-                'ministries',
                 'auxiliary_group_id', 
                 'status',
                 'school_status_id',
@@ -338,8 +337,15 @@ class MemberController extends Controller
                 
             }
 
-            if ($result = \App\Member::find($id)->update($input)) {
-                return response()->json(['ok' => true, 'xx' => $input], 201);    
+            $member = \App\Member::findOrFail($id);
+            
+            if ($request->input('ministries')) {
+                $member->ministries()->detach();
+                $member->ministries()->attach($request->input('ministries'));
+            }
+
+            if ($result = $member->update($input)) {
+                return response()->json(['ok' => true], 201);    
             } else {
                 return response()->json(['ok' => false, 'data' => 'Unsuccessfull update.'], 200);
             }
@@ -464,11 +470,39 @@ class MemberController extends Controller
         }
     }
 
+
+    public function uploadAvatarMobile(Request $request, $id) {
+        try {
+            $member = \App\Member::findOrFail($id);
+            $originalImage = $request->input('avatar');
+
+            
+            
+
+            $avatar = $this->uploadMemberAvatar($originalImage, "avatar-".time().".png");
+            //Get all file
+            $oldAvatar = $member->avatar ? json_decode($member->avatar) : false;
+            $member->avatar = json_encode($avatar);
+            if ($member->save() && $oldAvatar) {
+                $this->deleteOldAvatar($oldAvatar);
+            }
+
+
+            return response()->json([
+                'ok' => true,
+                'avatar' => json_encode($avatar)
+            ]);
+        } catch(\Exception $e) {
+            return response()->json(['data' => $e->getMessage()], 500);
+        }
+    }
+
     private function deleteOldAvatar($avatar) {
         if ($avatar) {
             //Delete old file
             foreach($avatar as $k => $file) {
                 if (file_exists($file)) {
+                    $file = str_replace(url('/'), '', $file);
                     unlink(public_path() . $file);
                 }
             }
@@ -483,12 +517,12 @@ class MemberController extends Controller
             $profilePath = config('sitesettings.profile.location');
 
             $originalFile = $profilePath . $newFileName;
-            $avatar = [
-                'original' => str_replace(public_path(), '', $originalFile)
-            ];
+            // $avatar = [
+            //     'original' => str_replace(public_path(), url('/'), $originalFile)
+            // ];
             
 
-            $thumbnailImage->save($originalFile);
+            // $thumbnailImage->save($originalFile);
 
             foreach(config('sitesettings.profile.sizes') as $k => $v) {
                 if (isset($v[0])) {
@@ -498,7 +532,7 @@ class MemberController extends Controller
                     $file = $profilePath . "_{$width}x{$height}_" . time() . $newFileName;
                     $thumbnailImage->resize($width, $height);
                     $thumbnailImage->save($file);
-                    $avatar[$k] = str_replace(public_path(), '', $file);
+                    $avatar[$k] = str_replace(public_path(), url('/'), $file);
                 }
             }
             
