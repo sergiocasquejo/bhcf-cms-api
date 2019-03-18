@@ -16,7 +16,7 @@
                 <img class="navbar-logo" src="/dist/images/bhcf-logo.png" alt="">
                 <ul>
                     <li class="active"><a href=""><i class="icon-home"></i>Dashboard</a></li>
-                    <li><a href=""><i class="icon-team"></i>People</a></li>
+                    <li><a href="people.php"><i class="icon-team"></i>People</a></li>
                     <li><a href=""><i class="icon-affiliate"></i>Cell Group</a></li>
                     <li><a href=""><i class="icon-writing"></i>Registrations</a></li>
                     <li><a href=""><i class="icon-like"></i>Ministries</a></li>
