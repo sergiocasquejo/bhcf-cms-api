@@ -152,6 +152,131 @@
     padding: 25px 0;
   }
 }
+.row-overview {
+  margin-bottom: 50px;
+}
+.card-overview {
+  overflow: hidden;
+  border-radius: 15px;
+  min-height: 195px;
+  .card-body {
+    position: relative;
+    padding-bottom: 67px;
+    .card-meta,.card-title {
+      position: relative;
+      z-index: 2;
+    }
+    img {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+  &:first-child {
+    .card-body {
+      img {
+        bottom: 30px;
+      }
+    }
+  }
+  &:nth-child(2) {
+    .card-body {
+      img {
+        bottom: 30px;
+      }
+    }
+  }
+  &:nth-child(3) {
+    .card-body {
+      img {
+        bottom: 30px;
+      }
+    }
+  }
+  &:nth-child(4) {
+    .card-body {
+      img {
+        bottom: 30px;
+      }
+    }
+  }
+}
+.row-growth-activity {
+  margin-bottom: 100px;
+  >div {
+    display: flex;
+  }
+}
+.card-group-activity {
+  padding: 30px 35px;
+  width: 100%;
+
+  &.growth {
+    .title {
+      position: absolute;
+      top: 31px;
+      left: 50px;
+      font-size: 19px;
+    }
+    img {
+      margin: -35px;
+    }
+  }
+  &.activity {
+    span {
+      &.details,&.meta {
+        display: block;
+      }
+      &.title {
+        color: #637a71;
+        font-size: 19px;
+      }
+      &.meta {
+        color: #637a71;
+        font-size: 13px
+      }
+      &.field {
+        color: #64cbaa;
+      }
+      &.value {
+        color: #fda45d;
+      }
+    }
+    .title {
+      font-size: 20px;
+      color: #171818;
+    }
+
+    ul {
+      margin: 0 -35px;
+      li {
+        a {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 5px 35px;
+          &:hover {
+            text-decoration: none;
+            background-color: #f9fafa;
+          }
+
+
+        }
+        &.positive {
+          span {
+            &.value {
+              color: #4bc2a5;
+            }
+          }
+        }
+        &:nth-child(odd) {
+
+        }
+      }
+    }
+  }
+}
 @include media-breakpoint-up(xl) {
   .admin-interface {
     &-container {

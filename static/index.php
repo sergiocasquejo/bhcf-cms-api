@@ -63,37 +63,129 @@
                         </div>
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                <div class="row">
+                                <div class="row row-overview">
                                     <div class="col-sm-3">
-                                        <div class="card">
+                                        <div class="card card-overview">
                                             <div class="card-body">
                                                 <span class="card-meta">1,350</span>
                                                 <h5 class="card-title">Total People</h5>
+                                                <img src="/dist/images/one.jpg" alt="">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
-                                        <div class="card">
+                                        <div class="card card-overview">
                                             <div class="card-body">
                                                 <span class="card-meta">143</span>
                                                 <h5 class="card-title">Total Guest / VIP</h5>
+                                                <img src="/dist/images/two.jpg" alt="">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
-                                        <div class="card">
+                                        <div class="card card-overview">
                                             <div class="card-body">
                                                 <span class="card-meta">1,250</span>
                                                 <h5 class="card-title">Total Regular</h5>
+                                                <img src="/dist/images/three.jpg" alt="">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
-                                        <div class="card">
+                                        <div class="card card-overview">
                                             <div class="card-body">
                                                 <span class="card-meta">342</span>
                                                 <h5 class="card-title">Total Cell</h5>
+                                                <img src="/dist/images/four.jpg" alt="">
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-growth-activity">
+                                    <div class="col-md-6">
+                                        <div class="card card-group-activity growth">
+                                            <h2 class="title">2019 Growth</h2>
+                                            <img src="dist/images/growth-2019-1.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card card-group-activity activity">
+                                            <h2 class="title">Recent Activity</h2>
+                                            <ul>
+                                                <li>
+                                                    <a href="">
+                                                        <span class="details">
+                                                            <span class="title">Church Rental</span>
+                                                            <span class="meta">
+                                                                <span class="time">3:34pm</span>
+                                                                <span class="separatetor">-</span>
+                                                                <span class="field">Finance</span>
+                                                            </span>
+                                                        </span>
+                                                        <span class="value">-P55,250</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="">
+                                                        <span class="details">
+                                                            <span class="title">Maintenance</span>
+                                                            <span class="meta">
+                                                                <span class="date">20/20/2019</span>
+                                                                <span class="separatetor">-</span>
+                                                                <span class="time">1:34pm</span>
+                                                                <span class="separatetor">-</span>
+                                                                <span class="field">Technical</span>
+                                                            </span>
+                                                        </span>
+                                                        <span class="value">-P25,250</span>
+                                                    </a>
+                                                </li>
+                                                <li class="positive">
+                                                    <a href="">
+                                                        <span class="details">
+                                                            <span class="title">Tithes & Offering</span>
+                                                            <span class="meta">
+                                                                <span class="date">20/18/2019</span>
+                                                                <span class="separatetor">-</span>
+                                                                <span class="time">8:34pm</span>
+                                                                <span class="separatetor">-</span>
+                                                                <span class="field">Finance</span>
+                                                            </span>
+                                                        </span>
+                                                        <span class="value">+P255,250</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="">
+                                                        <span class="details">
+                                                            <span class="title">Pastor's Benefits</span>
+                                                            <span class="meta">
+                                                                <span class="date">20/18/2019</span>
+                                                                <span class="separatetor">-</span>
+                                                                <span class="time">8:34pm</span>
+                                                                <span class="separatetor">-</span>
+                                                                <span class="field">Finance</span>
+                                                            </span>
+                                                        </span>
+                                                        <span class="value">-P75,250</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="">
+                                                        <span class="details">
+                                                            <span class="title">Maintenance</span>
+                                                            <span class="meta">
+                                                                <span class="date">20/18/2019</span>
+                                                                <span class="separatetor">-</span>
+                                                                <span class="time">8:34pm</span>
+                                                                <span class="separatetor">-</span>
+                                                                <span class="field">Music</span>
+                                                            </span>
+                                                        </span>
+                                                        <span class="value">-P15,250</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
