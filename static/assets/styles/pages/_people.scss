@@ -1,0 +1,130 @@
+.action-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 48%;
+    width: 1px;
+    height: 34px;
+    background-color: #f1f1f1;
+    transform: translate(-48%, 0);
+  }
+  .btn {
+    color: #53c2a1;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &-success {
+      background-color: #4dc5a8;
+      border-color: #4dc5a8;
+      color: #fff;
+      border-radius: 5px;
+      margin-left: 30px;
+
+      &:hover {
+        background-color: #4dc5a8;
+        border-color: #4dc5a8;
+      }
+      i {
+        font-size: 11px;
+        font-weight: 600;
+        margin-right: 12px;
+        margin-left: 5px;
+      }
+    }
+  }
+}
+.table-actions {
+  display: flex;
+  justify-content: space-between;
+
+  ul {
+    @extend .list-inline;
+    li {
+      @extend .list-inline-item;
+    }
+  }
+  &-left {
+    ul {
+      li {
+        &:not(:last-child) {
+          margin-right: 2px;
+        }
+
+        a {
+          border-radius: 5px;
+          width: 28px;
+          height: 29px;
+          background-color: #f4f4f4;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            text-decoration: none;
+          }
+          i {
+            color: #717687;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  &-right {
+    ul {
+      font-size: 0;
+      li {
+        &:not(:last-child) {
+          border-right: 1px solid #f1f1f1;
+          padding-right: 15px;
+          margin-right: 15px;
+        }
+        a {
+          font-weight: 600;
+          font-size: 18px;
+          color: #a3a4a4;
+        }
+      }
+    }
+  }
+}
+
+.table-default {
+  th {
+    color: #171818;
+    font-weight: 400;
+  }
+
+  td {
+    img {
+      border-radius: 50%;
+      margin-left: 5px;
+      margin-right: 10px;
+    }
+    label {
+      color: #171818;
+      font-weight: 500;
+      text-transform: capitalize;
+    }
+    .btn {
+      padding: 5px 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      color: #4b4b4b;
+      font-size: 12px;
+
+      &-gray {
+        background-color: #f0f6f4;
+        border-color: #f0f6f4;
+      }
+    }
+  }
+}
