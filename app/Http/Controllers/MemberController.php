@@ -153,6 +153,7 @@ class MemberController extends Controller
                 'gender',
                 'city', 
                 'address', 
+                'leader_id',
                 'auxiliary_group_id', 
                 'status_id',
                 'school_status_id',
@@ -167,7 +168,6 @@ class MemberController extends Controller
 
             $input = array_filter($input, function($value) { return $value !== '' && $value !== null; });
             $input['created_by'] = Auth()->user()->id;
-            $input['leader_id'] = Auth()->user()->id;
             $input['birthdate'] = date('Y-m-d', strtotime($input['birthdate']));
             if (isset($input['new_avatar'])) {
                 $input['avatar'] = $this->processBase64Avatar($input['new_avatar']);
@@ -315,6 +315,7 @@ class MemberController extends Controller
                 'gender',
                 'city', 
                 'address', 
+                'leader_id',
                 'auxiliary_group_id', 
                 'status_id',
                 'school_status_id',
