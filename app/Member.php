@@ -132,4 +132,35 @@ class Member extends Model
     {
         return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');
     }
+
+    public function scopeWithCellGroupAttendance($query, $yearweek = null) 
+    {
+        if (!$yearweek) $yearweek = date('YW');
+
+        return $query->leftJoin('cell_group_attedances as cga', function($join) use($yearweek){
+                $join->on('members.id', '=', 'cga.member_id')
+                ->whereRaw('YEARWEEK(`attendance_date`, 1) = '. $yearweek);
+            })->addSelect([
+                    'members.*',
+                    'cga.attendance_date as date_attended', 
+                    'cga.attended', 
+                    'cga.id as attendance_id', 
+                    \DB::raw('"'. $yearweek .'" as yearweek')
+                ]);
+    }
+
+    public function scopeWithCellGroupAttendanceByYear($query, $year = null) {
+        if (!$year) $year = date('Y');
+
+        return $query->join('cell_group_attedances as cga', function($join) use($year){
+                $join->on('members.id', '=', 'cga.member_id')
+                ->whereRaw('YEAR(`attendance_date`) = '. $year);
+            })->addSelect([
+                    \DB::raw('DATE_ADD(cga.attendance_date, INTERVAL(-WEEKDAY(cga.attendance_date)) DAY) as start_date'),
+                    \DB::raw('DATE_ADD(cga.attendance_date, INTERVAL(1-DAYOFWEEK(cga.attendance_date) + 7) DAY) as end_date'),
+                    \DB::raw('YEAR(cga.attendance_date) as year'),
+                    \DB::raw('WEEKOFYEAR(cga.attendance_date) as week')
+                ])
+                ->groupBy(['year', 'week', 'attendance_date']);
+    }
 }

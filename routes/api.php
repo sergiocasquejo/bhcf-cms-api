@@ -24,7 +24,9 @@ Route::prefix('v1')->group(function() {
             Route::resource('members/category', 'MemberCategoryController')->only(['index', 'store', 'show', 'update', 'destroy']);
             Route::get('members/dropdown-options', 'MemberController@dropdownOptions');
             Route::resource('members', 'MemberController')->only(['index', 'store', 'show', 'update', 'destroy']);
-            Route::get('members/{id}/attendance/cellgroup', 'CellGroupAttendanceController@create');
+            Route::get('members/{id}/attendance/cellgroup/{year}', 'CellGroupAttendanceController@getLeaderAttendancesByYear');
+            Route::get('members/{id}/attendance/cellgroup/{year}/{week}', 'CellGroupAttendanceController@create');
+            Route::post('members/{id}/attendance/cellgroup/{year}/{week}', 'CellGroupAttendanceController@store');
             Route::put('members/{id}/approve', 'MemberController@approve');
             Route::get('members/{id}/people', 'MemberController@people');
             Route::post('members/{id}/avatar', 'MemberController@uploadAvatar');

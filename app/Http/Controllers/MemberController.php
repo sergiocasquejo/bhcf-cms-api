@@ -70,7 +70,7 @@ class MemberController extends Controller
         $offset = $offset > 1 ? $offset - 1 : 0;
         $limit = $request->input('limit');
         $keywords = $request->input('keywords');
-        $sort = $request->input('sort', 'first_name');
+        // $sort = $request->input('sort', 'first_name');
         $order = $request->input('order', 'desc');
         $query = \App\Member::select('*', \DB::raw('CONCAT(first_name, " ", last_name) AS full_name'));
         $query->where(['leader_id' => $id]);
@@ -80,15 +80,15 @@ class MemberController extends Controller
             });
         }
         
-        if ($sort) {
-            $query->orderBy($sort, $order);
-        } else {
+        // if ($sort) {
+        //     $query->orderBy($sort, $order);
+        // } else {
             $query->orderBy('id', 'DESC');
-        }
+        // }
         
         $totalSize = $query->count();
-
-        $members = $query->skip( $offset * $limit )->take($limit)->get();
+        $members = $query->get();
+        // $members = $query->skip( $offset * $limit )->take($limit)->get();
 
         return response()->json(['ok' => true, 'people' =>  MemberResources::collection($members), 'totalSize' => $totalSize], 200);
     }
@@ -154,7 +154,7 @@ class MemberController extends Controller
                 'city', 
                 'address', 
                 'auxiliary_group_id', 
-                'status',
+                'status_id',
                 'school_status_id',
                 'category_id', 
                 'leadership_level_id',
@@ -316,7 +316,7 @@ class MemberController extends Controller
                 'city', 
                 'address', 
                 'auxiliary_group_id', 
-                'status',
+                'status_id',
                 'school_status_id',
                 'category_id', 
                 'leadership_level_id',
@@ -345,12 +345,12 @@ class MemberController extends Controller
             }
 
             if ($result = $member->update($input)) {
-                return response()->json(['ok' => true], 201);    
+                return response()->json(['ok' => true, 'data' => new MemberResources($member)], 201);    
             } else {
                 return response()->json(['ok' => false, 'data' => 'Unsuccessfull update.'], 200);
             }
         } catch(\Exception $e) {
-            return response()->json(['data' => $e->getMessage()], 500);
+            return response()->json(['ok' => false, 'data' => $e->getMessage()], 200);
         }
     }
 
@@ -538,20 +538,27 @@ class MemberController extends Controller
             
             return $avatar;
         } catch(\Exception $e) {
-            print_r($e->getMessage());
+            return response()->json(['data' => $e->getMessage()], 500);
         }
         return false;
     }
 
 
     public function dropdownOptions(Request $request) {
-        return response()->json([
-            'leadership_levels' =>\App\LeadershipLevel::select(['id', 'name'])->get(), 
-            'auxiliary_groups' => \App\AuxiliaryGroup::select(['id', 'name'])->get(),
-            'categories' => \App\MemberCategory::select(['id', 'name'])->get(),
-            'ministries' => \App\Ministry::select(['id', 'name'])->get(),
-            'school_statuses' => \App\SchoolStatus::select(['id', 'name'])->get(),
-            'statuses' => \App\Status::select(['id', 'name'])->get(),
-        ]);
+        try {
+            return response()->json([ 
+                    'ok' => true,
+                    'data' => [
+                        'leadership_levels' =>\App\LeadershipLevel::select(['id', 'name'])->get(), 
+                        'auxiliary_groups' => \App\AuxiliaryGroup::select(['id', 'name'])->get(),
+                        'categories' => \App\MemberCategory::select(['id', 'name'])->get(),
+                        'ministries' => \App\Ministry::select(['id', 'name'])->get(),
+                        'school_statuses' => \App\SchoolStatus::select(['id', 'name'])->get(),
+                        'statuses' => \App\Status::select(['id', 'name'])->get(),
+                    ]
+            ]);
+        } catch(\Exception $e) {
+            return response()->json(['data' => $e->getMessage()], 500);
+        }
     }
 }
