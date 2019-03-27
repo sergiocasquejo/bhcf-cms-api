@@ -13,9 +13,9 @@ class CellGroupAttendance extends JsonResource
      * @return array
      */
     public function toArray($request)
-    {
+    {   
         return [
-            'id' => $this->id,
+            'id' => $this->attendance_id,
             'member_id' => $this->id,
             'avatar' => $this->avatar,
             'nick_name' => $this->nick_name,

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SchoolStatus extends Model
 {
@@ -24,5 +25,10 @@ class SchoolStatus extends Model
 
     public function member() {
         return $this->belongsTo('App\Member');
+    }
+
+
+    public function schoolClass() {
+        return $this->belongsTo(SchoolClass::class, 'id', 'school_type_id');
     }
 }

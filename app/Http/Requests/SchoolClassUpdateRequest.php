@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class SchoolClassRequest extends FormRequest
+class SchoolClassUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +27,7 @@ class SchoolClassRequest extends FormRequest
     {
         
         return [
-            'batch_name' => 'required|max:120|unique:school_monitorings,batch_name,' . $this->route('ministry') .',id',
+            'batch_name' => 'required|max:120|unique:school_classes,batch_name,' . $this->route('class') .',id',
             'descriptions' => 'max:255'
         ];
     }

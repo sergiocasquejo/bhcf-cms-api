@@ -12,7 +12,7 @@ class CellGroupAttendanceController extends Controller
     public function getLeaderAttendancesByYear(Request $request, $id, $year) {
         try {
             
-            $data = \App\Member::where('leader_id', $id)
+            $data = \App\Member::where('parent_id', $id)
                 ->withCellGroupAttendanceByYear($year)
                 ->orderByRaw(\DB::raw('YEARWEEK(attendance_date) DESC'))
                 ->get();
@@ -38,8 +38,7 @@ class CellGroupAttendanceController extends Controller
         try {
             // $yearweek = date('YW', strtotime("now"));
             $yearweek = $year.$week;
-            $attendance = \App\Member::where('leader_id', $id)->withCellGroupAttendance($yearweek)->orderBy('first_name', 'ASC')->get();
-
+            $attendance = \App\Member::where('parent_id', $id)->withCellGroupAttendance($yearweek)->get();
             return response()->json(['ok' => true, 'data' => CellGroupAttendanceResources::collection($attendance)], 201);    
 
         } catch(Exception $e) {
@@ -71,9 +70,8 @@ class CellGroupAttendanceController extends Controller
             $week = date('YW', strtotime($attendance->attendance_date));
             if ($attendance->save()) {
                 $success = true;
-                $a = \App\Member::find($attendance->member_id)
-                    ->withCellGroupAttendance($week)
-                    ->first();
+                $a = \App\Member::withCellGroupAttendance($week)->whereRaw('members.id = '. $input['member_id'])->first();
+
                 $data = new CellGroupAttendanceResources($a);
             } else {
                 $data = 'Oops! something went wrong.';

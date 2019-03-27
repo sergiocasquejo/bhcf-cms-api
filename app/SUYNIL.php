@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class SUYNIL extends Model
+class SUYNL extends Model
 {
+    use SoftDeletes;
     /**
      * The table associated with the model.
      *
@@ -36,4 +38,8 @@ class SUYNIL extends Model
         'created_by',
         'updated_by'
     ];
+
+    public static function findByMemberIDAndClassID($classID, $memberID) {
+        return static::withTrashed()->where('school_class_id', $classID)->where('member_id', $memberID)->first();
+    }
 }

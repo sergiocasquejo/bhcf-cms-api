@@ -85,7 +85,7 @@ class UserController extends Controller
      *  "data":{
      *      "id":103,
      *      "user_id":null,
-     *      "leader_id":null,
+     *      "parent_id":null,
      *      "invited_by":null,
      *      "first_name":"Sergio",
      *      "last_name":"casquejo",

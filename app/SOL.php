@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 class SOL extends Model
 {
     /**
@@ -45,4 +45,9 @@ class SOL extends Model
         'created_by',
         'updated_by'
     ];
+
+
+    public static function findByMemberIDAndClassID($classID, $memberID) {
+        return static::withTrashed()->where('school_class_id', $classID)->where('member_id', $memberID)->first();
+    }
 }

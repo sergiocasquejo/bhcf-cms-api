@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SchoolClass extends Model
 {
@@ -24,8 +25,28 @@ class SchoolClass extends Model
         'batch_name',
         'remarks',
         'school_year',
-        'class_type',
+        'school_type',
         'created_by',
         'updated_by'
     ];
+
+    
+
+    public function schoolType() {
+        return $this->hasMany(SchoolStatus::class, 'school_type', 'id');
+    }
+
+    public function lifeClasses() {
+        return $this->hasMany(LifeClass::class, 'school_class_id', 'id');
+    }
+
+    public function sols() {
+        return $this->hasMany(SOL::class, 'school_class_id', 'id');
+    }
+
+    public function suynls() {
+        return $this->hasMany(SUYNLS::class, 'school_class_id', 'id');
+    }
+
+
 }

@@ -1178,7 +1178,7 @@ Parameter | Status | Description
 curl -X POST "http://localhost/api/v1/members" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"leader_id":8,"invited_by":17,"first_name":"a82RyFIQultswjHy","last_name":"tg2RnEoyhXG3r5Z5","middle_name":"OzGvurVwMIgAsSkb","birthdate":"O7DZP8umgFTSWhb0","address":"Fe4wdFXQhPlsJytl","city":"KGHcNnWkmUiMbuo8","contact_no":"7O25BzoH5K4KvFPj","secondary_contact_no":"ehS8Tq5UbTpCG7ci","facebook_name":"c1FF80tGb8CepZ6P","avatar":"Wo9UQx0LaKMwB4ND","school_status_id":13,"leadership_level_id":17,"auxiliary_group_id":3,"status_id":19,"category_id":3,"remarks":"krCiWnh64fUKtWBY"}'
+    -d '{"parent_id":8,"invited_by":17,"first_name":"a82RyFIQultswjHy","last_name":"tg2RnEoyhXG3r5Z5","middle_name":"OzGvurVwMIgAsSkb","birthdate":"O7DZP8umgFTSWhb0","address":"Fe4wdFXQhPlsJytl","city":"KGHcNnWkmUiMbuo8","contact_no":"7O25BzoH5K4KvFPj","secondary_contact_no":"ehS8Tq5UbTpCG7ci","facebook_name":"c1FF80tGb8CepZ6P","avatar":"Wo9UQx0LaKMwB4ND","school_status_id":13,"leadership_level_id":17,"auxiliary_group_id":3,"status_id":19,"category_id":3,"remarks":"krCiWnh64fUKtWBY"}'
 
 ```
 
@@ -1192,7 +1192,7 @@ let headers = {
 }
 
 let body = {
-    "leader_id": 8,
+    "parent_id": 8,
     "invited_by": 17,
     "first_name": "a82RyFIQultswjHy",
     "last_name": "tg2RnEoyhXG3r5Z5",
@@ -1264,7 +1264,7 @@ fetch(url, {
 
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
-    leader_id | integer |  optional  | optional the ID of the leader
+    parent_id | integer |  optional  | optional the ID of the leader
     invited_by | integer |  optional  | optional the ID of the member
     first_name | string |  required  | the first name of the member
     last_name | string |  required  | the last name of the member
@@ -1319,7 +1319,7 @@ fetch(url, {
     "data": {
         "id": 103,
         "user_id": null,
-        "leader_id": null,
+        "parent_id": null,
         "invited_by": null,
         "first_name": "Sergio",
         "last_name": "casquejo",
@@ -1374,7 +1374,7 @@ fetch(url, {
 curl -X PUT "http://localhost/api/v1/members/{member}" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"leader_id":4,"invited_by":6,"first_name":"FyviaIS9eLLOhmqg","last_name":"hwvSRmv46ko5Ey2P","middle_name":"liLo3HHAD2rjeYo9","birthdate":"NxWQL91b8aiXg4Rk","address":"GaY6aqiNUyJVjypG","city":"BsHTp7PUoAMwz5nd","contact_no":"yHWZ1B8q6iixgB6x","secondary_contact_no":"VTBYLyKjmKl9qost","facebook_name":"f3ObHzBydtCl4J2k","avatar":"FmYATtVi3QnEy0rb","school_status_id":17,"leadership_level_id":17,"auxiliary_group_id":3,"status_id":3,"category_id":15,"remarks":"BL5A5BaK1jXnzUu2","_method":"a27DXo5fNAqxc7vR"}'
+    -d '{"parent_id":4,"invited_by":6,"first_name":"FyviaIS9eLLOhmqg","last_name":"hwvSRmv46ko5Ey2P","middle_name":"liLo3HHAD2rjeYo9","birthdate":"NxWQL91b8aiXg4Rk","address":"GaY6aqiNUyJVjypG","city":"BsHTp7PUoAMwz5nd","contact_no":"yHWZ1B8q6iixgB6x","secondary_contact_no":"VTBYLyKjmKl9qost","facebook_name":"f3ObHzBydtCl4J2k","avatar":"FmYATtVi3QnEy0rb","school_status_id":17,"leadership_level_id":17,"auxiliary_group_id":3,"status_id":3,"category_id":15,"remarks":"BL5A5BaK1jXnzUu2","_method":"a27DXo5fNAqxc7vR"}'
 
 ```
 
@@ -1388,7 +1388,7 @@ let headers = {
 }
 
 let body = {
-    "leader_id": 4,
+    "parent_id": 4,
     "invited_by": 6,
     "first_name": "FyviaIS9eLLOhmqg",
     "last_name": "hwvSRmv46ko5Ey2P",
@@ -1452,7 +1452,7 @@ fetch(url, {
 
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
-    leader_id | integer |  optional  | optional the ID of the leader
+    parent_id | integer |  optional  | optional the ID of the leader
     invited_by | integer |  optional  | optional the ID of the member
     first_name | string |  required  | the first name of the member
     last_name | string |  required  | the last name of the member
@@ -4302,7 +4302,7 @@ fetch(url, {
     "data": {
         "id": 103,
         "user_id": null,
-        "leader_id": null,
+        "parent_id": null,
         "invited_by": null,
         "first_name": "Sergio",
         "last_name": "casquejo",

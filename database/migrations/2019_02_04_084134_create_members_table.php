@@ -16,7 +16,6 @@ class CreateMembersTable extends Migration
         Schema::create('members', function (Blueprint $table) {
                 $table->increments('id');
                 $table->unsignedInteger('user_id')->nullable();
-                $table->unsignedInteger('leader_id')->nullable();
                 $table->unsignedInteger('invited_by')->nullable();
                 $table->char('first_name', 120);
                 $table->char('last_name', 120);
@@ -37,7 +36,7 @@ class CreateMembersTable extends Migration
                 $table->timestamps();
                 $table->softDeletes();
     
-                $table->foreign('leader_id')
+                $table->foreign('parent_id')
                     ->references('id')->on('members');
     
                 $table->foreign('invited_by')

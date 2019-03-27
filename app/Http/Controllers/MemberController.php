@@ -40,7 +40,30 @@ class MemberController extends Controller
      */
     public function index(Request $request)
     {
-       //
+        $offset = (int) $request->input('offset');
+        $offset = $offset > 1 ? $offset - 1 : 0;
+        $limit = $request->input('limit');
+        $keywords = $request->input('keywords');
+        // $sort = $request->input('sort', 'first_name');
+        $order = $request->input('order', 'desc');
+        $query = \App\Member::whereRaw('1 = 1');
+        if ($keywords) {
+            $query->where(function($query) use ($keywords){
+                $query->where('first_name', 'like', '%' . $keywords . '%')->orWhere('last_name', 'like', '%' . $keywords . '%');
+            });
+        }
+        
+        if ($sort) {
+            $query->orderBy($sort, $order);
+        } else {
+            $query->orderBy('id', 'DESC');
+        }
+        
+        $totalSize = $query->count();
+        $members = $query->get();
+        $members = $query->skip( $offset * $limit )->take($limit)->get();
+
+        return response()->json(['ok' => true, 'people' =>  MemberResources::collection($members), 'totalSize' => $totalSize], 200);
     }
 
     /**
@@ -65,7 +88,7 @@ class MemberController extends Controller
      *  "id":101
      * }]
      */
-    public function people(Request $request, $id) {
+    public function network(Request $request, $id) {
         $offset = (int) $request->input('offset');
         $offset = $offset > 1 ? $offset - 1 : 0;
         $limit = $request->input('limit');
@@ -73,7 +96,7 @@ class MemberController extends Controller
         // $sort = $request->input('sort', 'first_name');
         $order = $request->input('order', 'desc');
         $query = \App\Member::select('*', \DB::raw('CONCAT(first_name, " ", last_name) AS full_name'));
-        $query->where(['leader_id' => $id]);
+        $query->where(['parent_id' => $id]);
         if ($keywords) {
             $query->where(function($query) use ($keywords){
                 $query->where('first_name', 'like', '%' . $keywords . '%')->orWhere('last_name', 'like', '%' . $keywords . '%');
@@ -90,14 +113,14 @@ class MemberController extends Controller
         $members = $query->get();
         // $members = $query->skip( $offset * $limit )->take($limit)->get();
 
-        return response()->json(['ok' => true, 'people' =>  MemberResources::collection($members), 'totalSize' => $totalSize], 200);
+        return response()->json(['ok' => true, 'network' =>  MemberResources::collection($members), 'totalSize' => $totalSize], 200);
     }
 
    
     /**
      * Store a newly created resource in storage.
      *
-     * @bodyParam leader_id int optional the ID of the leader
+     * @bodyParam parent_id int optional the ID of the leader
      * @bodyParam invited_by int optional the ID of the member
      * @bodyParam first_name string required the first name of the member
      * @bodyParam last_name string required the last name of the member
@@ -153,7 +176,7 @@ class MemberController extends Controller
                 'gender',
                 'city', 
                 'address', 
-                'leader_id',
+                'parent_id',
                 'auxiliary_group_id', 
                 'status_id',
                 'school_status_id',
@@ -214,7 +237,7 @@ class MemberController extends Controller
      *  "data":{
      *      "id":103,
      *      "user_id":null,
-     *      "leader_id":null,
+     *      "parent_id":null,
      *      "invited_by":null,
      *      "first_name":"Sergio",
      *      "last_name":"casquejo",
@@ -257,7 +280,7 @@ class MemberController extends Controller
     /**
      * Update resource in storage.
      *
-     * @bodyParam leader_id int optional the ID of the leader
+     * @bodyParam parent_id int optional the ID of the leader
      * @bodyParam invited_by int optional the ID of the member
      * @bodyParam first_name string required the first name of the member
      * @bodyParam last_name string required the last name of the member
@@ -315,7 +338,7 @@ class MemberController extends Controller
                 'gender',
                 'city', 
                 'address', 
-                'leader_id',
+                'parent_id',
                 'auxiliary_group_id', 
                 'status_id',
                 'school_status_id',

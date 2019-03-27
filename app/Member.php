@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Member extends Model
 {
+    use SoftDeletes;
     /**
      * The table associated with the model.
      *
@@ -21,7 +23,7 @@ class Member extends Model
      */
     protected $fillable = [
         'user_id',
-        'leader_id',
+        'parent_id',
         'invited_by',
         'first_name', 
         'last_name', 
@@ -71,15 +73,25 @@ class Member extends Model
     }
 
     public function leader() {
-        return $this->belongsTo(static::class, 'leader_id', 'id')->select(array('id', 'nick_name'));
+        return $this->belongsTo(static::class, 'parent_id', 'id')->select(array('id', 'nick_name'));
     }
 
     public function cellgroups() {
-        return $this->hasMany(static::class, 'leader_id', 'id')->select(array('id', 'first_name', 'last_name', 'middle_name'));
+        return $this->hasMany(static::class, 'parent_id', 'id')->select(array('id', 'first_name', 'last_name', 'middle_name'));
     }
 
     public function invitedBy() {
         return $this->belongsTo(static::class, 'invited_by', 'id')->select(array('id', 'first_name', 'last_name', 'middle_name'));
+    }
+
+    public function network() {
+        return $this->hasMany(static::class, 'parent_id', 'id');
+    }
+
+    public function withTotalNetwork() {
+        return $this->network->reduce(function($count, $network) {
+            return $count + $network->count();
+        });
     }
 
     public function attendances() {
@@ -108,6 +120,10 @@ class Member extends Model
         return "{$this->first_name} {$initial}. {$this->last_name}";
     }
 
+    public function schoolClass() {
+        return $this->belongsTo(SchoolClass::class, 'id', 'member_id');
+    }
+
     public function setFirstNameAttribute($value)
     {
         $this->attributes['first_name'] = ucfirst($value);
@@ -132,6 +148,8 @@ class Member extends Model
     {
         return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');
     }
+
+    
 
     public function scopeWithCellGroupAttendance($query, $yearweek = null) 
     {
@@ -162,5 +180,35 @@ class Member extends Model
                     \DB::raw('WEEKOFYEAR(cga.attendance_date) as week')
                 ])
                 ->groupBy(['year', 'week', 'attendance_date']);
+    }
+
+    public function scopeWithLifeClassStudents($query, $classID) {
+        return $query->leftJoin('life_classes as lc', function($join) use($classID) {
+            $join->on('members.id', '=', 'lc.member_id')
+            ->where('lc.school_class_id',  $classID);
+        })->addSelect([
+            \DB::raw('IF (lc.member_id is NULL || lc.deleted_at IS NOT NULL, 0, 1) AS is_exist'),
+            'members.id'
+        ])->orderBy('is_exist', 'DESC');
+    }
+
+    public function scopeWithSOLStudents($query, $classID) {
+        return $query->leftJoin('sols', function($join) use($classID) {
+            $join->on('members.id', '=', 'sols.member_id')
+            ->where('school_class_id', $classID);
+        })->addSelect([
+            \DB::raw('IF (sols.member_id is NULL || sols.deleted_at IS NOT NULL, 0, 1) AS is_exist'),
+            'members.id'
+        ])->orderBy('is_exist', 'DESC');
+    }
+
+    public function scopeWithSUYNLStudents($query, $classID) {
+        return $query->leftJoin('suynls', function($join) use($classID) {
+            $join->on('members.id', '=', 'suynls.member_id')
+            ->where('school_class_id', $classID);
+        })->addSelect([
+            \DB::raw('IF (suynls.member_id is NULL || suynls.deleted_at IS NOT NULL, 0, 1) AS is_exist'),
+            'members.id'
+        ])->orderBy('is_exist', 'DESC');
     }
 }

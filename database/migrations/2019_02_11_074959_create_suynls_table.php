@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSuynilsTable extends Migration
+class CreateSuynlsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSuynilsTable extends Migration
      */
     public function up()
     {
-        Schema::create('suynils', function (Blueprint $table) {
+        Schema::create('suynls', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('school_class_id');
             $table->unsignedInteger('member_id');
@@ -51,6 +51,6 @@ class CreateSuynilsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('suynils');
+        Schema::dropIfExists('suynls');
     }
 }

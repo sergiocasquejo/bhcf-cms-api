@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class LifeClassAttedance extends Model
+class LifeClass extends Model
 {
+    use SoftDeletes;
     /**
      * The table associated with the model.
      *
@@ -44,4 +46,13 @@ class LifeClassAttedance extends Model
         'created_by',
         'updated_by'
     ];
+
+
+    public function students() {
+        return $this->hasMany(Member::class, 'member_id', 'id');
+    }
+    
+    public static function findByMemberIDAndClassID($classID, $memberID) {
+        return static::withTrashed()->where('school_class_id', $classID)->where('member_id', $memberID)->first();
+    }
 }

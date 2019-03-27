@@ -27,7 +27,8 @@ class SchoolClassStoreRequest extends FormRequest
     {
         
         return [
-            'batch_name' => 'required|max:120|unique:school_monitorings,batch_name',
+            'batch_name' => 'required|max:120|unique:school_classes,batch_name',
+            'school_type' => 'required|exists:school_statuses,id',
             'descriptions' => 'max:255'
         ];
     }

@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\SchoolClassStoreRequest;
 use App\Http\Requests\SchoolClassUpdateRequest;
-
+use App\Http\Resources\PeopleWithStudent as PeopleWithStudentResources;
+use App\Http\Resources\SchoolClass as SchoolClassResources;
 /**
  * @group School Monitoring management
  *
@@ -14,6 +15,36 @@ use App\Http\Requests\SchoolClassUpdateRequest;
 
 class SchoolClassController extends Controller
 {
+
+    public function getAllMembersWithEnrolledStudents(Request $request, $id) {
+        try {
+            $schoolClass = \App\SchoolClass::findOrFail($id);
+            $students = null;
+            switch($schoolClass->school_type) {
+                case 1: 
+                    $students = \App\Member::withSUYNLStudents($id);
+                    break;
+                case 2:
+                    $students = \App\Member::withLifeClassStudents($id);
+                    break;
+                case 3: 
+                case 4:
+                case 5:
+                    $students = \App\Member::withSOLStudents($id);
+                    break;
+                default:
+                    
+            }
+            return response()->json(['ok' => true, 'data' => PeopleWithStudentResources::collection($students->get())], 201);    
+        } catch(\Exception $e) {
+            return response()->json(['data' => $e->getMessage()], 500);
+        }
+    }
+
+    public function getByType(Request $request, $typeID) {
+        $result = \App\SchoolClass::where('school_type', $typeID)->orderBy('id', 'DESC')->get();
+        return response()->json(['ok' => true, 'data' => SchoolClassResources::collection($result)]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -105,11 +136,12 @@ class SchoolClassController extends Controller
     public function store(SchoolClassStoreRequest $request)
     {  
         try {
-            $input = $request->only(['batch_name', 'remarks', 'school_year', 'school_type_id']);
+            $input = $request->only(['batch_name', 'remarks', 'school_year', 'school_type']);
+            
             $input['created_by'] = auth()->user()->id;
             $sm = new \App\SchoolClass($input);
             if ($sm->save()) {
-                return response()->json(['ok' => true, 'data' => $sm], 201);    
+                return response()->json(['ok' => true, 'data' => new SchoolClassResources($sm)], 201);    
             } else {
                 return response()->json(['ok' => false, 'data' => 'Unsuccessfull save.'], 200);
             }
@@ -148,25 +180,58 @@ class SchoolClassController extends Controller
      */
 
 
-    public function enrollMember(Request $request) {
+    public function enrollMember(Request $request, $classID, $memberID) {
         try {
-            $input = $request->only(['member_id', 'school_class_id']);
-            $class = \App\SchoolClass::findOrFail($input['class_id']);
+            $input = $request->only(['flag']);
+            
+            $class = \App\SchoolClass::find($classID);
+            $result = null;
+            $exist = false;
             $student = null;
-            switch($class->class_type) {
-                case 'SUYNIL':
-                    $student = new \App\SUYNIL($input);
+            switch($class->school_type) {
+                case 1:
+                    if (!$student = \App\SUYNIL::findByMemberIDAndClassID($classID, $memberID)) {
+                        $student = new \App\SUYNIL;   
+                    } else {
+                        $exist = true;
+                    }
                     break;
-                case 'LifeClass':
-                    $student = new \App\SOL($input);
+                case 5:
+                case 3:
+                case 4:
+                    if (!$student = \App\SOL::findByMemberIDAndClassID($classID, $memberID)) {
+                        $student = new \App\SOL;
+                    } else {
+                        $exist = true;
+                    }
                     break;
-                case 'SOL':
-                    $student = new \App\LifeClass($input);
+                case 2:
+                    if (!$student = \App\LifeClass::findByMemberIDAndClassID($classID, $memberID)) {
+                        $student = new \App\LifeClass;
+                    } else { 
+                        $exist = true;
+                    }
+
+                    
                     break;
             }
 
-            if ($student->save()) {
-                return response()->json(['ok' => true, 'data' => $sm], 201);    
+            if (!$input['flag'] && $exist) {
+                $result = $student->delete();
+            }else {
+                if ($exist) {
+                    if ($student->trashed()) {
+                        $student->restore();
+                    }
+                }
+                $student->created_by = auth()->user()->id;
+                $student->member_id = $memberID;
+                $student->school_class_id = $classID;
+                $result = $student->save();
+            }
+
+            if ($result) {
+                return response()->json(['ok' => true, 'data' => $result], 201);    
             } else {
                 return response()->json(['ok' => false, 'data' => 'Unsuccessfull save.'], 200);
             }
@@ -348,11 +413,11 @@ class SchoolClassController extends Controller
     public function update(SchoolClassUpdateRequest $request, $id)
     {
         try {
-            $input = $request->only(['batch_name', 'remarks', 'school_year', 'school_type_id']);
+            $input = $request->only(['batch_name', 'remarks', 'school_year', 'school_type']);
             $input['updated_by'] = auth()->user()->id;
-
-            if ($result = \App\SchoolClass::find($id)->update($input)) {
-                return response()->json(['ok' => true], 201);    
+            $sm = \App\SchoolClass::find($id);
+            if ($result = $sm->update($input)) {
+                return response()->json(['ok' => true, 'data' => new SchoolClassResources($sm)], 201);    
             } else {
                 return response()->json(['ok' => false, 'data' => 'Unsuccessfull update.'], 200);
             }

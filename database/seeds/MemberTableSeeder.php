@@ -12,11 +12,13 @@ class MemberTableSeeder extends Seeder
     public function run()
     {
         $faker = \Faker\Factory::create();
-        $arrIds = [1];
+        $parent_id = 0;
+        $arrIds = [$parent_id];
+        $counter = 1;
         // And now, let's create a few articles in our database:
         for ($i = 0; $i < 100; $i++) {
             $member = App\Member::create([
-                'leader_id' => $faker->randomElement($arrIds),
+                'parent_id' => $faker->randomElement($arrIds),
                 'user_id' => 0,
                 'invited_by' => $faker->randomElement($arrIds),
                 'first_name' => $faker->firstName,
@@ -47,6 +49,12 @@ class MemberTableSeeder extends Seeder
             $arrIds[] = $member->id;
             $data = $member->fresh();
             App\Member::find($data->id)->ministries()->attach($faker->randomElement([1, 2, 3, 4]));
+            if ($counter == 12) {
+                $parent_id++;
+                $arrIds[] = $parent_id;
+                $counter = 0;
+            }
+            $counter++;
         }
 
 
