@@ -1,0 +1,17 @@
+.card {
+  border: 0;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 2px 18px rgba(0,0,0,.06);
+
+  &-title {
+    color: #637a72;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  &-meta {
+    color: #171818;
+    font-size: 40px;
+    font-weight: 600;
+  }
+}
