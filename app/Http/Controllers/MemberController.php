@@ -66,6 +66,13 @@ class MemberController extends Controller
         return response()->json(['ok' => true, 'people' =>  MemberResources::collection($members), 'totalSize' => $totalSize], 200);
     }
 
+
+    public function getAll(Request $request)
+    {
+        $members = \App\Member::all();
+        return response()->json(['ok' => true, 'people' =>  MemberResources::collection($members)], 200);
+    }
+
     /**
      * Display a list of people by member ID
      *
@@ -92,28 +99,11 @@ class MemberController extends Controller
         $offset = (int) $request->input('offset');
         $offset = $offset > 1 ? $offset - 1 : 0;
         $limit = $request->input('limit');
-        $keywords = $request->input('keywords');
-        // $sort = $request->input('sort', 'first_name');
-        $order = $request->input('order', 'desc');
-        $query = \App\Member::select('*', \DB::raw('CONCAT(first_name, " ", last_name) AS full_name'));
-        $query->where(['parent_id' => $id]);
-        if ($keywords) {
-            $query->where(function($query) use ($keywords){
-                $query->where('first_name', 'like', '%' . $keywords . '%')->orWhere('last_name', 'like', '%' . $keywords . '%');
-            });
-        }
-        
-        // if ($sort) {
-        //     $query->orderBy($sort, $order);
-        // } else {
-            $query->orderBy('id', 'DESC');
-        // }
-        
-        $totalSize = $query->count();
-        $members = $query->get();
+        $members = \App\Member::where('parent_id', $id)->orderBy('id', 'DESC')->get();
+        // $totalSize = $query->count();
         // $members = $query->skip( $offset * $limit )->take($limit)->get();
 
-        return response()->json(['ok' => true, 'network' =>  MemberResources::collection($members), 'totalSize' => $totalSize], 200);
+        return response()->json(['ok' => true, 'network' =>  MemberResources::collection($members)], 200);
     }
 
    
@@ -577,7 +567,7 @@ class MemberController extends Controller
                         'auxiliary_groups' => \App\AuxiliaryGroup::select(['id', 'name'])->get(),
                         'categories' => \App\MemberCategory::select(['id', 'name'])->get(),
                         'ministries' => \App\Ministry::select(['id', 'name'])->get(),
-                        'school_statuses' => \App\SchoolStatus::select(['id', 'name'])->get(),
+                        'class_categories' => \App\ClassCategory::select(['id', 'name'])->get(),
                         'statuses' => \App\Status::select(['id', 'name'])->get(),
                     ]
             ]);

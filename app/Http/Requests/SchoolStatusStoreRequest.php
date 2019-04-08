@@ -27,7 +27,7 @@ class SchoolStatusStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:120|unique:school_statuses,name',
+            'name' => 'required|max:120|unique:class_categories,name',
             'descriptions' => 'max:255'
         ];
     }

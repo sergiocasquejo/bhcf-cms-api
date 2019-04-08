@@ -22,11 +22,6 @@ class StatusesTableSeeder extends Seeder
                 'name' => 'Regular',
                 'descriptions' => '',
                 'created_by' => 1
-            ],
-            [
-                'name' => 'Irregular',
-                'descriptions' => '',
-                'created_by' => 1
             ]
         ];
         foreach($statuses as $status) {

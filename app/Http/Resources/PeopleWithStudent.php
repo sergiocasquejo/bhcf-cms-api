@@ -18,7 +18,7 @@ class PeopleWithStudent extends JsonResource
 
         return [
             'id' => $this->id,
-            'avatar' => !$person->avatar ?: json_decode($person->avatar, true)['small'],
+            'avatar' => !$person->avatar ? $person->avatar : json_decode($person->avatar, true)['small'],
             'nick_name' =>$person->nick_name,
             'full_name' => $person->full_name,
             'is_exist' => $this->is_exist

@@ -12,7 +12,7 @@ import PeopleCreateEdit from './people/PeopleCreateEdit';
 import AuxiliaryGroup from './AuxiliaryGroup';
 import LeadershipLevel from './LeadershipLevel';
 import Category from './Category';
-import SchoolStatus from './SchoolStatus';
+import ClassCategory from './ClassCategory';
 import Status from './Status';
 import Ministry from './Miinistry';
 
@@ -129,7 +129,7 @@ class Routes extends Component {
                     <AdministratorRoute exact path="/auxiliary-groups" component={AuxiliaryGroup} />
                     <AdministratorRoute exact path="/categories" component={Category} />
                     <AdministratorRoute exact path="/leadership-levels" component={LeadershipLevel} />
-                    <AdministratorRoute exact path="/school-statuses" component={SchoolStatus} />
+                    <AdministratorRoute exact path="/school-statuses" component={ClassCategory} />
                     <AdministratorRoute exact path="/statuses" component={Status} />
                     <AdministratorRoute exact path="/ministries" component={Ministry} />
                     <Route exact path="/unauthorized" component={Page401} />

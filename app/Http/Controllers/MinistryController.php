@@ -106,9 +106,9 @@ class MinistryController extends Controller
         try {
             $input = $request->only(['name', 'descriptions']);
             $input['created_by'] = auth()->user()->id;
-            $schoolStatus = new \App\Ministry($input);
-            if ($schoolStatus->save()) {
-                return response()->json(['ok' => true, 'data' => $schoolStatus], 201);    
+            $classCategory = new \App\Ministry($input);
+            if ($classCategory->save()) {
+                return response()->json(['ok' => true, 'data' => $classCategory], 201);    
             } else {
                 return response()->json(['ok' => false, 'data' => 'Unsuccessfull save.'], 200);
             }

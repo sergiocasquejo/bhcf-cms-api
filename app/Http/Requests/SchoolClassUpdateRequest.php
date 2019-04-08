@@ -27,7 +27,7 @@ class SchoolClassUpdateRequest extends FormRequest
     {
         
         return [
-            'batch_name' => 'required|max:120|unique:school_classes,batch_name,' . $this->route('class') .',id',
+            'batch_name' => 'required|max:120|unique:classes,batch_name,' . $this->route('class') .',id',
             'descriptions' => 'max:255'
         ];
     }

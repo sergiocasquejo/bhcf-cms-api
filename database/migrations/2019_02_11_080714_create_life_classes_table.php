@@ -46,7 +46,7 @@ class CreateLifeClassesTable extends Migration
             $table->foreign('member_id')
                 ->references('id')->on('members');
             $table->foreign('school_class_id')
-                ->references('id')->on('school_classes');
+                ->references('id')->on('classes');
             $table->timestamps();
             $table->softDeletes();
         });

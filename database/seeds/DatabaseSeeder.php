@@ -16,14 +16,12 @@ class DatabaseSeeder extends Seeder
             RolesTableSeeder::class,
             UsersToRolesTableSeeder::class,
             StatusesTableSeeder::class,
-            ShoolStatusesTableSeeder::class,
+            ClassCategoriesTableSeeder::class,
             MinistriesTableSeeder::class,
             LeadershipLevelsTableSeeder::class,
             AuxiliaryGroupsTableSeeder::class,
             MemberCategoriesTableSeeder::class,
             MemberTableSeeder::class,
-            SchoolTypeSeeder::class,
-            SundayCelebrationStatusSeeder::class,
         ]);
     }
 }

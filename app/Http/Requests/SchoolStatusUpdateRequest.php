@@ -27,7 +27,7 @@ class SchoolStatusUpdateRequest extends FormRequest
     {
         
         return [
-            'name' => 'required|max:120|unique:school_statuses,name,' . $this->route('school_status') .',id',
+            'name' => 'required|max:120|unique:class_categories,name,' . $this->route('school_status') .',id',
             'descriptions' => 'max:255'
         ];
     }

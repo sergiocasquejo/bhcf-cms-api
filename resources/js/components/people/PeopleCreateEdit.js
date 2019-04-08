@@ -28,7 +28,7 @@ export default class PeopleCreateEdit extends Component {
             status_id: 0,
             category_id: 0,
             remarks: "",
-            school_statuses: [],
+            class_categories: [],
             leadership_levels: [],
             auxiliary_groups: [],
             statuses: [],
@@ -78,7 +78,7 @@ export default class PeopleCreateEdit extends Component {
                     categories: response.categories,
                     ministries: response.ministries,
                     statuses: response.statuses,
-                    school_statuses: response.school_statuses,
+                    class_categories: response.class_categories,
                     leadership_levels: response.leadership_levels
                 });
             }
@@ -335,8 +335,8 @@ export default class PeopleCreateEdit extends Component {
                                                     onChange={this.handleChange}>
                                                     <option value="">--- Please select ---</option>
                                                     {
-                                                        this.state.school_statuses &&
-                                                        this.state.school_statuses.map((item, i) => {
+                                                        this.state.class_categories &&
+                                                        this.state.class_categories.map((item, i) => {
                                                             return <option id={'status' + i} key={i} value={item.id}>{item.name}</option>
                                                         })
                                                     }

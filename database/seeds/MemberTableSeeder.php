@@ -16,11 +16,11 @@ class MemberTableSeeder extends Seeder
         $arrIds = [$parent_id];
         $counter = 1;
         // And now, let's create a few articles in our database:
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 5000; $i++) {
             $member = App\Member::create([
                 'parent_id' => $faker->randomElement($arrIds),
-                'user_id' => 0,
-                'invited_by' => $faker->randomElement($arrIds),
+                'user_id' => $i == 0 ? 1: 0,
+                'invited_by' => null,//$faker->randomElement($arrIds),
                 'first_name' => $faker->firstName,
                 'last_name' => $faker->lastName,
                 'middle_name' => $faker->lastName,
@@ -40,7 +40,8 @@ class MemberTableSeeder extends Seeder
                 'school_status_id' => $faker->numberBetween(1,3),
                 'leadership_level_id' => $faker->numberBetween(1,3),
                 'auxiliary_group_id' => $faker->numberBetween(1,3),
-                'status_id' => $faker->numberBetween(1,3),
+                'civil_status' => $faker->randomElement(['Married', 'Widowed', 'Separated', 'Divorced', 'Single']),
+                'status' => $faker->randomElement(['Active', 'Inactive']),
                 'category_id' => $faker->numberBetween(1,3),
                 'remarks' => $faker->paragraph,
                 'is_approved' => $faker->numberBetween(0, 1),
@@ -49,7 +50,7 @@ class MemberTableSeeder extends Seeder
             $arrIds[] = $member->id;
             $data = $member->fresh();
             App\Member::find($data->id)->ministries()->attach($faker->randomElement([1, 2, 3, 4]));
-            if ($counter == 12) {
+            if ($counter >= 12) {
                 $parent_id++;
                 $arrIds[] = $parent_id;
                 $counter = 0;

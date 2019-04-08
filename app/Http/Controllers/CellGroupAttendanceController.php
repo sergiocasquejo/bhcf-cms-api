@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Resources\CellGroupAttendance as CellGroupAttendanceResources;
+use App\Http\Resources\CellGroup as CellGroupResources;
 
-class CellGroupAttendanceController extends Controller
+class CellGroupController extends Controller
 {
 
 
@@ -13,8 +13,8 @@ class CellGroupAttendanceController extends Controller
         try {
             
             $data = \App\Member::where('parent_id', $id)
-                ->withCellGroupAttendanceByYear($year)
-                ->orderByRaw(\DB::raw('YEARWEEK(attendance_date) DESC'))
+                ->withCellGroupByYear($year)
+                ->orderByRaw(\DB::raw('YEARWEEK(date_attended) DESC'))
                 ->get();
 
             $newData = [];
@@ -38,8 +38,8 @@ class CellGroupAttendanceController extends Controller
         try {
             // $yearweek = date('YW', strtotime("now"));
             $yearweek = $year.$week;
-            $attendance = \App\Member::where('parent_id', $id)->withCellGroupAttendance($yearweek)->get();
-            return response()->json(['ok' => true, 'data' => CellGroupAttendanceResources::collection($attendance)], 201);    
+            $attendance = \App\Member::where('parent_id', $id)->withCellGroup($yearweek)->get();
+            return response()->json(['ok' => true, 'data' => CellGroupResources::collection($attendance)], 201);    
 
         } catch(Exception $e) {
             return response()->json(['data' => $e->getMessage()], 500);
@@ -52,13 +52,13 @@ class CellGroupAttendanceController extends Controller
         try {
             $input = $request->only(['member_id', 'attended']);
             $yearweek = $year.$week;
-            $attendance = \App\CellGroupAttendance::whereRaw('YEARWEEK(`attendance_date`, 1) = "'. $yearweek .'"')
+            $attendance = \App\CellGroup::whereRaw('YEARWEEK(`date_attended`, 1) = "'. $yearweek .'"')
                 ->where('member_id', $input['member_id'])->first();
 
             if ($attendance) {
                 $attendance->updated_by = Auth()->user()->id;
             } else {
-                $attendance = new \App\CellGroupAttendance();
+                $attendance = new \App\CellGroup();
                 $attendance->member_id = $input['member_id'];
                 $attendance->created_by = Auth()->user()->id;
             }
@@ -66,13 +66,13 @@ class CellGroupAttendanceController extends Controller
             $attendance->attended = $input['attended'];
             $success = false;
             $data = '';
-            $attendance->attendance_date = date('Y-m-d H:i:s');
-            $week = date('YW', strtotime($attendance->attendance_date));
+            $attendance->date_attended = date('Y-m-d H:i:s');
+            $week = date('YW', strtotime($attendance->date_attended));
             if ($attendance->save()) {
                 $success = true;
-                $a = \App\Member::withCellGroupAttendance($week)->whereRaw('members.id = '. $input['member_id'])->first();
+                $a = \App\Member::withCellGroup($week)->whereRaw('members.id = '. $input['member_id'])->first();
 
-                $data = new CellGroupAttendanceResources($a);
+                $data = new CellGroupResources($a);
             } else {
                 $data = 'Oops! something went wrong.';
             }

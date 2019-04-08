@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Kalnoy\Nestedset\NodeTrait;
 
 class Member extends Model
 {
     use SoftDeletes;
+    use NodeTrait;
     /**
      * The table associated with the model.
      *
@@ -60,17 +62,17 @@ class Member extends Model
         return $this->hasOne(LeadershipLevel::class, 'id', 'leadership_level_id');
     }
 
-    public function schoolStatus() {
-        return $this->hasOne(SchoolStatus::class, 'id', 'school_status_id');
+    public function classCategory() {
+        return $this->hasOne(ClassCategory::class, 'id', 'school_status_id');
     }
 
     public function auxiliaryGroup() {
         return $this->hasOne(AuxiliaryGroup::class, 'id', 'auxiliary_group_id');
     }
 
-    public function status() {
-        return  $this->hasOne(Status::class, 'id', 'status_id');
-    }
+    // public function status() {
+    //     return  $this->hasOne(Status::class, 'id', 'status_id');
+    // }
 
     public function leader() {
         return $this->belongsTo(static::class, 'parent_id', 'id')->select(array('id', 'nick_name'));
@@ -111,7 +113,7 @@ class Member extends Model
 
 
     public function cellGroupAttendances() {
-        $this->hasMany(CellGroupAttedance::class, 'id', 'member_id');
+        $this->hasMany(CellGroup::class, 'id', 'member_id');
     }
     
     public function getFullNameAttribute()
@@ -155,7 +157,7 @@ class Member extends Model
     {
         if (!$yearweek) $yearweek = date('YW');
 
-        return $query->leftJoin('cell_group_attedances as cga', function($join) use($yearweek){
+        return $query->leftJoin('cell_groups as cga', function($join) use($yearweek){
                 $join->on('members.id', '=', 'cga.member_id')
                 ->whereRaw('YEARWEEK(`attendance_date`, 1) = '. $yearweek);
             })->addSelect([
@@ -170,7 +172,7 @@ class Member extends Model
     public function scopeWithCellGroupAttendanceByYear($query, $year = null) {
         if (!$year) $year = date('Y');
 
-        return $query->join('cell_group_attedances as cga', function($join) use($year){
+        return $query->join('cell_groups as cga', function($join) use($year){
                 $join->on('members.id', '=', 'cga.member_id')
                 ->whereRaw('YEAR(`attendance_date`) = '. $year);
             })->addSelect([

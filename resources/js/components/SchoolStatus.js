@@ -175,7 +175,7 @@ class TableList extends Component {
     }
 }
 
-class SchoolStatus extends Component {
+class ClassCategory extends Component {
     _isMounted = false;
     _isFormSubmit =  false;
     _schoolStatusID = null;
@@ -281,4 +281,4 @@ class SchoolStatus extends Component {
     }
 }
 
-export default SchoolStatus;
+export default ClassCategory;

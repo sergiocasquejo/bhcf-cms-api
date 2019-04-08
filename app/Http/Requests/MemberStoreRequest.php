@@ -35,7 +35,7 @@ class MemberStoreRequest extends FormRequest
             'contact_no' => 'required|max:30',
             'parent_id' => 'nullable|exists:members,id',
             'invited_by' => 'nullable|exists:members,id',
-            'school_status_id' => 'nullable|exists:school_statuses,id',
+            'school_status_id' => 'nullable|exists:class_categories,id',
             'leadership_level_id' => 'nullable|exists:leadership_levels,id',
             'auxiliary_group_id' => 'nullable|exists:auxiliary_groups,id',
             'status_id' => 'nullable|exists:statuses,id',
