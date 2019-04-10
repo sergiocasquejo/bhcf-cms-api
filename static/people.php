@@ -98,6 +98,7 @@
                                     <th scope="col">Cell Leader</th>
                                     <th scope="col">Date Created</th>
                                     <th scope="col">Status</th>
+                                    <th scope="col"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -112,6 +113,18 @@
                                     <td>Senior Pastor</td>
                                     <td>2/23/2001</td>
                                     <td>Admin <a href="" class="btn btn-gray">Pastor</a></td>
+                                    <td>
+                                        <div class="dropdown dropdown-action-option">
+                                            <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="action-option">&bull;</i>
+                                            </a>
+
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" href="#">View</a>
+                                                <a class="dropdown-item" href="#">Remove</a>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td scope="row">
@@ -124,6 +137,18 @@
                                     <td>Senior Pastor</td>
                                     <td>2/23/2001</td>
                                     <td>Admin <a href="" class="btn btn-gray">Pastor</a></td>
+                                    <td>
+                                        <div class="dropdown dropdown-action-option">
+                                            <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="action-option">&bull;</i>
+                                            </a>
+
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" href="#">View</a>
+                                                <a class="dropdown-item" href="#">Remove</a>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td scope="row">
@@ -136,6 +161,18 @@
                                     <td>Senior Pastor</td>
                                     <td>2/23/2001</td>
                                     <td>Admin <a href="" class="btn btn-gray">Pastor</a></td>
+                                    <td>
+                                        <div class="dropdown dropdown-action-option">
+                                            <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="action-option">&bull;</i>
+                                            </a>
+
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" href="#">View</a>
+                                                <a class="dropdown-item" href="#">Remove</a>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td scope="row">
@@ -148,6 +185,18 @@
                                     <td>Senior Pastor</td>
                                     <td>2/23/2001</td>
                                     <td>Admin <a href="" class="btn btn-gray">Pastor</a></td>
+                                    <td>
+                                        <div class="dropdown dropdown-action-option">
+                                            <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="action-option">&bull;</i>
+                                            </a>
+
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" href="#">View</a>
+                                                <a class="dropdown-item" href="#">Remove</a>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td scope="row">
@@ -160,6 +209,18 @@
                                     <td>Senior Pastor</td>
                                     <td>2/23/2001</td>
                                     <td>Admin <a href="" class="btn btn-gray">Pastor</a></td>
+                                    <td>
+                                        <div class="dropdown dropdown-action-option">
+                                            <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="action-option">&bull;</i>
+                                            </a>
+
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" href="#">View</a>
+                                                <a class="dropdown-item" href="#">Remove</a>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td scope="row">
@@ -172,6 +233,18 @@
                                     <td>Senior Pastor</td>
                                     <td>2/23/2001</td>
                                     <td>Admin <a href="" class="btn btn-gray">Pastor</a></td>
+                                    <td>
+                                        <div class="dropdown dropdown-action-option">
+                                            <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="action-option">&bull;</i>
+                                            </a>
+
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" href="#">View</a>
+                                                <a class="dropdown-item" href="#">Remove</a>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
