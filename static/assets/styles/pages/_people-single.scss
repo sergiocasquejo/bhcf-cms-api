@@ -130,8 +130,15 @@
         margin: 0;
         padding: 0;
         a {
-          padding: 20px;
+          padding: 10px 20px;
         }
+
+        &:first-child {
+          a {
+            font-weight: 600;
+          }
+        }
+
         &:nth-last-child(2) {
           border: 0;
         }
@@ -148,5 +155,15 @@
         font-weight: 600;
       }
     }
+  }
+  .btn-gra {
+    padding: 5px 10px;
+  }
+  .level {
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-right: 10px;
+    color: #4ac3a6;
+    font-weight: 500;
   }
 }

@@ -173,7 +173,7 @@
                                             <td>marvindeaquino@gmail.com</td>
                                             <td>Hospitality</td>
                                             <td>Life Class</td>
-                                            <td><span class="level">Regular</span> <a href="" class="btn btn-gray">144 Cell <Leader></Leader></a></td>
+                                            <td><span class="level">Regular</span> <a href="" class="btn btn-gray">144 Cell Leader</a></td>
                                             <td>
                                                 <div class="dropdown dropdown-action-option">
                                                     <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -197,7 +197,7 @@
                                             <td>arnel@gmail.com</td>
                                             <td></td>
                                             <td>SOL 3</td>
-                                            <td>Regualr <a href="" class="btn btn-gray">144</a></td>
+                                            <td><span class="level">Regular</span> <a href="" class="btn btn-gray">144</a></td>
                                             <td>
                                                 <div class="dropdown dropdown-action-option">
                                                     <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -245,7 +245,7 @@
                                             <td>adrian@gmail.com</td>
                                             <td></td>
                                             <td>SOL 2</td>
-                                            <td>Regular <a href="" class="btn btn-gray">144</a></td>
+                                            <td><span class="level">Regular</span> <a href="" class="btn btn-gray">144</a></td>
                                             <td>
                                                 <div class="dropdown dropdown-action-option">
                                                     <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -269,7 +269,7 @@
                                             <td>haryiel@gmail.com</td>
                                             <td></td>
                                             <td>Encounter</td>
-                                            <td>Regular <a href="" class="btn btn-gray">144</a></td>
+                                            <td><span class="level">Regular</span> <a href="" class="btn btn-gray">144</a></td>
                                             <td>
                                                 <div class="dropdown dropdown-action-option">
                                                     <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -293,7 +293,7 @@
                                             <td>daryl@gmail.com</td>
                                             <td></td>
                                             <td>Encounter</td>
-                                            <td>Regular <a href="" class="btn btn-gray">144</a></td>
+                                            <td><span class="level">Regular</span> <a href="" class="btn btn-gray">144</a></td>
                                             <td>
                                                 <div class="dropdown dropdown-action-option">
                                                     <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -317,7 +317,7 @@
                                             <td>ahmid@gmail.com</td>
                                             <td></td>
                                             <td>Encounter</td>
-                                            <td>Regular <a href="" class="btn btn-gray">144</a></td>
+                                            <td><span class="level">Regular</span> <a href="" class="btn btn-gray">144</a></td>
                                             <td>
                                                 <div class="dropdown dropdown-action-option">
                                                     <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
