@@ -106,7 +106,7 @@
                                     <div class="table-actions-right">
                                         <ul>
                                             <li>
-                                                <a href="">1,334 Records</a>
+                                                <a href="">22 Records</a>
                                             </li>
                                             <li>
                                                 <a href=""><i class="icon-setup"></i></a>
@@ -132,8 +132,8 @@
 
                                             </th>
                                             <th scope="col">Email</th>
-                                            <th scope="col">Cell Leader</th>
-                                            <th scope="col">Date Created</th>
+                                            <th scope="col">Ministry</th>
+                                            <th scope="col">Level</th>
                                             <th scope="col">Status</th>
                                             <th scope="col"></th>
                                         </tr>
@@ -143,13 +143,13 @@
                                             <td scope="row">
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/user-img.jpg" alt="">Pastor Jonathan Nvacilla</label>
+                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/SC.png" alt="">Serge Casquio</label>
                                                 </div>
                                             </td>
-                                            <td>jhong@gmail.com</td>
-                                            <td>Senior Pastor</td>
-                                            <td>2/23/2001</td>
-                                            <td>Admin <a href="" class="btn btn-gray">Pastor</a></td>
+                                            <td>serge@gmail.com</td>
+                                            <td>Music Team</td>
+                                            <td>Life Class</td>
+                                            <td><span class="level">Regular</span> <a href="" class="btn btn-gray">144 Cell leader</a></td>
                                             <td>
                                                 <div class="dropdown dropdown-action-option">
                                                     <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -167,13 +167,13 @@
                                             <td scope="row">
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/user-img.jpg" alt="">Pastor Jonathan Nvacilla</label>
+                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/MA.png" alt="">Marvin de Aquino</label>
                                                 </div>
                                             </td>
-                                            <td>jhong@gmail.com</td>
-                                            <td>Senior Pastor</td>
-                                            <td>2/23/2001</td>
-                                            <td>Admin <a href="" class="btn btn-gray">Pastor</a></td>
+                                            <td>marvindeaquino@gmail.com</td>
+                                            <td>Hospitality</td>
+                                            <td>Life Class</td>
+                                            <td><span class="level">Regular</span> <a href="" class="btn btn-gray">144 Cell <Leader></Leader></a></td>
                                             <td>
                                                 <div class="dropdown dropdown-action-option">
                                                     <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -191,13 +191,13 @@
                                             <td scope="row">
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/user-img.jpg" alt="">Pastor Jonathan Nvacilla</label>
+                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/AH.png" alt="">Arniel Herda</label>
                                                 </div>
                                             </td>
-                                            <td>jhong@gmail.com</td>
-                                            <td>Senior Pastor</td>
-                                            <td>2/23/2001</td>
-                                            <td>Admin <a href="" class="btn btn-gray">Pastor</a></td>
+                                            <td>arnel@gmail.com</td>
+                                            <td></td>
+                                            <td>SOL 3</td>
+                                            <td>Regualr <a href="" class="btn btn-gray">144</a></td>
                                             <td>
                                                 <div class="dropdown dropdown-action-option">
                                                     <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -215,13 +215,13 @@
                                             <td scope="row">
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/user-img.jpg" alt="">Pastor Jonathan Nvacilla</label>
+                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/LM.png" alt="">Jart Castillo</label>
                                                 </div>
                                             </td>
-                                            <td>jhong@gmail.com</td>
-                                            <td>Senior Pastor</td>
-                                            <td>2/23/2001</td>
-                                            <td>Admin <a href="" class="btn btn-gray">Pastor</a></td>
+                                            <td>jart@gmail.com</td>
+                                            <td></td>
+                                            <td>SOL 3</td>
+                                            <td><span class="level">Regular</span> <a href="" class="btn btn-gray">144</a></td>
                                             <td>
                                                 <div class="dropdown dropdown-action-option">
                                                     <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -239,13 +239,13 @@
                                             <td scope="row">
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/user-img.jpg" alt="">Pastor Jonathan Nvacilla</label>
+                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/JJ.png" alt="">Adrian Remedio</label>
                                                 </div>
                                             </td>
-                                            <td>jhong@gmail.com</td>
-                                            <td>Senior Pastor</td>
-                                            <td>2/23/2001</td>
-                                            <td>Admin <a href="" class="btn btn-gray">Pastor</a></td>
+                                            <td>adrian@gmail.com</td>
+                                            <td></td>
+                                            <td>SOL 2</td>
+                                            <td>Regular <a href="" class="btn btn-gray">144</a></td>
                                             <td>
                                                 <div class="dropdown dropdown-action-option">
                                                     <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -263,13 +263,61 @@
                                             <td scope="row">
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/user-img.jpg" alt="">Pastor Jonathan Nvacilla</label>
+                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/MA-1.png" alt="">Haryiel Mejaran</label>
                                                 </div>
                                             </td>
-                                            <td>jhong@gmail.com</td>
-                                            <td>Senior Pastor</td>
-                                            <td>2/23/2001</td>
-                                            <td>Admin <a href="" class="btn btn-gray">Pastor</a></td>
+                                            <td>haryiel@gmail.com</td>
+                                            <td></td>
+                                            <td>Encounter</td>
+                                            <td>Regular <a href="" class="btn btn-gray">144</a></td>
+                                            <td>
+                                                <div class="dropdown dropdown-action-option">
+                                                    <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="action-option">&bull;</i>
+                                                    </a>
+
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        <a class="dropdown-item" href="#">View</a>
+                                                        <a class="dropdown-item" href="#">Remove</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/JD.png" alt="">Darryl Dela Cruz</label>
+                                                </div>
+                                            </td>
+                                            <td>daryl@gmail.com</td>
+                                            <td></td>
+                                            <td>Encounter</td>
+                                            <td>Regular <a href="" class="btn btn-gray">144</a></td>
+                                            <td>
+                                                <div class="dropdown dropdown-action-option">
+                                                    <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="action-option">&bull;</i>
+                                                    </a>
+
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        <a class="dropdown-item" href="#">View</a>
+                                                        <a class="dropdown-item" href="#">Remove</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/RJ.png" alt="">Ahmid Khalifa</label>
+                                                </div>
+                                            </td>
+                                            <td>ahmid@gmail.com</td>
+                                            <td></td>
+                                            <td>Encounter</td>
+                                            <td>Regular <a href="" class="btn btn-gray">144</a></td>
                                             <td>
                                                 <div class="dropdown dropdown-action-option">
                                                     <a class="btn btn-ternary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

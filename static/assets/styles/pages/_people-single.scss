@@ -64,7 +64,6 @@
   display: flex;
   align-items: center;
   position: relative;
-  margin-bottom: 13px;
 
   &:after {
     content: '';
@@ -112,12 +111,41 @@
   }
 }
 .admin-interface-main-single {
+  .table-actions {
+    padding: 7px 0;
+    align-items: center;
+  }
+  .table-actions-left, .table-actions-right {
+    ul {
+      margin: 0;
+    }
+  }
+
   .table-actions-right {
+    ul {
+      display: flex;
+      align-items: center;
+
+      li {
+        margin: 0;
+        padding: 0;
+        a {
+          padding: 20px;
+        }
+        &:nth-last-child(2) {
+          border: 0;
+        }
+      }
+    }
+
     .btn-success {
       color: #fff;
-      border-radius: 5px;
+      border-radius: 8px;
+      padding: 5px 14px;
+
       i {
-        font-size: 18px;
+        font-size: 11px;
+        font-weight: 600;
       }
     }
   }
