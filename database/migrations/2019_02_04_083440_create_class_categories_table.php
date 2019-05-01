@@ -16,7 +16,7 @@ class CreateClassCategoriesTable extends Migration
         Schema::create('class_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->char('name', 120)->unique();
-            $table->char('descriptions', 255)->nullable();
+            $table->char('label', 120)->unique();
             $table->unsignedInteger('created_by');
             $table->foreign('created_by')
                 ->references('id')->on('users');

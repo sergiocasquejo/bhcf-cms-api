@@ -20,7 +20,7 @@ class ClassCategory extends Model
      * @var array
      */
     protected $fillable = [
-        'descriptions', 'name', 'created_by', 'updated_by'
+        'label', 'name', 'created_by', 'updated_by'
     ];
 
     public function setNameAttribute($value)

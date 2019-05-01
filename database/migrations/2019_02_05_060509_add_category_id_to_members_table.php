@@ -14,7 +14,7 @@ class AddCategoryIdToMembersTable extends Migration
     public function up()
     {
         Schema::table('members', function (Blueprint $table) {
-            $table->unsignedInteger('category_id')->nullable()->after('status_id');
+            $table->unsignedInteger('category_id')->nullable()->after('auxiliary_group_id');
         });
     }
 

@@ -38,7 +38,7 @@ class Member extends JsonResource
             'facebook_name' => $this->facebook_name, 
             'avatar' => json_decode($this->avatar, true), 
             'school_status_id' => $this->school_status_id,
-            'school_status' => $this->classCategory()->select(['id','name'])->first(),
+            'class_category' => $this->classCategory()->select(['id','name', 'label'])->first(),
             'leadership_level_id' => $this->leadership_level_id,
             'leadership_level' => $this->leadershipLevel()->select(['id','name'])->first(),
             'auxiliary_group_id' => $this->auxiliary_group_id,

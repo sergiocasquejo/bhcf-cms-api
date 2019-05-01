@@ -69,8 +69,30 @@ class MemberController extends Controller
 
     public function getAll(Request $request)
     {
-        $members = \App\Member::all();
-        return response()->json(['ok' => true, 'people' =>  MemberResources::collection($members)], 200);
+        $offset = (int) $request->input('offset');
+        $offset = $offset > 1 ? $offset - 1 : 0;
+        $limit = $request->input('limit', 20);
+        $keywords = $request->input('keywords');
+        $sort = $request->input('sort', 'id');
+        $order = $request->input('order', 'DESC');
+        $query = \App\Member::whereRaw('1 = 1');
+        if ($keywords) {
+            $query->where(function($query) use ($keywords){
+                $query->where('first_name', 'like', '%' . $keywords . '%')->orWhere('last_name', 'like', '%' . $keywords . '%');
+            });
+        }
+        
+        if ($sort) {
+            $query->orderBy($sort, $order);
+        } else {
+            $query->orderBy('id', 'DESC');
+        }
+        
+        $totalSize = $query->count();
+        $members = $query->get();
+        $members = $query->skip( $offset * $limit )->take($limit)->get();
+
+        return response()->json(['ok' => true, 'people' =>  MemberResources::collection($members), 'totalSize' => $totalSize], 200);
     }
 
     /**
@@ -431,7 +453,7 @@ class MemberController extends Controller
      *  "message":"Record not found"
      * }
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         return response()->json(['ok' => \App\Member::findOrFail($id)->delete()]);
     }
@@ -527,7 +549,6 @@ class MemberController extends Controller
     private function uploadMemberAvatar($originalImage, $newFileName){
         try {
             ini_set('memory_limit', '256M');
-            $thumbnailImage = \Intervention\Image\Facades\Image::make($originalImage);
             $profilePath = config('sitesettings.profile.location');
 
             $originalFile = $profilePath . $newFileName;
@@ -540,11 +561,18 @@ class MemberController extends Controller
 
             foreach(config('sitesettings.profile.sizes') as $k => $v) {
                 if (isset($v[0])) {
+                    $thumbnailImage = \Intervention\Image\Facades\Image::make($originalImage);
+            
+            
                     $width = $v[0];
                     $height = isset($v[1]) ? $v[1] : $width;
 
-                    $file = $profilePath . "_{$width}x{$height}_" . time() . $newFileName;
-                    $thumbnailImage->resize($width, $height);
+                    $file = $profilePath . "_{$width}x{$height}_" . time() . ".png";
+                    
+                    $thumbnailImage->resize($width, $height, function($constraint){
+                        $constraint->aspectRatio();
+                    });
+                    $thumbnailImage->encode('png');
                     $thumbnailImage->save($file);
                     $avatar[$k] = str_replace(public_path(), url('/'), $file);
                 }

@@ -14,28 +14,28 @@ class ClassCategoriesTableSeeder extends Seeder
 
         $statuses = [
             [
-                'name' => 'SUYNIL',
-                'descriptions' => '',
+                'name' => 'SUYNL',
+                'label' => 'SUYNL',
                 'created_by' => 1
             ],
             [
                 'name' => 'Life Class',
-                'descriptions' => '',
+                'label' => 'Life Class',
                 'created_by' => 1
             ],
             [
                 'name' => 'SOL 1',
-                'descriptions' => '',
+                'label' => 'SOL 1',
                 'created_by' => 1
             ],
             [
                 'name' => 'SOL 2',
-                'descriptions' => '',
+                'label' => 'SOL 2',
                 'created_by' => 1
             ],
             [
                 'name' => 'SOL 3',
-                'descriptions' => '',
+                'label' => 'SOL 3',
                 'created_by' => 1
             ],
         ];
