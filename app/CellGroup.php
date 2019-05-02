@@ -14,7 +14,7 @@ class CellGroup extends Model
      * @var string
      */
     
-    protected $table = 'cell_group';
+    protected $table = 'cell_groups';
 
     /**
      * The attributes that are mass assignable.

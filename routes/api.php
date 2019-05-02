@@ -13,26 +13,31 @@ use Illuminate\Http\Request;
 */
 Route::prefix('v1')->group(function() {
     Route::group(['middleware' => 'return-json'], function() {
-        Route::post('login', ['as' => 'login', 'uses' => 'Auth\LoginController@login']);
         Route::post('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
+        Route::post('login', ['as' => 'login', 'uses' => 'Auth\LoginController@login']);
         Route::group(['middleware' => 'auth:api'], function() {
             Route::resource('roles', 'RoleController')->only(['store', 'show', 'update', 'destroy']);
             Route::resource('auxiliary-groups', 'AuxiliaryGroupController')->only(['index', 'store', 'show', 'update', 'destroy']);
             Route::resource('ministries', 'MinistryController')->only(['index', 'store', 'show', 'update', 'destroy']);
             Route::resource('statuses', 'StatusController')->only(['index', 'store', 'show', 'update', 'destroy']);
             Route::resource('leadership-levels', 'LeadershipLevelController')->only(['index', 'store', 'show', 'update', 'destroy']);
-            Route::resource('members/category', 'MemberCategoryController')->only(['index', 'store', 'show', 'update', 'destroy']);
-            Route::get('members/dropdown-options', 'MemberController@dropdownOptions');
-            Route::get('members/all', 'MemberController@getAll');
+
+            Route::prefix('members')->group(function() {
+                
+                Route::get('{id}/cellreport/{year}/{week}', 'CellGroupController@create');
+                Route::post('{id}/cellreport/{year}/{week}', 'CellGroupController@store');
+                Route::get('{id}/cellreport/{year}', 'CellGroupController@getByYear');
+                Route::resource('category', 'MemberCategoryController')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::get('dropdown-options', 'MemberController@dropdownOptions');
+                Route::get('all', 'MemberController@getAll');
+                Route::put('{id}/approve', 'MemberController@approve');
+                Route::get('{id}/network', 'MemberController@network');
+                Route::post('{id}/avatar', 'MemberController@uploadAvatar');
+                Route::post('{id}/avatar-mobile', 'MemberController@uploadAvatarMobile');
+                
+            });
+
             Route::resource('members', 'MemberController')->only(['index', 'store', 'show', 'update', 'destroy']);
-            
-            Route::get('members/{id}/attendance/cellgroup/{year}', 'CellGroupController@getLeaderAttendancesByYear');
-            Route::get('members/{id}/attendance/cellgroup/{year}/{week}', 'CellGroupController@create');
-            Route::post('members/{id}/attendance/cellgroup/{year}/{week}', 'CellGroupController@store');
-            Route::put('members/{id}/approve', 'MemberController@approve');
-            Route::get('members/{id}/network', 'MemberController@network');
-            Route::post('members/{id}/avatar', 'MemberController@uploadAvatar');
-            Route::post('members/{id}/avatar-mobile', 'MemberController@uploadAvatarMobile');
             
             Route::resource('users', 'UserController')->only(['store', 'show', 'update', 'destroy']);
             

@@ -153,35 +153,35 @@ class Member extends Model
 
     
 
-    public function scopeWithCellGroupAttendance($query, $yearweek = null) 
+    public function scopeWithCellGroup($query, $yearweek = null) 
     {
         if (!$yearweek) $yearweek = date('YW');
 
         return $query->leftJoin('cell_groups as cga', function($join) use($yearweek){
                 $join->on('members.id', '=', 'cga.member_id')
-                ->whereRaw('YEARWEEK(`attendance_date`, 1) = '. $yearweek);
+                ->whereRaw('YEARWEEK(`date_attended`, 1) = '. $yearweek);
             })->addSelect([
                     'members.*',
-                    'cga.attendance_date as date_attended', 
+                    'cga.date_attended as date_attended', 
                     'cga.attended', 
                     'cga.id as attendance_id', 
                     \DB::raw('"'. $yearweek .'" as yearweek')
                 ]);
     }
 
-    public function scopeWithCellGroupAttendanceByYear($query, $year = null) {
+    public function scopeByYear($query, $year = null) {
         if (!$year) $year = date('Y');
 
         return $query->join('cell_groups as cga', function($join) use($year){
                 $join->on('members.id', '=', 'cga.member_id')
-                ->whereRaw('YEAR(`attendance_date`) = '. $year);
+                ->whereRaw('YEAR(`date_attended`) = '. $year);
             })->addSelect([
-                    \DB::raw('DATE_ADD(cga.attendance_date, INTERVAL(-WEEKDAY(cga.attendance_date)) DAY) as start_date'),
-                    \DB::raw('DATE_ADD(cga.attendance_date, INTERVAL(1-DAYOFWEEK(cga.attendance_date) + 7) DAY) as end_date'),
-                    \DB::raw('YEAR(cga.attendance_date) as year'),
-                    \DB::raw('WEEKOFYEAR(cga.attendance_date) as week')
+                    \DB::raw('DATE_ADD(cga.date_attended, INTERVAL(-WEEKDAY(cga.date_attended)) DAY) as start_date'),
+                    \DB::raw('DATE_ADD(cga.date_attended, INTERVAL(1-DAYOFWEEK(cga.date_attended) + 7) DAY) as end_date'),
+                    \DB::raw('YEAR(cga.date_attended) as year'),
+                    \DB::raw('WEEKOFYEAR(cga.date_attended) as week')
                 ])
-                ->groupBy(['year', 'week', 'attendance_date']);
+                ->groupBy(['year', 'week', 'date_attended']);
     }
 
     public function scopeWithLifeClassStudents($query, $classID) {
