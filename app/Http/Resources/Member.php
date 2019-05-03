@@ -14,6 +14,7 @@ class Member extends JsonResource
      */
     public function toArray($request)
     {
+        $user = $this->user()->first();
         return [
             'id' => $this->id,
             'user_id' => $this->user_id,
@@ -53,7 +54,12 @@ class Member extends JsonResource
             'created_at' => $this->created_at,
             'is_approved' => $this->is_approved,
             'count_cg' => $this->countCellGroupAttended(),
-            'count_sc' => $this->countSundayServiceAttended()
+            'count_sc' => $this->countSundayServiceAttended(),
+            'account' => $this->user()->first(),
+            'user_login' => $user? $user->username : null,
+            'user_email' =>  $user? $user->email : null,
+            'user_display_name' =>  $user? $user->name : null,
+            'api_token' =>  $user? $user->api_token : null
         ];
     }
 
