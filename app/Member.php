@@ -151,7 +151,31 @@ class Member extends Model
         return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');
     }
 
+    public function countCellGroupAttended() {
+        return $this->hasMany(CellGroup::class, 'member_id', 'id')->where('attended', 1)->count();
+    }
+
+    public function countSundayServiceAttended() {
+        return $this->hasMany(SundayCelebration::class, 'member_id', 'id')->where('attended', 1)->count();
+    }
     
+
+    public function scopeWithSundayService($query, $yearweek = null) 
+    {
+        if (!$yearweek) $yearweek = date('YW');
+
+        return $query->leftJoin('sunday_celebrations as cga', function($join) use($yearweek){
+                $join->on('members.id', '=', 'cga.member_id')
+                ->whereRaw('YEARWEEK(`date_attended`, 1) = '. $yearweek);
+            })->addSelect([
+                    'members.*',
+                    'cga.date_attended as date_attended', 
+                    'cga.attended', 
+                    'cga.id as attendance_id', 
+                    \DB::raw('"'. $yearweek .'" as yearweek')
+                ]);
+    }
+
 
     public function scopeWithCellGroup($query, $yearweek = null) 
     {
@@ -173,6 +197,21 @@ class Member extends Model
         if (!$year) $year = date('Y');
 
         return $query->join('cell_groups as cga', function($join) use($year){
+                $join->on('members.id', '=', 'cga.member_id')
+                ->whereRaw('YEAR(`date_attended`) = '. $year);
+            })->addSelect([
+                    \DB::raw('DATE_ADD(cga.date_attended, INTERVAL(-WEEKDAY(cga.date_attended)) DAY) as start_date'),
+                    \DB::raw('DATE_ADD(cga.date_attended, INTERVAL(1-DAYOFWEEK(cga.date_attended) + 7) DAY) as end_date'),
+                    \DB::raw('YEAR(cga.date_attended) as year'),
+                    \DB::raw('WEEKOFYEAR(cga.date_attended) as week')
+                ])
+                ->groupBy(['year', 'week', 'date_attended']);
+    }
+
+    public function scopeSundayServiceByYear($query, $year = null) {
+        if (!$year) $year = date('Y');
+
+        return $query->join('sunday_celebrations as cga', function($join) use($year){
                 $join->on('members.id', '=', 'cga.member_id')
                 ->whereRaw('YEAR(`date_attended`) = '. $year);
             })->addSelect([

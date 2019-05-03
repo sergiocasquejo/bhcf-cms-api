@@ -23,7 +23,10 @@ Route::prefix('v1')->group(function() {
             Route::resource('leadership-levels', 'LeadershipLevelController')->only(['index', 'store', 'show', 'update', 'destroy']);
 
             Route::prefix('members')->group(function() {
-                
+                Route::get('{id}/sundayreport/{year}/{week}', 'SundayServiceController@create');
+                Route::post('{id}/sundayreport/{year}/{week}', 'SundayServiceController@store');
+                Route::get('{id}/sundayreport/{year}', 'SundayServiceController@getByYear');
+
                 Route::get('{id}/cellreport/{year}/{week}', 'CellGroupController@create');
                 Route::post('{id}/cellreport/{year}/{week}', 'CellGroupController@store');
                 Route::get('{id}/cellreport/{year}', 'CellGroupController@getByYear');

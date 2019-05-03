@@ -23,8 +23,9 @@ class SundayCelebration extends Model
      */
     protected $fillable = [
         'member_id',
-        'date',
-        'sc_status_id',
+        'date_attended',
+        'attend',
+        'status',
         'created_by',
         'updated_by'
     ];

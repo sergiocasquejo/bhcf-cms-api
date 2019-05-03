@@ -52,6 +52,8 @@ class Member extends JsonResource
             'remarks' => $this->remarks, 
             'created_at' => $this->created_at,
             'is_approved' => $this->is_approved,
+            'count_cg' => $this->countCellGroupAttended(),
+            'count_sc' => $this->countSundayServiceAttended()
         ];
     }
 

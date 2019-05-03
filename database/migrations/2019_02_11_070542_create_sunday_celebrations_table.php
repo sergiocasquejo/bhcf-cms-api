@@ -18,7 +18,6 @@ class CreateSundayCelebrationsTable extends Migration
             $table->unsignedInteger('member_id');
             $table->date('date_attended');
             $table->tinyInteger('attended')->default(0);
-            $table->unsignedInteger('status');
             $table->unsignedInteger('created_by');
             $table->unsignedInteger('updated_by')->nullable();
             $table->foreign('created_by')
@@ -27,8 +26,6 @@ class CreateSundayCelebrationsTable extends Migration
                 ->references('id')->on('users');
             $table->foreign('member_id')
                 ->references('id')->on('members');
-            $table->foreign('status')
-                ->references('id')->on('statuses');
             $table->timestamps();
             $table->softDeletes();
         });

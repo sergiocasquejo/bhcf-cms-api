@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CellGroup extends JsonResource
+class SundayService extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -13,7 +13,7 @@ class CellGroup extends JsonResource
      * @return array
      */
     public function toArray($request)
-    {   
+    {
         return [
             'id' => $this->attendance_id,
             'member_id' => $this->id,
@@ -23,7 +23,7 @@ class CellGroup extends JsonResource
             'attended' => $this->attended,
             'date_attended' => $this->date_attended,
             'yearweek' => $this->yearweek,
-            'count' => $this->countCellGroupAttended(),
+            'count' => $this->countSundayServiceAttended(),
             'leader_id' => $this->parent_id
         ];
     }
