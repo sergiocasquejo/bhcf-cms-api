@@ -57,7 +57,7 @@
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                                 <div class="row row-overview">
-                                    <div class="col-sm-3">
+                                    <div class="col-md-6 col-lg-3">
                                         <div class="card card-overview">
                                             <div class="card-body">
                                                 <span class="card-meta">1,350</span>
@@ -66,7 +66,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-md-6 col-lg-3">
                                         <div class="card card-overview">
                                             <div class="card-body">
                                                 <span class="card-meta">143</span>
@@ -75,7 +75,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-md-6 col-lg-3">
                                         <div class="card card-overview">
                                             <div class="card-body">
                                                 <span class="card-meta">1,250</span>
@@ -84,7 +84,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-md-6 col-lg-3">
                                         <div class="card card-overview">
                                             <div class="card-body">
                                                 <span class="card-meta">342</span>
@@ -95,13 +95,13 @@
                                     </div>
                                 </div>
                                 <div class="row row-growth-activity">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12 col-lg-6">
                                         <div class="card card-group-activity growth">
                                             <h2 class="title">2019 Growth</h2>
                                             <img src="dist/images/growth-2019-1.jpg" alt="">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12 col-lg-6">
                                         <div class="card card-group-activity activity">
                                             <h2 class="title">Recent Activity</h2>
                                             <ul>

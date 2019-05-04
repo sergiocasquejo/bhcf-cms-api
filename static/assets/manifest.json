@@ -22,6 +22,6 @@
     }
   },
   "config": {
-    "devUrl": "http://cms-api.test"
+    "devUrl": "http://cms-api-static.local"
   }
 }

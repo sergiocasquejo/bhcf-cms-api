@@ -172,6 +172,7 @@
       left: 0;
       right: 0;
       bottom: 0;
+      width: 100%;
     }
   }
   &:first-child {
@@ -285,14 +286,156 @@
   }
 }
 @media (max-width: 1280px) {
+  .admin-interface {
+    padding: 65px 50px;
+  }
+
   .admin-interface-main-container {
-    max-width: 800px;
+    max-width: 825px;
+  }
+
+  .card-overview {
+    min-height: 180px;
   }
 }
 @include media-breakpoint-up(xl) {
   .admin-interface {
     &-container {
       max-width: 1375px;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .admin-interface-main-container {
+    max-width: 595px;
+  }
+  .row-overview {
+    >div {
+      padding-bottom: 30px;
+    }
+  }
+  .row-growth-activity {
+    >div {
+      padding-bottom: 30px;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .admin-interface-block {
+    padding: 0 20px;
+  }
+  .admin-interface-main-header {
+    ul {
+      flex-flow: row wrap;
+      li {
+        &:first-child {
+          flex: 0 1 100%;
+          order: 3;
+          margin-top: 15px;
+
+          form {
+            width: 100%;
+          }
+        }
+        &:not(:first-child) {
+          order: 2
+        }
+        &:last-child {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+  .dashboard-overview-header {
+    display: block;
+    text-align: center;
+    ul {
+      display: inline-block;
+      li {
+        display: inline-block;
+      }
+    }
+  }
+  .row-overview {
+    >div {
+
+    }
+  }
+  .row-growth-activity {
+    margin-bottom: 0;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .dashboard-overview-header {
+    h1 {
+      font-size: 28px;
+    }
+    ul {
+      display: block;
+      li {
+        display: block;
+      }
+    }
+  }
+  .admin-interface {
+    padding: 35px 20px;
+  }
+
+  .card-group-activity {
+    img {
+      width: 130%;
+    }
+  }
+  .card-group-activity {
+    &.activity {
+      ul {
+        li {
+          a {
+            flex-flow: row wrap;
+            >span {
+              flex: 0 1 100%;
+            }
+            span {
+              &.details {
+                margin-bottom: 10px;
+              }
+              &.value {
+                text-align: right;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 320px) {
+  .admin-interface-main-header {
+    ul {
+      li {
+        &:nth-child(2) {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  .card-group-activity {
+    &.growth {
+      padding: 20px;
+
+      .title {
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+  .card-group-activity {
+    img {
+      width: 133%;
     }
   }
 }

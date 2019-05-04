@@ -1,13 +1,148 @@
 .table {
+  thead, tbody {
+    th, td {
+      vertical-align: middle;
+      &:first-child {
+        width: 312px;
+      }
+      &:nth-child(2) {
+        width: 275px;
+      }
+
+      &:nth-child(3) {
+        width: 150px;
+      }
+      &:nth-child(4) {
+        width: auto;
+      }
+      &:nth-child(5) {
+        width: auto;
+      }
+
+      &:nth-child(6) {
+        width: auto;
+      }
+    }
+  }
+  tbody {
+    td {
+      &:nth-child(2), &:nth-child(3) {
+        font-size: 15px;
+      }
+      &:nth-child(5) {
+        text-transform: uppercase;
+        >.btn {
+
+        }
+      }
+    }
+  }
   thead {
     th {
       border-bottom: 1px solid #dee2e6;
+
+      .custom-checkbox {
+        .custom-control-label {
+          &:after, &:before {
+            top: 1px;
+          }
+        }
+      }
+
     }
   }
-
   td {
     label {
 
     }
   }
+}
+
+.table-default {
+  td {
+    .img-holder {
+      width: 31px;
+      height: 31px;
+      display: inline-flex;
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-left: 5px;
+      margin-right: 10px;
+    }
+  }
+}
+
+.bg-lavender {
+  background-color: #4364f6;
+}
+
+.bg-lightgreen {
+  background-color: #5cb28a;
+}
+.bg-lightorange {
+  background-color: #f3a03e;
+}
+.bg-lightyellow {
+  background-color: #ead666;
+}
+.bg-pinkred {
+  background-color: #eb3a78;
+}
+.bg-lightred {
+  background-color: #f9334f;
+}
+.bg-darkgray {
+  background-color: #d5d5d5;
+}
+.member {
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 5px;
+
+  &-admin {
+    color: #3a3a3a; 
+
+    display: inline-block
+  }
+  &-regular {
+    color: $green;
+  }
+  &-vip {
+
+  }
+}
+.custom-checkbox {
+  .custom-control-label {
+    &:before, &:after {
+      width: 19px;
+      height: 19px;
+      left: -32px;
+
+    }
+    &:before {
+      border-radius: 5px;
+    }
+  }
+}
+.custom-control-label {
+  &:before {
+    border: 2px solid #d3d6dc;
+  }
+  &:after {}
+}
+.vip-1 {
+  color: $red;
+}
+.vip-2 {
+  color: $blue;
+}
+.vip-3 {
+  color: $green;
+}
+.vip-4 {
+  color: $yellow;
 }
