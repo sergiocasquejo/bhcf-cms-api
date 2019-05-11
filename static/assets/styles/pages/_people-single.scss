@@ -1,9 +1,18 @@
 body {
-  &.page-people {
-    .dashboard-overview-header {
-      .action-btn {
-        display: flex;
-        justify-content: space-around;
+  &.page-people-single {
+    .table {
+      tbody, thead {
+        td, th {
+          &:first-child {
+            width: 235px;
+          }
+          &:nth-child(2) {
+            width: 245px;
+          }
+          &:nth-child(3) {
+            width: 130px;
+          }
+        }
       }
     }
   }
@@ -22,6 +31,7 @@ body {
   }
   .profile-name {
     display: flex;
+    align-items: center;
 
     h1 {
       margin: 0 10px 0 0;
@@ -59,6 +69,7 @@ body {
 
         span {
           font-size: 15px;
+          text-align: left;
 
           &:first-child {
             display: inline-block;
@@ -177,24 +188,70 @@ body {
     font-weight: 500;
   }
 }
-@media (max-width: 375px) {
-  .table-actions {
-    display: block;
-    text-align: center;
+@include media-breakpoint-down(sm) {
+  body {
+    &.page-people-single {
+      .dashboard-overview-header-single {
+        .profile {
+          margin: 0 auto 20px;
+        }
+        .profile-name {
+          display: block;
+          a {
+            padding: 10px 15px;
+            margin: 0 0 15px;
+          }
+        }
+        h1 {
+          margin: 0 auto 10px;
+        }
+        .profile-details {
+          ul {
+            li {
+              display: flex;
+
+              span {
+                &:first-child {
+                  text-align: left;
+                }
+              }
+            }
+          }
+        }
+      }
+      .personal-information {
+        display: block;
+        .nav-tabs {
+          margin: 0 -16px;
+        }
+      }
+
+      .table-actions {
+        display: block;
+      }
+      .table-actions-left {
+        margin: 10px 0 15px;
+        text-align: center;
+      }
+      .table-actions-right {
+        ul {
+          justify-content: center;
+        }
+      }
+    }
   }
 }
 @media (max-width: 320px) {
   body {
-    &.page-people {
-      .dashboard-overview-header {
-        .action-btn {
-          display: block;
-
-          &:before {
-            display: none;
-          }
-          a {
-            margin: 0;
+    &.page-people-single {
+      .table-actions-right {
+        ul {
+          flex-flow: row wrap;
+          li {
+            &:first-child {
+              flex: 0 1 100%;
+              margin-bottom: 10px;
+            }
           }
         }
       }

@@ -1,3 +1,13 @@
+body {
+  &.page-people {
+    .dashboard-overview-header {
+      .action-btn {
+        display: flex;
+        justify-content: space-around;
+      }
+    }
+  }
+}
 .action-btn {
   position: relative;
   display: flex;
@@ -149,6 +159,31 @@
     &:before, &:after {
       content: '\2022';
       display: block;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .table-actions {
+    display: block;
+    text-align: center;
+  }
+}
+@media (max-width: 320px) {
+  body {
+    &.page-people {
+      .dashboard-overview-header {
+        .action-btn {
+          display: block;
+
+          &:before {
+            display: none;
+          }
+          a {
+            margin: 0;
+          }
+        }
+      }
     }
   }
 }

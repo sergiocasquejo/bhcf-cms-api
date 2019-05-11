@@ -8,7 +8,7 @@
     <title>Hello, world!</title>
     <link rel="stylesheet" href="dist/styles/main.css">
 </head>
-<body class="cbp-spmenu-push">
+<body class="cbp-spmenu-push page-people-single">
 <div class="admin-interface">
     <?php include 'templates/sidebar-mobile.php'?>
     <div class="container admin-interface-container">
@@ -54,11 +54,11 @@
                                         <span>Music Team</span>
                                     </li>
                                     <li>
-                                        <span>Level</span>
+                                        <span>Level:</span>
                                         <span>SOL3</span>
                                     </li>
                                     <li>
-                                        <span>Group</span>
+                                        <span>Group:</span>
                                         <span>Blessed Couple</span>
                                     </li>
                                 </ul>
@@ -129,7 +129,7 @@
                                             <td scope="row">
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/SC.png" alt="">Serge Casquio</label>
+                                                    <label class="custom-control-label" for="customCheck1"><span class="img-holder bg-lightgreen">SC</span>Serge Casquio</label>
                                                 </div>
                                             </td>
                                             <td>serge@gmail.com</td>
@@ -153,7 +153,7 @@
                                             <td scope="row">
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/MA.png" alt="">Marvin de Aquino</label>
+                                                    <label class="custom-control-label" for="customCheck1"><span class="img-holder bg-lightyellow">MD</span>Marvin de Aquino</label>
                                                 </div>
                                             </td>
                                             <td>marvindeaquino@gmail.com</td>
@@ -177,7 +177,7 @@
                                             <td scope="row">
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/AH.png" alt="">Arniel Herda</label>
+                                                    <label class="custom-control-label" for="customCheck1"><span class="img-holder bg-lightorange">AH</span>Arniel Herda</label>
                                                 </div>
                                             </td>
                                             <td>arnel@gmail.com</td>
@@ -201,7 +201,7 @@
                                             <td scope="row">
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/LM.png" alt="">Jart Castillo</label>
+                                                    <label class="custom-control-label" for="customCheck1"><span class="img-holder bg-lavender">JC</span>Jart Castillo</label>
                                                 </div>
                                             </td>
                                             <td>jart@gmail.com</td>
@@ -225,7 +225,7 @@
                                             <td scope="row">
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/JJ.png" alt="">Adrian Remedio</label>
+                                                    <label class="custom-control-label" for="customCheck1"><span class="img-holder bg-pinkred">AR</span>Adrian Remedio</label>
                                                 </div>
                                             </td>
                                             <td>adrian@gmail.com</td>
@@ -249,7 +249,7 @@
                                             <td scope="row">
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/MA-1.png" alt="">Haryiel Mejaran</label>
+                                                    <label class="custom-control-label" for="customCheck1"><span class="img-holder bg-lightorange">HM</span>Haryiel Mejaran</label>
                                                 </div>
                                             </td>
                                             <td>haryiel@gmail.com</td>
@@ -273,7 +273,7 @@
                                             <td scope="row">
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/JD.png" alt="">Darryl Dela Cruz</label>
+                                                    <label class="custom-control-label" for="customCheck1"><span class="img-holder bg-darkgray">DD</span>Darryl Dela Cruz</label>
                                                 </div>
                                             </td>
                                             <td>daryl@gmail.com</td>
@@ -297,7 +297,7 @@
                                             <td scope="row">
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                    <label class="custom-control-label" for="customCheck1"><img src="/dist/images/RJ.png" alt="">Ahmid Khalifa</label>
+                                                    <label class="custom-control-label" for="customCheck1"><span class="img-holder bg-lavender">AK</span>Ahmid Khalifa</label>
                                                 </div>
                                             </td>
                                             <td>ahmid@gmail.com</td>
