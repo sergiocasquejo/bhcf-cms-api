@@ -10,14 +10,7 @@
 </head>
 <body class="cbp-spmenu-push">
 <div class="admin-interface">
-    <div class="mobile-menu">
-        <div class="hamburger hamburger--slider js-hamburger ml-auto">
-            <div class="hamburger-box ml-auto">
-                <span id="showLeft" class="hamburger-inner"></span>
-            </div>
-        </div>
-    </div>
-
+    <?php include 'templates/sidebar-mobile.php'?>
     <div class="container admin-interface-container">
         <div class="admin-interface-block">
             <?php include 'templates/sidebar.php'?>

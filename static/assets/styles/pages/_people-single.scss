@@ -1,3 +1,13 @@
+body {
+  &.page-people {
+    .dashboard-overview-header {
+      .action-btn {
+        display: flex;
+        justify-content: space-around;
+      }
+    }
+  }
+}
 .dashboard-overview-header-single {
   justify-content: flex-start;
   padding-top: 30px;
@@ -165,5 +175,29 @@
     margin-right: 10px;
     color: #4ac3a6;
     font-weight: 500;
+  }
+}
+@media (max-width: 375px) {
+  .table-actions {
+    display: block;
+    text-align: center;
+  }
+}
+@media (max-width: 320px) {
+  body {
+    &.page-people {
+      .dashboard-overview-header {
+        .action-btn {
+          display: block;
+
+          &:before {
+            display: none;
+          }
+          a {
+            margin: 0;
+          }
+        }
+      }
+    }
   }
 }

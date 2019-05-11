@@ -8,8 +8,9 @@
     <title>Hello, world!</title>
     <link rel="stylesheet" href="dist/styles/main.css">
 </head>
-<body>
+<body class="cbp-spmenu-push">
 <div class="admin-interface">
+    <?php include 'templates/sidebar-mobile.php'?>
     <div class="container admin-interface-container">
         <div class="admin-interface-block">
             <?php include 'templates/sidebar.php'?>
